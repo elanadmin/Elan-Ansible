@@ -1,0 +1,11 @@
+#- hosts: elan_mysql
+
+- hosts: elan_mysql
+  vars_files:
+    - ../group_vars/percona
+  tasks:
+    - name: replace user in clusterchk
+      lineinfile: name=/usr/bin/clustercheck regexp='^MYSQL_USERNAME=' line="MYSQL_USERNAME="${1-root}""
+    
+    - name: replace password in clusterchk
+      lineinfile: name=/usr/bin/clustercheck regexp='^MYSQL_PASSWORD=' line="MYSQL_PASSWORD="${2-"{{ mysql_root_password }}"}""

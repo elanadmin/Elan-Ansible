@@ -1,0 +1,13 @@
+---
+  - name: List VMS on KVMS
+    hosts: kvm_host
+    sudo: yes
+    vars_files:
+      - ../group_vars/all
+
+    tasks:
+      - name: Run virsh to list all vm's on KVM node
+        shell: virsh list --all
+        register: kvm
+
+      - debug: var=kvm.stdout_lines

@@ -1,0 +1,49 @@
+global
+        daemon
+        group haproxy
+        log /dev/log local0
+        maxconn 16000
+        pidfile /var/run/haproxy.pid
+        stats socket /var/lib/haproxy/stats
+        tune.bufsize 32768
+        tune.maxrewrite 2048
+        user haproxy
+
+defaults
+        mode    tcp
+        maxconn 1020
+        timeout connect    10s
+        timeout client     10s
+        timeout server     10s
+
+frontend percona-vip
+        bind {{ haproxy_bind_address }}:3306
+        default_backend percona
+
+backend percona
+    balance roundrobin
+    option httpchk
+{% for balancing_server in haproxy_percona_servers %}
+    server {{ balancing_server.name }} {{ balancing_server.ip }}:3306 check port 9200 inter 1000 rise 5 fall 1
+{% endfor %}
+
+frontend webservices
+	bind {{ haproxy_bind_address }}:80
+        acl jenkins hdr(host) -i edaljenkins.elan.elantecs.com
+        acl nexus hdr(host) -i edalnexus.elan.elantecs.com
+        use_backend jenkins if jenkins
+        use_backend nexus if nexus
+        
+backend jenkins
+    balance roundrobin
+    option httpchk
+{% for balancing_server in haproxy_jenkins_servers %}
+    server {{ balancing_server.name }} {{ balancing_server.ip }}:8080 check inter 1000 rise 5 fall 1
+{% endfor %}
+
+backend nexus
+    balance roundrobin
+    option httpchk
+{% for balancing_server in haproxy_nexus_servers %}
+    server {{ balancing_server.name }} {{ balancing_server.ip }}:8081 check inter 1000 rise 5 fall 1
+{% endfor %}

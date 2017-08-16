@@ -1,0 +1,43 @@
+---
+- name: Add haproxy PPA repository
+  apt_repository: repo="ppa:vbernat/haproxy-{{haproxy_version}}" state=present
+  tags: packages
+
+- name: Downloading haproxy & keepalived
+  apt: pkg={{ item }} state=present update_cache=yes
+  with_items:
+   - haproxy
+   - keepalived
+  tags: packages
+
+- name: Ensure keepalived conf is set
+  template: src=keepalived.conf.j2 dest=/etc/keepalived/keepalived.conf
+
+- name: Ensure keepalived is started
+  service: name=keepalived state=started enabled=yes
+
+- name: Reload keepalived
+  service: name=keepalived state=reloaded
+
+- name: Copy SSL Certificates if required
+  copy: src=files/certs/ dest=/etc/haproxy/certs.d/
+
+- name: Copy haproxy-status
+  copy: src=files/haproxy-status dest=/usr/bin/haproxy-status mode=0755
+
+- name: Enable init script
+  replace: dest='/etc/default/haproxy'
+    regexp='ENABLED=0'
+    replace='ENABLED=1'
+
+- name: Start haproxy
+  service: name=haproxy state=started enabled=yes
+
+- name: Configure haproxy
+  template: src=haproxy.cfg.j2 dest=/etc/haproxy/haproxy.cfg
+  notify: restart haproxy
+  tags: configuration
+
+- name: Reload haproxy
+  service: name=haproxy state=reloaded
+
