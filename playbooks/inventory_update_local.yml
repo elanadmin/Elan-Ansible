@@ -4,8 +4,18 @@
   become_user: awx
 
   tasks:
+    - name: Check the path and files
+      shell: pwd && ls -al
+      register: path_out
+
+    - debug: var=path_out.stdout
+
     - name: Import Inventory from localhost
-      shell: tower-manage inventory_import --inventory-name all_hosts --source ../inventory
+      shell: tower-manage inventory_import --inventory-name all_hosts --source {{ local_path }}/inventory
       register: import_out
+      when: local_path is defined
+
+    - debug: msg="Please define local_path in the ExtraVariables of this Job Template"
+      when: local_path is not defined
 
     - debug: var=import_out.stderr
