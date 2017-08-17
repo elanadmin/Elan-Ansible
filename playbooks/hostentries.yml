@@ -1,10 +1,8 @@
 ---
 
 - name: Adding Hostentries Appropriately
-  hosts: dcp_cluster
+  hosts: all
   sudo: yes
-  vars_files:
-    - ../group_vars/all
 
   tasks:
     - name: Test for vlan199 interface

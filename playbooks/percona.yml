@@ -3,9 +3,6 @@
   hosts: elan_mysql 
   roles:
      - ../roles/percona-cluster
-  vars: 
-  vars_files: 
-    - ../group_vars/percona
   tags:
     - install
 
