@@ -1,0 +1,6 @@
+.ssh
+.vim
+.bash*
+.viminfo
+*.retry
+.cache
