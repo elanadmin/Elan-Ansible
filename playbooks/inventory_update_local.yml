@@ -1,0 +1,11 @@
+---
+- hosts: localhost
+  become: yes
+  become_user: awx
+
+  tasks:
+    - name: Import Inventory from localhost
+      shell: tower-manage inventory_import --inventory-name all_hosts --source ../inventory
+      register: import_out
+
+    - debug: var=import_out.stderr
