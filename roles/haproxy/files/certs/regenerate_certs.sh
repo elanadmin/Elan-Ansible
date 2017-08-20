@@ -61,6 +61,8 @@ y
 y
 __EOF__
 
+cat ca_crt.pem ca_key.pem >> default.pem
+
 openssl x509 -in default.pem -text -noout
 echo -e "\nSuccessfully Generated the $CERTDIR/privatekey.key $CERTDIR/default.pem ..\n" | tee /var/log/gen_tls.log
 else
