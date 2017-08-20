@@ -4,3 +4,6 @@
 .viminfo
 *.retry
 .cache
+foreman.cache
+foreman.index
+foreman.facts

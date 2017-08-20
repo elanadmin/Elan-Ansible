@@ -57,3 +57,11 @@ backend nexus
 {% for balancing_server in haproxy_nexus_servers %}
     server {{ balancing_server.name }} {{ balancing_server.ip }}:8081 check
 {% endfor %}
+
+backend tomcat
+    balance roundrobin
+    mode http
+    option httpchk HEAD / HTTP/1.1\r\nHost:\ {{ haproxy_tomcat_host }}
+{% for balancing_server in haproxy_tomcat_servers %}
+    server {{ balancing_server.name }} {{ balancing_server.ip }}:8080 check
+{% endfor %}

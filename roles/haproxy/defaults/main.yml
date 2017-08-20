@@ -18,12 +18,15 @@ haproxy_percona_servers:
 haproxy_jenkins_servers:
   - { name: 'edaljenp01', ip: "192.168.2.154" }
 
-haproxy_jenkins_host: edaljenkins.elan.elantecs.com
-
 haproxy_nexus_servers:
   - { name: 'edalnexp01', ip: "192.168.2.116" }
 
+haproxy_tomcat_servers:
+  - { name: 'edallinp04', ip: "192.168.2.125" }
+
+haproxy_jenkins_host: edaljenkins.elan.elantecs.com
 haproxy_nexus_host: edalnexus.elan.elantecs.com
+haproxy_tomcat_host: edaltomcat.elan.elantecs.com
 
 haproxy_version: 1.7
 haproxy_group: haproxy
