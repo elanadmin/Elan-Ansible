@@ -39,8 +39,10 @@ frontend https-frontend
         reqadd X-Forwarded-Proto:\ https
         acl jenkins hdr(host) -i {{ haproxy_jenkins_host }}
         acl nexus hdr(host) -i {{ haproxy_nexus_host }}
+        acl tomcat hdr(host) -i {{ haproxy_tomcat_host }}
         use_backend jenkins if jenkins
         use_backend nexus if nexus
+        use_backend tomcat if tomcat
         
 backend jenkins
     balance roundrobin
