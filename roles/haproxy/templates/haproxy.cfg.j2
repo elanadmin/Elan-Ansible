@@ -36,11 +36,11 @@ frontend http-frontend
 frontend https-frontend
 	bind {{ haproxy_bind_address }}:443 ssl crt /etc/haproxy/certs.d/default.pem
         mode http
+        reqadd X-Forwarded-Proto:\ https
         acl jenkins hdr(host) -i {{ haproxy_jenkins_host }}
         acl nexus hdr(host) -i {{ haproxy_nexus_host }}
         use_backend jenkins if jenkins
         use_backend nexus if nexus
-        reqadd X-Forwarded-Proto:\ https
         
 backend jenkins
     balance roundrobin
