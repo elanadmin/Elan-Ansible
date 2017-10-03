@@ -24,9 +24,13 @@ haproxy_nexus_servers:
 haproxy_tomcat_servers:
   - { name: 'edallinp04', ip: "192.168.2.125" }
 
+haproxy_sonar_servers:
+  - { name: 'edalpert01', ip: "192.168.2.20" }
+
 haproxy_jenkins_host: edaljenkins.elan.elantecs.com
 haproxy_nexus_host: edalnexus.elan.elantecs.com
 haproxy_tomcat_host: edaltomcat.elan.elantecs.com
+haproxy_sonar_host: edalsonar.elan.elantecs.com
 
 haproxy_version: 1.7
 haproxy_group: haproxy

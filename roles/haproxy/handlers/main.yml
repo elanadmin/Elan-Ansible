@@ -1,10 +1,7 @@
----
-- name: start haproxy
-  service: name=haproxy state=started
+--- # Trigers from Notify section from task.
 
-- name: restart haproxy
+- name: Reload haproxy
   service: name=haproxy state=restarted
 
-- name: reload haproxy
-  service: name=haproxy state=reloaded
-
+- name: Reload keepalived
+  service: name=keepalived state=reloaded

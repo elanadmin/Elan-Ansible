@@ -21,3 +21,9 @@ edalpert03.elan.elantecs.com
 [elan_apache]
 edallint01.elan.elantecs.com
 edallint03.elan.elantecs.com
+
+[elan_sonar]
+edalpert01.elan.elantecs.com
+
+[test_mysql]
+edallind01.elan.elantecs.com

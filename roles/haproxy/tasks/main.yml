@@ -1,4 +1,5 @@
----
+--- # Installing HAProxy on Ubuntu mechines.
+
 - name: Add haproxy PPA repository
   apt_repository: repo="ppa:vbernat/haproxy-{{haproxy_version}}" state=present
   tags: packages
@@ -10,17 +11,17 @@
    - keepalived
   tags: packages
 
-- name: Ensure keepalived conf is set
-  template: src=keepalived.conf.j2 dest=/etc/keepalived/keepalived.conf
-
 - name: Ensure keepalived is started
   service: name=keepalived state=started enabled=yes
 
-- name: Reload keepalived
-  service: name=keepalived state=reloaded
+- name: Ensure keepalived conf is set
+  template: src=keepalived.conf.j2 dest=/etc/keepalived/keepalived.conf
+  notify: Reload keepalived
+  tags: configuration 
 
 - name: Copy SSL Certificates if required
   copy: src=files/certs/ dest=/etc/haproxy/certs.d/
+  notify: Reload haproxy
 
 - name: Copy haproxy-status
   copy: src=files/haproxy-status dest=/usr/bin/haproxy-status mode=0755
@@ -33,11 +34,7 @@
 - name: Start haproxy
   service: name=haproxy state=started enabled=yes
 
-- name: Configure haproxy
+- name: Configuring haproxy.cfg file
   template: src=haproxy.cfg.j2 dest=/etc/haproxy/haproxy.cfg
-  notify: restart haproxy
+  notify: Reload haproxy
   tags: configuration
-
-- name: Reload haproxy
-  service: name=haproxy state=reloaded
-

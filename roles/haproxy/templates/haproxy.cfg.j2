@@ -11,6 +11,7 @@ global
         user haproxy
 
 defaults
+        log     global
         mode    tcp
         maxconn 1020
         timeout connect    10s
@@ -28,6 +29,11 @@ backend percona
     server {{ balancing_server.name }} {{ balancing_server.ip }}:3306 check port 9200 inter 1000 rise 5 fall 1
 {% endfor %}
 
+frontend jenkins-slave-frontend
+        bind {{ haproxy_bind_address }}:10080
+        option	tcplog
+        use_backend jenkins-slave
+
 frontend http-frontend
     bind {{ haproxy_bind_address }}:80
     mode http
@@ -40,9 +46,11 @@ frontend https-frontend
         acl jenkins hdr(host) -i {{ haproxy_jenkins_host }}
         acl nexus hdr(host) -i {{ haproxy_nexus_host }}
         acl tomcat hdr(host) -i {{ haproxy_tomcat_host }}
+        acl sonar hdr(host) -i {{ haproxy_sonar_host }}
         use_backend jenkins if jenkins
         use_backend nexus if nexus
         use_backend tomcat if tomcat
+        use_backend sonar if sonar
         
 backend jenkins
     balance roundrobin
@@ -50,6 +58,14 @@ backend jenkins
     option httpchk HEAD /login HTTP/1.1\r\nHost:\ {{ haproxy_jenkins_host }}
 {% for balancing_server in haproxy_jenkins_servers %}
     server {{ balancing_server.name }} {{ balancing_server.ip }}:8080 check
+{% endfor %}
+
+backend jenkins-slave
+    balance roundrobin
+    option httpchk HEAD /login
+    option tcplog
+{% for balancing_server in haproxy_jenkins_servers %}
+    server {{ balancing_server.name }} {{ balancing_server.ip }}:10080 check port 8080
 {% endfor %}
 
 backend nexus
@@ -66,4 +82,12 @@ backend tomcat
     option httpchk HEAD / HTTP/1.1\r\nHost:\ {{ haproxy_tomcat_host }}
 {% for balancing_server in haproxy_tomcat_servers %}
     server {{ balancing_server.name }} {{ balancing_server.ip }}:8080 check
+{% endfor %}
+
+backend sonar
+    balance roundrobin
+    mode http
+    option httpchk HEAD / HTTP/1.1\r\nHost:\ {{ haproxy_sonar_host }}
+{% for balancing_server in haproxy_sonar_servers %}
+    server {{ balancing_server.name }} {{ balancing_server.ip }}:9000 check
 {% endfor %}

@@ -2,42 +2,42 @@
   "all": [
     "edalansp01.elan.elantecs.com", 
     "edaldokp01.elan.elantecs.com", 
+    "edaldokp02.elan.elantecs.com", 
     "edaljenp01.elan.elantecs.com", 
+    "edalkubp01.elan.elantecs.com", 
+    "edalkubp02.elan.elantecs.com", 
     "edalkvmp01.elan.elantecs.com", 
     "edalldap01.elan.elantecs.com", 
     "edalldap02.elan.elantecs.com", 
-    "edallind01.elan.elantecs.com", 
-    "edallind02.elan.elantecs.com", 
-    "edallind04.elan.elantecs.com", 
     "edallinp01.elan.elantecs.com", 
     "edallinp04.elan.elantecs.com", 
-    "edallint01.elan.elantecs.com", 
-    "edallint02.elan.elantecs.com", 
-    "edallint03.elan.elantecs.com", 
-    "edallint04.elan.elantecs.com", 
-    "edallint05.elan.elantecs.com", 
-    "edallint10.elan.elantecs.com", 
-    "edallint14.elan.elantecs.com", 
-    "edallint27.elan.elantecs.com", 
-    "edallint29.elan.elantecs.com", 
-    "edallint30.elan.elantecs.com", 
+    "edallinp10.elan.elantecs.com", 
     "edalnexp01.elan.elantecs.com", 
-    "edalpert01.elan.elantecs.com", 
-    "edalpert02.elan.elantecs.com", 
-    "edalpert03.elan.elantecs.com", 
-    "edalregp01.elan.elantecs.com", 
-    "edalubud03.elan.elantecs.com"
-  ], 
-  "foreman_environment_development": [
-    "edallind01.elan.elantecs.com", 
-    "edallind02.elan.elantecs.com", 
-    "edallind04.elan.elantecs.com", 
-    "edalubud03.elan.elantecs.com"
+    "edalregp01.elan.elantecs.com"
   ], 
   "foreman_environment_production": [
     "edalansp01.elan.elantecs.com", 
     "edaldokp01.elan.elantecs.com", 
+    "edaldokp02.elan.elantecs.com", 
     "edaljenp01.elan.elantecs.com", 
+    "edalkubp01.elan.elantecs.com", 
+    "edalkubp02.elan.elantecs.com", 
+    "edalkvmp01.elan.elantecs.com", 
+    "edalldap01.elan.elantecs.com", 
+    "edalldap02.elan.elantecs.com", 
+    "edallinp01.elan.elantecs.com", 
+    "edallinp04.elan.elantecs.com", 
+    "edallinp10.elan.elantecs.com", 
+    "edalnexp01.elan.elantecs.com", 
+    "edalregp01.elan.elantecs.com"
+  ], 
+  "foreman_hostgroup_elanproduction": [
+    "edalansp01.elan.elantecs.com", 
+    "edaldokp01.elan.elantecs.com", 
+    "edaldokp02.elan.elantecs.com", 
+    "edaljenp01.elan.elantecs.com", 
+    "edalkubp01.elan.elantecs.com", 
+    "edalkubp02.elan.elantecs.com", 
     "edalkvmp01.elan.elantecs.com", 
     "edalldap01.elan.elantecs.com", 
     "edalldap02.elan.elantecs.com", 
@@ -46,19 +46,7 @@
     "edalnexp01.elan.elantecs.com", 
     "edalregp01.elan.elantecs.com"
   ], 
-  "foreman_environment_test": [
-    "edallint01.elan.elantecs.com", 
-    "edallint02.elan.elantecs.com", 
-    "edallint03.elan.elantecs.com", 
-    "edallint04.elan.elantecs.com", 
-    "edallint05.elan.elantecs.com", 
-    "edallint10.elan.elantecs.com", 
-    "edallint14.elan.elantecs.com", 
-    "edallint27.elan.elantecs.com", 
-    "edallint29.elan.elantecs.com", 
-    "edallint30.elan.elantecs.com", 
-    "edalpert01.elan.elantecs.com", 
-    "edalpert02.elan.elantecs.com", 
-    "edalpert03.elan.elantecs.com"
+  "foreman_hostgroup_elantest": [
+    "edallinp10.elan.elantecs.com"
   ]
 }

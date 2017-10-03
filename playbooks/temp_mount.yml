@@ -1,0 +1,10 @@
+
+---
+- hosts: localhost
+  remote_user: ansible
+  become: true
+  become_user: root
+
+  tasks:
+   - name: Mount/Unmount Filesystem Temporarily
+     mount: path=/mnt/test src=/dev/vg00/test fstype=ext4 fstab=/tmp/fstab opts=defaults state={{ state }}

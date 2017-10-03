@@ -1,0 +1,9 @@
+---
+- name: Install and configure SonarQube
+  hosts: elan_sonar
+  become: true
+  become_user: root
+  roles:
+     - ../roles/sonar
+  tags:
+    - install

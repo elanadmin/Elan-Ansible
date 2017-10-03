@@ -4,7 +4,7 @@
 
 sitename=$1
 
-sitename="edaljenkis.elan.elantecs.com"
+sitename="edaljenkins.elan.elantecs.com"
 
 if [ -z "$sitename" ];then
 echo -e "Usage : $0 <Target Server FQDN for Certificate>"
@@ -44,7 +44,7 @@ if [ ! -f "$CERTDIR/default.csr" ];then
 echo -e "\nGenerating and Self Sign a new server key/cert pair\n"
 cd $CERTDIR
 
-cat <<__EOF__ | openssl req -new -key privatekey.key -out default.csr
+cat <<__EOF__ | openssl req -new -key privatekey.key -sha256 -out default.csr
 $COUNTRY
 $STATE
 $LOCALITY
@@ -56,7 +56,7 @@ $CHALLENGE
 $COMPANY
 __EOF__
 
-cat <<__EOF__ | openssl x509 -req -in default.csr -CA ca_crt.pem -CAkey ca_key.pem -CAcreateserial -out default.pem -days 3650 -extfile openssl.cnf
+cat <<__EOF__ | openssl x509 -req -in default.csr -CA ca_crt.pem -CAkey ca_key.pem -CAcreateserial -out default.pem -sha256 -days 3650 -extfile openssl.cnf
 y
 y
 __EOF__

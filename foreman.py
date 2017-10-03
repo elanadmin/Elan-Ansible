@@ -113,11 +113,6 @@ class ForemanInventory(object):
         except (ConfigParser.NoOptionError, ConfigParser.NoSectionError):
             self.want_hostcollections = False
 
-        try:
-            self.want_hostgroups = config.getboolean('ansible', 'want_hostgroups')
-        except (ConfigParser.NoOptionError, ConfigParser.NoSectionError):
-            self.want_hostgroups = False
-
         # Do we want parameters to be interpreted if possible as JSON? (no by default)
         try:
             self.rich_params = config.getboolean('ansible', 'rich_params')
@@ -286,18 +281,18 @@ class ForemanInventory(object):
             # Create ansible groups for hostgroup
             group = 'hostgroup'
             val = host.get('%s_title' % group) or host.get('%s_name' % group)
-            if val and self.want_hostgroups:
+            if val:
                 safe_key = self.to_safe('%s%s_%s' % (self.group_prefix, group, val.lower()))
                 self.inventory[safe_key].append(dns_name)
 
             # Create ansible groups for environment, location and organization
-            for group in ['environment', 'organization']:
+            for group in ['environment', 'location', 'organization']:
                 val = host.get('%s_name' % group)
                 if val:
                     safe_key = self.to_safe('%s%s_%s' % (self.group_prefix, group, val.lower()))
                     self.inventory[safe_key].append(dns_name)
 
-            for group in ['content_view']:
+            for group in ['lifecycle_environment', 'content_view']:
                 val = host.get('content_facet_attributes', {}).get('%s_name' % group)
                 if val:
                     safe_key = self.to_safe('%s%s_%s' % (self.group_prefix, group, val.lower()))
