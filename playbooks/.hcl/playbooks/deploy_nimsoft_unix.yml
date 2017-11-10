@@ -1,0 +1,6 @@
+- name: Install nimsoft and configure
+  hosts: test
+  become: true
+  become_user: root
+  roles:
+    - ../roles/nimsoft_unix

@@ -1,0 +1,28 @@
+--- #Prerequist file for App-Dynamics
+
+# Check if this port is open on target endpoint
+- name: Check if the remote port is open on target host
+  wait_for:
+    host: "{{ controller_host }}"
+    port: "{{ controller_port }}"
+    timeout: "{{ controller_timeout }}"
+  register: port_open
+  tags: port_check
+
+# Check the version of Java installed
+#- name: Fetch Java version
+#  shell: java -version 2>&1 | grep version | awk '{print $3}' | sed 's/"//g'
+#  register: java_version
+
+#- assert:
+#    that: 
+#      - java_version.stdout | version_compare('1.7', '>=')
+
+#  Check specific space is provided to filesystem
+- name: check if there is enough space in /opt/Appdynamics directory
+  fail:
+    msg: "{{ appdynamics_directory }} Size not Available"
+  when: item.mount == "{{ Appdynamics_folder }}"  and item.size_available < "{{ minimum_space }}"
+  with_items: "{{ ansible_mounts }}"
+  ignore_errors: yes
+  register: disk_space

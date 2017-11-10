@@ -1,0 +1,8 @@
+---
+
+# Removing the 32 bit and 64-bit package from the remote server
+- name: CleanUp Installation files
+  file:
+    path: "{{ nimsoft_dest }}"
+    state: absent
+  tags: nimsoft_cleanup

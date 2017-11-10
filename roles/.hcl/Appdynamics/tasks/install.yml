@@ -1,0 +1,66 @@
+---
+
+# Creating folder named Appdynamics for installation of Appdynamics package.
+- name: Create a folder where Installation if to be done
+  file:
+    path: "{{ Appdynamics_folder }}"
+    mode: 0755
+    state: direcrtory
+    become: true
+  tags: install_Appdynamics
+
+# Copy the 32 and 64 bit rpm file to destination folder
+#- name: Copy rpm file to server
+#  copy:
+#    src: "{{ Appdynamics_src }}"
+#     dest: "{{ Appdynamics_dest }}"
+#  tags: install_Appdynaics
+
+# Installing the 32 abd 64 bit Rpm version on remote system.
+#- name: Install 64 bit Appdynamics onto the remote system
+#  yum:
+#     name: "{{ Appdynamics_dest }}"
+#     state: present
+#  tags: install_Appdynamics
+
+# Extracting the zip file
+- name: Unarchive a file that is already on the machine
+  unarchive:
+    src: /
+    dest: /opt/appdynamics/machine-agent
+  
+# Copying the Appdynamics configuration file on remote server
+- name: copy the configuration file to be used 
+  template:
+    src: "{{ controller_config_src }}"
+    dest: "{{ controller_config_dest }}"
+    mode: 0775
+  become: true
+  notify:  restart appdynamic service
+  tags: configure_appdynamic
+
+# Start the Appdynamics agent service
+- name: Start the Appdynamic agent on RHEL5 and RHEL6
+  service:
+    name: "{{ Appdynamic_service }}"
+    state: started
+  when: ansible_distribution_version == '5' or ansible_distribution_version == '6' 
+  tags: install_Appdynamics
+
+# Start the Appdynamics agent service
+- name: Start the Appdynamic agent on RHEL7
+  systemd:
+    name: "{{ Appdynamic_service }}"
+    state: started
+    enable: yes
+  when: ansible_distribution_version == '7'
+  tags: install_Appdynamics
+
+# Checking the log file 
+- name: Check Log file for Successful Install
+  shell: cat {{ log_file }}
+  register: appdynamic_check
+# Displaying the log output
+- name: a task that only happens if the user exists
+  when: appdynamic_check.stdout.find('Started AppDynamics Machine Agent Successfully') != -1
+  debug: msg="Installed and Started AppDynamics Machine Agent Successfully"

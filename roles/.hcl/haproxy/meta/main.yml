@@ -1,0 +1,13 @@
+--- #playbook metadata
+galaxy_info:
+ author: elanadmin
+ description: Instlling and configuring haproxy.
+ company: eLan Technology.
+ min_ansible_version: 2.2
+ platforms:
+  - name: Ubuntu
+    versions:
+     - trusty
+ categories:
+  - system
+dependencies: []

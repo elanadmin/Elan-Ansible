@@ -1,0 +1,14 @@
+---
+# handlers file for flexera
+# Restart the service for flexera as changes are executed in robot.cfg
+- name: start flexera service
+  win_service:
+    name: "{{ flexera_service }}"
+    state: started
+  tags: handler_enabled
+
+
+# check whether the port are listening or not
+- name: check_ports_status
+  win_shell: "{{ netstat_port }}"
+  tags: netstat_handler

@@ -1,0 +1,28 @@
+# Configuration File for keepalived
+
+# Script used to check if HAProxy is running
+vrrp_script check_haproxy {
+   script "killall -0 haproxy"   # verify the pid existance
+   interval 2                    # check every 2 seconds
+   weight 10                     # add 2 points of prio if OK
+}
+
+# Virtual interface
+# The priority specifies the order in which the assigned interface to take over in a failover
+vrrp_instance mysql-vIP {
+   state {{ keepalived_role }} 
+   interface {{ keepalived_bind_interface }}                # interface to monitor
+   virtual_router_id {{ keepalived_router_id }}             # Assign one ID for this route
+   {% if keepalived_role.lower() == "master" %}
+    priority {{ keepalived_priority }}
+    {% else %}
+    priority {{ keepalived_backup_priority }}
+   {% endif %}
+   virtual_ipaddress {
+       {{ keepalived_vip }} dev {{ keepalived_bind_interface }} # the virtual IP
+   }
+   track_script {
+       check_haproxy
+   }
+}
+

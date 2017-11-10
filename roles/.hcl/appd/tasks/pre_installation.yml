@@ -1,0 +1,10 @@
+--- #Pre-installation for Appdynamics
+- name: Directory for binaries
+  file:
+    path: "{{ appd_directoy }}"
+    state: directory
+    mode: 0755
+    recurse: yes
+  become: true
+  tags: appd_directory
+

@@ -1,0 +1,34 @@
+---
+# Checking if Nimsoft is alredy installed
+- name: check if nimsoft directory already exist
+  stat:
+    path: "{{ nimsoft_folder }}"
+  register: nimsoft_stat_result
+  tags: directory_check
+
+# Check if this port is open on target endpoint
+- name: check if the remote port is open on target host
+  wait_for:
+    host: "{{ hub_ip }}"
+    port: "{{ hub_port }}"
+    timeout: "{{ hub_timeout }}"
+  register: port_open
+  tags: port_check
+
+# Check whether space is available on installation directory
+- name: check if there is enough space required in /opt directory
+  fail:
+    msg: "{{ nimsoft_filesystem }} Size not Available"
+  when: item.mount == '{{ nimsoft_filesystem }}' and item.size_available > {{ minimum_space }}
+  with_items: "{{ ansible_mounts }}"
+  ignore_errors: true
+  register: disk_space
+
+# Output
+- debug:
+    msg:
+      - 'System {{ inventory_hostname }} has following result:'
+      - 'nimsoft_stat_result : {{ nimsoft_stat_result.stat.exists }}'
+#      - 'disk status: {{ disk_space.results|map(attribute="msg")|list }}'
+      - 'disk status: {{ disk_space.msg }}'
+      - 'Port: {{ port_open.state }}'

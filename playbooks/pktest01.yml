@@ -1,0 +1,14 @@
+---
+
+- hosts: elan_pk
+  name: Linux Welcome Message
+  user: elanadmin
+  become: yes
+  vars:
+    Welcome_Message: 'Welcome to Linux world' 
+
+  tasks:
+    - name: Welcome Message
+      copy:
+        dest: /etc/Welcome
+        content: "{{ Welcome_Message }}"

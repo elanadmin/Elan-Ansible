@@ -1,0 +1,18 @@
+---
+# vars file for nimsoft
+nimsoft_directory: "/opt/nimsoft"
+hub_ip: 192.168.2.125
+hub_port: 80
+minimum_space: 1003470846
+hub_timeout: 5
+nimsoft_filesystem: "/opt"
+nimsoft_src: "nimsoft-robot.{{ ansible_architecture }}.rpm"
+nimsoft_dest: "/tmp/nimsoft.rpm"
+nimsoft_folder: "/opt/nimsoft"
+ninmsoft_post_path: "/opt/nimsoft/install"
+domain: HCSCMTaaS
+hub_robot_name: pwauswnsap01
+robot_config_src: "robot.cfg.j2"
+robot_config_dest: "/opt/nimsoft/nimsoft-robot-vars.cfg"
+nimsoft_service: 'nimsoft'
+netstat_port: 48000

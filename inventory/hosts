@@ -6,7 +6,7 @@ elan_apache
 
 [elanlab]
 edallint01.elan.elantecs.com
-edallint03.elan.elantecs.com
+edallint24.elan.elantecs.com
 
 [elan_mysql]
 edalpert01.elan.elantecs.com
@@ -27,3 +27,21 @@ edalpert01.elan.elantecs.com
 
 [test_mysql]
 edallind01.elan.elantecs.com
+
+[elan_tower]
+edallint02.elan.elantecs.com
+
+[elan_sk]
+edallint01.elan.elantecs.com
+edallint02.elan.elantecs.com
+edallint03.elan.elantecs.com
+edallint24.elan.elantecs.com
+
+[elan_pc]
+edallint05.elan.elantecs.com
+edallint03.elan.elantecs.com
+
+[elan_pk]
+edallint14.elan.elantecs.com
+edallint02.elan.elantecs.com
+edallint24.elan.elantecs.com

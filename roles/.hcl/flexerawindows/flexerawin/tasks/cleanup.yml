@@ -1,0 +1,9 @@
+---
+
+# Removing thwe flexera folder where all the .exe and .msi were pasted
+
+- name: Remove the Flexera folder
+  win_file:
+    path: "{{ post_check_path }}"
+    state: absent
+  tags: package_cleanup

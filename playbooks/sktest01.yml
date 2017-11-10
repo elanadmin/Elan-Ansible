@@ -1,0 +1,10 @@
+---
+
+- hosts: elan_sk
+  user: elanadmin
+  become: true
+  connection: ssh
+  gather_facts: no
+  tasks:
+   - name: Installjkdbfjsafnsadfjs
+     action: yum name=tree state=removed

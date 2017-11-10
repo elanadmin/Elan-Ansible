@@ -1,0 +1,62 @@
+---
+- name: Install and configure percona cluster
+  hosts: elan_mysql 
+  roles:
+     - ../roles/percona-cluster
+  vars: 
+  vars_files: 
+    - ../group_vars/percona
+  tags:
+    - install
+
+- name: Setup Bootstrap on first node in elan_mysql hostgroup and restart other nodes.
+  hosts: elan_mysql[0]
+  vars_files:
+    - ../group_vars/percona
+
+  tasks:
+    - name: Boot mysql with bootstrp-pxc
+      shell: /etc/init.d/mysql stop && /etc/init.d/mysql bootstrap-pxc
+      ignore_errors: yes
+      register: service_mysql_status
+      tags:
+        - bootstrap
+
+    - name: Report status of mysql bootstrap
+      fail:
+        msg: |
+          Output of 'service mysql bootstrap-pxc':
+          "{{ service_mysql_status.stdout }}"
+          "{{ service_mysql_status.stderr }}"
+      when: service_mysql_status | failed
+      tags:
+        - bootstrap
+
+- name: Restart other mysql nodes to join the cluster.
+  hosts: elan_mysql:!elan_mysql[0]
+  vars_files:
+    - ../group_vars/percona
+
+  tasks:
+    - name: Restarting mysql
+      service: name=mysql state=restarted
+      tags:
+        - bootstrap
+
+- name: Check Status of Cluster on each node
+  hosts: elan_mysql
+  become: yes
+  become_user: root
+  
+  tasks:
+    - name: Check Status of Cluster
+      shell: mysql -e "show status like '%wsrep_cluster%';"
+      register: cluster_status
+      tags:
+        - status
+        - bootstrap
+
+    - debug: var=cluster_status.stdout_lines
+      tags:
+        - status
+        - bootstrap

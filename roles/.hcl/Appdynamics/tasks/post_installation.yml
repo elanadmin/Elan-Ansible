@@ -1,0 +1,15 @@
+# Check if  Appdynamics service already present on Server
+- name: check if  Appdynamics service exists
+  service:
+    name:  Appdynamics
+    state: started
+  when: (ansible_distribution_version == '5' or ansible_distribution_version == '6') and  ansible_os_family == "RedHat" 
+  tags: post_Appdynamics
+
+# Checking if port 443 is listening
+- name: Check port if listening
+  wait_for:
+    host: "{{ controller_lhost }}"
+    port: "{{ controller_port }}"
+    timeout: "{{ controller_timeout }}"
+  tags: post_Appdynamics

@@ -1,0 +1,20 @@
+---
+# vars file for Appdynamics
+Appdynamics_folder: "/opt/appdynamics/machineagent"  
+AppD_version: "4.3.5x.x"
+Appdynamics_src: "machineagent-bundle-64bit-linux-4.3.5.7.zip" 
+Appdynamics_dest: "opt/appdynamics/machine-agent"  
+Javafileini: "java-1.8.0-openjdk"
+controller_host: "hcl.saas.appdynamics.com"
+controller_port: 443
+controller_timeout: 5
+controller_lhost: "localhost"
+minimum_space: 1073741824 
+agent_runtime_dir: "/opt/appdynamics/machine-agent"
+controller_config_src: "controller-info.xml.j2"
+controller_config_dest: "/opt/appdynamics/appagent/conf/controller-info.xml"
+Appdynamic_service: "appdynamics-machine-agent" 
+log_file: "/opt/AppDynamics/machineagent/logs"
+application-name:
+tier-name:
+

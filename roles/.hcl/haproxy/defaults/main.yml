@@ -1,0 +1,33 @@
+---
+# Keepalived config
+keepalived_role: MASTER
+keepalived_router_id: 2
+keepalived_bind_interface: eth0
+keepalived_vip: 192.168.2.210
+keepalived_priority: 100
+keepalived_backup_priority: 50 
+
+# HAProxy setting
+haproxy_bind_address: 192.168.2.210 
+haproxy_user: haproxy
+haproxy_percona_servers:
+  - { name: 'edalpert01', ip: "192.168.2.20" }
+  - { name: 'edalpert02', ip: "192.168.2.30" }
+  - { name: 'edalpert03', ip: "192.168.2.18" }
+
+haproxy_jenkins_servers:
+  - { name: 'edaljenp01', ip: "192.168.2.154" }
+
+haproxy_jenkins_host: edaljenkins.elan.elantecs.com
+
+haproxy_nexus_servers:
+  - { name: 'edalnexp01', ip: "192.168.2.116" }
+
+haproxy_nexus_host: edalnexus.elan.elantecs.com
+
+haproxy_version: 1.7
+haproxy_group: haproxy
+haproxy_app_name: Load Balance Mysql Cluster Traffic
+haproxy_default_timeout_client: 10s
+haproxy_default_timeout_server: 10s
+haproxy_stats: enable

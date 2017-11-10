@@ -1,0 +1,30 @@
+# Checking if Nimsoft Named directory is present 
+- name: check if nimsoft directory already exist
+  stat:
+    path: "{{ nimsoft_post_path }}"
+  register: directory_info
+  tags: post_nimsoft
+
+# Output from Directory checks
+- debug:
+    var: directory_info
+
+# Check if Nimsoft service already present on Server
+- name: check if nimsoft service is running
+  service:
+    name: "{{ nimsoft_service }}"
+    state: started
+  when: ansible_os_family == "RedHat"
+  tags: post_nimsoft
+
+# Output of Service precheck
+- debug:
+    var: service_info
+
+# Checking if port 48000 is listening
+- name: check if the remote port is open on target host
+  wait_for:
+    host: "{{ hub_ip }}"
+    port: "{{ hub_port }}"
+    timeout: "{{ hub_timeout }}"
+  tags: post_nimsoft

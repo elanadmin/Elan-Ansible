@@ -1,0 +1,22 @@
+# Checking if the port is able to listen at specified ip
+- name: Check the port whether it is listening or not
+  wait_for:
+    host: "{{ item.server }}"
+    port: "{{ item.ports }}"
+    timeout: "{{ port_timeout }}"
+  with_items: "{{ prod_flexera }}"
+  when:
+    - disk_space.stdout_lines > {{ minimum_space }} and inventory_hostname in groups['production']
+  tags: port_check
+
+- name: Check the port whether it is listening or not
+  wait_for:
+    host: "{{ item.server }}"
+    port: "{{ item.ports }}"
+    timeout: "{{ port_timeout }}"
+  with_items: "{{ test_flexera }}"
+  when:
+    - disk_space.stdout_lines > {{ minimum_space }} and inventory_hostname in groups['test']
+  tags: port_check
+
+- debug: var=post_check.out

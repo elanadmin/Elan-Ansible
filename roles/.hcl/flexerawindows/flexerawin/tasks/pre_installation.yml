@@ -1,0 +1,76 @@
+---
+
+# Creating folder named Managesoft for installation of flexera package.
+- name: Create a folder where files need to be pasted
+  win_file:
+    path: "{{ item }}"
+    state: directory
+  with_items:
+    - "{{ post_check_path }}"
+#    - "{{ install_path }}"
+  tags: install_flexera
+
+# Copying Executable files to Remote host
+- name: Copy flexera bit version onto the remote system
+  win_copy: 
+    src: "{{ item }}" 
+    dest: "{{ post_check_path }}" 
+  with_items: "{{ flexera_inipackages }}"
+  tags: install_flexera
+
+# Copy the Response file
+- name: Render the Response file
+  win_template:
+    src: "{{ response_src }}"
+    dest: "{{ response_dest }}"
+  tags: copy_response_file
+
+# Copy the mgssetup.ini file 
+- name: Paste mgssetup.ini file
+  win_template:
+    src: "{{ ini_file_src }}"
+    dest: "{{ ini_file_dest }}"
+  tags: copy_mgssetup_file
+
+
+# Installing the 64 bit version on remote system.
+- name: Install flexera 64 bit version onto the remote system
+  win_msi:
+    path: "{{ win_path }}"
+    state: present
+#    product_id: '{5935E4DF-F845-4FCD-9814-44A211B651D9}'
+    extra_args: "/i /qn" # /gn /L*v 'C:\\Windows\\Temp\\FlexAgentMSI.log'"  #"{{ extra_args }}"
+  when: ansible_architecture == "64-bit"
+  register: install
+ # notify:
+ #   - start flexera service
+  tags: win_install_64_bit
+
+
+# Installing the 64 bit version on remote system
+#- name: Install flexera 64 bit version onto the remote system
+#  win_shell: "{{ install_command_64_bit }}"
+#  args:
+#    chdir: "{{ post_check_path }}"
+#  when: ansible_architecture == "64-bit"
+#  tags: install_64_bit
+
+# Installing the 32 bit version on remote system
+- name: Install flexera 32 bit version onto the remote system
+  win_msi:
+    path: "{{ post_check_path }}"
+    state: present
+    extra_args: '/i /quiet /gn /L*v "C:\Windows\Temp\FlexAgentMSI.log"' #"{{ extra_args }}"
+  when: ansible_architecture == "32-bit"
+  notify:
+    - start flexera service
+  tags: win_install_32_bit
+
+
+# Installing the 64 bit version on remote system
+#- name: Install flexera 32 bit version onto the remote system
+#  win_shell: "{{ install_command_32_bit }}"
+#  args:
+#    chdir: "{{ post_check_path }}"
+#  when: ansible_architecture == "32-bit"
+#  tags: install_32_bit

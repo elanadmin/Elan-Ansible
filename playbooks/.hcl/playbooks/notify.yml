@@ -1,0 +1,12 @@
+--- # Playbook with notify 
+- hosts: test
+  become: true
+  become_user: root 
+  gather_facts: no
+  tasks:
+   - name: Install appache webserver
+     yum: pkg=httpd state=latest
+     notify: Restart httpd
+  handlers:
+   - name: Restart httpd
+     action: service name=httpd state=restarted

@@ -1,0 +1,6 @@
+---
+- name: install tree package
+- hosts: edallint03.elan.elantecs.com
+  yum:
+    name: tree
+    state: latest

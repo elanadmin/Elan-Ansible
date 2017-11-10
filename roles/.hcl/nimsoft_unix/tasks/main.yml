@@ -1,0 +1,23 @@
+---
+# tasks file for nimsoft
+#
+#Including Precheck file that comprises of precheck required to run the play
+- include: pre_check.yml
+  tags: precheck
+
+#This play install the Nimsoft agent over linux servers with x86 or x86_64 architecture
+#- include: install_nimsoft.yml
+#  tags: install_rpm.yml
+
+#This play includes the play to copy the robot.cfg template to remote server
+#- include: nimsoft.yml
+#  tags: copy_template
+
+#This play executes after installation for removing the exe files for cleanup process
+#- include: cleanup.yml
+#  tags: cleanup
+
+#This play is based on prechecks, those items which were not present before installation, need to be present
+#after installation
+#- include: post_install.yml
+#  tags: post_install_checks

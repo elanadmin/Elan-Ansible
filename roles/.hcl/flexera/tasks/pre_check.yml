@@ -1,0 +1,38 @@
+---
+
+# Check if path has required space 
+- name: Check space in path
+  win_shell: "{{ space_check_command }}"
+  register: disk_space
+  when: service_info.exists == false
+  tags: disk_space
+
+# output of space check
+- debug:
+    var: disk_space
+
+# Checking if the port is able to listen at specified ip
+- name: Check the port whether it is listening or not
+  wait_for:
+    host: "{{ item.server }}"
+    port: "{{ item.ports }}"
+    timeout: "{{ port_timeout }}"
+  with_items: "{{ prod_flexera }}" 
+  when: 
+    - disk_space.stdout_lines > {{ minimum_space }} and inventory_hostname in groups['production']
+  tags: port_check
+
+- name: Check the port whether it is listening or not
+  wait_for:
+    host: "{{ item.server }}"
+    port: "{{ item.ports }}"
+    timeout: "{{ port_timeout }}"
+  with_items: "{{ test_flexera }}"
+  when:
+    - disk_space.stdout_lines > {{ minimum_space }} and inventory_hostname in groups['test']
+  tags: port_check
+
+# fail the session if port is not on listen mode
+- fail :
+    msg: "Seems like the port is not opened yet"
+  when : port_open.state != 'started'

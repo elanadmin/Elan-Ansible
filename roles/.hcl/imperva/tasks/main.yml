@@ -1,0 +1,3 @@
+---
+ - inlcude: pre_requisites.yml
+ - include: installer.yml

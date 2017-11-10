@@ -1,0 +1,10 @@
+---
+# tasks file for nimsoft
+#
+- include: pre_check.yml
+
+- include: pre_installation.yml
+
+- include: post_install.yml
+
+- include: port_check.yml

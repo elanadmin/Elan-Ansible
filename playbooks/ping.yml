@@ -1,0 +1,9 @@
+---
+
+- hosts: elanlab
+  become: true
+
+  tasks:
+
+    - name: Ping Check
+      ping:

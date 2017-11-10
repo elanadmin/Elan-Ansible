@@ -1,0 +1,21 @@
+---
+# Creating Nimsoft folder for installation of Nimsoft package.
+- name: Create a folder where Installation is to be done
+  file:
+    path: "{{ nimsoft_folder }}"
+    state: directory
+  tags: install_nimsoft
+
+# Copy the 32 and 64 bit rpm file on destination folder
+- name: Copy rpm file to server
+  copy:
+    src: "{{ nimsoft_src }}"
+    dest: "{{ nimsoft_dest }}"
+  tags: install_nimsoft
+
+# Installing the 32 abd 64 bit RPM version on Remote Target System.
+- name: Install 64 bit Nimsoft onto the remote system
+  yum:
+    name: "{{ nimsoft_dest }}"
+    state: present
+  tags: install_nimsoft

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<controller-info>
+
+	<controller-host>{{ controller_host }}</controller-host>
+	<controller-port>{{ controller_port }}</controller-port>
+	<controller-ssl-enabled>true</controller-ssl-enabled>
+	<enable-orchestration>false</enable-orchestration>
+        <account-access-key></account-access-key>
+
+    <!-- The following account-related parameters are necessary only for SaaS installations-->
+	<account-name>hcl</account-name>
+	
+	<force-agent-registration>false</force-agent-registration>
+ 
+	<!-- The following options are optional and only required when force-agent-registration is true-->
+	<application-name>ToBeAddedAsPerApplication-on-Server</application-name>
+	<tier-name>ToBeAddedAsPerTier-of-Server</tier-name>
+	<node-name>{{ ansible_hostname }}</node-name>
+        <agent-runtime-dir>{{ agent_runtime_dir }}</agent-runtime-dir>
+
+</controller-info>

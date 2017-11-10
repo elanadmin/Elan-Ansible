@@ -1,0 +1,33 @@
+---
+# vars file for Flexera
+flexera_directories:
+  - C:\Flexera\
+
+#test_flexera: 
+# - { server: "10.134.236.116", port: "80" }
+# - { server: "10.134.236.154", port: "443" }
+
+prod_flexera: 
+ - { server: "10.136.237.129", port: "80" }
+# - { server: "10.136.237.130", port: "443" }
+port_check: 'New-Object System.Net.Sockets.TcpClient -ArgumentList "10.136.237.129" , "80"'
+ports: "80" #"443" ]
+response_src: mgsft_rollout_response.j2
+response_dest: C:\Flexera\mgsft_rollout_response
+ini_file_src: mgssetup.ini.j2
+ini_file_dest: C:\Flexera\mgssetup.ini
+minimum_space: 62144000
+flexera_inipackages: [ 'Data1.cab', 'FlexNetInventoryAgent.msi', 'setup.exe', 'Setup.ini', ]
+flexera_folder: C:\Program Files (x86)\ManageSoft
+flexera_service: 
+  - ndinit #Flexera Inventory Manager managed device v12.10.14542' 
+  - mgssecsvc #Flexera Inventory Manager security service'
+space_check_command: (Get-WMIObject Win32_Logicaldisk -filter "deviceid='C:'").Freespace
+install_command_64_bit: 'msiexec.exe /i "FlexNetInventoryAgent.msi" /quiet /gn /L*v "C:\Windows\Temp\FlexAgentMSI.log"'
+extra_args: '/quiet /gn /L*v "C:\\Windows\\Temp\\FlexAgentMSI.log"'
+install_path: C:\Program Files (x86)\ManageSoft\
+post_check_path: C:\Flexera\
+win_path: C:\Flexera\FlexNetInventoryAgent.msi
+netstat_port: "netstat -ano | findstr 80"
+beacon_server: "pwauswagmn01.adhcscint.net"
+beacon_server_ip: '10.136.237.129'

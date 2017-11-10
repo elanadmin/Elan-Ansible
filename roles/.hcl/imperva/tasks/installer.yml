@@ -1,0 +1,18 @@
+---
+ - name: Execute remote command
+   command: {{ remote_directory_path }} -n -d {{ target_directory }}
+
+ - name: Register the SecureSphere Agent to the Gateway
+   shell: {{remote_agent_directory}}/ragent/bin/cli --dcfg {{remote_agent_directory}}/ragent/etc --dtarget {{remote_agent_directory}}/ragent/etc --dlog {{remote_agent_directory}}/ragent/etc/logs/cli --dvar {{agent_directory}}/var registration advanced-register registration-type={{registration_type}} ragent-name={{remote_agent_name}} site={{site}} server-group={{server_gropup}} gw-ip={{gateway_IP}} | {{ hostname }} gw-port={{ gw_port }} manual-settings-activation={{manual_settings_resolved}} monitor-network-channels={{monitor_network_channels}} password={{ password }}
+
+ - name: Start agent
+   command: {{ remote_agent_directory}}/ragent/bin/rainit start
+
+ - name: Run SecureSphere Agent
+   command: {{ agent_installation_manager_executable_path}} -n -x
+
+ - name: Register the SecureSphere Agent Installation Manager to the Gateway
+   shell: {{agent_installation_manager_directoryagent_installation_manager_directory}}/installer/bin/cliinstaller --dcfg {{agent_installation_manager_directory}}/installer/etc --dvar <{{agent_installation_manager_directory}}/installer/var --dtarget {{agent_installation_manager_directory}}/installer/etc --dlog {{agent_installation_manager_directory}}/installer/etc/logs/cli registration register-use-existing package-folder-path="." package-folder-size=1024
+
+ - name: Start the SecureSphere Agent Installation Manager
+   command: {{agent_installation_manager_directory}}/installer/bin/rainstallerinit start

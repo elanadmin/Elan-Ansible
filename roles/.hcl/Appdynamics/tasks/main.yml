@@ -1,0 +1,10 @@
+---
+# tasks file for Appdynamics
+
+- include: pre_requisites.yml
+
+- include: pre_installation.yml
+
+- include: install.yml
+
+- include: post_installation.yml

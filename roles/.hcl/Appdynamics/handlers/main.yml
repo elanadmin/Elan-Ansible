@@ -1,0 +1,18 @@
+---
+# handlers file for Appdynamics
+# Restart the service for Appdynamic as changes are executed in controller-info.xml in RHEL5 & RHEL6
+- name: restart appdynamic service
+  service:
+    name: "{{ Appdynamic_service }}"
+    state: restarted
+  when: ansible_distribution_version == '5' or ansible_distribution_version == '6'
+  tags: restart_handler
+
+# Restart the service for Appdynamic as changes are executed in controller-info.xml in RHEL7
+- name: restart appdynamic service
+  systemd:
+    name: "{{ Appdynamic_service }}"
+    state: restarted
+  when: ansible_distribution_version == '7'
+  tags: restart_handler
+                       

@@ -1,0 +1,11 @@
+---
+# tasks file for nimsoft
+#
+- include: pre_check.yml
+  tags: precheck
+
+- include: pre_installation.yml
+  tags: pre_install
+
+- include: post_install.yml
+  tags: post_install

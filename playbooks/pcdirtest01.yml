@@ -1,0 +1,15 @@
+---
+-
+  hosts: edallint05
+  user: elanadmin
+
+- name:remove files and directories
+  file:
+    state: "{{ absent }}"
+    path: "/home/elanadmin/pra000"
+    owner: elanadmin
+    group: elanadmin
+    mode: '0755'
+  with_items:
+     - absent
+     - directory

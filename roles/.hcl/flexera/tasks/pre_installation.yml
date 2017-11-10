@@ -1,0 +1,31 @@
+---
+
+# Creating folder named Managesoft for installation of flexera package.
+- name: Create a folder where Installation is to be done
+  win_file:
+    path: "{{ flexera_folder }}"
+    state: directory
+  tags: install_flexera
+
+# Copying Executable files to Remote host
+- name: Install flexera bit version onto the remote system
+  win_copy: 
+    src: "{{ item }}" 
+    dest: "{{ post_check_path }}" 
+    state: present 
+  with_items: "{{ flexera_inipackages }}"
+  tags: install_flexera
+
+# Copy the Response file
+- name: Render the Response file
+  win_template:
+    src: "{{ item }}"
+    dest: "{{ post_check_path }}"
+  with_items: "{{ response_files }}"
+
+# Installing the 64 bit version on remote system.
+- name: Install flexera bit version onto the remote system
+  win_shell: "{{ install_command_64_bit }}"
+  args:
+    chdir: "{{ post_check_path }}"
+  tags: install_flexera

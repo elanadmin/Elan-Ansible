@@ -1,0 +1,27 @@
+# Checking if Nimsoft named directory exists in C drive
+- name: check if nimsoft directory exist in program files
+  win_stat:
+    path: "{{ post_check_path }}"     #"C:\\Program Files (x86)\\Managesoft\\"
+  register: directory_info
+  tags: directory_check
+
+# Output from Directory checks
+- debug:
+    var: directory_info
+
+# Check if Flexera service already present on Server
+- name: check if Flexera service exist of not
+  win_service:
+    name: "{{ flexera_service }}"
+  register: service_info
+  when: directory_info.stat.exists == true
+  notify:
+    - Check_ports_status
+  tags: service_check
+
+- debug: var=out
+
+# Output of Service precheck
+- debug:
+    var: service_info
+

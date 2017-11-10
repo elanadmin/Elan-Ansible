@@ -1,0 +1,23 @@
+---
+# Copying the robot configuration file on remote server.
+- name: copy the robot configuration file to be used later on
+  template:
+    src: "{{ robot_config_src }}"
+    dest: "{{ robot_config_dest }}"
+  tags: 
+     - configure_nimsoft
+
+# Run the nimhost script in the remote server
+- name: run the nimhost.bash script in the remote server
+  shell: bash /opt/nimsoft/install/RobotConfigurer.sh
+  tags:
+     - configure_nimsoft
+
+# Start the nimsoft service
+- name: start the nimhost service in remote server
+  service:
+    name: "{{ nimsoft_service }}"
+    state: started
+  tags:
+     - configure_nimsoft
+     - start_nimsoft

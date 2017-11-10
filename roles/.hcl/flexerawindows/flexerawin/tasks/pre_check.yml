@@ -1,0 +1,53 @@
+---
+
+
+# Check if path has required space 
+- name: Check space in path
+  win_shell: "{{ space_check_command }}"
+  register: disk_space
+  tags: disk_space
+
+# output of space check
+- debug:
+    var: disk_space
+
+- name: Check port 80 connection status
+  win_shell: "{{ port_check }}"
+  when: disk_space.stdout_lines <= "8163183616"
+  register: portstatus
+  tags: port_check
+
+
+- debug:
+    var: portstatus
+
+- name: fail the task if port is not Connected
+  fail:
+    msg: "Failed, seems like the port is not Connected"
+  when: portstatus.stdout_lines[4] == 'False'
+
+
+# win_wait_for: module is present in Ansible 2.4 version and we have Ansible 2.3 version currently.
+# And wait_for: module is for unix environment
+
+# Checking if the port is able to listen at specified ip
+#- name: Check the port whether it is listening or not
+#  win_wait_for:
+#    host: "{{ item.server }}"
+#    port: "{{ item.port }}"
+#    timeout: 20
+#  with_items: "{{ prod_flexera }}" 
+#  register: port_open
+#  tags: prod_port_check
+
+
+
+#- name: Check the port whether it is listening or not
+#  win_wait_for:
+#    host: "{{ item.server }}"
+#    port: "{{ item.ports }}"
+#    timeout: "{{ port_timeout }}"
+#  with_items: "{{ test_flexera }}"
+#  when:
+#    - disk_space.stdout_lines > {{ minimum_space }} #and inventory_hostname in groups['test']
+#  tags: test_port_check

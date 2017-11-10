@@ -6,13 +6,18 @@
   vars_files: 
     - conf/webdefaults.yml
   tasks:
+
    - name: Install HTTPD
      yum: name=httpd state=latest
+
    - name: Start Service
      service: name=httpd state=started
+
    - name: verify service is running
      command: service httpd status
      register: result
+
    - name: Install {{ pkg_lynx}} Web browser
-     yum: name={{ pkg_lynx}} state=installed
+     yum: name={{ pkg_lynx }} state=installed
+
    - debug: var=result

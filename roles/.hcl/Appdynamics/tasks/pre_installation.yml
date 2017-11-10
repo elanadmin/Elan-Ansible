@@ -1,0 +1,9 @@
+# Including contents in Configuration file
+- name: Editing  configuation file
+  template:
+    src: "{{ conf_file }}"
+    dest: "{{ conf_path }}"
+    mode: 0755
+  become: true
+  tags: conf_file_mod
+  

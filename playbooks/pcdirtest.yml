@@ -1,0 +1,14 @@
+---
+
+- hosts: elan_pc
+  user: elanadmin
+  become: yes
+  tasks:
+
+    - file:
+        name: pra000
+        path: /home/
+        owner: user
+        group: user
+        mode: 0664
+        state: touch

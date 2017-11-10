@@ -1,0 +1,53 @@
+---
+ - name: Check port are listener
+   wait_for: host={{ inventory_hostname }} port={{item}} timeout=300
+   with_items:
+    - 404
+    - 5555
+
+ - name: Check /opt/Imperva/ragent/bin/racli file for execute
+   stat: path=/opt/Imperva/ragent/bin/racli
+   register: ragent_stat
+
+ - name: Execure ragent/bin/racli file
+   command: racli {{ item }} chdir=/opt/imperva/ragent/bin
+   with_items:
+    - "start"
+    - "menu"
+   when: ragent_stat.stat.exists
+
+ - name: Check /opt/imperva/installer/bin/racli for for execute
+   stat: path=/opt/imperva/installer/bin/racli
+   register: install_stat
+
+ - name: Execute installer/bin/racli file
+   command: racli {{ item }} chdir=/opt/imperva/installer/bin
+   with_items:
+    - "start"
+    - "menu"
+   when: install_stat.stat.exists
+
+ - name: Create image disk
+   command: dd if=/dev/zero of=imperva.img bs=1024k seek=2048 count=0
+
+ - name: Create Partition new disk
+   parted:
+     device: disk.img
+     label: msdos
+     number: 1
+     state: present
+
+ - name: Make file system
+   filesystem:
+     fstype: ext3
+     dev: /dev/loop0
+
+ - name: Create directory for mounting point
+   file:
+     path: /opt/imperva
+     state: directory
+
+ - name: Mount new file system
+   mount:
+     path: /opt/imperva
+     src: /dev/loop0

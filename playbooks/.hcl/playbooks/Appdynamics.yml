@@ -1,0 +1,8 @@
+--- 
+- name: Install Appdynamics and configure
+  hosts: test
+  become: true
+  become_user: root
+  roles:
+    - ../roles/Appdynamics
+

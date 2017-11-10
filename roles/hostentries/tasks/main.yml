@@ -1,17 +1,3 @@
-    - name: Test for vlan199 interface
-      ignore_errors: yes
-      shell: ifconfig vlan199 | grep -w inet
-      register: test_vlan199
-      tags:
-        - hostentries
-
-    - name: Test for br-fw-admin interface
-      ignore_errors: yes
-      shell: ifconfig br-fw-admin | grep -w inet
-      register: test_br
-      tags:
-        - hostentries
-
     - name: Test for eth0 interface
       ignore_errors: yes
       shell: ifconfig eth0 | grep -w inet
@@ -27,18 +13,6 @@
     - name: hostname entrywith FQDN in /etc/hosts file
       lineinfile: dest=/etc/hosts line="{{ ansible_eth0.ipv4.address }} {{ ansible_hostname }}.{{ domain_name }} {{ ansible_hostname }}" insertafter="^127.0.0.1" state=present
       when: test_eth0.stdout != ""
-      tags:
-        - hostentries
-
-    - name: hostname entrywith FQDN in /etc/hosts file
-      lineinfile: dest=/etc/hosts line="{{ ansible_vlan199.ipv4.address }} {{ ansible_hostname }}.{{ domain_name }} {{ ansible_hostname }}" insertafter="^127.0.0.1" state=present
-      when: test_vlan199.stdout != ""
-      tags:
-        - hostentries
-
-    - name: hostname entrywith FQDN in /etc/hosts file
-      lineinfile: dest=/etc/hosts line="{{ ansible_br_fw_admin.ipv4.address }} {{ ansible_hostname }}.{{ domain_name }} {{ ansible_hostname }}" insertafter="^127.0.0.1" state=present
-      when: test_br.stdout != ""
       tags:
         - hostentries
 
