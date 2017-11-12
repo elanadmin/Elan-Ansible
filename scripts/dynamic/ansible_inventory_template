@@ -1,0 +1,6 @@
+---
+
+ansible_ssh_user: elanadmin
+ansible_ssh_private_key_file: /home/ansible/scripts/misc/private_key
+ansible_become_user: root
+ansible_become_pass: el@nadmin12

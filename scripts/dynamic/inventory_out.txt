@@ -1,0 +1,1 @@
+Inventory Content: {u'_meta': {u'hostvars': {}}}

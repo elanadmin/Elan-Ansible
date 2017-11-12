@@ -1,0 +1,7 @@
+-  hosts: elan_sk
+   name: Create a new directory
+   tasks:
+   -   name: Task, gives path and state
+       file:
+        path: /home/elanadmin/sk
+        state: directory

@@ -1,0 +1,6 @@
+---
+- tasks:
+   - name: Creating Directory
+     file:
+       path: ~/.secret/.puppet/.is/.better/sk
+       state: directory

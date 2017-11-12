@@ -1,0 +1,95 @@
+{
+  "_meta": {
+    "hostvars": {
+      "18.216.234.113": {
+        "ansible_host": "18.216.234.113", 
+        "ec2__in_monitoring_element": false, 
+        "ec2_account_id": "684157116855", 
+        "ec2_ami_launch_index": "0", 
+        "ec2_architecture": "x86_64", 
+        "ec2_block_devices": {
+          "xvda": "vol-02818ecff86ea81fe"
+        }, 
+        "ec2_client_token": "VuHTK1510287557497", 
+        "ec2_dns_name": "ec2-18-216-234-113.us-east-2.compute.amazonaws.com", 
+        "ec2_ebs_optimized": false, 
+        "ec2_eventsSet": "", 
+        "ec2_group_name": "", 
+        "ec2_hypervisor": "xen", 
+        "ec2_id": "i-06f36ac0b46d0819a", 
+        "ec2_image_id": "ami-aa1b34cf", 
+        "ec2_instance_profile": "", 
+        "ec2_instance_type": "t2.micro", 
+        "ec2_ip_address": "18.216.234.113", 
+        "ec2_item": "", 
+        "ec2_kernel": "", 
+        "ec2_key_name": "Amazon_1220", 
+        "ec2_launch_time": "2017-11-11T21:57:34.000Z", 
+        "ec2_monitored": false, 
+        "ec2_monitoring": "", 
+        "ec2_monitoring_state": "disabled", 
+        "ec2_persistent": false, 
+        "ec2_placement": "us-east-2c", 
+        "ec2_platform": "", 
+        "ec2_previous_state": "", 
+        "ec2_previous_state_code": 0, 
+        "ec2_private_dns_name": "ip-172-31-37-231.us-east-2.compute.internal", 
+        "ec2_private_ip_address": "172.31.37.231", 
+        "ec2_public_dns_name": "ec2-18-216-234-113.us-east-2.compute.amazonaws.com", 
+        "ec2_ramdisk": "", 
+        "ec2_reason": "User initiated (2017-11-12 05:02:29 GMT)", 
+        "ec2_region": "us-east-2", 
+        "ec2_requester_id": "", 
+        "ec2_root_device_name": "/dev/xvda", 
+        "ec2_root_device_type": "ebs", 
+        "ec2_security_group_ids": "sg-85fe86ed", 
+        "ec2_security_group_names": "Standard", 
+        "ec2_sourceDestCheck": "true", 
+        "ec2_spot_instance_request_id": "", 
+        "ec2_state": "stopped", 
+        "ec2_state_code": 80, 
+        "ec2_subnet_id": "subnet-5c254811", 
+        "ec2_tag_Description": "elan_sk02", 
+        "ec2_tag_Name": "elan_sk01", 
+        "ec2_virtualization_type": "hvm", 
+        "ec2_vpc_id": "vpc-7e5a4417"
+      }
+    }
+  }, 
+  "ami_aa1b34cf": [
+    "18.216.234.113"
+  ], 
+  "ec2": [
+    "18.216.234.113"
+  ], 
+  "i-06f36ac0b46d0819a": [
+    "18.216.234.113"
+  ], 
+  "key_Amazon_1220": [
+    "18.216.234.113"
+  ], 
+  "platform_undefined": [
+    "18.216.234.113"
+  ], 
+  "security_group_Standard": [
+    "18.216.234.113"
+  ], 
+  "tag_Description_elan_sk02": [
+    "18.216.234.113"
+  ], 
+  "tag_Name_elan_sk01": [
+    "18.216.234.113"
+  ], 
+  "type_t2_micro": [
+    "18.216.234.113"
+  ], 
+  "us-east-2": [
+    "18.216.234.113"
+  ], 
+  "us-east-2c": [
+    "18.216.234.113"
+  ], 
+  "vpc_id_vpc_7e5a4417": [
+    "18.216.234.113"
+  ]
+}

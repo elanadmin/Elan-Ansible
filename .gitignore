@@ -7,3 +7,5 @@
 foreman.cache
 foreman.index
 foreman.facts
+ec2.ini
+foreman.ini

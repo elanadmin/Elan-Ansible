@@ -1,0 +1,6 @@
+---
+- hosts: all
+  tasks:
+   - copy:
+      src: /home/ansible/.chef_is_better
+      dest: ~/.secret/.puppet/.is/.better/.sk/

@@ -1,0 +1,10 @@
+---
+
+- hosts: elan_pk
+  vars:
+    http_port: 80
+    max_clients: 200
+    sudo: root
+  tasks:
+  - name: ensure apache is at the latest version
+    yum: name=httpd state=latest

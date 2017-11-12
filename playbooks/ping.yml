@@ -1,7 +1,8 @@
 ---
 
-- hosts: elanlab
+- hosts: all
   become: true
+  gather_facts: true
 
   tasks:
 
