@@ -1,0 +1,12 @@
+---
+- name: Installing and Configuring ElasticSearch Cluster.
+  hosts: elan_elastic
+  become: true
+  gather_facts: true
+
+  tasks:
+    - name: Set fact vcpus
+      set_fact: vcpus={{ ansible_processor_vcpus }} cacheable=yes
+
+  roles: 
+    - role: '../roles/elasticsearch'

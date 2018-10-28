@@ -9,3 +9,7 @@ foreman.index
 foreman.facts
 ec2.ini
 foreman.ini
+.boto
+.boto3
+.aws
+*.gz

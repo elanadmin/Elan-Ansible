@@ -1,0 +1,12 @@
+---
+
+- hosts: elan_sk
+  user: elanadmin
+  tasks:
+   - name: Print out STDOUT
+     command: echo "Yo! Wassuppp"
+     register: hello
+   - debug: msg="stdout={{ hello.stdout }}"
+   - debug: msg="stderr={{ hello.stderr }}"
+   - debug:
+       msg: "System is {{ inventory_hostname }}, it's IP address is {{ ansible_default_ipv4.address }} and has the gateway {{ ansible_default_ipv4.gateway }}"

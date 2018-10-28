@@ -1,0 +1,232 @@
+---
+- name: Configure EC2 using AWS AutoScaling
+  hosts: localhost
+  connection: local
+  vars_files:
+    - ../group_vars/userdata_init_script
+    - ../group_vars/aws
+  tasks:
+
+     - name: Prepare UserData Script - files/userdata_init_script.sh
+       local_action: template src=../templates/userdata_init_script.j2 dest=../files/userdata_init_script.sh
+       tags: 
+         - userdata_init_script
+  
+     - name: Check boto file exists
+       stat:
+         path: "{{ ansible_env.HOME }}/.boto"
+       tags: check_boto
+       register: boto_file
+
+     - fail:
+         msg: "{{ ansible_env.HOME }}/.boto(with aws AccessKeyID and SecretAccessKey)file is missing.."
+       when: boto_file.stat.exists == False
+       tags: check_boto
+
+     - debug:
+         msg: "{{ ansible_env.HOME }}/.boto file is present.."
+       tags: check_boto
+
+     - name: Upload SSL Cert to IAM
+       iam_cert:
+         name: elantecsclick
+         state: present
+         cert: "{{ lookup('file', self_sign_crt) }}"
+         key: "{{ lookup('file', self_sign_key) }}"
+         cert_chain: "{{ lookup('file', self_sign_CA) }}"
+       ignore_errors: true
+       tags: ssl_cert
+
+     - name: Verify SSL Cert
+       iam_server_certificate_facts:
+         name: elantecsclick
+       register: server_cert_facts
+       tags: ssl_cert
+
+     - name: Set iam cert arn fact
+       set_fact:
+         iam_cert_arn: "{{ server_cert_facts.results.elantecsclick.arn }}"
+       tags: ssl_cert
+
+     - debug:
+         var: iam_cert_arn
+       tags: ssl_cert
+
+     - name: Check if git repository ansible_git_url exists
+       git:
+         repo: '{{ ansible_git_url }}'
+         dest: /tmp
+         clone: no
+         update: no
+       tags: git_repo
+
+     - name: Create VPC
+       local_action:
+         module: ec2_vpc
+         state: present
+         cidr_block: "{{ cidr_block }}"
+         resource_tags: { "Environment":"Comcast" }
+         subnets: "{{ subnets }}"
+         region: "{{ region }}"
+         internet_gateway: "{{ internet_gateway|string }}"
+         route_tables: "{{ route_tables }}"
+         wait: true
+       register: vpc
+     
+     - name: Generate az to subnet map file
+       template: src=../templates/subnets.j2 dest=../files/subnet_maps
+
+     - name: Generate subnet_ids file
+       template: src=../templates/subnet_ids.j2 dest=../files/subnet_ids
+
+     - name: Get the contents of subnet mapping file and set it as a fact
+       set_fact:
+         subnets_map: "{{ lookup('file', '../files/subnet_maps') }}"
+         subnets_id: "{{ lookup('file', '../files/subnet_ids') }}"
+
+     - name: create key pair using provided key_material
+       ec2_key:
+         name: "{{ key_name }}"
+         key_material: "{{ key_material }}"
+         region: "{{ region }}"
+
+     - name: Security Group rule descriptions
+       ec2_group:
+         name: comcast-sg
+         description: sg with rule descriptions
+         vpc_id: "{{ item }}"
+         region: "{{ region }}"
+         rules: "{{ rules }}"
+       with_items: "{{ vpc.vpc_id }}"
+       register: sg
+
+     - name: setup a simple load balancer
+       ec2_elb_lb:
+         name: "{{ load_balancers }}"
+         state: present
+         region: "{{ region }}"
+         subnets: "{{ subnets_map[item] }}"
+         listeners: "{{ listeners }}"
+         health_check: "{{ health_check }}"
+         security_group_names: comcast-sg
+       with_items: 
+         - "{{ availability_zones }}"
+       register: elb
+
+     - name: Create Launch Config
+       ec2_lc:
+         name: comcast-lc
+         image_id: "{{ image_id }}"
+         key_name: "{{ key_name }}"
+         region: "{{ region }}"
+         vpc_id: "{{ item }}"
+         security_groups: comcast-sg
+         instance_type: "{{ instance_type }}"
+         assign_public_ip: yes
+         user_data: "{{ lookup('file', '../files/userdata_init_script.sh') }}"
+       with_items: "{{ vpc.vpc_id }}"
+
+     - name: Launch ASG from Launch Config 
+       ec2_asg:
+         name: "{{ asg_name }}"
+         launch_config_name: comcast-lc
+         availability_zones: "{{ availability_zones }}"
+         health_check_period: 500
+         health_check_type: ELB
+         replace_all_instances: yes
+         min_size: "{{ min_size }}"
+         max_size: "{{ max_size }}"
+         desired_capacity: "{{ desired_capacity }}"
+         region: "{{ region }}"
+         load_balancers: "{{ load_balancers }}"
+         vpc_zone_identifier: "{{ subnets_id }}"
+
+     - name: Create EC2 Scale Down Policy
+       ec2_scaling_policy:
+         state: present
+         region: "{{ region }}"
+         name: scale_down_policy
+         adjustment_type: ChangeInCapacity
+         asg_name: "{{ asg_name }}"
+         scaling_adjustment: -1
+         min_adjustment_step: -1
+         cooldown: 300
+       register: reg_scale_down_policy
+       tags: ec2_scaling_policy
+
+     - name: Create EC2 Scale Up Policy
+       ec2_scaling_policy:
+         state: present
+         region: "{{ region }}"
+         name: scale_up_policy
+         adjustment_type: ChangeInCapacity
+         asg_name: "{{ asg_name }}"
+         scaling_adjustment: 1
+         min_adjustment_step: 1
+         cooldown: 300
+       register: reg_scale_up_policy
+       tags: ec2_scaling_policy
+
+     - name: Create EC2 Scale Down Alarm
+       ec2_metric_alarm:
+         state: present
+         region: "{{ region }}"
+         name: "low_cpu_usage"
+         metric: CPUUtilization
+         namespace: "AWS/EC2"
+         statistic: Average
+         comparison: "<="
+         threshold: 5.0
+         period: 300
+         evaluation_periods: 3
+         unit: "Percent"
+         description: "This will alarm when cpu average is lower than 5% for 15 minutes"
+         dimensions:
+           AutoScalingGroupName: "{{ asg_name }}"
+         alarm_actions:
+           - "{{ reg_scale_down_policy.arn }}"
+       tags: ec2_alarm
+
+     - name: Create EC2 Scale Up Alarm
+       ec2_metric_alarm:
+         state: present
+         region: "{{ region }}"
+         name: "high_cpu_usage"
+         metric: CPUUtilization
+         namespace: "AWS/EC2"
+         statistic: Average
+         comparison: ">="
+         threshold: 90.0
+         period: 300
+         evaluation_periods: 3
+         unit: "Percent"
+         description: "This will alarm when cpu average is higher than 90% for 15 minutes "
+         dimensions:
+           AutoScalingGroupName: "{{ asg_name }}"
+         alarm_actions:
+           - "{{ reg_scale_up_policy.arn }}"
+       tags: ec2_alarm
+
+     - action:
+         module: ec2_elb_facts
+         names: "{{ load_balancers }}"
+         region: "{{ region }}"
+       register: elb_facts
+
+     - route53:
+         state: present
+         zone: elantecs.click
+         record: comcast-elb.elantecs.click
+         type: CNAME
+         ttl: 7200
+         value: "{{ item }}"
+         wait: yes
+         overwrite: true
+       with_items: "{{ elb_facts.elbs.0.dns_name }}"
+
+     - action:
+         module: debug
+         msg:
+           - 'URLs:'
+           - 'http://comcast-elb.elantecs.click'
+           - 'https://comcast-elb.elantecs.click'

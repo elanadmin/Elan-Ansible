@@ -1,0 +1,9 @@
+---
+-hosts: elan_pc
+ become: yes
+ gater_facts: no
+ tasks:
+  - name: user add
+    user:
+      name: test123
+      createhome: yes

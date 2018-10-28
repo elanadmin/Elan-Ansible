@@ -1,0 +1,8 @@
+#! /bin/bash
+
+cat << EOF
+{
+    "private_fact" : "blab"
+
+}
+EOF

@@ -1,3 +1,5 @@
 [user]
 	name = elanadmin
 	email = rajesh.moturi@elantecs.com
+[http]
+	postBuffer = 157286400

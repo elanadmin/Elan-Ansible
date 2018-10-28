@@ -1,0 +1,9 @@
+---
+- hosts: elan_sk
+  vars:
+   variable_was_true: true
+  tasks:
+  - file:
+     path: /home/elanadmin/variable_was_true
+     state: touch
+    when: "variable_was_true==true"

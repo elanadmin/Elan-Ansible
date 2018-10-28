@@ -1,0 +1,85 @@
+---
+- name: Install Packages
+  yum: name={{ item }} update_cache=yes
+  with_items:
+    - unzip
+    - java-1.8.0-openjdk
+
+- name: Download and Unzip Nexus.
+  unarchive:
+    src: "{{ http_download_path }}/nexus-{{ nexus_version }}-unix.tar.gz"
+    dest: "{{ nexus_workspace }}"
+    remote_src: yes
+  creates: "{{ nexus_workspace }}/nexus-{{ nexus_version }}"
+
+- name: Create Nexus User
+  user:
+    name: nexus
+    state: present
+    shell: /bin/bash
+    groups: wheel
+    password: "{{ nexus_password }}"
+
+- name: Move Nexus into place.
+  file:
+    src: /opt/nexus-{{ nexus_version }}
+    dest: /opt/nexus
+    state: link
+    force: true
+    mode: 0755
+    owner: nexus
+    group: nexus
+  creates: /opt/nexus
+
+- name: Create Nexus Profile
+  file: 
+    path: /etc/profile.d/nexus.sh
+    state: touch
+    owner: root
+    group: root
+  with_items:
+    - /etc/profile.d/nexus.sh
+    - "{{ nexus_workspace }}/nexus/bin/nexus.rc"
+
+- lineinfile:
+    path: /etc/profile.d/nexus.sh
+    regexp: '^export NEXUS_HOME='
+    line: 'export NEXUS_HOME=/opt/nexus'
+
+- name: Add sonar as init script for service management.
+  file:
+    src: /opt/nexus/bin/nexus
+    dest: /etc/init.d/nexus
+    state: link
+    mode: 0755
+
+- lineinfile:
+    path: "{{ nexus_workspace }}/nexus/bin/nexus.rc"
+    regexp: '^#run_as_user='
+    line: 'run_as_user="nexus"'
+
+- file:
+    path: "{{ item }}"
+    owner: nexus
+    group: nexus
+    recurse: yes
+  with_items:
+    - /opt/nexus-{{ nexus_version }}
+
+- name: Recursive ownerships
+  shell: "chown -R -H nexus:nexus {{ nexus_workspace }}/nexus"
+
+- name: Disable service firewalld and ensure it is masked
+  systemd:
+    name: firewalld
+    enabled: no
+    masked: yes
+
+- name: Ensure Nexus is running and set to start on boot.
+  service: 
+    name: nexus 
+    state: restarted 
+    enabled: yes
+
+- name: Make sure Nexus is responding on the configured port.
+  wait_for: port=8081 delay=3 timeout=300

@@ -1,5 +1,92 @@
 {
   "_meta": {
-    "hostvars": {}
-  }
+    "hostvars": {
+      "34.211.136.196": {
+        "ansible_host": "34.211.136.196", 
+        "ec2__in_monitoring_element": false, 
+        "ec2_account_id": "689403654766", 
+        "ec2_ami_launch_index": "0", 
+        "ec2_architecture": "x86_64", 
+        "ec2_block_devices": {
+          "sda1": "vol-037098e98df15a71d"
+        }, 
+        "ec2_client_token": "IEbLi1510437589020", 
+        "ec2_dns_name": "ec2-34-211-136-196.us-west-2.compute.amazonaws.com", 
+        "ec2_ebs_optimized": false, 
+        "ec2_eventsSet": "", 
+        "ec2_group_name": "", 
+        "ec2_hypervisor": "xen", 
+        "ec2_id": "i-011f76bd874b32a38", 
+        "ec2_image_id": "ami-9fa343e7", 
+        "ec2_instance_profile": "", 
+        "ec2_instance_type": "t2.micro", 
+        "ec2_ip_address": "34.211.136.196", 
+        "ec2_item": "", 
+        "ec2_kernel": "", 
+        "ec2_key_name": "prudhvi", 
+        "ec2_launch_time": "2017-11-14T00:20:37.000Z", 
+        "ec2_monitored": false, 
+        "ec2_monitoring": "", 
+        "ec2_monitoring_state": "disabled", 
+        "ec2_persistent": false, 
+        "ec2_placement": "us-west-2a", 
+        "ec2_platform": "", 
+        "ec2_previous_state": "", 
+        "ec2_previous_state_code": 0, 
+        "ec2_private_dns_name": "ip-172-31-29-177.us-west-2.compute.internal", 
+        "ec2_private_ip_address": "172.31.29.177", 
+        "ec2_public_dns_name": "ec2-34-211-136-196.us-west-2.compute.amazonaws.com", 
+        "ec2_ramdisk": "", 
+        "ec2_reason": "", 
+        "ec2_region": "us-west-2", 
+        "ec2_requester_id": "", 
+        "ec2_root_device_name": "/dev/sda1", 
+        "ec2_root_device_type": "ebs", 
+        "ec2_security_group_ids": "sg-59c1fa24", 
+        "ec2_security_group_names": "launch-wizard-1", 
+        "ec2_sourceDestCheck": "true", 
+        "ec2_spot_instance_request_id": "", 
+        "ec2_state": "running", 
+        "ec2_state_code": 16, 
+        "ec2_state_reason": "", 
+        "ec2_subnet_id": "subnet-883c7bee", 
+        "ec2_tag_Name": "", 
+        "ec2_virtualization_type": "hvm", 
+        "ec2_vpc_id": "vpc-a99da0cf"
+      }
+    }
+  }, 
+  "ami_9fa343e7": [
+    "34.211.136.196"
+  ], 
+  "ec2": [
+    "34.211.136.196"
+  ], 
+  "i-011f76bd874b32a38": [
+    "34.211.136.196"
+  ], 
+  "key_prudhvi": [
+    "34.211.136.196"
+  ], 
+  "platform_undefined": [
+    "34.211.136.196"
+  ], 
+  "security_group_launch_wizard_1": [
+    "34.211.136.196"
+  ], 
+  "tag_Name": [
+    "34.211.136.196"
+  ], 
+  "type_t2_micro": [
+    "34.211.136.196"
+  ], 
+  "us-west-2": [
+    "34.211.136.196"
+  ], 
+  "us-west-2a": [
+    "34.211.136.196"
+  ], 
+  "vpc_id_vpc_a99da0cf": [
+    "34.211.136.196"
+  ]
 }

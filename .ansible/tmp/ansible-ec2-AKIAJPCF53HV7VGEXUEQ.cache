@@ -1,5 +1,247 @@
 {
   "_meta": {
-    "hostvars": {}
-  }
+    "hostvars": {
+      "18.209.67.9": {
+        "ansible_host": "18.209.67.9", 
+        "ec2__in_monitoring_element": false, 
+        "ec2_account_id": "147290159497", 
+        "ec2_ami_launch_index": "0", 
+        "ec2_architecture": "x86_64", 
+        "ec2_block_devices": {
+          "sda1": "vol-0d5233defa00c5380"
+        }, 
+        "ec2_client_token": "", 
+        "ec2_dns_name": "", 
+        "ec2_ebs_optimized": false, 
+        "ec2_eventsSet": "", 
+        "ec2_group_name": "", 
+        "ec2_hypervisor": "xen", 
+        "ec2_id": "i-05e6756ff0a76f319", 
+        "ec2_image_id": "ami-6871a115", 
+        "ec2_instance_profile": "", 
+        "ec2_instance_type": "t2.micro", 
+        "ec2_ip_address": "18.209.67.9", 
+        "ec2_item": "", 
+        "ec2_kernel": "", 
+        "ec2_key_name": "Sai-Kolavennu", 
+        "ec2_launch_time": "2018-09-15T17:21:05.000Z", 
+        "ec2_monitored": false, 
+        "ec2_monitoring": "", 
+        "ec2_monitoring_state": "disabled", 
+        "ec2_persistent": false, 
+        "ec2_placement": "us-east-1a", 
+        "ec2_platform": "", 
+        "ec2_previous_state": "", 
+        "ec2_previous_state_code": 0, 
+        "ec2_private_dns_name": "ip-172-30-0-109.ec2.internal", 
+        "ec2_private_ip_address": "172.30.0.109", 
+        "ec2_public_dns_name": "", 
+        "ec2_ramdisk": "", 
+        "ec2_reason": "", 
+        "ec2_region": "us-east-1", 
+        "ec2_requester_id": "", 
+        "ec2_root_device_name": "/dev/sda1", 
+        "ec2_root_device_type": "ebs", 
+        "ec2_security_group_ids": "sg-0a4ac02affd1057d3", 
+        "ec2_security_group_names": "Sai-Kolavennu-SG1", 
+        "ec2_sourceDestCheck": "true", 
+        "ec2_spot_instance_request_id": "", 
+        "ec2_state": "running", 
+        "ec2_state_code": 16, 
+        "ec2_state_reason": "", 
+        "ec2_subnet_id": "subnet-76ed493c", 
+        "ec2_tag_Name": "Sai-Kolavennu Other", 
+        "ec2_virtualization_type": "hvm", 
+        "ec2_vpc_id": "vpc-7476040f"
+      }, 
+      "54.144.49.2": {
+        "ansible_host": "54.144.49.2", 
+        "ec2__in_monitoring_element": false, 
+        "ec2_account_id": "147290159497", 
+        "ec2_ami_launch_index": "0", 
+        "ec2_architecture": "x86_64", 
+        "ec2_block_devices": {
+          "xvda": "vol-0d343a6f79043a050"
+        }, 
+        "ec2_client_token": "", 
+        "ec2_dns_name": "", 
+        "ec2_ebs_optimized": false, 
+        "ec2_eventsSet": "", 
+        "ec2_group_name": "", 
+        "ec2_hypervisor": "xen", 
+        "ec2_id": "i-0354a2ac20e1f4af5", 
+        "ec2_image_id": "ami-04681a1dbd79675a5", 
+        "ec2_instance_type": "t2.micro", 
+        "ec2_ip_address": "54.144.49.2", 
+        "ec2_item": "", 
+        "ec2_kernel": "", 
+        "ec2_key_name": "vijaypublic", 
+        "ec2_launch_time": "2018-09-13T01:40:25.000Z", 
+        "ec2_monitored": false, 
+        "ec2_monitoring": "", 
+        "ec2_monitoring_state": "disabled", 
+        "ec2_persistent": false, 
+        "ec2_placement": "us-east-1a", 
+        "ec2_platform": "", 
+        "ec2_previous_state": "", 
+        "ec2_previous_state_code": 0, 
+        "ec2_private_dns_name": "ip-172-30-0-169.ec2.internal", 
+        "ec2_private_ip_address": "172.30.0.169", 
+        "ec2_public_dns_name": "", 
+        "ec2_ramdisk": "", 
+        "ec2_reason": "", 
+        "ec2_region": "us-east-1", 
+        "ec2_requester_id": "", 
+        "ec2_root_device_name": "/dev/xvda", 
+        "ec2_root_device_type": "ebs", 
+        "ec2_security_group_ids": "sg-01bab977612b61dc5", 
+        "ec2_security_group_names": "launch-wizard-3", 
+        "ec2_sourceDestCheck": "true", 
+        "ec2_spot_instance_request_id": "", 
+        "ec2_state": "running", 
+        "ec2_state_code": 16, 
+        "ec2_state_reason": "", 
+        "ec2_subnet_id": "subnet-76ed493c", 
+        "ec2_tag_Name": "Mysql_tomcat2", 
+        "ec2_tag_Ques2": "question 2", 
+        "ec2_virtualization_type": "hvm", 
+        "ec2_vpc_id": "vpc-7476040f"
+      }, 
+      "54.227.77.91": {
+        "ansible_host": "54.227.77.91", 
+        "ec2__in_monitoring_element": false, 
+        "ec2_account_id": "147290159497", 
+        "ec2_ami_launch_index": "0", 
+        "ec2_architecture": "x86_64", 
+        "ec2_block_devices": {
+          "sda1": "vol-0cb6d4afd9cad573e"
+        }, 
+        "ec2_client_token": "", 
+        "ec2_dns_name": "ec2-54-227-77-91.compute-1.amazonaws.com", 
+        "ec2_ebs_optimized": false, 
+        "ec2_eventsSet": "", 
+        "ec2_group_name": "", 
+        "ec2_hypervisor": "xen", 
+        "ec2_id": "i-0d59c0aaefd0b82ba", 
+        "ec2_image_id": "ami-e3fdd999", 
+        "ec2_instance_profile": "", 
+        "ec2_instance_type": "t2.micro", 
+        "ec2_ip_address": "54.227.77.91", 
+        "ec2_item": "", 
+        "ec2_kernel": "", 
+        "ec2_key_name": "vijaypublic", 
+        "ec2_launch_time": "2018-09-12T20:01:03.000Z", 
+        "ec2_monitored": false, 
+        "ec2_monitoring": "", 
+        "ec2_monitoring_state": "disabled", 
+        "ec2_persistent": false, 
+        "ec2_placement": "us-east-1a", 
+        "ec2_platform": "", 
+        "ec2_previous_state": "", 
+        "ec2_previous_state_code": 0, 
+        "ec2_private_dns_name": "ip-10-0-1-178.ec2.internal", 
+        "ec2_private_ip_address": "10.0.1.178", 
+        "ec2_public_dns_name": "ec2-54-227-77-91.compute-1.amazonaws.com", 
+        "ec2_ramdisk": "", 
+        "ec2_reason": "", 
+        "ec2_region": "us-east-1", 
+        "ec2_requester_id": "", 
+        "ec2_root_device_name": "/dev/sda1", 
+        "ec2_root_device_type": "ebs", 
+        "ec2_security_group_ids": "sg-0aef3ed376d35523b", 
+        "ec2_security_group_names": "krian_securitygroup", 
+        "ec2_sourceDestCheck": "true", 
+        "ec2_spot_instance_request_id": "", 
+        "ec2_state": "running", 
+        "ec2_state_code": 16, 
+        "ec2_state_reason": "", 
+        "ec2_subnet_id": "subnet-05234459924281221", 
+        "ec2_tag_EC2Q3": "EC2_Q3", 
+        "ec2_tag_Name": "Vijay_Q3", 
+        "ec2_virtualization_type": "hvm", 
+        "ec2_vpc_id": "vpc-0a5164c8bbd52b6ee"
+      }
+    }
+  }, 
+  "ami_04681a1dbd79675a5": [
+    "54.144.49.2"
+  ], 
+  "ami_6871a115": [
+    "18.209.67.9"
+  ], 
+  "ami_e3fdd999": [
+    "54.227.77.91"
+  ], 
+  "ec2": [
+    "54.227.77.91", 
+    "18.209.67.9", 
+    "54.144.49.2"
+  ], 
+  "i-0354a2ac20e1f4af5": [
+    "54.144.49.2"
+  ], 
+  "i-05e6756ff0a76f319": [
+    "18.209.67.9"
+  ], 
+  "i-0d59c0aaefd0b82ba": [
+    "54.227.77.91"
+  ], 
+  "key_Sai_Kolavennu": [
+    "18.209.67.9"
+  ], 
+  "key_vijaypublic": [
+    "54.227.77.91", 
+    "54.144.49.2"
+  ], 
+  "platform_undefined": [
+    "54.227.77.91", 
+    "18.209.67.9", 
+    "54.144.49.2"
+  ], 
+  "security_group_Sai_Kolavennu_SG1": [
+    "18.209.67.9"
+  ], 
+  "security_group_krian_securitygroup": [
+    "54.227.77.91"
+  ], 
+  "security_group_launch_wizard_3": [
+    "54.144.49.2"
+  ], 
+  "tag_EC2Q3_EC2_Q3": [
+    "54.227.77.91"
+  ], 
+  "tag_Name_Mysql_tomcat2": [
+    "54.144.49.2"
+  ], 
+  "tag_Name_Sai_Kolavennu_Other": [
+    "18.209.67.9"
+  ], 
+  "tag_Name_Vijay_Q3": [
+    "54.227.77.91"
+  ], 
+  "tag_Ques2_question_2": [
+    "54.144.49.2"
+  ], 
+  "type_t2_micro": [
+    "54.227.77.91", 
+    "18.209.67.9", 
+    "54.144.49.2"
+  ], 
+  "us-east-1": [
+    "54.227.77.91", 
+    "18.209.67.9", 
+    "54.144.49.2"
+  ], 
+  "us-east-1a": [
+    "54.227.77.91", 
+    "18.209.67.9", 
+    "54.144.49.2"
+  ], 
+  "vpc_id_vpc_0a5164c8bbd52b6ee": [
+    "54.227.77.91"
+  ], 
+  "vpc_id_vpc_7476040f": [
+    "18.209.67.9", 
+    "54.144.49.2"
+  ]
 }

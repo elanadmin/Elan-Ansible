@@ -1,0 +1,10 @@
+---
+- hosts: elan_sk
+  user: elanadmin
+  gather_facts: false
+  tasks:
+  - name: Copy the file...
+    copy:
+     src: /home/ansible/playbooks/playbooksSK/skdebug.yml
+     dest: /home/elanadmin/
+     mode: 0755

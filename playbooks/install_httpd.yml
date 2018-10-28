@@ -1,8 +1,7 @@
 --- # Install and start HTTPD
 - hosts: elanlab
-  user: ansible
-  sudo: yes
-  gather_facts: no
+  become: true
+  gather_facts: yes
   vars_files: 
     - conf/webdefaults.yml
   tasks:
@@ -13,6 +12,10 @@
    - name: Start Service
      service: name=httpd state=started
 
+   - name: Prepare index.html
+     template: src=../templates/index.html.j2 dest=/var/www/html/index.html
+     notify: Restart HTTPD
+
    - name: verify service is running
      command: service httpd status
      register: result
@@ -21,3 +24,7 @@
      yum: name={{ pkg_lynx }} state=installed
 
    - debug: var=result
+
+  handlers:
+    - name: Restart HTTPD
+      action: service name=httpd state=restarted

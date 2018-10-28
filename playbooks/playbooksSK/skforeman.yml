@@ -1,0 +1,13 @@
+---
+
+- hosts: all
+  user: elanadmin
+  become: yes
+  tasks:
+  - debug: msg="{{ ansible_default_ipv4.address }}"
+  - debug: msg="{{ ansible_fqdn }}"
+  local_action:
+   - file:
+       path: /home/ansible/playbooks/playbooksSK/foreman/"{{ansible_fqdn}}"
+       
+       state: touch

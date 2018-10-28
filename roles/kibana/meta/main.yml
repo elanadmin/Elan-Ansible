@@ -1,0 +1,13 @@
+--- #playbook metadata
+galaxy_info:
+ author: elanadmin
+ description: Instlling and Configuring ElasticSearch.
+ company: eLan Technologies Inc.
+ min_ansible_version: 2.2
+ platforms:
+  - name: Ubuntu
+    versions:
+     - trusty
+ categories:
+  - system
+dependencies: []

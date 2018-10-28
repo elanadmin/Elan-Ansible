@@ -44,7 +44,7 @@ if [ ! -f "$CERTDIR/default.csr" ];then
 echo -e "\nGenerating and Self Sign a new server key/cert pair\n"
 cd $CERTDIR
 
-cat <<__EOF__ | openssl req -new -key privatekey.key -sha256 -out default.csr
+cat <<__EOF__ | openssl req -new -key privatekey.key -sha512 -out default.csr
 $COUNTRY
 $STATE
 $LOCALITY
@@ -56,10 +56,12 @@ $CHALLENGE
 $COMPANY
 __EOF__
 
-cat <<__EOF__ | openssl x509 -req -in default.csr -CA ca_crt.pem -CAkey ca_key.pem -CAcreateserial -out default.pem -sha256 -days 3650 -extfile openssl.cnf
+cat <<__EOF__ | openssl x509 -req -in default.csr -CA ca_crt.pem -CAkey ca_key.pem -CAcreateserial -out default.pem -sha512 -days 3650 -extfile openssl.cnf
 y
 y
 __EOF__
+
+cp -rp default.pem defaultonlycert.pem
 
 cat ca_crt.pem privatekey.key >> default.pem
 

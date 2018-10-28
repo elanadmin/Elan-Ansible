@@ -1,0 +1,48 @@
+---
+
+- hosts: testdemo
+  become: yes
+  tasks:
+  - name: Download tomcat
+    get_url:
+      url: http://www-us.apache.org/dist/tomcat/tomcat-7/v7.0.91/bin/apache-tomcat-7.0.91.tar.gz
+      dest: /var/tmp
+    creates: /usr/local/apache-tomcat-7.0.91/conf/server.xml
+
+  - name: Download and Extract tomcat tar file
+    unarchive: 
+      src: /var/tmp/apache-tomcat-7.0.91.tar.gz
+      dest: /usr/local/
+      remote_src: yes
+    creates: /usr/local/apache-tomcat-7.0.91/conf/server.xml
+
+  - service:
+      name: tomcat
+      state: started
+      enabled: yes
+  - name: downlad jenkins
+    get_url: 
+      name: http://updates.jenkins-ci.org/download/war/2.7.3/jenkins.war
+      dest: /usr/local/apache-tomcat-7.0.91/webapps
+      state: directory
+#    creates: /usr/local/apache-tomcat-7.0.91/webapps/jenkins
+
+#  - name: Insatll tomcat
+#    yum: 
+#      name: "{{ item }}"
+#      state: present
+#    with_items:
+#      - tomcat
+#      - tomcat-webapps
+#      - tomcat-admin-webapps
+#  - name: download tomact
+#    yum: http://www-us.apache.org/dist/tomcat/tomcat-9/v9.0.12/bin/apache-tomcat-9.0.12.tar.gz
+#    download_only: yes
+#    command: tar -xzf apache-tomcat-9.0.12.tar.gz; mv ./apache-tomcat-9.0.12 /usr/local/tomcat9; cd /usr/local/tomcat9; ./bin/startup.sh
+
+#  - name: start tomcat service
+#   echo "<user username="elanadmin" password="el@nadmin" roles="admin"/>" >> /usr/share/tomcat/conf/tomcat-users.xml
+#    service: 
+#       name: tomcat 
+#       state: restarted
+

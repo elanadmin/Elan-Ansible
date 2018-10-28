@@ -1,0 +1,11 @@
+- hosts: elan_test
+  remote_user: ec2-user
+  become: yes
+  connection: ssh
+  gather_facts: yes
+  tasks:
+   - name: Gather the EC2 Facts about running instance(s)
+     ec2_facts:
+     register: all_facts
+   - name: Display the facts
+     debug: msg='{{ ansible_ec2_instance_type }}'

@@ -1,0 +1,23 @@
+---
+- hosts: all
+  become_user: elanadmin
+  become: true
+- tasks:
+  - name: Install HTTPD Service.......
+    yum:
+      name: httpd
+      state: present
+  - name: Create an empty "index.html" file........
+    file:
+      path: /var/www/html/index.html
+      state: touch
+  - name: Add a line to this file.
+    lineinfile:
+      state: present
+      dest: /var/www/html/index.html
+      line: Welcome to ELan Technologies!!!!!
+  - name: Start HTTPD Service.........
+    service:
+      name: httpd
+      state: restart
+      enable: yes

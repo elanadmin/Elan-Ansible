@@ -1,6 +1,7 @@
 ---
 - name: Installing and configuriguring HAProxy and Keepalived
   hosts: elan_haproxy
+  become: true
   gather_facts: true
   roles: 
    - ../roles/haproxy

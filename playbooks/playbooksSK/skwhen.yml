@@ -1,0 +1,9 @@
+---
+- hosts: elan_sk
+  become: yes
+  tasks:
+  - name: Test When
+    yum:
+       name: httpd
+       state: installed
+    when: ansible_os_family=="RedHat"

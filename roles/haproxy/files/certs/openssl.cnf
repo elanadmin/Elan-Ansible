@@ -10,3 +10,7 @@ DNS.3 = edalnexp01.elan.elantecs.com
 DNS.4 = edalnexus.elan.elantecs.com
 DNS.5 = edaltomcat.elan.elantecs.com
 DNS.6 = edalsonar.elan.elantecs.com
+DNS.7 = edalgitlab.elan.elantecs.com
+DNS.8 = edalldap01.elan.elantecs.com
+DNS.9 = edalldap02.elan.elantecs.com
+DNS.10 = edalldapsv.elan.elantecs.com

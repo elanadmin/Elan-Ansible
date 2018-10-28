@@ -1,0 +1,20 @@
+{# List of ElasticSearch Cluster Members #}
+{% set es_cluster_members = [] -%}
+{%- for node in groups['elan_esc'] %}
+  {%- set _ = es_cluster_members.append("http://"+hostvars[node].ansible_fqdn+":"+es_port) -%}
+{% endfor -%}
+# Beats -> Logstash -> Elasticsearch pipeline.
+input {
+  beats {
+    port => {{ ls_port }}
+  }
+}
+
+output {
+  elasticsearch {
+    hosts => [{{ ",".join(es_cluster_members) }}]
+    index => "%{[@metadata][beat]}-%{[@metadata][version]}-%{+YYYY.MM.dd}"
+    #user => "elastic"
+    #password => "changeme"
+  }
+}

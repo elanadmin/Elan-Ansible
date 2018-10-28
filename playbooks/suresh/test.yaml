@@ -1,0 +1,15 @@
+---
+
+- hosts: testdemo
+  become: yes
+
+  tasks:
+  - name: Install https, java, php, mysql
+    yum: 
+      name: "{{ item }}"
+      state: latest
+    with_items:
+      - httpd
+      - java
+      - php
+      - mysql

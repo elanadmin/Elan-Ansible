@@ -1,0 +1,5 @@
+---
+- name: Use Template
+  template: 
+   src: /home/ansible/playbooks/playbooksSK/ansible_sk_pranav.j2
+   dest: /home/elanadmin/

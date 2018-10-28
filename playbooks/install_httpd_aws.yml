@@ -1,0 +1,60 @@
+--- # Install and Manage HTTPD
+- hosts: localhost
+  connection: local
+  become: true
+  gather_facts: yes
+  tasks:
+
+   - name: Install HTTPD
+     yum: name="{{ item }}" state=installed
+     with_items:
+       - httpd
+       - mod_ssl
+       - lsof
+       - nc
+
+   - name: Stop IPTABLES if Running
+     service: name=iptables state=stopped enabled=no
+     ignore_errors: true
+
+   - name: Set SELINUX to Permissive mode
+     shell: setenforce 0
+     ignore_errors: true
+
+   - name: Start Service
+     service: name=httpd  state=started enabled=yes
+
+   - name: verify service is running
+     command: service httpd status
+     register: result
+
+   - name: Copy index.html healthcheck and https_redirection Config files
+     copy: src="{{ item.src }}" dest="{{ item.dest }}" mode=755
+     with_items:
+       - { src: '../files/index.html', dest: '/var/www/html/index.html' }
+       - { src: '../files/https_redirect.conf', dest: '/etc/httpd/conf.d/https_redirect.conf' }
+       - { src: '../files/healthcheck', dest: '/var/www/html/healthcheck' }
+     notify: Restart HTTPD
+
+   - name: Copy the SSL Certificate files
+     copy: src="{{ item.src }}" dest="{{ item.dest }}"
+     with_items:
+       - { src: '../files/elantecs.click.crt', dest: '/etc/pki/tls/certs/localhost.crt' }
+       - { src: '../files/elantecs.click.key', dest: '/etc/pki/tls/private/localhost.key' }
+       - { src: '../files/elantecs.click.CA', dest: '/etc/pki/tls/certs/server-chain.crt' }
+     notify: Restart HTTPD
+
+   - name: Testcase for the HTTPD Config Check
+     shell: /usr/sbin/httpd -t
+
+   - debug: var=result
+
+   - name: Uncomment line from /etc/httpd/conf.d/ssl.conf
+     lineinfile:
+       dest: /etc/httpd/conf.d/ssl.conf
+       regexp: '#SSLCertificateChainFile'
+       line: 'SSLCertificateChainFile /etc/pki/tls/certs/server-chain.crt'
+
+  handlers:
+    - name: Restart HTTPD
+      action: service name=httpd state=restarted

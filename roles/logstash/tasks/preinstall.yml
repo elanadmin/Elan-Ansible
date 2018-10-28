@@ -1,0 +1,32 @@
+---
+
+- name: Add LogStash Repo Key
+  rpm_key:
+    state: present
+    key: https://artifacts.elastic.co/GPG-KEY-elasticsearch
+  tags:
+    - preinstall
+
+- name: Add LogStash Repository
+  yum_repository:
+    name: logstash
+    description: Elasticsearch repository for 7.x packages
+    file: logstash
+    gpgkey: https://artifacts.elastic.co/GPG-KEY-elasticsearch
+    baseurl: https://artifacts.elastic.co/packages/7.x/yum
+    gpgcheck: yes
+    enabled: yes
+  tags:
+    - preinstall
+
+- name: Ensure Firewall is stopped
+  service: name=firewalld state=stopped enabled=no
+  when: ansible_distribution == 'CentOS' and ansible_distribution_version >= '7'
+  tags:
+    - preinstall
+
+- name: Ensure Firewall is stopped
+  service: name=iptables state=stopped enabled=no
+  when: ansible_distribution == 'CentOS' and ansible_distribution_version < '7'
+  tags:
+    - preinstall

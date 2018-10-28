@@ -1,0 +1,27 @@
+---
+- hosts: elan_sk
+  user: elanadmin
+  gather_facts: no
+  become: true
+  tasks:
+  - name: Remove Packages using when_items logic....
+    yum:
+      name: "{{ item }}"
+      state: installed
+    with_items:
+           - tree
+           - httpd
+           - banner
+    tags:
+     - Install
+
+  - name: Check for Status....
+    service: 
+      name: "{{ item }}"
+      state: started
+    with_items:
+           - httpd
+           - sshd
+           - dhcpd
+    tags:
+     - Status_Check

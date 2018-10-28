@@ -1,0 +1,6 @@
+---
+- hosts: elan_sk
+  tasks:
+  - setup: filter=ansible_local
+
+  - debug: msg='Test of facts "{{ ansible_local.preferance.private_fact }}"'

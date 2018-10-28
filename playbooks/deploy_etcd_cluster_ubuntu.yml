@@ -1,0 +1,5 @@
+---
+- hosts: elan_etcd
+  become: true
+  roles:
+    - etcd

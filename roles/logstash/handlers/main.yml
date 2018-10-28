@@ -1,0 +1,13 @@
+--- # Trigers from Notify section from task.
+
+- name: Reload LogStash
+  service: name=logstash state=restarted enabled=yes
+
+- name: Daemon Reload LogStash
+  systemd:
+    state: restarted
+    daemon_reload: yes
+    name: logstash
+  when:
+    ansible_distribution in ['RedHat', 'CentOS'] and
+    ansible_distribution_version|version_compare('7', '>=')

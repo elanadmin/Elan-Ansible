@@ -1,0 +1,11 @@
+#!/bin/bash
+
+fqdn=$(hostname -f)
+short=$(echo ${fqdn%%.*})
+
+case $short in
+edal????01 ) echo "{\"keepalived_router_id\" : \"1\"}";;
+edal????02 ) echo "{\"keepalived_router_id\" : \"2\"}";;
+edal????03 ) echo "{\"keepalived_router_id\" : \"3\"}";;
+*         ) echo "{\"keepalived_router_id\" : \"4\"}";;
+esac

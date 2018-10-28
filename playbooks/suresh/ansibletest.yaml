@@ -1,0 +1,49 @@
+---
+
+-hosts: testservers
+
+ remote_user: root
+ become: yes
+
+tasks:
+- name: Insatll HTTPS  service
+ yum:
+        name: {{package}}
+        State: present
+        
+        package:
+                -httpd
+                -mysql.server
+                -php
+                -java
+
+tasks:
+
+- name: start services
+
+        service: httpd java
+        state: restart
+
+tasks:
+
+-name: download tomcat
+ yum:
+        name: http://www-us.apache.org/dist/tomcat/tomcat-9/v9.0.12/bin/apache-tomcat-9.0.12.tar.gz
+        state: latsest
+        download_only: yes
+        command: tar xzf apache-tomcat-9.0.12.tar.gz; mv apache-tomcat-9.0.12 /usr/local/tomcat9; cd /usr/local/tomcat9; ./bin/startup.sh
+
+tasks:
+
+-name: download jenkins and install on tomcat server
+
+yum:
+
+        name: http://updates.jenkins-ci.org/download/war/2.7.3/jenkins.war
+        state: latest
+        download_only: true
+        copy: src=./jenkins.war dest=~/apache-tomcat-9.0.12/webapps
+        command: ./bin/startup.sh
+
+
+

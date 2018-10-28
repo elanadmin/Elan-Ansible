@@ -12,3 +12,9 @@
       copy:
         dest: /etc/Welcome
         content: "{{ Welcome_Message }}"
+    - name: send off message
+      copy:
+        dest: /etc/sendoff
+        content: "Good Bye"
+ 
+

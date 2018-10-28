@@ -1,0 +1,1 @@
+0x0001 2018-02-04T17:24:34UTC 2023-02-04T17:24:34UTC /CN=Puppet CA: edalansp01.elan.elantecs.com

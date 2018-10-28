@@ -1,0 +1,20 @@
+--- # Installing ElasticSearch on CentOS machines.
+
+- name: Installing LogStash Packages
+  yum: name={{ item }} state=present update_cache=yes
+  with_items: "{{ ls_packages }}"
+  tags: install
+
+- name: Ensure LogStash conf is set
+  template: src=logstash.conf.j2 dest=/etc/logstash/conf.d/logstash.conf
+  notify: 
+    - Daemon Reload LogStash
+    - Reload LogStash
+  tags: config
+
+- name: Ensure LogStash JVM options are set
+  template: src=jvm.options.j2 dest=/etc/logstash/jvm.options
+  notify:
+    - Daemon Reload LogStash
+    - Reload LogStash
+  tags: config

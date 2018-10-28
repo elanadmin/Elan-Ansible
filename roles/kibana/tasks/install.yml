@@ -1,0 +1,13 @@
+--- # Installing ElasticSearch on CentOS machines.
+
+- name: Installing Kibana Packages
+  yum: name={{ item }} state=present update_cache=yes
+  with_items: "{{ kb_packages }}"
+  tags: install
+
+- name: Ensure Kibana conf is set
+  template: src=kibana.yml.j2 dest=/etc/kibana/kibana.yml
+  notify: 
+    - Daemon Reload Kibana
+    - Reload Kibana
+  tags: config

@@ -1,0 +1,9 @@
+---
+- name: Install and configure Nexus
+  hosts: elan_nexus
+  become: true
+  become_user: root
+  roles:
+     - ../roles/nexus
+  tags:
+    - install

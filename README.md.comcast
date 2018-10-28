@@ -1,0 +1,117 @@
+## COMCAST-ANSIBLE ##
+
+# Ansible Version Used
+$ ansible --version
+ansible 2.4.2.0
+  config file = /home/ansible/.ansible.cfg
+  configured module search path = [u'/home/ansible/.ansible/plugins/modules', u'/usr/share/ansible/plugins/modules']
+  ansible python module location = /usr/lib/python2.7/site-packages/ansible
+  executable location = /bin/ansible
+  python version = 2.7.5 (default, Nov  6 2016, 00:28:07) [GCC 4.8.5 20150623 (Red Hat 4.8.5-11)]
+
+# Import the elantecs.click.CA as Trusted Authorities in to your web browser for Secure SSL Connections to :
+
+URL's:
+"http://comcast-elb.elantecs.click",
+"https://comcast-elb.elantecs.click"
+
+##################################################################################################################
+
+# Steps for Deployment:
+
+# Generate Self Signed Certificates:
+
+# First, We need to create your own private certificate authority.The process for creating our own certificate authority is shown below :
+1.	Create a private key for ROOT CA
+2.	Self-sign ROOT Certificate.
+3.	Install root CA on your servers under /usr/local/share/ca-certificates to be trusted.
+
+# Generate the Private Key for ROOT CA :
+$ openssl genrsa -out CA.key 4096
+
+# Self-Sign the ROOT CA Certificate : 
+$ openssl req -x509 -new -nodes -key CA.key -sha512 -days 1024 -out CA.pem
+
+# Once ROOT CA Cert is ready, then we can start creating trusted server/service certificates as shown below :
+4.	Create CSR for each server/service.
+5.	Sign CSR with root CA key.
+6.	Create a bundle Certificate.
+
+# Extfile openssl.cnf
+$ cat openssl.cnf
+authorityKeyIdentifier=keyid,issuer
+basicConstraints=CA:FALSE
+keyUsage = digitalSignature, nonRepudiation, keyEncipherment, dataEncipherment
+subjectAltName = @alt_names
+
+[alt_names]
+DNS.1 = *.elantecs.click
+DNS.2 = *.us-east-2.compute.internal
+DNS.3 = *.us-east-2.elb.amazonaws.com
+DNS.4 = *.elan.elantecs.com
+
+# Generate Private Key for Server/Service :
+$ openssl genrsa -out privatekey.key 4096
+
+# Once the key is created, you’ll generate the certificate signing request :
+$ openssl req -new -key privatekey.key -out CSR.csr -sha512
+
+# Once that’s done, you’ll sign the CSR, which requires the CA root key :
+$ openssl x509 -req -in CSR.csr -CA CA.pem -CAkey CA.key -CAcreateserial -out cert.pem -days 365 -sha512 -extfile openssl.cnf
+
+# To Verify the certificate :
+$ openssl verify -CAfile CA.pem cert.pem
+
+# To View the Certificate :
+$ openssl x509 -in cert.pem -text -noout
+
+# Rename the certs with appropriate names :
+$ cp -rp CA.pem elantecs.click.CA;cp -rp cert.pem elantecs.click.crt;cp -rp privatekey.key elantecs.click.key
+
+# Add following CA Certificate(Self-Signed) to the Browser:
+# elantecs.click.CA
+
+# Clone the repository :
+$ git clone https://github.com/elanadmin/comcast-ansible.git
+
+# Move the above Certificates to files directory and add the names to group_vars/aws:
+$ mv elantecs.click.* comcast-ansible/files/
+$ cd comcast-ansible
+
+# Plugin the AWS Security Credentials :
+$ cat ~/.boto
+[Credentials]
+aws_access_key_id = xxxxxxxxxxxxxxxxxxxxxx
+aws_secret_access_key = xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+ 
+# Complete all the required information in group_vars :
+$ cat group_vars/aws
+$ cat group_vars/userdata_init_script
+
+# Check for all Pre-requisites:
+$ ansible-playbook playbooks/as-ec2-launch.yml --tags check_boto
+$ ansible-playbook playbooks/as-ec2-launch.yml --tags git_repo
+$ ansible-playbook playbooks/as-ec2-launch.yml --tags ssl_cert
+$ ansible-playbook playbooks/as-ec2-launch.yml --tags userdata_init_script
+
+# SSL Self Signed Certificates ( Matches *.elantecs.click, *.us-east-2.elb.amazonaaws.com, *.us-east-2.compute.internal, *.elan.elantecs.com ) :
+
+files/elantecs.click.CA
+files/elantecs.click.key 
+files/elantecs.click.crt
+
+# Generated during playbook run of as-ec2-launch.yml
+files/subnet_ids
+files/subnet_maps
+files/userdata_init_script.sh
+
+# Launch the EC2 Instance with ELB Stack:
+$ ansible-playbook playbooks/as-ec2-launch.yml
+
+# Used by install_httpd_aws.yml during cloud-init userdata bootstrapping:
+files/https_redirect.conf
+files/healthcheck
+files/index.html 
+
+$ cd /etc/ansible/comcast  (On EC2 Instance)
+$ ansible-playbook playbooks/install_httpd_aws.yml  (On EC2 Instance)

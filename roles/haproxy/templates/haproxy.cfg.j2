@@ -39,6 +39,21 @@ frontend http-frontend
     mode http
     redirect scheme https if !{ ssl_fc }
 
+frontend etcd-frontend
+    bind {{ haproxy_bind_address }}:2379
+    mode tcp
+    use_backend etcd
+
+frontend ldapsv-tls-frontend
+    bind {{ haproxy_bind_address }}:636
+    mode tcp
+    use_backend ldapsv-tls
+
+frontend ldapsv-frontend
+    bind {{ haproxy_bind_address }}:389
+    mode tcp
+    use_backend ldapsv
+
 frontend https-frontend
 	bind {{ haproxy_bind_address }}:443 ssl crt /etc/haproxy/certs.d/default.pem
         mode http
@@ -47,10 +62,12 @@ frontend https-frontend
         acl nexus hdr(host) -i {{ haproxy_nexus_host }}
         acl tomcat hdr(host) -i {{ haproxy_tomcat_host }}
         acl sonar hdr(host) -i {{ haproxy_sonar_host }}
+        acl gitlab hdr(host) -i {{ haproxy_gitlab_host }}
         use_backend jenkins if jenkins
         use_backend nexus if nexus
         use_backend tomcat if tomcat
         use_backend sonar if sonar
+        use_backend gitlab if gitlab
         
 backend jenkins
     balance roundrobin
@@ -90,4 +107,36 @@ backend sonar
     option httpchk HEAD / HTTP/1.1\r\nHost:\ {{ haproxy_sonar_host }}
 {% for balancing_server in haproxy_sonar_servers %}
     server {{ balancing_server.name }} {{ balancing_server.ip }}:9000 check
+{% endfor %}
+
+backend etcd
+    balance roundrobin
+    mode tcp
+    option tcplog
+{% for balancing_server in haproxy_etcd_servers %}
+    server {{ balancing_server.name }} {{ balancing_server.ip }}:2379 check
+{% endfor %}
+
+backend gitlab
+    balance roundrobin
+    mode http
+    option httpchk HEAD / HTTP/1.1\r\nHost:\ {{ haproxy_gitlab_host }}
+{% for balancing_server in haproxy_gitlab_servers %}
+    server {{ balancing_server.name }} {{ balancing_server.ip }}:80 check
+{% endfor %}
+
+backend ldapsv-tls
+    balance roundrobin
+    mode tcp
+    option tcplog
+{% for balancing_server in haproxy_ldapsv_servers %}
+    server {{ balancing_server.name }} {{ balancing_server.ip }}:636 check
+{% endfor %}
+
+backend ldapsv
+    balance roundrobin
+    mode tcp
+    option tcplog
+{% for balancing_server in haproxy_ldapsv_servers %}
+    server {{ balancing_server.name }} {{ balancing_server.ip }}:389 check
 {% endfor %}

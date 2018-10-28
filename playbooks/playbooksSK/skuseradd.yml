@@ -1,0 +1,26 @@
+---
+- hosts: elan_sk
+  gather_facts: no
+  become: yes
+  tasks:
+  - name: Create a New User.
+    user:
+     name: blabla
+     comment: Ansible Test User
+     createhome: yes
+     password: el@nadmin12
+    tags:
+    - UserAdd
+  - name: Copy the File.
+    copy:
+     src: /opt/folder/program1.sh
+     dest: /home/blabla
+     mode: 0755
+    tags:
+    - CopyFile
+  - name: Check Status
+    command: "ls -lA /home/blabla"
+    register: output
+  - debug: msg="{{ output.stdout }}"
+    tags:
+    - CheckStatus

@@ -1,0 +1,4 @@
+---
+- hosts: elan_sk
+  roles:
+   - install-apache

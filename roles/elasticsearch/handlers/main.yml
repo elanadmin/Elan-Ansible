@@ -1,0 +1,13 @@
+--- # Trigers from Notify section from task.
+
+- name: Reload ElasticSearch
+  service: name=elasticsearch state=restarted enabled=yes
+
+- name: Daemon Reload ElasticSearch
+  systemd:
+    state: restarted
+    daemon_reload: yes
+    name: elasticsearch
+  when:
+    ansible_distribution in ['RedHat', 'CentOS'] and
+    ansible_distribution_version|version_compare('7', '>=')

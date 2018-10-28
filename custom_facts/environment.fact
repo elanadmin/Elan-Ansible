@@ -1,0 +1,11 @@
+#!/bin/bash
+
+fqdn=$(hostname -f)
+short=$(echo ${fqdn%%.*})
+
+case $short in
+edal???p* ) echo "{\"environment\" : \"PRODUCTION\"}";;
+edal???t* ) echo "{\"environment\" : \"TEST\"}";;
+edal???d* ) echo "{\"environment\" : \"DEVELOPMENT\"}";;
+*         ) echo "{\"environment\" : \"UNKNOWN\"}";;
+esac

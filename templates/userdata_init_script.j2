@@ -1,0 +1,16 @@
+#! /bin/bash
+
+groupadd -g {{ ansible_account_gid }} {{ ansible_account_group }}
+useradd -u {{ ansible_account_uid }} -g {{ ansible_account_group }} -d "{{ ansible_account_home }}" -s "{{ ansible_account_shell }}" -c "{{ ansible_account_comment }}" {{ ansible_account_user }}
+usermod -a -G {{ ansible_account_sec_groups }} {{ ansible_account_user }}
+usermod -p '{{ ansible_account_password }}' {{ ansible_account_user }}
+sed -i "s/# %{{ ansible_default_sudo_group }}/%{{ ansible_default_sudo_group }}/g" /etc/sudoers
+mkdir -m 700 -p {{ ansible_account_home }}/.ssh
+echo '{{ ansible_account_ssh_pub }}'  > /home/elanadmin/.ssh/authorized_keys
+chmod 600 {{ ansible_account_home }}/.ssh/authorized_keys
+chown -R {{ ansible_account_user }}:{{ ansible_account_group }} {{ ansible_account_home }}
+yum install -y git epel-release ansible
+yum install -y ansible
+git clone {{ ansible_git_url }} /etc/ansible/comcast
+cd /etc/ansible/comcast
+ansible-playbook playbooks/install_httpd_aws.yml

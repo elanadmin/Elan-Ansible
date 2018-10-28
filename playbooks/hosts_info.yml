@@ -1,0 +1,7 @@
+---
+# Gather Facts
+- hosts: elan_pc 
+  become: yes
+  tasks:
+    - debug:
+        msg: "{{ ansible_distribution_major_version }}"

@@ -1,0 +1,8 @@
+---
+- hosts: elan_sk
+  vars:
+   date_time: "{{ansible_date_time.date}} - {{ansible_date_time.hour}}:{{ansible_date_time.minute}}"
+  tasks:
+   template:
+    src: /home/ansible/playbooks/playbooksSK/templates/date_time_bla_bla.j2
+    dest: /home/elanadmin/date_time.txt

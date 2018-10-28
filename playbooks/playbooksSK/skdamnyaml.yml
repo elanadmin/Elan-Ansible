@@ -1,0 +1,16 @@
+---
+- hosts: elan_sk
+  user: elanadmin
+  gather_facts: no
+  become: yes
+  tasks:
+    yum: name={{ items }} state=removed
+    with_items:
+       - tree
+       - httpd
+       - banner
+    service: name={{ items }} state=running
+    with_items:
+       - httpd
+       - dhcpd
+       - ssh

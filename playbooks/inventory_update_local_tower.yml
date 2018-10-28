@@ -11,7 +11,7 @@
     - debug: var=path_out.stdout
 
     - name: Import Inventory from localhost
-      shell: tower-manage inventory_import --inventory-name all_hosts --source {{ local_path }}/inventory
+      shell: tower-manage inventory_import --inventory-name elan_local_hosts --source {{ local_path }}/inventory
       register: import_out
       when: local_path is defined
 

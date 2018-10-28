@@ -1,15 +1,15 @@
 #! /bin/bash
 
-vault_paths=(/home/ansible/inventory/host_vars /home/ansible/group_vars)
+vault_paths=(/home/ansible/inventory/host_vars /home/ansible/group_vars /home/ansible/roles/*/defaults /home/ansible/roles/*/vars /home/ansible/.boto* /home/ansible/.aws)
 
 ansible_vault_encrypt_decrypt () {
 
 for i in ${vault_paths[*]}
 do
-for j in $(ls -1 $i)
+for j in $(find $i -type f)
 do
-echo "$i/$j:"
-ansible-vault $1 --vault-password-file /tmp/vault-pass.$$ $i/$j
+echo "$j:"
+ansible-vault $1 --vault-password-file /tmp/vault-pass.$$ $j
 done
 done
 }

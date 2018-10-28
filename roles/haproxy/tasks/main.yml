@@ -31,10 +31,10 @@
     regexp='ENABLED=0'
     replace='ENABLED=1'
 
-- name: Start haproxy
-  service: name=haproxy state=started enabled=yes
-
 - name: Configuring haproxy.cfg file
   template: src=haproxy.cfg.j2 dest=/etc/haproxy/haproxy.cfg
   notify: Reload haproxy
   tags: configuration
+
+- name: Start haproxy
+  service: name=haproxy state=started enabled=yes

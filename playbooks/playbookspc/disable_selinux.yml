@@ -1,0 +1,7 @@
+---
+-hosts: elan_pc
+ become: yes
+ gather_facts: no
+ task:
+  - name: disable selinux
+    command: /sbin/setenforce 1

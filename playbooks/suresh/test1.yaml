@@ -1,0 +1,11 @@
+---
+
+- hosts: testdemo
+  become: yes
+  tasks:
+  - name: Install https to latest version
+    yum: name=httpd state=latest
+  - name: Install mysql to latest version
+    yum: name=mysql state=latest
+  - name: Install PHP to latest version
+    yum: name=php state=latest

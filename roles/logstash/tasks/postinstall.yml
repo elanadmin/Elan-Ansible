@@ -1,0 +1,9 @@
+---
+
+- name: Wait for LogStash Port
+  wait_for:
+    port: "{{ ls_port }}"
+    delay: 5
+    timeout: 300
+  tags:
+    - postinstall

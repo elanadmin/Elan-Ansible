@@ -5,8 +5,7 @@ elan_haproxy
 elan_apache
 
 [elanlab]
-edallint01.elan.elantecs.com
-edallint24.elan.elantecs.com
+edallint20.elan.elantecs.com
 
 [elan_mysql]
 edalpert01.elan.elantecs.com
@@ -20,29 +19,43 @@ edalpert03.elan.elantecs.com
 
 [elan_apache]
 edallint01.elan.elantecs.com
-edallint03.elan.elantecs.com
 
 [elan_sonar]
 edalpert01.elan.elantecs.com
+
+[elan_nexus]
+edalnexp01.elan.elantecs.com
 
 [test_mysql]
 edallind01.elan.elantecs.com
 
 [elan_tower]
-edallint02.elan.elantecs.com
+edalansp02.elan.elantecs.com
 
 [elan_sk]
+edallint01.elan.elantecs.com folder=/home/elanadmin
+edallint02.elan.elantecs.com folder=/home/elanadmin
+
+[elan_custom]
 edallint01.elan.elantecs.com
 edallint02.elan.elantecs.com
-edallint03.elan.elantecs.com
-edallint24.elan.elantecs.com
-#ec2-13-59-149-101.us-east-2.compute.amazonaws.com
+edalldap01.elan.elantecs.com
+edallinp01.elan.elantecs.com
 
 [elan_pc]
 edallint05.elan.elantecs.com
-edallint03.elan.elantecs.com
-ec2-34-214-135-163.us-west-2.compute.amazonaws.com
 
-[elan_pk]
-#edallint14.elan.elantecs.com
-ec2-34-216-54-114.us-west-2.compute.amazonaws.com
+[elan_sn]
+edallint01.elan.elantecs.com folder=/home/elanadmin
+edallint02.elan.elantecs.com folder=/home/elanadmin
+
+[elan_etcd]
+edalpert01.elan.elantecs.com
+edalpert02.elan.elantecs.com
+edalpert03.elan.elantecs.com
+
+[loaclhost]
+edalansp01.elan.elantecs.com
+
+[testdemo] 
+edallint04.elan.elantecs.com

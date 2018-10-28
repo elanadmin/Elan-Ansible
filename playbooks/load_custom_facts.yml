@@ -1,0 +1,27 @@
+- name: Load Custom Facts from Repository
+  become: true
+  hosts: elan_haproxy
+  gather_facts: true
+
+  tasks:
+
+    - name: ensure custom facts directory exists
+      file: >
+        path=/etc/ansible/facts.d
+        recurse=yes
+        state=directory
+
+    - name: copy custom facts from repository to /etc/ansible/facts.d
+      copy: >
+        src=/home/ansible/custom_facts/
+        dest=/etc/ansible/facts.d/
+        mode=0755
+
+    - name: reload ansible_local
+      setup: filter=ansible_local
+
+    - debug: msg='Testing fact "{{ ansible_local.test123.publicfact }}"'
+
+    - debug: msg='Testing fact "{{ ansible_local.environment.environment }}"'
+
+    - debug: msg='Testing fact "{{ ansible_local.keepalived.keepalived_router_id }}"'

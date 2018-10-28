@@ -1,0 +1,6 @@
+---
+- hosts: test
+  become: yes
+  user: elanadmin
+  roles:
+   - geerlingguy.apache

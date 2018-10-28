@@ -12,6 +12,18 @@
     - ../group_vars/percona
 
   tasks:
+    - name: Check Status of Cluster
+      shell: mysql -e "show status like '%wsrep_cluster%';"
+      register: cluster_status
+      tags:
+        - status
+        - bootstrap
+
+    - debug: var=cluster_status.stdout_lines
+      tags:
+        - status
+        - bootstrap
+
     - name: Boot mysql with bootstrp-pxc
       shell: /etc/init.d/mysql stop && /etc/init.d/mysql bootstrap-pxc
       ignore_errors: yes

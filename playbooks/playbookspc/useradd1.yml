@@ -1,0 +1,9 @@
+---
+- hosts: elan_pc
+  become: yes
+  gather_facts: no
+  tasks:
+  - name: useradd1
+    user:
+     name: test987
+     comment: test987 PC

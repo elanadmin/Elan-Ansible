@@ -1,0 +1,6 @@
+# Install httpd latest Version
+- hosts: testdemo
+  become: yes
+  tasks:
+  - name: install_httpd
+    yum: name=httpd state=absent

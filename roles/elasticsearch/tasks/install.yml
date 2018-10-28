@@ -1,0 +1,22 @@
+--- # Installing ElasticSearch on CentOS machines.
+
+- name: Installing ElasticSearch Packages
+  yum: name={{ item }} state=present update_cache=yes
+  with_items: 
+    - "{{ misc_packages }}"
+    - "{{ es_packages }}"
+  tags: install
+
+- name: Ensure ElasticSearch conf is set
+  template: src=elasticsearch.yml.j2 dest=/etc/elasticsearch/elasticsearch.yml
+  notify: 
+    - Daemon Reload ElasticSearch
+    - Reload ElasticSearch
+  tags: config
+
+- name: Ensure ElasticSearch JVM options are set
+  template: src=jvm.options.j2 dest=/etc/elasticsearch/jvm.options
+  notify:
+    - Daemon Reload ElasticSearch
+    - Reload ElasticSearch
+  tags: config

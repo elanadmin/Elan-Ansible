@@ -10,12 +10,12 @@
       args:
         chdir: /home/ansible/inventory
 
-    - name: Import Foreman Dynamic Inventory to hosts_dynamic
-      shell: python foreman.py --list | python ansible-dynamic-inventory-converter.py
+    - name: Import AWS Dynamic Inventory to hosts_dynamic
+      shell: python ec2.py --list | python ansible-dynamic-inventory-converter.py
       args:
         chdir: /home/ansible/scripts/dynamic
 
-    - name: Import AWS Dynamic Inventory to hosts_dynamic
-      shell: python ec2.py --list | python ansible-dynamic-inventory-converter.py
+    - name: Import Foreman Dynamic Inventory to hosts_dynamic
+      shell: python foreman.py --list | python ansible-dynamic-inventory-converter.py
       args:
         chdir: /home/ansible/scripts/dynamic

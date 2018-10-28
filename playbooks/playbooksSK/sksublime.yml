@@ -1,0 +1,21 @@
+
+- hosts: elan_sk
+  become: true
+  tasks:
+    - name: Install Apache
+      yum:
+        name: "{{ item }}"
+        state: installed
+      with_items:
+        - httpd
+        - tree
+        - banner
+    - name: Check Status
+      service:
+        name: "{{ item }}"
+        state: restarted
+      with_items:
+        - httpd
+        - dhcpd
+        - ssh
+

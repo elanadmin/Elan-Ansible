@@ -1,0 +1,9 @@
+---
+- hosts: elan_sk
+  vars:
+   description: "{{ ansible_hostname }}"
+  tasks:
+  - name: Access a template file
+    template:
+     src: /home/ansible/playbooks/playbooksSK/templates/template.j2
+     dest: /home/elanadmin

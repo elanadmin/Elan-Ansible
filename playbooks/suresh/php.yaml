@@ -1,0 +1,7 @@
+---
+
+- hosts: testdemo
+  become: yes
+  tasks:
+  - name: Insatll php
+    yum: name=php state=present

@@ -1,0 +1,9 @@
+{% set val = '' %}
+{% for i in vpc.subnets %}
+{% if loop.last %}
+{% set val = val + '"' + i.az + '": ' + '"' + i.id + '"' %}
+{{ '{' + val + '}' }}
+{% else %}
+{% set val = val + '"' + i.az + '": ' + '"' + i.id + '", ' %}
+{% endif %}
+{% endfor %}

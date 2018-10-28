@@ -1,10 +1,11 @@
 ---
 
 - hosts: all
-  become: true
-  gather_facts: true
-
   tasks:
 
     - name: Ping Check
       ping:
+
+- hosts: all
+  tasks:
+    - debug: var=ansible_memtotal_mb

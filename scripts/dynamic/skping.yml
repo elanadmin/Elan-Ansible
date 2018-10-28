@@ -1,0 +1,10 @@
+---
+- hosts: all
+  tasks:
+  - name: Ping Check
+    ping:
+
+
+
+
+

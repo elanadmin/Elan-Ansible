@@ -1,0 +1,8 @@
+---
+
+- hosts: testdemo
+  tasks:
+
+    - name: Ping Check
+      ping:
+

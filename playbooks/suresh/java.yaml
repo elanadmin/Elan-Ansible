@@ -1,0 +1,6 @@
+---
+- hosts: testdemo
+  become: yes
+  tasks:
+  - name: Insatll java
+    yum: name=java state=latest
