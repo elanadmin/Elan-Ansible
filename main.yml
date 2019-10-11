@@ -1,7 +1,0 @@
---- 
-- 
-  import_tasks: debian.yml
-  name: "Run this on a debian based operating system"
-- 
-  import_tasks: redhat.yml
-  name: "Run this on redhat based operating system"

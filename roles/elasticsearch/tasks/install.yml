@@ -4,7 +4,7 @@
   yum: name={{ item }} state=present update_cache=yes
   with_items: 
     - "{{ misc_packages }}"
-    - "{{ es_packages }}"
+    - "{{ esh_packages }}"
   tags: install
 
 - name: Ensure ElasticSearch conf is set
@@ -20,3 +20,7 @@
     - Daemon Reload ElasticSearch
     - Reload ElasticSearch
   tags: config
+
+- name: Restart ElasticSearch.
+  service: name=elasticsearch state=restarted
+  tags: ['never', 'restart']

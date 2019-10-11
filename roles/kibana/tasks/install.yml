@@ -2,7 +2,7 @@
 
 - name: Installing Kibana Packages
   yum: name={{ item }} state=present update_cache=yes
-  with_items: "{{ kb_packages }}"
+  with_items: "{{ kba_packages }}"
   tags: install
 
 - name: Ensure Kibana conf is set

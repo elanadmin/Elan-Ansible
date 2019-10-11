@@ -2,10 +2,9 @@
 #Script Written by Rajesh Moturi
 #Script to generate TLS based server certificates for haproxy.
 
+sitename=$1
 
-sitename=${1:-kube-external.elan.elantecs.com}
-
-cpath=$(pwd)
+sitename="edaljenkins.elan.elantecs.com"
 
 if [ -z "$sitename" ];then
 echo -e "Usage : $0 <Target Server FQDN for Certificate>"
@@ -21,7 +20,7 @@ ORGUNIT="Software and Development Engineering"   # Organizational Unit Name (eg.
 EMAIL="rajesh.moturi@elantecs.com"               # certificate's email address
 SITE=$(echo $sitename)
 PASS="el@nadmin12"
-CERTDIR="$(echo $cpath)"
+CERTDIR="/home/ansible/roles/haproxy/files/certs"
 
 # Optional Extra Details
 CHALLENGE=""                                     # challenge password
@@ -37,15 +36,18 @@ touch index.txt
 
 echo -e "\nServer Certs will be generated in $CERTDIR\n"
 
+rm $CERTDIR/privatekey.key
+rm $CERTDIR/default.csr
+
 if [ ! -f "$CERTDIR/privatekey.key" ];then 
 openssl genrsa -out privatekey.key 2048
 fi
 
-if [ ! -f "$CERTDIR/${sitename}.csr" ];then
+if [ ! -f "$CERTDIR/default.csr" ];then
 echo -e "\nGenerating and Self Sign a new server key/cert pair\n"
 cd $CERTDIR
 
-cat <<__EOF__ | openssl req -new -key privatekey.key -sha512 -out ${sitename}.csr
+cat <<__EOF__ | openssl req -new -key privatekey.key -sha512 -out default.csr
 $COUNTRY
 $STATE
 $LOCALITY
@@ -57,18 +59,18 @@ $CHALLENGE
 $COMPANY
 __EOF__
 
-cat <<__EOF__ | openssl x509 -req -in ${sitename}.csr -CA ca_crt.pem -CAkey ca_key.pem -CAcreateserial -out ${sitename}.pem -sha512 -days 3650 -extfile openssl.cnf
+cat <<__EOF__ | openssl x509 -req -in default.csr -CA ca_crt.pem -CAkey ca_key.pem -CAcreateserial -out default.pem -sha512 -days 3650 -extfile openssl.cnf
 y
 y
 __EOF__
 
-cp -rp ${sitename}.pem ${sitename}-onlycert.pem
-cat ca_crt.pem privatekey.key >> ${sitename}.pem
-openssl dhparam -out ${sitename}-dhparam.pem 2048
+cp -rp default.pem defaultonlycert.pem
 
-openssl x509 -in ${sitename}.pem -text -noout
-echo -e "\nSuccessfully Generated the $CERTDIR/privatekey.key $CERTDIR/${sitename}.pem ..\n" | tee /var/log/gen_tls.log
+cat ca_crt.pem privatekey.key >> default.pem
+
+openssl x509 -in default.pem -text -noout
+echo -e "\nSuccessfully Generated the $CERTDIR/privatekey.key $CERTDIR/default.csr ..\n" | tee /var/log/gen_tls.log
 else
-openssl x509 -in ${sitename}.pem -text -noout
-echo -e "\n$CERTDIR/privatekey.key and ${sitename}.pem already exist..\n"
+openssl x509 -in default.pem -text -noout
+echo -e "\n$CERTDIR/privatekey.key and default.pem already exist..\n"
 fi

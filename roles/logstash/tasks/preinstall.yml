@@ -1,5 +1,10 @@
 ---
 
+- name: Check VCPUS
+  debug: msg="VCPUS DETECTED {{ vcpus }}"
+  tags:
+    - preinstall
+
 - name: Add LogStash Repo Key
   rpm_key:
     state: present
@@ -30,3 +35,55 @@
   when: ansible_distribution == 'CentOS' and ansible_distribution_version < '7'
   tags:
     - preinstall
+
+- name: Check LV Created for {{ path_data }}
+  assert:
+    that:
+      - ansible_lvm.lvs.{{ lv_path_data }} is defined
+      - ansible_lvm.lvs.{{ lv_path_data }}.size_g >= '{{ req_fs_size }}'
+  ignore_errors: yes
+  register: lv_free
+  tags:
+    - preinstall
+    - sizes
+
+- name: VG {{ vg_name }} should be over {{ req_fs_size }}G
+  assert:
+    that:
+      - ansible_lvm.vgs.{{ vg_name }} is defined
+      - ansible_lvm.vgs.{{ vg_name }}.free_g >= '{{ req_fs_size }}'
+  when: lv_free is failed
+  ignore_errors: true
+  register: vg_free
+  tags:
+    - preinstall
+    - sizes
+
+- name: VG Check Result
+  fail: msg='VG - {{ vg_name }} Size is NOT enough.'
+  when: vg_free is failed
+  tags:
+    - preinstall
+    - sizes
+
+- name: Create LV {{ lv_path_data }}
+  lvol: vg={{ vg_name }} lv={{ lv_path_data }} size={{ req_fs_size }}G
+  when: lv_free is failed
+  tags:
+    - preinstall
+    - sizes
+
+- name: Create FS {{ lv_path_data }}
+  filesystem: dev=/dev/{{ vg_name }}/{{ lv_path_data }} fstype=ext4 resizefs=yes
+  when: lv_free is failed
+  register: fs_free
+  tags:
+    - preinstall
+    - sizes
+
+- name: Mount {{ lv_path_data }} on {{ path_data }}
+  mount: path={{ path_data }} src=/dev/{{ vg_name }}/{{ lv_path_data }} fstype=ext4 state=mounted boot=yes
+  when: fs_free is succeeded
+  tags:
+    - preinstall
+    - sizes

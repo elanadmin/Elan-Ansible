@@ -36,6 +36,9 @@ touch index.txt
 
 echo -e "\nServer Certs will be generated in $CERTDIR\n"
 
+rm $CERTDIR/privatekey.key
+rm $CERTDIR/default.csr
+
 if [ ! -f "$CERTDIR/privatekey.key" ];then 
 openssl genrsa -out privatekey.key 2048
 fi
@@ -66,7 +69,7 @@ cp -rp default.pem defaultonlycert.pem
 cat ca_crt.pem privatekey.key >> default.pem
 
 openssl x509 -in default.pem -text -noout
-echo -e "\nSuccessfully Generated the $CERTDIR/privatekey.key $CERTDIR/default.pem ..\n" | tee /var/log/gen_tls.log
+echo -e "\nSuccessfully Generated the $CERTDIR/privatekey.key $CERTDIR/default.csr ..\n" | tee /var/log/gen_tls.log
 else
 openssl x509 -in default.pem -text -noout
 echo -e "\n$CERTDIR/privatekey.key and default.pem already exist..\n"

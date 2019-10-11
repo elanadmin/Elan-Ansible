@@ -1,12 +1,32 @@
 ---
-- name: Installing and Configuring ElasticSearch Cluster.
-  hosts: elan_elastic
+- name: Setting Required Facts.
+  hosts: "{{ hosts | default('elan_esh:elan_lsh') }}"
   become: true
   gather_facts: true
 
   tasks:
     - name: Set fact vcpus
       set_fact: vcpus={{ ansible_processor_vcpus }} cacheable=yes
+      tags:
+        - preinstall
 
+- name: Installing and Configuring ElasticSearch Cluster.
+  hosts: "{{ esh_hosts | default('elan_esh') }}"
+  become: true
+  gather_facts: true
   roles: 
-    - role: '../roles/elasticsearch'
+    - { role: ../roles/elasticsearch }
+
+- name: Installing and Configuring LogStash Server.
+  hosts: "{{ lsh_hosts | default('elan_lsh') }}"
+  become: true
+  gather_facts: true
+  roles:
+    - { role: ../roles/logstash }
+
+- name: Installing and Configuring Kibana Server.
+  hosts: "{{ kba_hosts | default('elan_kba') }}"
+  become: true
+  gather_facts: true
+  roles:
+    - { role: ../roles/kibana }

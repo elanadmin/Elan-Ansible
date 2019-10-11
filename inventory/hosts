@@ -59,3 +59,12 @@ edalansp01.elan.elantecs.com
 
 [testdemo] 
 edallint04.elan.elantecs.com
+
+[elan_esh]
+edaleshp01.elan.elantecs.com
+edaleshp02.elan.elantecs.com
+
+[elan_kba]
+edalkbap01.elan.elantecs.com
+[elan_lsh]
+edallshp01.elan.elantecs.com

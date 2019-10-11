@@ -2,7 +2,7 @@
 
 - name: Wait for LogStash Port
   wait_for:
-    port: "{{ ls_port }}"
+    port: "{{ lsh_port }}"
     delay: 5
     timeout: 300
   tags:

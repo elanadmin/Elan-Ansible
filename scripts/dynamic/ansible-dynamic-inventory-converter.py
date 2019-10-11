@@ -32,6 +32,15 @@ def add_vars(_type, _id, variables):
                          fh.write("%s: %s" % ('ansible_ssh_host', _id));
                              
 
+def cleanup_hosts_dir(cleanup_dir_name):
+    for obs_hosts in os.listdir(cleanup_dir_name):
+        cleanup_file_path = os.path.join(cleanup_dir_name, obs_hosts)
+        if os.path.isfile(cleanup_file_path):
+            print ("Removing %s ..." % cleanup_file_path)
+            os.remove(cleanup_file_path)
+        else:
+            print ("Skipping %s ..." % cleanup_file_path)
+
 def add_host_vars(host, variables):
     add_vars('host', host, variables)
 
@@ -39,6 +48,7 @@ def add_group_vars(group, variables):
     add_vars('group', group, variables)
 
 def main():
+
     raw_json = sys.stdin.read()
     inventory = json.loads(raw_json)
 

@@ -2,12 +2,22 @@
 
 - name: Installing LogStash Packages
   yum: name={{ item }} state=present update_cache=yes
-  with_items: "{{ ls_packages }}"
+  with_items: "{{ lsh_packages }}"
   tags: install
+
+- name: Seeting logstash permissions on {{ path_data }}
+  file: path={{ path_data }} owner={{ fs_owner }} group={{ fs_group }} mode={{ fs_mode }}
 
 - name: Ensure LogStash conf is set
   template: src=logstash.conf.j2 dest=/etc/logstash/conf.d/logstash.conf
   notify: 
+    - Daemon Reload LogStash
+    - Reload LogStash
+  tags: config
+
+- name: Ensure LogStash conf is set
+  template: src=logstash.yml.j2 dest=/etc/logstash/logstash.yml
+  notify:
     - Daemon Reload LogStash
     - Reload LogStash
   tags: config
@@ -18,3 +28,7 @@
     - Daemon Reload LogStash
     - Reload LogStash
   tags: config
+
+- name: Restart LogStash.
+  service: name=logstash state=restarted
+  tags: ['never', 'restart']

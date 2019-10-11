@@ -2,7 +2,8 @@
 
 - name: Wait for ElasticSearch Port
   wait_for:
-    port: "{{ es_port }}"
+    host: "{{ ansible_fqdn }}"
+    port: "{{ esh_port }}"
     delay: 5
     timeout: 300
   tags:
@@ -10,14 +11,28 @@
 
 - name: ElasticSearch HealthCheck
   uri:
-    url: http://{{ ansible_fqdn }}:{{ es_port }}
+    url: http://{{ ansible_fqdn }}:{{ esh_port }}
     return_content: yes
   register: esc_hc
   failed_when: "'cluster_name' not in esc_hc.content"
   tags:
     - postinstall
 
+- name: ElasticSearch HealthCheck
+  uri:
+    url: http://{{ ansible_fqdn }}:{{ esh_port }}/_cluster/health?pretty
+    return_content: yes
+  register: esc_hc_pretty
+  failed_when: "'cluster_name' not in esc_hc.content"
+  tags:
+    - postinstall
+
 - name: Print HealthCheck
-  debug: var=esc_hc verbosity=4
+  debug: var=esc_hc
+  tags:
+    - postinstall
+
+- name: Print HealthCheck
+  debug: var=esc_hc_pretty
   tags:
     - postinstall
