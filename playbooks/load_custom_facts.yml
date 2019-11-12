@@ -24,4 +24,4 @@
 
     - debug: msg='Testing fact "{{ ansible_local.environment.environment }}"'
 
-    - debug: msg='Testing fact "{{ ansible_local.keepalived.keepalived_router_id }}"'
+    - debug: msg='Testing fact "{{ ansible_local.keepalived.keepalived_priority }}"'

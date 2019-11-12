@@ -1,0 +1,11 @@
+#!/bin/bash
+
+fqdn=$(hostname -f)
+short=$(echo ${fqdn%%.*})
+
+case $short in
+edal????01 ) echo "{\"keepalived_priority\" : \"100\"}";;
+edal????02 ) echo "{\"keepalived_priority\" : \"101\"}";;
+edal????03 ) echo "{\"keepalived_priority\" : \"102\"}";;
+*         ) echo "{\"keepalived_priority\" : \"103\"}";;
+esac

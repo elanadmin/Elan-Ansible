@@ -64,12 +64,14 @@ frontend https-frontend
         acl sonar hdr(host) -i {{ haproxy_sonar_host }}
         acl gitlab hdr(host) -i {{ haproxy_gitlab_host }}
         acl kibana hdr(host) -i {{ haproxy_kibana_host }}
+        acl awxtower hdr(host) -i {{ haproxy_awxtower_host }}
         use_backend jenkins if jenkins
         use_backend nexus if nexus
         use_backend tomcat if tomcat
         use_backend sonar if sonar
         use_backend gitlab if gitlab
         use_backend kibana if kibana
+        use_backend awxtower if awxtower
         
 backend jenkins
     balance roundrobin
@@ -149,4 +151,12 @@ backend kibana
     option httpchk HEAD / HTTP/1.1\r\nHost:\ {{ haproxy_kibana_host }}
 {% for balancing_server in haproxy_kibana_servers %}
     server {{ balancing_server.name }} {{ balancing_server.ip }}:5601 check
+{% endfor %}
+
+backend awxtower
+    balance roundrobin
+    mode http
+    option httpchk HEAD / HTTP/1.1\r\nHost:\ {{ haproxy_awxtower_host }}
+{% for balancing_server in haproxy_awxtower_servers %}
+    server {{ balancing_server.name }} {{ balancing_server.ip }}:80 check
 {% endfor %}

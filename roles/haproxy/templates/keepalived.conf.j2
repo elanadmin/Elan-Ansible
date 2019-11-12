@@ -14,7 +14,7 @@ vrrp_instance mysql-vIP {
    interface {{ keepalived_bind_interface }}                # interface to monitor
    virtual_router_id {{ keepalived_router_id }}             # Assign one ID for this route
    {% if keepalived_role.lower() == "master" %}
-    priority {{ keepalived_priority }}
+    priority {{ ansible_local.keepalived.keepalived_priority }}
     {% else %}
     priority {{ keepalived_backup_priority }}
    {% endif %}

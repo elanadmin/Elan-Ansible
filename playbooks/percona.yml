@@ -15,6 +15,7 @@
     - name: Check Status of Cluster
       shell: mysql -e "show status like '%wsrep_cluster%';"
       register: cluster_status
+      ignore_errors: yes
       tags:
         - status
         - bootstrap

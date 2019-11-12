@@ -4,4 +4,4 @@
   service: name=haproxy state=restarted
 
 - name: Reload keepalived
-  service: name=keepalived state=reloaded
+  service: name=keepalived state=restarted
