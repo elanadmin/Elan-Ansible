@@ -1,21 +1,29 @@
 ---
-- hosts: elan_tower
+- hosts: localhost
   become: yes
-  become_user: awx
+  become_user: "{{ run_user | default('awx') }}"
 
   tasks:
-    - name: Check the path and files
-      shell: pwd && ls -al
+    - debug:
+        msg: Running as {{ run_user }}
+      when: run_user is defined
+
+    - name: Check the path
+      shell: pwd
       register: path_out
 
-    - debug: var=path_out.stdout
+    - name: Check the Server
+      shell: hostname -f
+      register: server_out
+
+    - debug:
+        msg: Running from {{ path_out.stdout }} on {{ server_out.stdout }}
 
     - name: Import Inventory from localhost
-      shell: awx-manage inventory_import --inventory-name elan_local_inventory_files --source {{ local_path }}/inventory
+      shell: awx-manage inventory_import --inventory-name elan_local_inventory_files --source "{{ local_path }}"
       register: import_out
       when: local_path is defined
 
     - debug: msg="Please define local_path in the ExtraVariables of this Job Template"
-      when: local_path is not defined
 
     - debug: var=import_out.stderr
