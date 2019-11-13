@@ -5,6 +5,10 @@
   gather_facts: false
 
   tasks:
+    - debug:
+        msg: Running as {{ run_user }}
+      when: run_user is defined
+
     - name: Cleanup the hosts_dynamic
       shell: cat /dev/null > hosts_dynamic
       args:
