@@ -1,14 +1,23 @@
 ---
-- hosts: elan_tower
+- hosts: localhost
   become: yes
   become_user: awx
 
   tasks:
-    - name: Check the path and files
-      shell: pwd && ls -al
+    - debug:
+        msg: Running as {{ run_user }}
+      when: run_user is defined
+
+    - name: Check the path
+      shell: pwd
       register: path_out
 
-    - debug: var=path_out.stdout
+    - name: Check the Server
+      shell: hostname -f
+      register: server_out
+
+    - debug:
+        msg: Running from {{ path_out.stdout }} on {{ server_out.stdout }} with {{ lookup('env','PATH') }} using {{ ansible_playbook_python }}
 
     - name: Import Inventory from Foreman
       shell: awx-manage inventory_import --inventory-name elan_foreman_hosts --source {{ clone_path }}/foreman.py
