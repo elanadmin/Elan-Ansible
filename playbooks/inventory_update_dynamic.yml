@@ -1,7 +1,7 @@
 ---
 - hosts: localhost
   become: yes
-  become_user: ansible
+  become_user: "{{ run_user | default('ansible') }}"
   gather_facts: false
 
   tasks:
@@ -16,6 +16,6 @@
 #        chdir: /home/ansible/scripts/dynamic
 
     - name: Import Foreman Dynamic Inventory to hosts_dynamic
-      shell: python foreman.py --list | python ansible-dynamic-inventory-converter.py
+      shell: python2 foreman.py --list | python2 ansible-dynamic-inventory-converter.py
       args:
         chdir: /home/ansible/scripts/dynamic
