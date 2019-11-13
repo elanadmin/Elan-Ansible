@@ -9,6 +9,17 @@
         msg: Running as {{ run_user }}
       when: run_user is defined
 
+    - name: Check the path
+      shell: pwd
+      register: path_out
+
+    - name: Check the Server
+      shell: hostname -f
+      register: server_out
+
+    - debug:
+        msg: Running from {{ path_out.stdout }} on {{ server_out.stdout }}
+
     - name: Cleanup the hosts_dynamic
       shell: cat /dev/null > hosts_dynamic
       args:
