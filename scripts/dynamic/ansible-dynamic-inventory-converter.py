@@ -58,7 +58,7 @@ def main():
    
     inventory_filename = "/home/ansible/inventory/hosts_dynamic"
 
-    host_groups = ["ec2", "foreman_hostgroup_elanproduction", "foreman_hostgroup_elantest", "foreman_hostgroup_elandevelopment"]
+    host_groups = ["all", "ec2", "foreman_hostgroup_elanproduction", "foreman_hostgroup_elantest", "foreman_hostgroup_elandevelopment"]
 
     with open(inventory_filename, 'a') as fh:
         for group in inventory:
