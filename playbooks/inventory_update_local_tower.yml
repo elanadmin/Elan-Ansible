@@ -8,7 +8,7 @@
         msg: Running as {{ run_user }}
       when: run_user is defined
 
-    - name: Check the path
+    - name: Check the Current Path
       shell: pwd
       register: path_out
 
@@ -17,7 +17,7 @@
       register: server_out
 
     - debug:
-        msg: Running from {{ path_out.stdout }} on {{ server_out.stdout }}
+        msg: Running from {{ path_out.stdout }} on {{ server_out.stdout }} with {{ lookup('env','HOME') }} using {{ ansible_playbook_python }}
 
     - name: Import Inventory from localhost
       shell: awx-manage inventory_import --inventory-name elan_local_inventory_files --source "{{ local_path }}"
