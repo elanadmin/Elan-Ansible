@@ -17,7 +17,7 @@
       register: server_out
 
     - debug:
-        msg: Running from {{ path_out.stdout }} on {{ server_out.stdout }} with {{ lookup('env','HOME') }} using {{ ansible_playbook_python }}
+        msg: Running from {{ path_out.stdout }} on {{ server_out.stdout }} with {{ lookup('env','PATH') }} using {{ ansible_playbook_python }}
 
     - name: Import Inventory from localhost
       shell: awx-manage inventory_import --inventory-name elan_local_inventory_files --source "{{ local_path }}"
