@@ -23,14 +23,14 @@
     - name: Cleanup the hosts_dynamic
       shell: cat /dev/null > hosts_dynamic
       args:
-        chdir: /home/ansible/inventory
+        chdir: ../inventory
 
 #    - name: Import AWS Dynamic Inventory to hosts_dynamic
 #      shell: python ec2.py --list | python ansible-dynamic-inventory-converter.py
 #      args:
-#        chdir: /home/ansible/scripts/dynamic
+#        chdir: ../scripts/dynamic
 
     - name: Import Foreman Dynamic Inventory to hosts_dynamic
       shell: python2 foreman.py --list | python2 ansible-dynamic-inventory-converter.py
       args:
-        chdir: /home/ansible/scripts/dynamic
+        chdir: ../scripts/dynamic
