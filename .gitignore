@@ -13,3 +13,4 @@ foreman.ini
 .boto3
 .aws
 *.gz
+~/.ansible.cfg
