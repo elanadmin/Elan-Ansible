@@ -31,6 +31,6 @@
 #        chdir: ../scripts/dynamic
 
     - name: Import Foreman Dynamic Inventory to hosts_dynamic
-      shell: python2 foreman.py --list | python2 ansible-dynamic-inventory-converter.py
+      shell: python foreman.py --list | python ansible-dynamic-inventory-converter.py
       args:
         chdir: ../scripts/dynamic
