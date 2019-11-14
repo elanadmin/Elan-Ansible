@@ -63,7 +63,7 @@ def main():
     with open(inventory_filename, 'a') as fh:
         for group in inventory:
             if group == "_meta":
-                for host, variables in inventory[group]["hostvars"].items():
+                for host, variables in inventory[group]["hostvars"].iteritems():
                     add_host_vars(host, variables)
             if "vars" in inventory[group]:
                 add_group_vars(group, inventory[group]["vars"])
