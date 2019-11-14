@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python2
 
 # Converts Ansible dynamic inventory sources to static files
 # Input is received via stdin from the dynamic inventory file

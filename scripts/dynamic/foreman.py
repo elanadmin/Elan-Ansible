@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python2
 # vim: set fileencoding=utf-8 :
 #
 # Copyright (C) 2016 Guido Günther <agx@sigxcpu.org>,
