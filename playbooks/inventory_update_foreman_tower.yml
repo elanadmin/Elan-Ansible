@@ -19,6 +19,9 @@
     - debug:
         msg: Running from {{ path_out.stdout }} on {{ server_out.stdout }} with {{ lookup('env','PATH') }} using {{ ansible_playbook_python }}
 
+    - name: Inventory Create in Foreman
+      shell: tower-cli inventory create --name elan_foreman_hosts --organization {{ awx_org }}
+
     - name: Import Inventory from Foreman
       shell: awx-manage inventory_import --inventory-name elan_foreman_hosts --source {{ clone_path }}/foreman.py
       register: import_out
