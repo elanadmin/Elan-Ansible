@@ -63,6 +63,7 @@ def main():
     host_groups = ["ec2", "foreman_hostgroup_elanproduction", "foreman_hostgroup_elantest", "foreman_hostgroup_elandevelopment"]
 
     with open(inventory_filename, 'a') as fh:
+        fh.truncate(0)
         for group in inventory:
             if group == "_meta":
                 for host, variables in inventory[group]["hostvars"].iteritems():
