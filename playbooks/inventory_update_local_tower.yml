@@ -19,6 +19,14 @@
     - debug:
         msg: Running from {{ path_out.stdout }} on {{ server_out.stdout }} using {{ ansible_playbook_python }}
 
+    - name: Import Foreman Dynamic Inventory to hosts_dynamic
+      shell: python foreman.py --list | python ansible-dynamic-inventory-converter.py
+      args:
+        chdir: ../scripts/dynamic
+
+    - name: Auto Push the Changes
+      shell: git add -A;git commit -a -m "Auto Push from AWX";git push origin master
+
     - name: Inventory Create in Foreman
       shell: tower-cli inventory create --name elan_local_inventory_files --organization {{ awx_org }}
 
