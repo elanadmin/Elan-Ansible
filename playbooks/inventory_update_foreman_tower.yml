@@ -19,6 +19,25 @@
     - debug:
         msg: Running from {{ path_out.stdout }} on {{ server_out.stdout }} with {{ lookup('env','PATH') }} using {{ ansible_playbook_python }}
 
+    - name: Cleanup the hosts_dynamic
+      shell: cat /dev/null > hosts_dynamic
+      args:
+        chdir: ../inventory
+
+    - name: Setfacl for Ansible
+      shell: setfacl -m u:ansible:rwx /var/lib/awx/projects
+      ignore_errors: true
+
+#    - name: Import AWS Dynamic Inventory to hosts_dynamic
+#      shell: python ec2.py --list | python ansible-dynamic-inventory-converter.py
+#      args:
+#        chdir: ../scripts/dynamic
+
+    - name: Import Foreman Dynamic Inventory to hosts_dynamic
+      shell: python foreman.py --list | python ansible-dynamic-inventory-converter.py
+      args:
+        chdir: ../scripts/dynamic
+
     - name: Inventory Create in Foreman
       shell: tower-cli inventory create --name elan_foreman_hosts --organization {{ awx_org }}
 

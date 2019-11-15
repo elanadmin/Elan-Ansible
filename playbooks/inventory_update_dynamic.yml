@@ -29,10 +29,10 @@
       shell: setfacl -m u:ansible:rwx /var/lib/awx/projects
       ignore_errors: true
 
-#    - name: Import AWS Dynamic Inventory to hosts_dynamic
-#      shell: python ec2.py --list | python ansible-dynamic-inventory-converter.py
-#      args:
-#        chdir: ../scripts/dynamic
+    - name: Import AWS Dynamic Inventory to hosts_dynamic
+      shell: python ec2.py --list | python ansible-dynamic-inventory-converter.py
+      args:
+        chdir: ../scripts/dynamic
 
     - name: Import Foreman Dynamic Inventory to hosts_dynamic
       shell: python foreman.py --list | python ansible-dynamic-inventory-converter.py
