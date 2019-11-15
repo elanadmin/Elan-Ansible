@@ -2,6 +2,6 @@
 
 - name: Adding Hostentries Appropriately
   hosts: elanlab
-  sudo: yes
+  become: true
   roles:
     - ../roles/hostentries
