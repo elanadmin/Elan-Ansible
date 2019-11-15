@@ -39,7 +39,7 @@
         chdir: ../scripts/dynamic
 
     - name: Auto Push the Changes
-      shell: git add -A . && git commit -a -m "Auto Push from AWX" && git push origin master
+      shell: cd $HOME/projects/_[0-9][0-9]__elan_ansible && git add -A . && git commit -a -m "Auto Push from AWX" && git push origin master
 
     - name: Inventory Create in Foreman
       shell: tower-cli inventory create --name elan_foreman_hosts --organization {{ awx_org }}
