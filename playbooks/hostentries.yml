@@ -1,7 +1,7 @@
 ---
 
 - name: Adding Hostentries Appropriately
-  hosts: elanlab
+  hosts: elan_lab
   become: true
   roles:
     - ../roles/hostentries

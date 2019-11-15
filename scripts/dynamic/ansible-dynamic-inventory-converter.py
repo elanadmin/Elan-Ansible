@@ -58,7 +58,9 @@ def main():
    
     inventory_filename = "/home/ansible/inventory/hosts_dynamic"
 
-    host_groups = ["all", "ec2", "foreman_hostgroup_elanproduction", "foreman_hostgroup_elantest", "foreman_hostgroup_elandevelopment"]
+    all_hosts = ["all"]
+
+    host_groups = ["ec2", "foreman_hostgroup_elanproduction", "foreman_hostgroup_elantest", "foreman_hostgroup_elandevelopment"]
 
     with open(inventory_filename, 'a') as fh:
         for group in inventory:
@@ -67,6 +69,11 @@ def main():
                     add_host_vars(host, variables)
             if "vars" in inventory[group]:
                 add_group_vars(group, inventory[group]["vars"])
+            if group in all_hosts:
+                fh.write("[elan_lab]\n") 
+                for host in inventory[group]:
+                    fh.write("%s\n" % host)
+                fh.write("\n")
             if group in host_groups:
                 fh.write("[%s]\n" % group)
                 for host in inventory[group]:
