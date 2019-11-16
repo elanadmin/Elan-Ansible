@@ -20,15 +20,17 @@
         msg: Running from {{ path_out.stdout }} on {{ server_out.stdout }} with {{ lookup('env','PATH') }} using {{ ansible_playbook_python }}
 
     - name: find the awx project dir
-      find: paths=/var/lib/awx file_type=directory use_regex=yes patterns=['^_[0-9]{2,4}__*ansible$']
+      find:
+        paths: /var/lib/awx/projects
+        file_type: directory
+        use_regex: yes
+        patterns: ['^_[0-9]{1,2}__.*_ansible$']
       register: awx_project_dir
 
-    - name: create symlink /home/ansible
-      file: src={{ awx_project_dir }} dest=/home/ansible state=link
+    - debug: var=awx_project_dir.files[0].path
 
-    - name: setfacl for ansible
-      shell: setfacl -m u:ansible:rwx /var/lib/awx/projects
-      ignore_errors: true
+    - name: create symlink /home/ansible
+      file: src={{ awx_project_dir.files[0].path }} dest=/home/ansible state=link
 
 #    - name: Import AWS Dynamic Inventory to hosts_dynamic
 #      shell: python ec2.py --list | python ansible-dynamic-inventory-converter.py
