@@ -32,6 +32,10 @@
     - name: create symlink /home/ansible
       file: src={{ awx_project_dir.files[0].path }} dest=/home/ansible state=link
 
+    - name: setfacl for ansible
+      shell: setfacl -m u:ansible:rwx /var/lib/awx/projects
+      ignore_errors: true
+
 #    - name: Import AWS Dynamic Inventory to hosts_dynamic
 #      shell: python ec2.py --list | python ansible-dynamic-inventory-converter.py
 #      args:
