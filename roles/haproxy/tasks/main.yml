@@ -31,6 +31,9 @@
     regexp='ENABLED=0'
     replace='ENABLED=1'
 
+- name: Create /etc/haproxy/conf.d
+  file: path=/etc/haproxy/conf.d state=directory mode=755
+
 - name: Configuring haproxy.cfg file
   template: src=haproxy.cfg.j2 dest=/etc/haproxy/haproxy.cfg
   notify: Reload haproxy

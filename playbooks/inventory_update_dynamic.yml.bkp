@@ -25,14 +25,9 @@
       args:
         chdir: ../inventory
 
-    - name: check /var/lib/awx/projects exists
-      stat:
-        path: /var/lib/awx/projects 
-      register: path_stat
-
     - name: Setfacl for Ansible
       shell: setfacl -m u:ansible:rwx /var/lib/awx/projects
-      when: path_stat.stat.exists
+      ignore_errors: true
 
     - name: Import AWS Dynamic Inventory to hosts_dynamic
       shell: python ec2.py --list | python ansible-dynamic-inventory-converter.py
