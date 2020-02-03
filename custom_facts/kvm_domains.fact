@@ -1,0 +1,13 @@
+#!/usr/bin/python
+
+from subprocess import Popen, PIPE
+
+def list_vms():
+    cmdline = ["virsh list --all | tail -n +2 | awk '{print $2}' | sed '/^$/d'"]
+    run = Popen(args=cmdline, stdout=PIPE, shell=True)
+    virsh = run.communicate()[0].split("\n")
+    virsh = filter(None, virsh)
+    return virsh
+
+if __name__=="__main__":
+    print ("{\"virtual_vms\" : \"%s\"}" % list_vms())

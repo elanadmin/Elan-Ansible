@@ -1,0 +1,29 @@
+--- 
+# Trigger Puppet
+
+- hosts: elan_chef
+  become: true
+  gather_facts: yes
+  tasks:
+
+   - name: Remove Chef Node.
+     shell: knife node delete {{ item }} --yes
+     ignore_errors: true
+     with_items: "{{ nodes }}"
+     register: chef_node_run
+     when: nodes is defined
+
+   - name: Remove Chef Client.
+     shell: knife client delete {{ item }} --yes
+     ignore_errors: true
+     with_items: "{{ nodes }}"
+     register: chef_client_run
+     when: nodes is defined
+
+   - debug:
+       msg: "Chef Node delete Failed ..."
+     when: chef_node_run.rc != 0
+
+   - debug:
+       msg: "Chef Node delete Failed ..."
+     when: chef_node_client.rc != 0

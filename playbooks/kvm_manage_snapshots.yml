@@ -1,0 +1,41 @@
+--- 
+# KVM Manage Snapshots
+
+- hosts: elan_kvm
+  become: true
+  gather_facts: yes
+  vars_files: 
+    - ../group_vars/kvmsnaps
+  tasks:
+
+   - name: Ensure Firewall is stopped
+     service: name=firewalld state=stopped enabled=no
+     when: ansible_distribution == 'CentOS' and ansible_distribution_version >= '7'
+     tags: disable_firewall
+
+   - name: Ensure Firewall is stopped
+     service: name=iptables state=stopped enabled=no
+     when: ansible_distribution == 'CentOS' and ansible_distribution_version < '7'
+     tags: disable_firewall
+
+   - name: Check if the Disk Format is QCOW2.
+     shell: virsh dumpxml {{ item }} | grep -i hello
+     with_items: "{{ ansible_local.kvm_domains.virtual_vms }}"
+     ignore_errors: true
+     register: qemu_enabled
+
+   - debug: var=qemu_enabled.results[0].stdout_lines
+
+   - debug:
+       msg: "Snapshotting is not Possible for Some VM's..."
+     when: qemu_enabled.results[0].rc != 0
+
+   - name: Check the Current Snapshots for VM's.
+     shell: virsh snapshot-list --domain {{ item }}
+     with_items: "{{ ansible_local.kvm_domains.virtual_vms }}"
+     tags:
+       - check
+
+  handlers:
+    - name: Restart Libvirtd
+      action: service name=libvirtd state=restarted

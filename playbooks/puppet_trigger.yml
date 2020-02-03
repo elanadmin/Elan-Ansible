@@ -1,0 +1,29 @@
+--- 
+# Trigger Puppet
+
+- hosts: "mons:osds"
+  become: true
+  gather_facts: yes
+  tasks:
+
+   - name: Trigger Puppet Run WithOut Tags.
+     shell: puppet agent -t
+     ignore_errors: true
+     when: tags is not defined
+     register: puppet_run
+
+   - name: Trigger Puppet Run With Tags.
+     shell: puppet agent -t --tags {{ tags }}
+     ignore_errors: true
+     when: tags is defined
+     register: puppet_run
+
+   - debug: var=puppet_run.stdout_lines
+
+   - debug:
+       msg: "Puppet Run Failed ..."
+     when: puppet_run.rc != 2
+
+  handlers:
+    - name: Restart Puppet
+      action: service name=puppet state=restarted
