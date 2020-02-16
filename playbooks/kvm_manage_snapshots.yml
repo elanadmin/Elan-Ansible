@@ -8,6 +8,28 @@
     - ../group_vars/kvmsnaps
   tasks:
 
+   - name: Get TimesTamp from Node.
+     shell: "date +%Y%m%d_%H%M%S"
+     register: dandt
+     tags: always
+
+   - name: Set Time for Snapshot.
+     set_fact: curr_dandt="{{ dandt }}"
+     tags: always
+
+   - set_fact: snap_size="4G"
+     when: snap_size is undefined
+     tags: always
+
+   - set_fact: vg_name="vg-kvm"
+     when: vg_name is undefined
+     tags: always
+
+   - name: System Timestamp - Date
+     debug: 
+       msg: "Current date and timestamp: {{ curr_dandt }}"
+     tags: always
+
    - name: Ensure Firewall is stopped
      service: name=firewalld state=stopped enabled=no
      when: ansible_distribution == 'CentOS' and ansible_distribution_version >= '7'
@@ -18,23 +40,52 @@
      when: ansible_distribution == 'CentOS' and ansible_distribution_version < '7'
      tags: disable_firewall
 
-   - name: Check if the Disk Format is QCOW2.
-     shell: virsh dumpxml {{ item }} | grep -i hello
+   - name: Check if the LV Exists for VM's.
+     shell: lvs -o name | grep "{{ item }}.*disk1"
      with_items: "{{ ansible_local.kvm_domains.virtual_vms }}"
      ignore_errors: true
-     register: qemu_enabled
+     register: lvm_vms
+     tags:
+       - check
+       - snapshot
 
-   - debug: var=qemu_enabled.results[0].stdout_lines
+   - name: Results if LV Exists for VM's.
+     debug: var=lvm_vms.results[0].stdout_lines
+     tags: always
 
    - debug:
        msg: "Snapshotting is not Possible for Some VM's..."
-     when: qemu_enabled.results[0].rc != 0
+     when: lvm_vms.results[0].rc != 0
+     tags: always
 
    - name: Check the Current Snapshots for VM's.
-     shell: virsh snapshot-list --domain {{ item }}
+     shell: lvs | grep "{{ item }}.*snapshot.*"
      with_items: "{{ ansible_local.kvm_domains.virtual_vms }}"
+     ignore_errors: true
+     register: lvm_snaps
      tags:
        - check
+       - snapshot
+
+   - name: Results if LVM snapshots Exists.
+     debug: var=lvm_snaps.results
+     tags: always
+
+   - name: Take Snapshot of LVM VM.
+     shell: echo lvcreate -L "{{ snap_size }}" -s -n /dev/"{{ vg_name }}"/{{ item }}-snapshot-"{{ curr_dandt }}" /dev/vg-kvm/{{ item }}-disk1
+     with_items: "{{ ansible_local.kvm_domains.virtual_vms }}"
+     register: lvm_snaps_create
+     when: action == "snapshot" and lvm_snaps.results[0].rc != 0
+     tags:
+       - snapshot
+
+   - name: Take Snapshot of LVM VM.
+     shell: echo lvcreate -L "{{ snap_size }}" -s -n /dev/"{{ vg_name }}"/{{ item }}-snapshot-"{{ curr_dandt }}" /dev/vg-kvm/{{ item }}-disk1
+     with_items: "{{ ansible_local.kvm_domains.virtual_vms }}"
+     register: lvm_snaps_create
+     when: action == "snapshot" and lvm_snaps.results[0].rc != 0
+     tags:
+       - snapshot
 
   handlers:
     - name: Restart Libvirtd

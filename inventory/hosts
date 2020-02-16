@@ -71,10 +71,10 @@ edalkbap01.elan.elantecs.com
 edallshp01.elan.elantecs.com
 
 [elan_kvm]
-edalcosp01.elan.elantecs.com
-edalcosp02.elan.elantecs.com
-edalcmnp01.elan.elantecs.com
-edalcmnp02.elan.elantecs.com
+edalkvmp01.elan.elantecs.com
+edalkvmp02.elan.elantecs.com
+edalkvmp03.elan.elantecs.com
+edalkvmp04.elan.elantecs.com
 
 [elan_chef]
 edalansp01.elan.elantecs.com

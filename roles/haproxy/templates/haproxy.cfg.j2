@@ -69,7 +69,6 @@ frontend https-frontend
         use_backend nexus if nexus
         use_backend tomcat if tomcat
         use_backend sonar if sonar
-        use_backend gitlab if gitlab
         use_backend kibana if kibana
         use_backend awxtower if awxtower
         
@@ -119,14 +118,6 @@ backend etcd
     option tcplog
 {% for balancing_server in haproxy_etcd_servers %}
     server {{ balancing_server.name }} {{ balancing_server.ip }}:2379 check
-{% endfor %}
-
-backend gitlab
-    balance roundrobin
-    mode http
-    option httpchk HEAD / HTTP/1.1\r\nHost:\ {{ haproxy_gitlab_host }}
-{% for balancing_server in haproxy_gitlab_servers %}
-    server {{ balancing_server.name }} {{ balancing_server.ip }}:80 check
 {% endfor %}
 
 backend ldapsv-tls
