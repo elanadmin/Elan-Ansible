@@ -1,29 +1,51 @@
---- # Install and start HTTPD
-- hosts: elanlab
+--- 
+# Install and start HTTPD
+- hosts: elan_httpd
   become: true
   gather_facts: yes
   vars_files: 
     - conf/webdefaults.yml
   tasks:
 
-   - name: Install HTTPD
-     yum: name=httpd state=latest
+   - name: Disable Firewall
+     service: name=firewalld state=stopped enabled=false
+     when: ansible_distribution == 'CentOS' and ansible_distribution_version >= '7'
+     tags: firewall
 
-   - name: Start Service
-     service: name=httpd state=started
+   - name: Disable Iptables
+     service: name=iptables state=stopped enabled=false
+     when: ansible_distribution == 'CentOS' and ansible_distribution_version <= '6.10'
+     tags: firewall
+    
+   - name: Enable Base Repository
+     shell: yum-config-manager --enable base
+     when: ansible_distribution == 'CentOS' and ansible_distribution_version >= '5'
+     tags: install
+
+   - name: Install httpd
+     yum: name=httpd state=latest
+     tags: install
 
    - name: Prepare index.html
      template: src=../templates/index.html.j2 dest=/var/www/html/index.html
      notify: Restart HTTPD
+     tags: config
 
-   - name: verify service is running
-     command: service httpd status
-     register: result
+   - name: Validating Configuration
+     shell: httpd -t 
+     tags: config
 
-   - name: Install {{ pkg_lynx}} Web browser
+   - name: Start Service
+     service: name=httpd state=started
+     tags: install
+
+   - name: verify Port is Listening
+     wait_for: port=80 delay=5 timeout=300
+     tags: install
+
+   - name: Install pkg_lynx Web browser
      yum: name={{ pkg_lynx }} state=installed
-
-   - debug: var=result
+     tags: install
 
   handlers:
     - name: Restart HTTPD

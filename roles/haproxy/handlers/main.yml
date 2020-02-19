@@ -5,3 +5,6 @@
 
 - name: Reload keepalived
   service: name=keepalived state=restarted
+
+- name: Reload sysctl
+  shell: sysctl --system

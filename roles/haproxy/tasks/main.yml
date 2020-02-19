@@ -19,6 +19,12 @@
   notify: Reload keepalived
   tags: configuration 
 
+- name: Copy sysctl params
+  copy: src=files/10-haproxy.conf dest=/etc/sysctl.d/
+  notify: Reload sysctl
+
+- meta: flush_handlers
+
 - name: Copy SSL Certificates if required
   copy: src=files/certs/ dest=/etc/haproxy/certs.d/
   notify: Reload haproxy

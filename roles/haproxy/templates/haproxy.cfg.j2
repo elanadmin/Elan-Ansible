@@ -39,11 +39,6 @@ frontend http-frontend
     mode http
     redirect scheme https if !{ ssl_fc }
 
-frontend etcd-frontend
-    bind {{ haproxy_bind_address }}:2379
-    mode tcp
-    use_backend etcd
-
 frontend ldapsv-tls-frontend
     bind {{ haproxy_bind_address }}:636
     mode tcp
@@ -110,14 +105,6 @@ backend sonar
     option httpchk HEAD / HTTP/1.1\r\nHost:\ {{ haproxy_sonar_host }}
 {% for balancing_server in haproxy_sonar_servers %}
     server {{ balancing_server.name }} {{ balancing_server.ip }}:9000 check
-{% endfor %}
-
-backend etcd
-    balance roundrobin
-    mode tcp
-    option tcplog
-{% for balancing_server in haproxy_etcd_servers %}
-    server {{ balancing_server.name }} {{ balancing_server.ip }}:2379 check
 {% endfor %}
 
 backend ldapsv-tls
