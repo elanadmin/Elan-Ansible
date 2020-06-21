@@ -1,0 +1,95 @@
+# SAMPLE CONFIG SNIPPETS FOR APACHE WEB SERVER
+#
+# This file contains examples of entries that need
+# to be incorporated into your Apache web server
+# configuration file.  Customize the paths, etc. as
+# needed to fit your system.
+
+###
+RewriteEngine On
+# redirect HTTP to HTTPS
+RewriteRule ^/$ https://%{HTTP_HOST}/nagios/$1 [R=301,L]
+RewriteRule ^(nagios/.*)$ https://%{HTTP_HOST}$1 [R=301,L]
+
+ScriptAlias /nagios/cgi-bin/ "/usr/lib64/nagios/cgi-bin/"
+
+<Directory "/usr/lib64/nagios/cgi-bin/">
+   SSLRequireSSL
+   Options ExecCGI
+   AllowOverride None
+
+{% if nagios_ldap_enable %}
+   AuthName "Nagios Dashboard with LDAP Auth"
+   AuthType Basic
+   AuthBasicProvider ldap
+   AuthLDAPURL {{ ldap_scheme }}://{{ ldap_server }}:{{ ldap_port }}/{{ ldap_search_dn }}?uid
+   AuthLDAPBindDN {{ ldap_bind_dn }}
+   AuthLDAPBindPassword "{{ ldap_bind_password }}"
+   AuthLDAPGroupAttribute memberUid
+   AuthLDAPGroupAttributeIsDN off
+{% else %}
+   AuthName "Nagios Access"
+   AuthType Basic
+   AuthUserFile /etc/nagios/passwd
+{% endif %}
+
+   <IfModule mod_authz_core.c>
+      # Apache 2.4
+      <RequireAll>
+         Require all granted
+         # Require local
+         Require valid-user
+      </RequireAll>
+   </IfModule>
+   <IfModule !mod_authz_core.c>
+      # Apache 2.2
+      Order allow,deny
+      Allow from all
+      #  Order deny,allow
+      #  Deny from all
+      #  Allow from 127.0.0.1
+      Require valid-user
+   </IfModule>
+</Directory>
+
+# use an alias for nagios
+Alias /nagios "/usr/share/nagios/html"
+
+<Directory "/usr/share/nagios/html">
+   SSLRequireSSL
+   Options None
+   AllowOverride None
+
+{% if nagios_ldap_enable %}
+   AuthName "Nagios Dashboard with LDAP Auth"
+   AuthType Basic
+   AuthBasicProvider ldap
+   AuthLDAPURL {{ ldap_scheme }}://{{ ldap_server }}:{{ ldap_port }}/{{ ldap_search_dn }}?uid
+   AuthLDAPBindDN {{ ldap_bind_dn }}
+   AuthLDAPBindPassword "{{ ldap_bind_password }}"
+   AuthLDAPGroupAttribute memberUid
+   AuthLDAPGroupAttributeIsDN off
+{% else %}
+   AuthName "Nagios Access"
+   AuthType Basic
+   AuthUserFile /etc/nagios/passwd
+{% endif %}
+
+   <IfModule mod_authz_core.c>
+      # Apache 2.4
+      <RequireAll>
+         Require all granted
+         # Require local
+         Require valid-user
+      </RequireAll>
+   </IfModule>
+   <IfModule !mod_authz_core.c>
+      # Apache 2.2
+      Order allow,deny
+      Allow from all
+      #  Order deny,allow
+      #  Deny from all
+      #  Allow from 127.0.0.1
+      Require valid-user
+   </IfModule>
+</Directory>

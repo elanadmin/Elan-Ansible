@@ -1,4 +1,5 @@
---- # MYSQL_DB MODULE DEMO
+---
+ # MYSQL_DB MODULE DEMO
 
 - hosts: test_mysql 
   ansible_user: ansible

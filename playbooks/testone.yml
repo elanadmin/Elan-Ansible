@@ -1,0 +1,13 @@
+---
+ - hosts: edallint8.elan.elantecs.com
+   user: root
+   vars: 
+   tasks: 'Welcome to Elan Technologies' 
+   - name: sample motd
+     copy: 
+      dest: /home/motd
+      content: "{{ motd_welcome }}"
+
+
+
+

@@ -98,23 +98,23 @@
         "splash": "quiet"
     }, 
     "ansible_date_time": {
-        "date": "2020-02-06", 
-        "day": "06", 
-        "epoch": "1581013257", 
+        "date": "2020-02-19", 
+        "day": "19", 
+        "epoch": "1582137698", 
         "hour": "18", 
-        "iso8601": "2020-02-06T18:20:57Z", 
-        "iso8601_basic": "20200206T182057980220", 
-        "iso8601_basic_short": "20200206T182057", 
-        "iso8601_micro": "2020-02-06T18:20:57.980350Z", 
-        "minute": "20", 
+        "iso8601": "2020-02-19T18:41:38Z", 
+        "iso8601_basic": "20200219T184138564038", 
+        "iso8601_basic_short": "20200219T184138", 
+        "iso8601_micro": "2020-02-19T18:41:38.564174Z", 
+        "minute": "41", 
         "month": "02", 
-        "second": "57", 
-        "time": "18:20:57", 
+        "second": "38", 
+        "time": "18:41:38", 
         "tz": "UTC", 
         "tz_offset": "+0000", 
-        "weekday": "Thursday", 
-        "weekday_number": "4", 
-        "weeknumber": "05", 
+        "weekday": "Wednesday", 
+        "weekday_number": "3", 
+        "weeknumber": "07", 
         "year": "2020"
     }, 
     "ansible_default_ipv4": {
@@ -148,19 +148,19 @@
                 "dm-name-vg--kvm-edalpert02.elan.elantecs.com--disk1", 
                 "dm-uuid-LVM-JTqPRO30ljMSQ0ujaE3DTaw5PcSITxMvsp1TTc0Ehisb0JzEfB1oISAdes0svZom"
             ], 
-            "dm-5": [
+            "dm-4": [
                 "dm-name-vg--kvm-edalldap02.elan.elantecs.com--disk1", 
                 "dm-uuid-LVM-JTqPRO30ljMSQ0ujaE3DTaw5PcSITxMvbeZZUcNIgleKq5uptzZW9XmjPo44aPo4"
             ], 
-            "dm-6": [
+            "dm-5": [
                 "dm-name-vg01-var", 
                 "dm-uuid-LVM-LpOmnZ6vfj97bIV3x54yAJ6jiIyHlZyqENdj1jcFZ1J0OttthYENq2koGkgrffXd"
             ], 
-            "dm-7": [
+            "dm-6": [
                 "dm-name-vg01-opt", 
                 "dm-uuid-LVM-LpOmnZ6vfj97bIV3x54yAJ6jiIyHlZyq1eelSE9PGiebQDynno0H4a6kb6q5NaUE"
             ], 
-            "dm-8": [
+            "dm-7": [
                 "dm-name-vg01-home", 
                 "dm-uuid-LVM-LpOmnZ6vfj97bIV3x54yAJ6jiIyHlZyqlCu5wPqcpHSsImzGzl23zYPPqNjAPrcw"
             ], 
@@ -201,14 +201,14 @@
             "sda3": [
                 "dm-0", 
                 "dm-1", 
+                "dm-5", 
                 "dm-6", 
-                "dm-7", 
-                "dm-8"
+                "dm-7"
             ], 
             "sdb": [
                 "dm-2", 
                 "dm-3", 
-                "dm-5"
+                "dm-4"
             ]
         }, 
         "uuids": {
@@ -218,13 +218,13 @@
             "dm-1": [
                 "c5ffac2f-8a9e-41f8-84f8-fd41a2e5c64a"
             ], 
-            "dm-6": [
+            "dm-5": [
                 "10f50e0a-8655-4cc7-b8c4-17f9ef1446b4"
             ], 
-            "dm-7": [
+            "dm-6": [
                 "dda83442-fc83-4a95-b8ce-8f94afcad8f0"
             ], 
-            "dm-8": [
+            "dm-7": [
                 "1e9c91f7-7805-4332-8f40-24d0ff43f1fc"
             ], 
             "sda1": [
@@ -344,7 +344,7 @@
             "vendor": null, 
             "virtual": 1
         }, 
-        "dm-5": {
+        "dm-4": {
             "holders": [], 
             "host": "", 
             "links": {
@@ -370,7 +370,7 @@
             "vendor": null, 
             "virtual": 1
         }, 
-        "dm-6": {
+        "dm-5": {
             "holders": [], 
             "host": "", 
             "links": {
@@ -398,7 +398,7 @@
             "vendor": null, 
             "virtual": 1
         }, 
-        "dm-7": {
+        "dm-6": {
             "holders": [], 
             "host": "", 
             "links": {
@@ -426,7 +426,7 @@
             "vendor": null, 
             "virtual": 1
         }, 
-        "dm-8": {
+        "dm-7": {
             "holders": [], 
             "host": "", 
             "links": {
@@ -524,9 +524,9 @@
                         "masters": [
                             "dm-0", 
                             "dm-1", 
+                            "dm-5", 
                             "dm-6", 
-                            "dm-7", 
-                            "dm-8"
+                            "dm-7"
                         ], 
                         "uuids": []
                     }, 
@@ -567,7 +567,7 @@
                 "masters": [
                     "dm-2", 
                     "dm-3", 
-                    "dm-5"
+                    "dm-4"
                 ], 
                 "uuids": []
             }, 
@@ -698,7 +698,7 @@
         "PWD": "/home/elanansible", 
         "SHELL": "/bin/bash", 
         "SHLVL": "1", 
-        "SUDO_COMMAND": "/bin/sh -c echo BECOME-SUCCESS-zocfubpfvruqykcmunvhvlzwygfifjic ; /usr/bin/python", 
+        "SUDO_COMMAND": "/bin/sh -c echo BECOME-SUCCESS-yesvxfeysaocbssopvytsnyixvipyapf ; /usr/bin/python", 
         "SUDO_GID": "12356", 
         "SUDO_UID": "12356", 
         "SUDO_USER": "elanansible", 
@@ -914,7 +914,7 @@
     }, 
     "ansible_local": {
         "date": {
-            "date": "Thu Feb  6 18:20:53 UTC 2020"
+            "date": "Wed Feb 19 18:41:33 UTC 2020"
         }, 
         "environment": {
             "environment": "PRODUCTION"
@@ -1003,39 +1003,39 @@
     }, 
     "ansible_machine": "x86_64", 
     "ansible_machine_id": "aba129d441324e99bdc10f32d4b9e1e2", 
-    "ansible_memfree_mb": 254, 
+    "ansible_memfree_mb": 230, 
     "ansible_memory_mb": {
         "nocache": {
-            "free": 6541, 
-            "used": 5309
+            "free": 6621, 
+            "used": 5229
         }, 
         "real": {
-            "free": 254, 
+            "free": 230, 
             "total": 11850, 
-            "used": 11596
+            "used": 11620
         }, 
         "swap": {
-            "cached": 18, 
-            "free": 954, 
+            "cached": 0, 
+            "free": 1023, 
             "total": 1023, 
-            "used": 69
+            "used": 0
         }
     }, 
     "ansible_memtotal_mb": 11850, 
     "ansible_mounts": [
         {
-            "block_available": 353800, 
+            "block_available": 357776, 
             "block_size": 4096, 
             "block_total": 499668, 
-            "block_used": 145868, 
+            "block_used": 141892, 
             "device": "/dev/mapper/vg01-var", 
             "fstype": "ext4", 
-            "inode_available": 124947, 
+            "inode_available": 124945, 
             "inode_total": 131072, 
-            "inode_used": 6125, 
+            "inode_used": 6127, 
             "mount": "/var", 
             "options": "rw,relatime,data=ordered", 
-            "size_available": 1449164800, 
+            "size_available": 1465450496, 
             "size_total": 2046640128, 
             "uuid": "10f50e0a-8655-4cc7-b8c4-17f9ef1446b4"
         }, 
@@ -1072,18 +1072,18 @@
             "uuid": "931e34e2-2647-4835-9e73-35130d1ed003"
         }, 
         {
-            "block_available": 829024, 
+            "block_available": 827961, 
             "block_size": 4096, 
             "block_total": 1515408, 
-            "block_used": 686384, 
+            "block_used": 687447, 
             "device": "/dev/mapper/vg01-usr", 
             "fstype": "ext4", 
-            "inode_available": 314010, 
+            "inode_available": 313841, 
             "inode_total": 393216, 
-            "inode_used": 79206, 
+            "inode_used": 79375, 
             "mount": "/usr", 
             "options": "rw,relatime,data=ordered", 
-            "size_available": 3395682304, 
+            "size_available": 3391328256, 
             "size_total": 6207111168, 
             "uuid": "ec02914d-1f68-48ec-8307-b0154b1aa552"
         }, 
@@ -1130,7 +1130,7 @@
             "inode_total": 0, 
             "inode_used": 0, 
             "mount": "/misc", 
-            "options": "rw,relatime,fd=6,pgrp=3320,timeout=300,minproto=5,maxproto=5,indirect", 
+            "options": "rw,relatime,fd=6,pgrp=3369,timeout=300,minproto=5,maxproto=5,indirect", 
             "size_available": 0, 
             "size_total": 0, 
             "uuid": "N/A"
@@ -1146,7 +1146,7 @@
             "inode_total": 0, 
             "inode_used": 0, 
             "mount": "/nfshome", 
-            "options": "rw,relatime,fd=18,pgrp=3320,timeout=300,minproto=5,maxproto=5,indirect", 
+            "options": "rw,relatime,fd=18,pgrp=3369,timeout=300,minproto=5,maxproto=5,indirect", 
             "size_available": 0, 
             "size_total": 0, 
             "uuid": "N/A"
@@ -1236,7 +1236,7 @@
     "ansible_ssh_host_key_ecdsa_public": "AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBMPTbc644AA+J7jf4Ln0SNZ+I30gfA3Za0eZxssK0/d3C7p7gh6aJAXnjCjrMgVuXvnm2UHMPpd2b6q7ZFW3Udc=", 
     "ansible_ssh_host_key_ed25519_public": "AAAAC3NzaC1lZDI1NTE5AAAAIAqcWErXdhOOB82DhtwyOHwkHzGKZlL1r0+ksKgXUg1F", 
     "ansible_ssh_host_key_rsa_public": "AAAAB3NzaC1yc2EAAAADAQABAAABAQDaQZbv3CU+IzSuMbhXDwn7CcyAZPL6bH1HFvs3Ns8PuZqLHgX8v9nMQ6E2bLmfuwGJwhUq74M5SSyJYI0LeFbIZdLj6oML9oyButmWwhJ29VV80lbxH5d4buWvlhcig3yjuMS7usG+tGGDQlbHHvFulSSOGM6ijlDqSejVZ1HRSUVdcuTI5gUbPRt/1bDvFHRAehGMrR0BGuc1VG15dO7dklC4g46IInjNTnxQ3VeQ5f6u8jnJJXZqE85vf7dDs8uS7Nwq+zzFZpV9aIXpw6GwI9iDaWeIUeqjeLRw7hjItYsrCgWdQmivgUUUwQSOUjxqbc5aNHyXh3mU5iI5BVMV", 
-    "ansible_swapfree_mb": 954, 
+    "ansible_swapfree_mb": 1023, 
     "ansible_swaptotal_mb": 1023, 
     "ansible_system": "Linux", 
     "ansible_system_capabilities": [
@@ -1280,7 +1280,7 @@
     ], 
     "ansible_system_capabilities_enforced": "True", 
     "ansible_system_vendor": "Dell Inc.", 
-    "ansible_uptime_seconds": 1094829, 
+    "ansible_uptime_seconds": 328295, 
     "ansible_user_dir": "/root", 
     "ansible_user_gecos": "root", 
     "ansible_user_gid": 0, 
@@ -1610,8 +1610,8 @@
     "facter_macaddress_vnet1": "fe:54:00:36:08:1e", 
     "facter_manufacturer": "Dell Inc.", 
     "facter_mcopackages": "mcollective-puppet-agent mcollective-service-client mcollective-nrpe-client mcollective-sysctl-data mcollective-filemgr-common mcollective-nettest-common mcollective-puppet-client mcollective-filemgr-agent mcollective-actionpolicy-auth mcollective-nettest-client mcollective-sshkey-security mcollective-service-agent mcollective-puppet-common mcollective-nrpe-common mcollective-iptables-client mcollective-package-common mcollective-iptables-agent mcollective-nettest-agent mcollective-iptables-common mcollective-nrpe-agent mcollective-package-agent mcollective-service-common mcollective-package-client mcollective", 
-    "facter_memoryfree": "6.35 GB", 
-    "facter_memoryfree_mb": "6504.01", 
+    "facter_memoryfree": "6.43 GB", 
+    "facter_memoryfree_mb": "6582.44", 
     "facter_memorysize": "11.57 GB", 
     "facter_memorysize_mb": "11850.70", 
     "facter_mtu_br0": 1500, 
@@ -1716,23 +1716,23 @@
     "facter_sshfp_rsa": "SSHFP 1 1 35041187100488d3516b005cf38892e69bf3a68d\nSSHFP 1 2 1b1d8175c5d8a83583010fe1307e5fff43b45a5e1216997764dcb49d1155d595", 
     "facter_sshrsakey": "AAAAB3NzaC1yc2EAAAADAQABAAABAQDaQZbv3CU+IzSuMbhXDwn7CcyAZPL6bH1HFvs3Ns8PuZqLHgX8v9nMQ6E2bLmfuwGJwhUq74M5SSyJYI0LeFbIZdLj6oML9oyButmWwhJ29VV80lbxH5d4buWvlhcig3yjuMS7usG+tGGDQlbHHvFulSSOGM6ijlDqSejVZ1HRSUVdcuTI5gUbPRt/1bDvFHRAehGMrR0BGuc1VG15dO7dklC4g46IInjNTnxQ3VeQ5f6u8jnJJXZqE85vf7dDs8uS7Nwq+zzFZpV9aIXpw6GwI9iDaWeIUeqjeLRw7hjItYsrCgWdQmivgUUUwQSOUjxqbc5aNHyXh3mU5iI5BVMV", 
     "facter_staging_http_get": "curl", 
-    "facter_swapfree": "954.32 MB", 
-    "facter_swapfree_mb": "954.32", 
+    "facter_swapfree": "1024.00 MB", 
+    "facter_swapfree_mb": "1024.00", 
     "facter_swapsize": "1024.00 MB", 
     "facter_swapsize_mb": "1024.00", 
     "facter_system_uptime": {
-        "days": 12, 
-        "hours": 304, 
-        "seconds": 1094832, 
-        "uptime": "12 days"
+        "days": 3, 
+        "hours": 91, 
+        "seconds": 328298, 
+        "uptime": "3 days"
     }, 
     "facter_timezone": "UTC", 
     "facter_type": "Rack Mount Chassis", 
     "facter_uniqueid": "a8c08002", 
-    "facter_uptime": "12 days", 
-    "facter_uptime_days": 12, 
-    "facter_uptime_hours": 304, 
-    "facter_uptime_seconds": 1094832, 
+    "facter_uptime": "3 days", 
+    "facter_uptime_days": 3, 
+    "facter_uptime_hours": 91, 
+    "facter_uptime_seconds": 328298, 
     "facter_uuid": "44454C4C-5A00-1047-805A-B9C04F444831", 
     "facter_vcsrepo_svn_ver": "1.7.14", 
     "facter_virt_type": "VT-x", 

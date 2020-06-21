@@ -1,0 +1,34 @@
+---
+
+#install nginx 
+- hosts: elan_nginx
+  become: true
+  gather_facts: yes
+   
+  tasks:
+
+    - name: install nginx
+      yum: name=nginx state=latest
+      
+    - name: Prepare index.html
+      template: src=../templates/index.html.j2 dest=/var/www/html/index.html
+      notify: Restart nginx
+
+    - name: validating 
+      shell: nginx -t
+
+    - name: start service
+      service: name=nginx state=started
+    
+
+    - name: Ensure the default port is 8080
+      lineinfile:
+        path: /etc/nginx/nginx.conf
+        regexp: '^Listen '
+        insertafter: '^#Listen '
+        line: Listen 8080 
+  
+  handlers:
+    - name: restart nginx
+      action: service name=nginx state=restarted
+ 

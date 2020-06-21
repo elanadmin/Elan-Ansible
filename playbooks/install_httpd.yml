@@ -1,6 +1,6 @@
 --- 
 # Install and start HTTPD
-- hosts: elan_httpd
+- hosts: elan_httpd:testdemo
   become: true
   gather_facts: yes
   vars_files: 
@@ -42,6 +42,13 @@
    - name: verify Port is Listening
      wait_for: port=80 delay=5 timeout=300
      tags: install
+
+   - name: Ensure the default Apache port is 8080
+     lineinfile:
+       path: /etc/httpd/conf/httpd.conf
+       regexp: '^Listen '
+       insertafter: '^#Listen '
+       line: Listen 80
 
    - name: Install pkg_lynx Web browser
      yum: name={{ pkg_lynx }} state=installed

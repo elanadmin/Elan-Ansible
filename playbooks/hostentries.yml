@@ -3,5 +3,7 @@
 - name: Adding Hostentries Appropriately
   hosts: elan_lab
   become: true
+  vars_files:
+    - ../group_vars/hostentries
   roles:
     - ../roles/hostentries

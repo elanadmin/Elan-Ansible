@@ -27,7 +27,7 @@ edalpert01.elan.elantecs.com
 edalnexp01.elan.elantecs.com
 
 [test_mysql]
-edallind01.elan.elantecs.com
+edallint06.elan.elantecs.com
 
 [elan_tower]
 edalansp02.elan.elantecs.com
@@ -57,9 +57,6 @@ edalpert03.elan.elantecs.com
 [loaclhost]
 edalansp01.elan.elantecs.com
 
-[testdemo] 
-edallint04.elan.elantecs.com
-
 [elan_esh]
 edaleshp01.elan.elantecs.com
 edaleshp02.elan.elantecs.com
@@ -80,5 +77,12 @@ edalkvmp04.elan.elantecs.com
 edalansp01.elan.elantecs.com
 
 [elan_httpd]
+edallint33.elan.elantecs.com
+edallint06.elan.elantecs.com
+
+[elan_mysql]
+edallint06.elan.elantecs.com
+
+[elan_nginx]
 edallint33.elan.elantecs.com
 edallint06.elan.elantecs.com
