@@ -1,0 +1,12 @@
+- name: Restart Docker Service
+  service: name=elasticsearch state=started enabled=yes
+
+- name: Daemon Restart Docker Service
+  systemd:
+    state: started
+    daemon_reload: yes
+    name: docker
+  when:
+    ansible_distribution in ['RedHat', 'CentOS'] and
+    ansible_distribution_version|version_compare('7', '>=')
+

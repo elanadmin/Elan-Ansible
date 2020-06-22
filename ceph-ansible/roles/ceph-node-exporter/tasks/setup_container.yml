@@ -7,6 +7,17 @@
     group: root
     mode: 0644
 
+- name: Setup Docker Storage Driver
+  template:
+    src: daemon.json.j2
+    dest: "/etc/docker/daemon.json"
+    owner: root
+    group: root
+    mode: 0644
+  notify: 
+    - Restart Docker Service
+    - Daemon Restart Docker Service
+
 - name: start the node_exporter service
   systemd:
     name: node_exporter

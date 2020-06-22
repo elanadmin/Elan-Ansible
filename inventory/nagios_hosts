@@ -10,6 +10,20 @@ edalngsp01.elan.elantecs.com
 [servers]
 edalngsp01.elan.elantecs.com
 edaljenp01.elan.elantecs.com
+edalcmnp01.elan.elantecs.com
+edalcmnp02.elan.elantecs.com
+edalcosp01.elan.elantecs.com
+edalcosp02.elan.elantecs.com
+edalkvmp01.elan.elantecs.com
+edalkvmp02.elan.elantecs.com
+edalkvmp03.elan.elantecs.com
+edalansp01.elan.elantecs.com
+edalansp02.elan.elantecs.com
+edalregp01.elan.elantecs.com
+edaldokp01.elan.elantecs.com
+edalnexp01.elan.elantecs.com
+edalvalp01.elan.elantecs.com
+
 
 # use this for generic Linux servers using mdadm raid
 [servers_with_mdadm_raid]
