@@ -37,13 +37,13 @@
     dest: /usr/bin/python
     state: link
   when: ansible_distribution_major_version|int >= 8 and ansible_python_version|int < 3.6
-          and ansible_system == "Linux"
+          and ansible_system == "Linux" and ansible_os_family == "RedHat"
   ignore_errors: true
 
 - name: Switch to Python3 by Default (Fedora/EL8)
   command: alternatives --install /usr/bin/python python /usr/bin/python3 1
   when: ansible_python_version|int < 3.6 and ansible_distribution_major_version|int >= 8
-        and ansible_system == "Linux"
+        and ansible_system == "Linux" and ansible_os_family == "RedHat"
 
 - name: Install NRPE and Common Plugins
   yum:
@@ -53,13 +53,22 @@
   become: true
   when: ansible_distribution_major_version|int <= 7 and ansible_os_family == "RedHat"
 
+- name: Install NRPE and Common Plugins for Debian/Ubuntu
+  apt:
+    name: ['python3-apt', 'nagios-nrpe-server', 'nagios-plugins-common', 'nagios-plugins-basic', 'nagios-plugins-standard', 'python-pymongo']
+    state: present
+    update_cache: yes
+    force: yes
+  become: true
+  when: ansible_distribution_major_version|int >= 14 and ansible_os_family == "Debian"
+
 - name: Install NRPE and Common Plugins for Fedora/EL8
   dnf:
     name: ['nrpe', 'nagios-plugins-load', 'nagios-plugins-uptime', 'nagios-plugins-swap', 'nagios-plugins-procs',
     'nagios-plugins-users', 'nagios-plugins-disk', 'nagios-plugins-tcp']
     state: present
   become: true
-  when: ansible_distribution_major_version|int >= 8 and ansible_system == "Linux"
+  when: ansible_distribution_major_version|int >= 8 and ansible_system == "Linux" and ansible_os_family == "RedHat"
 
 - name: Check if BSD ports structure exists
   stat:
@@ -93,7 +102,15 @@
     dest=/etc/nagios/nrpe.cfg
     force=yes
   become: true
-  when: ansible_system == "Linux"
+  when: ansible_system == "Linux" and ansible_os_family == "RedHat"
+
+- name: Setup NRPE client configuration for Debian/Ubuntu
+  template:
+    src=nrpe_debian.cfg.j2
+    dest=/etc/nagios/nrpe.cfg
+    force=yes
+  become: true
+  when: ansible_system == "Linux" and ansible_os_family == "Debian"
 
 - name: Setup NRPE client configuration on FreeBSD
   template:
@@ -109,7 +126,15 @@
     dest=/usr/lib64/nagios/plugins/check_raid
     mode="a+x"
   become: true
-  when: ansible_system == "Linux"
+  when: ansible_system == "Linux" and ansible_os_family == "RedHat"
+
+- name: Copy mdadm check_raid plugin
+  copy:
+    src=check_raid
+    dest=/usr/lib/nagios/plugins/check_raid
+    mode="a+x"
+  become: true
+  when: ansible_system == "Linux" and ansible_os_family == "Debian"
 
 - name: Copy uptime check tool for FreeBSD
   copy:
@@ -118,6 +143,14 @@
     mode="a+x"
   become: true
   when: ansible_system == "FreeBSD"
+
+- name: Copy uptime check tool for Debian/Ubuntu
+  copy:
+    src=debian_check_uptime.sh
+    dest=/usr/lib/nagios/plugins/check_uptime
+    mode="a+x"
+  become: true
+  when: ansible_system == "Linux" and ansible_os_family == "Debian"
 
 # SELinux boolean for nagios
 - name: Apply SELinux boolean nagios_run_sudo
@@ -136,7 +169,13 @@
 - name: Start NRPE service
   command: systemctl restart nrpe.service
   ignore_errors: true
-  when: ansible_distribution_major_version|int >= 7 and ansible_system == "Linux"
+  when: ansible_distribution_major_version|int >= 7 and ansible_system == "Linux" and ansible_os_family == "RedHat"
+  become: true
+
+- name: Start NRPE service
+  command: systemctl restart nagios-nrpe-server.service
+  ignore_errors: true
+  when: ansible_distribution_major_version|int >= 16 and ansible_system == "Linux" and ansible_os_family == "Debian"
   become: true
 
 - name: Enable NRPE service on FreeBSD
@@ -160,14 +199,32 @@
   when: ansible_distribution_major_version|int >= 7 and ansible_os_family == "RedHat"
   become: true
 
+- name: Set NRPE to start on boot
+  command: systemctl enable nagios-nrpe-server.service
+  ignore_errors: true
+  when: ansible_distribution_major_version|int >= 16 and ansible_os_family == "Debian"
+  become: true
+
 - name: Start NRPE service (EL6)
   command: service nrpe restart
   ignore_errors: true
   when: ansible_distribution_major_version|int <= 6
   become: true
 
+- name: Start NRPE service (Debian/Ubuntu)
+  command: service nagios-nrpe-server restart
+  ignore_errors: true
+  when: ansible_distribution_major_version|int == 14
+  become: true
+
 - name: Set NRPE to start on boot (EL6)
   command: chkconfig nrpe on
   ignore_errors: true
   when: ansible_distribution_major_version|int <= 6
+  become: true
+
+- name: Set NRPE to start on boot (Debian/Ubuntu)
+  command: update-rc.d nagios-nrpe-server enable
+  ignore_errors: true
+  when: ansible_distribution_major_version|int == 14
   become: true

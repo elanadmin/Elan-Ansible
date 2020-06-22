@@ -5,10 +5,12 @@
 # This is your main nagios server and where ansible will deploy it.
 [nagios]
 edalngsp01.elan.elantecs.com
+edalngsp02.elan.elantecs.com
 
 # use this for generic Linux or FreeBSD servers
 [servers]
 edalngsp01.elan.elantecs.com
+edalngsp02.elan.elantecs.com
 edaljenp01.elan.elantecs.com
 edalcmnp01.elan.elantecs.com
 edalcmnp02.elan.elantecs.com
@@ -23,7 +25,13 @@ edalregp01.elan.elantecs.com
 edaldokp01.elan.elantecs.com
 edalnexp01.elan.elantecs.com
 edalvalp01.elan.elantecs.com
-
+edalpert01.elan.elantecs.com
+edalpert02.elan.elantecs.com
+edalpert03.elan.elantecs.com
+edalkbmp01.elan.elantecs.com
+edalkbwp01.elan.elantecs.com
+edalkbwp02.elan.elantecs.com
+edalkbwp03.elan.elantecs.com
 
 # use this for generic Linux servers using mdadm raid
 [servers_with_mdadm_raid]

@@ -8,7 +8,6 @@ edalcosp02.elan.elantecs.com
 edaldoct01.elan.elantecs.com
 edaldoct02.elan.elantecs.com
 edaldokp01.elan.elantecs.com
-edaldokp02.elan.elantecs.com
 edaljenp01.elan.elantecs.com
 edaljent01.elan.elantecs.com
 edalkbmp01.elan.elantecs.com
@@ -29,24 +28,16 @@ edallint03.elan.elantecs.com
 edallint04.elan.elantecs.com
 edallint06.elan.elantecs.com
 edallint11.elan.elantecs.com
-edallint18.elan.elantecs.com
 edallint20.elan.elantecs.com
 edallint21.elan.elantecs.com
-edallint25.elan.elantecs.com
 edallint33.elan.elantecs.com
-edallint39.elan.elantecs.com
-edallint45.elan.elantecs.com
-edallint49.elan.elantecs.com
-edallint50.elan.elantecs.com
-edallint51.elan.elantecs.com
-edallint8.elan.elantecs.com
 edalnexp01.elan.elantecs.com
 edalngsp01.elan.elantecs.com
+edalngsp02.elan.elantecs.com
 edalpert01.elan.elantecs.com
 edalpert02.elan.elantecs.com
 edalpert03.elan.elantecs.com
 edalregp01.elan.elantecs.com
-edalsust01.elan.elantecs.com
 edaltomt01.elan.elantecs.com
 edalvalp01.elan.elantecs.com
 
@@ -60,21 +51,12 @@ edallint03.elan.elantecs.com
 edallint04.elan.elantecs.com
 edallint06.elan.elantecs.com
 edallint11.elan.elantecs.com
-edallint18.elan.elantecs.com
 edallint20.elan.elantecs.com
 edallint21.elan.elantecs.com
-edallint25.elan.elantecs.com
 edallint33.elan.elantecs.com
-edallint39.elan.elantecs.com
-edallint45.elan.elantecs.com
-edallint49.elan.elantecs.com
-edallint50.elan.elantecs.com
-edallint51.elan.elantecs.com
-edallint8.elan.elantecs.com
 edalpert01.elan.elantecs.com
 edalpert02.elan.elantecs.com
 edalpert03.elan.elantecs.com
-edalsust01.elan.elantecs.com
 edaltomt01.elan.elantecs.com
 
 [foreman_hostgroup_elanproduction]
@@ -85,7 +67,6 @@ edalcmnp02.elan.elantecs.com
 edalcosp01.elan.elantecs.com
 edalcosp02.elan.elantecs.com
 edaldokp01.elan.elantecs.com
-edaldokp02.elan.elantecs.com
 edaljenp01.elan.elantecs.com
 edalkbmp01.elan.elantecs.com
 edalkbwp01.elan.elantecs.com
@@ -101,6 +82,7 @@ edallinp01.elan.elantecs.com
 edallinp04.elan.elantecs.com
 edalnexp01.elan.elantecs.com
 edalngsp01.elan.elantecs.com
+edalngsp02.elan.elantecs.com
 edalregp01.elan.elantecs.com
 edalvalp01.elan.elantecs.com
 
