@@ -1,0 +1,26 @@
+---
+- name: restart iptables
+  become: true
+  service:
+    name: iptables
+    state: restarted
+
+- name: Reload Keepalived RedHat6
+  become: true
+  service: name={{ item }} state=restarted enabled=yes
+  when: ansible_distribution_major_version|int <= 6 and ansible_os_family == "RedHat"
+  with_items:
+    - rsyncd
+    - keepalived
+
+- name: Reload Keepalived RedHat7/8
+  become: true
+  systemd:
+    name: "{{ item }}"
+    state: restarted
+    daemon_reload: yes
+    enabled: yes
+  when: ansible_distribution_major_version|int >= 7 and ansible_os_family == "RedHat"
+  with_items:
+    - rsyncd
+    - keepalived

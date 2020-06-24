@@ -1,0 +1,17 @@
+
+---
+
+## Ansible user
+# change this if running Ansible as a non-root user
+# would require sudo, e.g. AWS EC2 uses ec-user
+ansible_system_user: root
+
+### Firewall management ###
+# Set to true to deploy firewall rules for nagios server
+manage_firewall: false
+
+### NRPE variables ###
+nrpe_tcp_port: 5666
+
+nagios_ha_vip: 192.168.2.14
+keepalived_auth_pass: "el@nadmin12"

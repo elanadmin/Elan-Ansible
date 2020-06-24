@@ -1,0 +1,91 @@
+---
+# Playbook to install nagios server and generate hosts/checks
+# This also installs NRPE on clients for more in-depth checks based on
+# Ansible inventory
+# author: Will Foster (@sadsfae)
+# https://hobo.house/2016/06/24/automate-nagios-deployment-with-ansible/
+
+- name: Check Operating System
+  fail:
+    msg="You're not running a supported operating system (CentOS or RHEL 6+)"
+  when: ((ansible_os_family != "RedHat") or (ansible_distribution_major_version|int < 6))
+
+- name: Ensure Firewall is stopped
+  service: name=firewalld state=stopped enabled=no
+  when: ansible_distribution == 'CentOS' and ansible_distribution_version >= '7'
+
+- name: Ensure Firewall is stopped
+  service: name=iptables state=stopped enabled=no
+  when: ansible_distribution == 'CentOS' and ansible_distribution_version < '7'
+
+- name: Import EPEL GPG Key
+  rpm_key: key=https://dl.fedoraproject.org/pub/epel/RPM-GPG-KEY-EPEL-7
+    state=present
+  become: true
+
+- name: Check for EPEL repo
+  yum: name=https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+    state=present
+  become: true
+
+- name: Install Rsync and Keepalived
+  yum:
+    name: ['rsync', 'keepalived']
+    state: present
+  become: true
+
+- name: Setup Keepalived configuration for Master
+  template: src=keepalived_master.cfg.j2
+            dest=/etc/keepalived/keepalived.conf
+            force=yes
+  become: true
+  when: inventory_hostname == groups['nagios'][0]
+  notify: Reload Keepalived RedHat6
+  notify: Reload Keepalived RedHat7/8
+
+- name: Setup Keepalived configuration for Slave
+  template: src=keepalived_slave.cfg.j2
+            dest=/etc/keepalived/keepalived.conf
+            force=yes
+  become: true
+  when: inventory_hostname != groups['nagios'][0]
+  notify:
+    - Reload Keepalived RedHat6
+    - Reload Keepalived RedHat7/8
+
+- name: Copy Cluster Scripts
+  template: src=scripts/{{ item + ".j2" }}
+            dest=/etc/keepalived/{{ item }}
+            mode=0755
+  become: true
+  with_items:
+    - check.sh
+    - start_nagios.sh
+    - stop_nagios.sh
+  notify:
+    - Reload Keepalived RedHat6
+    - Reload Keepalived RedHat7/8
+
+- name: Copy Cluster Scripts
+  copy: src=rsync-exclude.list
+            dest=/etc/keepalived/rsync-exclude.list
+            mode=0755
+  become: true
+
+- name: Start keepalived and on Boot
+  service: name={{ item }} state=started enabled=yes
+  when: ansible_distribution_major_version|int <= 6 and ansible_os_family == "RedHat"
+  with_items:
+    - rsyncd
+    - keepalived
+
+- name: Start keepalived and on Boot
+  systemd:
+    name: "{{ item }}"
+    state: started
+    daemon_reload: yes
+    enabled: yes
+  when: ansible_distribution_major_version|int >= 7 and ansible_os_family == "RedHat"
+  with_items:
+    - rsyncd
+    - keepalived

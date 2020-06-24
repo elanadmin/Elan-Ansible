@@ -25,9 +25,6 @@ edalregp01.elan.elantecs.com
 edaldokp01.elan.elantecs.com
 edalnexp01.elan.elantecs.com
 edalvalp01.elan.elantecs.com
-edalpert01.elan.elantecs.com
-edalpert02.elan.elantecs.com
-edalpert03.elan.elantecs.com
 edalkbmp01.elan.elantecs.com
 edalkbwp01.elan.elantecs.com
 edalkbwp02.elan.elantecs.com
@@ -38,6 +35,12 @@ edalkbwp03.elan.elantecs.com
 
 # inherits servers checks, includes http
 [webservers]
+
+# inherits servers checks, includes mysql
+[mysql]
+edalpert01.elan.elantecs.com
+edalpert02.elan.elantecs.com
+edalpert03.elan.elantecs.com
 
 # inherits server checks, includes DNS check
 [dns]

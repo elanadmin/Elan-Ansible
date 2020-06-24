@@ -1,0 +1,6 @@
+archives/
+nagios.log
+objects.cache
+rw/
+spool/
+status.dat

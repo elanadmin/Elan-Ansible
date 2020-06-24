@@ -144,13 +144,29 @@
   become: true
   when: ansible_system == "FreeBSD"
 
-- name: Copy uptime check tool for Debian/Ubuntu
+- name: Copy Custom Nagios Plugins for Debian/Ubuntu
   copy:
-    src=debian_check_uptime.sh
-    dest=/usr/lib/nagios/plugins/check_uptime
+    src="Debian/"
+    dest="/usr/lib/nagios/plugins"
     mode="a+x"
   become: true
   when: ansible_system == "Linux" and ansible_os_family == "Debian"
+
+- name: Copy Custom Nagios Plugins for RedHat
+  copy:
+    src="RedHat/"
+    dest="/usr/lib64/nagios/plugins"
+    mode="a+x"
+  become: true
+  when: ansible_system == "Linux" and ansible_os_family == "RedHat"
+
+- name: Copy Custom Nagios Plugins for FreeBSD
+  copy:
+    src="FreeBSD/"
+    dest="/usr/local/libexec/nagios"
+    mode="a+x"
+  become: true
+  when: ansible_system == "FreeBSD"
 
 # SELinux boolean for nagios
 - name: Apply SELinux boolean nagios_run_sudo

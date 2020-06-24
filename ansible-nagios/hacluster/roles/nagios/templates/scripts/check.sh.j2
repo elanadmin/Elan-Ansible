@@ -1,0 +1,13 @@
+#!/bin/bash
+ 
+export TERM=xterm-color
+
+rsync -armzv -e "ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null" --timeout=5 --delete {{ hostvars[groups['nagios'][0]]['ansible_eth0']['ipv4']['address'] }}:/var/log/nagios/ /var/log/nagios/ --exclude-from /etc/keepalived/rsync-exclude.list
+
+if [ $(curl -u nagiosha:el@nadmin12 -L -k -I https://{{ hostvars[groups['nagios'][0]]['ansible_eth0']['ipv4']['address'] }}/nagios/cgi-bin/status.cgi -o /dev/null -w '%{http_code}\n' -s) == "200" ];then
+   echo -e "\n$(tput setaf 2)***INFO: Primary Nagios Server is Reachable***$(tput setaf 9)\n"
+   exit 1
+else
+  echo -e "\n$(tput setaf 1)***ERROR: Primary Nagios Server is Unreachable, Trigger Failover***$(tput setaf 9)\n"
+  exit 0
+fi

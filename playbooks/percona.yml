@@ -38,7 +38,7 @@
           Output of 'service mysql bootstrap-pxc':
           "{{ service_mysql_status.stdout }}"
           "{{ service_mysql_status.stderr }}"
-      when: service_mysql_status | failed
+      when: "'failed' in service_mysql_status.stderr"
       tags:
         - bootstrap
 

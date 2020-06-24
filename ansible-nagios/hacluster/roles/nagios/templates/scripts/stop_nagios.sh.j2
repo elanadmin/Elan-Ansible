@@ -1,0 +1,22 @@
+#!/bin/bash
+ 
+export TERM=xterm-color
+logfile=/var/log/stop_nagios.sh
+exec >> $logfile
+exec 2>&1
+ 
+# Define an array of processes to be checked.
+# If properly quoted, these may contain spaces
+ 
+check_process=("httpd" "nagios")
+ 
+for p in "${check_process[@]}"; do
+ 
+   if (systemctl -q is-active $p)
+    then
+      date
+      echo -e "\n$(tput setaf 3)***$p is running, stopping it***$(tput setaf 9)\n"
+      systemctl stop $p
+   fi
+done
+exit 0

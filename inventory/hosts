@@ -80,9 +80,6 @@ edalansp01.elan.elantecs.com
 edallint33.elan.elantecs.com
 edallint06.elan.elantecs.com
 
-[elan_mysql]
-edallint06.elan.elantecs.com
-
 [elan_nginx]
 edallint33.elan.elantecs.com
 edallint06.elan.elantecs.com
