@@ -165,3 +165,4 @@ ldap_port: 389
 ldap_search_dn: ou=Users,dc=elan,dc=elantecs,dc=com
 ldap_bind_dn: uid=nagios,ou=Services,dc=elan,dc=elantecs,dc=com
 ldap_bind_password: el@nadmin12
+ldap_base_dn: dc=elan,dc=elantecs,dc=com

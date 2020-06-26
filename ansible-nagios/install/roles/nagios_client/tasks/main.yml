@@ -103,6 +103,9 @@
     force=yes
   become: true
   when: ansible_system == "Linux" and ansible_os_family == "RedHat"
+  notify:
+    - ReStart NRPE service RedHat6
+    - ReStart NRPE service RedHat7+
 
 - name: Setup NRPE client configuration for Debian/Ubuntu
   template:
@@ -111,6 +114,9 @@
     force=yes
   become: true
   when: ansible_system == "Linux" and ansible_os_family == "Debian"
+  notify:
+    - ReStart NRPE service Ubuntu14
+    - ReStart NRPE service Ubuntu16+
 
 - name: Setup NRPE client configuration on FreeBSD
   template:
@@ -119,6 +125,8 @@
     force=yes
   become: true
   when: ansible_system == "FreeBSD"
+  notify:
+    - ReStart NRPE service FreeBSD
 
 - name: Copy mdadm check_raid plugin
   copy:
@@ -182,17 +190,46 @@
   when: ansible_distribution_major_version|int <= 7
   become: true
 
-- name: Start NRPE service
-  command: systemctl restart nrpe.service
-  ignore_errors: true
-  when: ansible_distribution_major_version|int >= 7 and ansible_system == "Linux" and ansible_os_family == "RedHat"
-  become: true
+- name: Add nagios to Sudoers
+  lineinfile:
+    dest: /etc/sudoers
+    line: nagios ALL=(ALL)NOPASSWD:ALL
 
-- name: Start NRPE service
-  command: systemctl restart nagios-nrpe-server.service
-  ignore_errors: true
-  when: ansible_distribution_major_version|int >= 16 and ansible_system == "Linux" and ansible_os_family == "Debian"
+- name: Start NRPE RedHat6
   become: true
+  service: name={{ item }} state=started enabled=yes
+  when: ansible_distribution_major_version|int <= 6 and ansible_os_family == "RedHat"
+  with_items:
+    - nrpe
+
+- name: Start NRPE RedHat7+
+  become: true
+  systemd:
+    name: "{{ item }}"
+    state: started
+    daemon_reload: yes
+    enabled: yes
+  when: ansible_distribution_major_version|int >= 7 and ansible_os_family == "RedHat"
+  with_items:
+    - nrpe
+
+- name: Start NRPE Ubuntu14
+  become: true
+  service: name={{ item }} state=started enabled=yes
+  when: ansible_distribution_major_version|int <= 14 and ansible_os_family == "Debian"
+  with_items:
+    - nagios-nrpe-server
+
+- name: Start NRPE service Ubuntu16+
+  become: true
+  systemd:
+    name: "{{ item }}"
+    state: started
+    daemon_reload: yes
+    enabled: yes
+  when: ansible_distribution_major_version|int >= 16 and ansible_system == "Linux" and ansible_os_family == "Debian"
+  with_items:
+    - nagios-nrpe-server
 
 - name: Enable NRPE service on FreeBSD
   lineinfile:
@@ -206,41 +243,5 @@
   service:
     name: nrpe3
     enabled: yes
-    state: restarted
+    state: started
   when: ansible_system == "FreeBSD"
-
-- name: Set NRPE to start on boot
-  command: systemctl enable nrpe.service
-  ignore_errors: true
-  when: ansible_distribution_major_version|int >= 7 and ansible_os_family == "RedHat"
-  become: true
-
-- name: Set NRPE to start on boot
-  command: systemctl enable nagios-nrpe-server.service
-  ignore_errors: true
-  when: ansible_distribution_major_version|int >= 16 and ansible_os_family == "Debian"
-  become: true
-
-- name: Start NRPE service (EL6)
-  command: service nrpe restart
-  ignore_errors: true
-  when: ansible_distribution_major_version|int <= 6
-  become: true
-
-- name: Start NRPE service (Debian/Ubuntu)
-  command: service nagios-nrpe-server restart
-  ignore_errors: true
-  when: ansible_distribution_major_version|int == 14
-  become: true
-
-- name: Set NRPE to start on boot (EL6)
-  command: chkconfig nrpe on
-  ignore_errors: true
-  when: ansible_distribution_major_version|int <= 6
-  become: true
-
-- name: Set NRPE to start on boot (Debian/Ubuntu)
-  command: update-rc.d nagios-nrpe-server enable
-  ignore_errors: true
-  when: ansible_distribution_major_version|int == 14
-  become: true

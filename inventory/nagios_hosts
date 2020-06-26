@@ -25,10 +25,7 @@ edalregp01.elan.elantecs.com
 edaldokp01.elan.elantecs.com
 edalnexp01.elan.elantecs.com
 edalvalp01.elan.elantecs.com
-edalkbmp01.elan.elantecs.com
-edalkbwp01.elan.elantecs.com
-edalkbwp02.elan.elantecs.com
-edalkbwp03.elan.elantecs.com
+edallint06.elan.elantecs.com
 
 # use this for generic Linux servers using mdadm raid
 [servers_with_mdadm_raid]
@@ -46,6 +43,18 @@ edalpert03.elan.elantecs.com
 [dns]
 edallinp01.elan.elantecs.com
 edallinp04.elan.elantecs.com
+
+# inherits server checks, not SWAP.
+[k8s]
+edalkbmp01.elan.elantecs.com
+edalkbwp01.elan.elantecs.com
+edalkbwp02.elan.elantecs.com
+edalkbwp03.elan.elantecs.com
+
+# inherits server checks, includes LDAP checks
+[ldap]
+edalldap01.elan.elantecs.com
+edalldap02.elan.elantecs.com
 
 # inherits server checks, includes DNS check and mdadm raid check
 [dns_with_mdadm_raid]

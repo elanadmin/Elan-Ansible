@@ -153,6 +153,8 @@
     - jenkins.cfg
     - dns.cfg
     - mysql.cfg
+    - k8s.cfg
+    - ldap.cfg
     - dns_with_mdadm_raid.cfg
     - freenas.cfg
     - devices.cfg

@@ -104,6 +104,12 @@ define command{
         command_line    /usr/lib64/nagios/plugins/idrac_2.2rc4 -H $HOSTADDRESS$ {{snmp_opts}} -m {{snmp_mib_path}}/idrac-smiv2.mib {{snmp_check_thresholds}} -w CPU
 }
 
+# 'check_ldap' command definition for LDAP Servers
+define command{
+        command_name    check_ldap
+        command_line    /usr/lib64/nagios/plugins/check_ldap -H $HOSTADDRESS$ -b {{ ldap_base_dn}} -D {{ ldap_bind_dn }} -P "{{ ldap_bind_password }}" -p 389 -3
+}
+
 # check_ipmi_sensor command for supermicro 6018r IPMI checks
 define command{
         command_name    6018r_check_cpu

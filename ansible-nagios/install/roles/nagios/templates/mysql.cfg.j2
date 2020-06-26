@@ -157,6 +157,15 @@ define service {
     notifications_enabled   1
 }
 
+define service {
+    use                     generic-service
+    host_name               {{ host }}
+    hostgroup_name          mysql
+    service_description     Check HAProxy Services
+    check_command           check_nrpe!check_haproxy_svcs
+    notifications_enabled   1
+}
+
 {% endif %}
 
 {% if hostvars[host].ansible_os_family == "Debian" %}
@@ -311,6 +320,15 @@ define service {
     notifications_enabled   1
 }
 
+define service {
+    use                     generic-service
+    host_name               {{ host }}
+    hostgroup_name          mysql
+    service_description     Check HAProxy Services
+    check_command           check_nrpe!check_haproxy_svcs
+    notifications_enabled   1
+}
+
 {% endif %}
 
 {% if hostvars[host].ansible_distribution == "FreeBSD" %}
@@ -400,6 +418,15 @@ define service {
     hostgroup_name          mysql
     service_description     Zombie Processes
     check_command           check_nrpe!bsd_check_zombie_procs
+    notifications_enabled   1
+}
+
+define service {
+    use                     generic-service
+    host_name               {{ host }}
+    hostgroup_name          mysql
+    service_description     Check HAProxy Services
+    check_command           check_nrpe!check_haproxy_svcs
     notifications_enabled   1
 }
 

@@ -210,11 +210,16 @@ command[check_tcp_es]=/usr/lib/nagios/plugins/check_tcp -H localhost -p {{ elast
 command[check_jenkins]=/usr/lib/nagios/plugins/check_tcp -H localhost -p {{ jenkins_port }}
 command[check_raid]=/usr/lib/nagios/plugins/check_raid
 command[check_swap]=/usr/lib/nagios/plugins/check_swap -w 60 -c 10
+
+#mySQL Checks.
 command[check_mysql_health_uptime]=/usr/lib/nagios/plugins/check_mysql_health --mode uptime --mycnf /root/.my.cnf
 command[check_mysql_health_threads]=/usr/lib/nagios/plugins/check_mysql_health --mode threads-connected --warning 50 --critical 100 --mycnf /root/.my.cnf
 command[check_mysql_health_ctime]=/usr/lib/nagios/plugins/check_mysql_health --mode connection-time --warning 1.0 --critical 3.0 --mycnf /root/.my.cnf
 command[check_mysql_health_query_cache_hitrate]=/usr/lib/nagios/plugins/check_mysql_health --mode qcache-hitrate --mycnf /root/.my.cnf --warning 50 --critical 100
 command[check_mysql_health_caborted]=/usr/lib/nagios/plugins/check_mysql_health --mode connects-aborted --warning 5 --critical 10 --mycnf /root/.my.cnf
+
+#HAProxy Checks.
+command[check_haproxy_svcs]=/usr/bin/sudo /usr/lib/nagios/plugins/check_haproxy_svcs.sh
 
 # The following examples allow user-supplied arguments and can
 # only be used if the NRPE daemon was compiled with support for
