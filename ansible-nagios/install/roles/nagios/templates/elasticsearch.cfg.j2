@@ -10,7 +10,7 @@ define host {
 	host_name               {{ host }}
 	alias                   {{ host }}
 	address                 {{ hostvars[host].ansible_default_ipv4.address }}
-	hostgroups 		        elasticsearch
+	hostgroups 		elasticsearch
 }
 {% endfor %}
 
@@ -82,4 +82,15 @@ define service{
     service_description     Elasticsearch
     check_command           check_nrpe!check_tcp_es
     notifications_enabled   1
+
+}
+
+####AddCheckHere####
+
+define service {
+        use                    local-service
+        hostgroup_name         elasticsearch
+        service_description    NTP Time Offset
+        check_command          check_nrpe!check_ntp_time
+        notifications_enabled  1
 }

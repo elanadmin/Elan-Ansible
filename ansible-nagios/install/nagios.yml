@@ -27,3 +27,4 @@
     - { role: nagios }
     - { role: firewall, when: manage_firewall|bool }
     - { role: instructions }
+  tags: nagios

@@ -155,6 +155,8 @@
     - mysql.cfg
     - k8s.cfg
     - ldap.cfg
+    - ceph.cfg
+    - ceph_osd.cfg
     - dns_with_mdadm_raid.cfg
     - freenas.cfg
     - devices.cfg

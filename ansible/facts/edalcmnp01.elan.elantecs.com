@@ -26,23 +26,23 @@
         "splash": "quiet"
     }, 
     "ansible_date_time": {
-        "date": "2020-06-21", 
-        "day": "21", 
-        "epoch": "1592794128", 
-        "hour": "21", 
-        "iso8601": "2020-06-22T02:48:48Z", 
-        "iso8601_basic": "20200621T214848548316", 
-        "iso8601_basic_short": "20200621T214848", 
-        "iso8601_micro": "2020-06-22T02:48:48.548432Z", 
-        "minute": "48", 
-        "month": "06", 
-        "second": "48", 
-        "time": "21:48:48", 
+        "date": "2020-07-03", 
+        "day": "03", 
+        "epoch": "1593779652", 
+        "hour": "07", 
+        "iso8601": "2020-07-03T12:34:12Z", 
+        "iso8601_basic": "20200703T073412440985", 
+        "iso8601_basic_short": "20200703T073412", 
+        "iso8601_micro": "2020-07-03T12:34:12.441102Z", 
+        "minute": "34", 
+        "month": "07", 
+        "second": "12", 
+        "time": "07:34:12", 
         "tz": "CDT", 
         "tz_offset": "-0500", 
-        "weekday": "Sunday", 
-        "weekday_number": "0", 
-        "weeknumber": "24", 
+        "weekday": "Friday", 
+        "weekday_number": "5", 
+        "weeknumber": "26", 
         "year": "2020"
     }, 
     "ansible_default_ipv4": {
@@ -76,12 +76,24 @@
                 "dm-name-vg00-home", 
                 "dm-uuid-LVM-Wi0prsImFOmOjABKaEeA420HTPQ83Rn4K8TmC0Bt2rEPSxsBUXL9w6LcnqoIrXcA"
             ], 
+            "dm-5": [
+                "dm-name-docker-253:2-16388-14b02ac747323e9b2d89098d5937c6c4e937dc8ea0549a7ad7b85c58453e1b0f"
+            ], 
             "vda2": [
                 "lvm-pv-uuid-MR9leH-fBcP-7V49-BrlZ-uuP6-sTtu-eCr45f"
             ]
         }, 
         "labels": {}, 
         "masters": {
+            "dm-4": [
+                "dm-5"
+            ], 
+            "loop0": [
+                "dm-4"
+            ], 
+            "loop1": [
+                "dm-4"
+            ], 
             "vda2": [
                 "dm-0", 
                 "dm-1", 
@@ -101,6 +113,9 @@
             ], 
             "dm-3": [
                 "46138a76-36bd-4395-be60-ec9b2d0ed2ed"
+            ], 
+            "dm-5": [
+                "224c87d1-39b4-4650-96d7-aa0668ec1695"
             ], 
             "vda1": [
                 "0806a8ed-fc20-4124-bf6c-11576990eba9"
@@ -217,6 +232,114 @@
             "sectorsize": "512", 
             "size": "1.00 GB", 
             "support_discard": "0", 
+            "vendor": null, 
+            "virtual": 1
+        }, 
+        "dm-4": {
+            "holders": [
+                "docker-253:2-16388-14b02ac747323e9b2d89098d5937c6c4e937dc8ea0549a7ad7b85c58453e1b0f"
+            ], 
+            "host": "", 
+            "links": {
+                "ids": [], 
+                "labels": [], 
+                "masters": [
+                    "dm-5"
+                ], 
+                "uuids": []
+            }, 
+            "model": null, 
+            "partitions": {}, 
+            "removable": "0", 
+            "rotational": "1", 
+            "sas_address": null, 
+            "sas_device_handle": null, 
+            "scheduler_mode": "", 
+            "sectors": "209715200", 
+            "sectorsize": "512", 
+            "size": "100.00 GB", 
+            "support_discard": "65536", 
+            "vendor": null, 
+            "virtual": 1
+        }, 
+        "dm-5": {
+            "holders": [], 
+            "host": "", 
+            "links": {
+                "ids": [
+                    "dm-name-docker-253:2-16388-14b02ac747323e9b2d89098d5937c6c4e937dc8ea0549a7ad7b85c58453e1b0f"
+                ], 
+                "labels": [], 
+                "masters": [], 
+                "uuids": [
+                    "224c87d1-39b4-4650-96d7-aa0668ec1695"
+                ]
+            }, 
+            "model": null, 
+            "partitions": {}, 
+            "removable": "0", 
+            "rotational": "1", 
+            "sas_address": null, 
+            "sas_device_handle": null, 
+            "scheduler_mode": "", 
+            "sectors": "20971520", 
+            "sectorsize": "512", 
+            "size": "10.00 GB", 
+            "support_discard": "65536", 
+            "vendor": null, 
+            "virtual": 1
+        }, 
+        "loop0": {
+            "holders": [
+                "docker-253:2-16388-pool"
+            ], 
+            "host": "", 
+            "links": {
+                "ids": [], 
+                "labels": [], 
+                "masters": [
+                    "dm-4"
+                ], 
+                "uuids": []
+            }, 
+            "model": null, 
+            "partitions": {}, 
+            "removable": "0", 
+            "rotational": "1", 
+            "sas_address": null, 
+            "sas_device_handle": null, 
+            "scheduler_mode": "", 
+            "sectors": "209715200", 
+            "sectorsize": "512", 
+            "size": "100.00 GB", 
+            "support_discard": "4096", 
+            "vendor": null, 
+            "virtual": 1
+        }, 
+        "loop1": {
+            "holders": [
+                "docker-253:2-16388-pool"
+            ], 
+            "host": "", 
+            "links": {
+                "ids": [], 
+                "labels": [], 
+                "masters": [
+                    "dm-4"
+                ], 
+                "uuids": []
+            }, 
+            "model": null, 
+            "partitions": {}, 
+            "removable": "0", 
+            "rotational": "1", 
+            "sas_address": null, 
+            "sas_device_handle": null, 
+            "scheduler_mode": "", 
+            "sectors": "4194304", 
+            "sectorsize": "512", 
+            "size": "2.00 GB", 
+            "support_discard": "4096", 
             "vendor": null, 
             "virtual": 1
         }, 
@@ -358,7 +481,7 @@
             "vlan_challenged": "off [fixed]"
         }, 
         "hw_timestamp_filters": [], 
-        "id": "8000.024283a72ab5", 
+        "id": "8000.02429ac0e427", 
         "interfaces": [], 
         "ipv4": {
             "address": "172.17.0.1", 
@@ -366,7 +489,7 @@
             "netmask": "255.255.0.0", 
             "network": "172.17.0.0"
         }, 
-        "macaddress": "02:42:83:a7:2a:b5", 
+        "macaddress": "02:42:9a:c0:e4:27", 
         "mtu": 1500, 
         "promisc": false, 
         "stp": false, 
@@ -381,16 +504,14 @@
     "ansible_effective_user_id": 0, 
     "ansible_env": {
         "HOME": "/root", 
-        "LANG": "C", 
-        "LC_ALL": "C", 
-        "LC_NUMERIC": "C", 
+        "LANG": "en_US.UTF-8", 
         "LOGNAME": "root", 
         "MAIL": "/var/mail/elanansible", 
         "PATH": "/sbin:/bin:/usr/sbin:/usr/bin", 
         "PWD": "/home/elanansible", 
         "SHELL": "/bin/bash", 
         "SHLVL": "1", 
-        "SUDO_COMMAND": "/bin/sh -c echo BECOME-SUCCESS-xohimnfkhtirykmcphfiopppqatpqwag ; /usr/bin/python", 
+        "SUDO_COMMAND": "/bin/sh -c echo BECOME-SUCCESS-xryrnfkspkxfavlezxmzjzidojhnqzmq ; /usr/bin/python", 
         "SUDO_GID": "12356", 
         "SUDO_UID": "12356", 
         "SUDO_USER": "elanansible", 
@@ -547,7 +668,7 @@
     }, 
     "ansible_local": {
         "date": {
-            "date": "Sun Jun 21 21:48:41 CDT 2020"
+            "date": "Fri Jul  3 07:34:05 CDT 2020"
         }, 
         "environment": {
             "environment": "PRODUCTION"
@@ -609,16 +730,16 @@
     }, 
     "ansible_machine": "x86_64", 
     "ansible_machine_id": "6ea3f3dae1e54e6f8f6664dd433a84ae", 
-    "ansible_memfree_mb": 3218, 
+    "ansible_memfree_mb": 4753, 
     "ansible_memory_mb": {
         "nocache": {
-            "free": 4551, 
-            "used": 1256
+            "free": 5230, 
+            "used": 577
         }, 
         "real": {
-            "free": 3218, 
+            "free": 4753, 
             "total": 5807, 
-            "used": 2589
+            "used": 1054
         }, 
         "swap": {
             "cached": 0, 
@@ -630,18 +751,18 @@
     "ansible_memtotal_mb": 5807, 
     "ansible_mounts": [
         {
-            "block_available": 642739, 
+            "block_available": 365121, 
             "block_size": 4096, 
             "block_total": 1789822, 
-            "block_used": 1147083, 
+            "block_used": 1424701, 
             "device": "/dev/mapper/vg00-var", 
             "fstype": "ext4", 
-            "inode_available": 19212, 
+            "inode_available": 452882, 
             "inode_total": 458752, 
-            "inode_used": 439540, 
+            "inode_used": 5870, 
             "mount": "/var", 
             "options": "rw,relatime,data=ordered", 
-            "size_available": 2632658944, 
+            "size_available": 1495535616, 
             "size_total": 7331110912, 
             "uuid": "45bc1324-501b-4d0c-abf4-0dfaed90d4af"
         }, 
@@ -662,54 +783,6 @@
             "uuid": "46138a76-36bd-4395-be60-ec9b2d0ed2ed"
         }, 
         {
-            "block_available": 642739, 
-            "block_size": 4096, 
-            "block_total": 1789822, 
-            "block_used": 1147083, 
-            "device": "/dev/mapper/vg00-var", 
-            "fstype": "ext4", 
-            "inode_available": 19212, 
-            "inode_total": 458752, 
-            "inode_used": 439540, 
-            "mount": "/var/lib/docker/overlay2", 
-            "options": "rw,relatime,data=ordered,bind", 
-            "size_available": 2632658944, 
-            "size_total": 7331110912, 
-            "uuid": "45bc1324-501b-4d0c-abf4-0dfaed90d4af"
-        }, 
-        {
-            "block_available": 642739, 
-            "block_size": 4096, 
-            "block_total": 1789822, 
-            "block_used": 1147083, 
-            "device": "/dev/mapper/vg00-var", 
-            "fstype": "ext4", 
-            "inode_available": 19212, 
-            "inode_total": 458752, 
-            "inode_used": 439540, 
-            "mount": "/var/lib/docker/containers", 
-            "options": "rw,relatime,data=ordered,bind", 
-            "size_available": 2632658944, 
-            "size_total": 7331110912, 
-            "uuid": "45bc1324-501b-4d0c-abf4-0dfaed90d4af"
-        }, 
-        {
-            "block_available": 1228185, 
-            "block_size": 4096, 
-            "block_total": 2031470, 
-            "block_used": 803285, 
-            "device": "/dev/mapper/vg00-root", 
-            "fstype": "ext4", 
-            "inode_available": 415024, 
-            "inode_total": 524288, 
-            "inode_used": 109264, 
-            "mount": "/", 
-            "options": "rw,relatime,data=ordered", 
-            "size_available": 5030645760, 
-            "size_total": 8320901120, 
-            "uuid": "34802c7e-fe28-425a-ac1b-a33d3af8062f"
-        }, 
-        {
             "block_available": 353108, 
             "block_size": 1024, 
             "block_total": 487634, 
@@ -726,36 +799,68 @@
             "uuid": "0806a8ed-fc20-4124-bf6c-11576990eba9"
         }, 
         {
-            "block_available": 0, 
+            "block_available": 365121, 
             "block_size": 4096, 
-            "block_total": 0, 
-            "block_used": 0, 
-            "device": "/etc/auto.misc", 
-            "fstype": "autofs", 
-            "inode_available": 0, 
-            "inode_total": 0, 
-            "inode_used": 0, 
-            "mount": "/misc", 
-            "options": "rw,relatime,fd=6,pgrp=4343,timeout=300,minproto=5,maxproto=5,indirect", 
-            "size_available": 0, 
-            "size_total": 0, 
-            "uuid": "N/A"
+            "block_total": 1789822, 
+            "block_used": 1424701, 
+            "device": "/dev/mapper/vg00-var", 
+            "fstype": "ext4", 
+            "inode_available": 452882, 
+            "inode_total": 458752, 
+            "inode_used": 5870, 
+            "mount": "/var/lib/docker/containers", 
+            "options": "rw,relatime,data=ordered,bind", 
+            "size_available": 1495535616, 
+            "size_total": 7331110912, 
+            "uuid": "45bc1324-501b-4d0c-abf4-0dfaed90d4af"
         }, 
         {
-            "block_available": 0, 
+            "block_available": 365121, 
             "block_size": 4096, 
-            "block_total": 0, 
-            "block_used": 0, 
-            "device": "/etc/auto.home", 
-            "fstype": "autofs", 
-            "inode_available": 0, 
-            "inode_total": 0, 
-            "inode_used": 0, 
-            "mount": "/nfshome", 
-            "options": "rw,relatime,fd=18,pgrp=4343,timeout=300,minproto=5,maxproto=5,indirect", 
-            "size_available": 0, 
-            "size_total": 0, 
-            "uuid": "N/A"
+            "block_total": 1789822, 
+            "block_used": 1424701, 
+            "device": "/dev/mapper/vg00-var", 
+            "fstype": "ext4", 
+            "inode_available": 452882, 
+            "inode_total": 458752, 
+            "inode_used": 5870, 
+            "mount": "/var/lib/docker/devicemapper", 
+            "options": "rw,relatime,data=ordered,bind", 
+            "size_available": 1495535616, 
+            "size_total": 7331110912, 
+            "uuid": "45bc1324-501b-4d0c-abf4-0dfaed90d4af"
+        }, 
+        {
+            "block_available": 2603168, 
+            "block_size": 4096, 
+            "block_total": 2618624, 
+            "block_used": 15456, 
+            "device": "/dev/mapper/docker-253:2-16388-14b02ac747323e9b2d89098d5937c6c4e937dc8ea0549a7ad7b85c58453e1b0f", 
+            "fstype": "xfs", 
+            "inode_available": 10482779, 
+            "inode_total": 10484736, 
+            "inode_used": 1957, 
+            "mount": "/var/lib/docker/devicemapper/mnt/14b02ac747323e9b2d89098d5937c6c4e937dc8ea0549a7ad7b85c58453e1b0f", 
+            "options": "rw,relatime,nouuid,attr2,inode64,logbsize=64k,sunit=128,swidth=128,noquota", 
+            "size_available": 10662576128, 
+            "size_total": 10725883904, 
+            "uuid": "224c87d1-39b4-4650-96d7-aa0668ec1695"
+        }, 
+        {
+            "block_available": 1228244, 
+            "block_size": 4096, 
+            "block_total": 2031470, 
+            "block_used": 803226, 
+            "device": "/dev/mapper/vg00-root", 
+            "fstype": "ext4", 
+            "inode_available": 415027, 
+            "inode_total": 524288, 
+            "inode_used": 109261, 
+            "mount": "/", 
+            "options": "rw,relatime,data=ordered", 
+            "size_available": 5030887424, 
+            "size_total": 8320901120, 
+            "uuid": "34802c7e-fe28-425a-ac1b-a33d3af8062f"
         }
     ], 
     "ansible_nodename": "edalcmnp01.elan.elantecs.com", 
@@ -874,7 +979,7 @@
     ], 
     "ansible_system_capabilities_enforced": "True", 
     "ansible_system_vendor": "Red Hat", 
-    "ansible_uptime_seconds": 62732, 
+    "ansible_uptime_seconds": 142, 
     "ansible_user_dir": "/root", 
     "ansible_user_gecos": "root", 
     "ansible_user_gid": 0, 
@@ -1028,7 +1133,7 @@
     "facter_f0002": "", 
     "facter_f0003": "", 
     "facter_facterversion": "2.4.6", 
-    "facter_filesystems": "ext2,ext3,ext4", 
+    "facter_filesystems": "ext2,ext3,ext4,xfs", 
     "facter_fqdn": "edalcmnp01.elan.elantecs.com", 
     "facter_gateway": "192.168.2.1", 
     "facter_gid": "root", 
@@ -1061,15 +1166,15 @@
     "facter_lsbmajdistrelease": "7", 
     "facter_lsbminordistrelease": "7", 
     "facter_lsbrelease": ":core-4.1-amd64:core-4.1-noarch", 
-    "facter_macaddress": "02:42:83:a7:2a:b5", 
-    "facter_macaddress_docker0": "02:42:83:a7:2a:b5", 
+    "facter_macaddress": "02:42:9a:c0:e4:27", 
+    "facter_macaddress_docker0": "02:42:9a:c0:e4:27", 
     "facter_macaddress_eth0": "52:54:00:d1:1a:83", 
     "facter_macaddress_virbr0": "52:54:00:4c:77:88", 
     "facter_macaddress_virbr0_nic": "52:54:00:4c:77:88", 
     "facter_manufacturer": "Red Hat", 
     "facter_mcopackages": "mcollective-actionpolicy-auth mcollective-puppet-common mcollective-iptables-client mcollective-package-common mcollective-service-agent mcollective-iptables-common mcollective-puppet-agent mcollective-nrpe-agent mcollective-sshkey-security mcollective-nettest-agent mcollective-service-client mcollective-nrpe-client mcollective-filemgr-common mcollective-service-common mcollective-nettest-common mcollective-iptables-agent mcollective-package-agent mcollective-package-client mcollective-sysctl-data mcollective-filemgr-agent mcollective-nettest-client mcollective-puppet-client mcollective-nrpe-common mcollective", 
-    "facter_memoryfree": "4.41 GB", 
-    "facter_memoryfree_mb": "4515.55", 
+    "facter_memoryfree": "5.07 GB", 
+    "facter_memoryfree_mb": "5194.28", 
     "facter_memorysize": "5.67 GB", 
     "facter_memorysize_mb": "5807.54", 
     "facter_mtu_docker0": 1500, 
@@ -1166,17 +1271,17 @@
     "facter_swapsize_mb": "1024.00", 
     "facter_system_uptime": {
         "days": 0, 
-        "hours": 17, 
-        "seconds": 62735, 
-        "uptime": "17:25 hours"
+        "hours": 0, 
+        "seconds": 145, 
+        "uptime": "0:02 hours"
     }, 
     "facter_timezone": "CDT", 
     "facter_type": "Other", 
     "facter_uniqueid": "a8c0b702", 
-    "facter_uptime": "17:25 hours", 
+    "facter_uptime": "0:02 hours", 
     "facter_uptime_days": 0, 
-    "facter_uptime_hours": 17, 
-    "facter_uptime_seconds": 62735, 
+    "facter_uptime_hours": 0, 
+    "facter_uptime_seconds": 145, 
     "facter_uuid": "CE6AA56A-BE73-4A3B-89E2-906E35D2BDCB", 
     "facter_vcsrepo_svn_ver": "1.7.14", 
     "facter_virt_type": "full", 
@@ -1213,6 +1318,34 @@
             "removable": "0", 
             "rotational": "1", 
             "size": "2097152"
+        }, 
+        "dm-4": {
+            "logical_block_size": "512", 
+            "physical_block_size": "512", 
+            "removable": "0", 
+            "rotational": "1", 
+            "size": "209715200"
+        }, 
+        "dm-5": {
+            "logical_block_size": "512", 
+            "physical_block_size": "512", 
+            "removable": "0", 
+            "rotational": "1", 
+            "size": "20971520"
+        }, 
+        "loop0": {
+            "logical_block_size": "512", 
+            "physical_block_size": "512", 
+            "removable": "0", 
+            "rotational": "1", 
+            "size": "209715200"
+        }, 
+        "loop1": {
+            "logical_block_size": "512", 
+            "physical_block_size": "512", 
+            "removable": "0", 
+            "rotational": "1", 
+            "size": "4194304"
         }, 
         "vda": {
             "logical_block_size": "512", 
@@ -1259,37 +1392,37 @@
                 }, 
                 "eth0": {
                     "rx": {
-                        "bytes": "2809028053", 
+                        "bytes": "30006245", 
                         "drop": "4", 
                         "errors": "0", 
                         "overrun": "0", 
-                        "packets": "1554853"
+                        "packets": "21129"
                     }, 
                     "tx": {
-                        "bytes": "1222345592", 
+                        "bytes": "32867513", 
                         "carrier": "0", 
                         "collisions": "0", 
                         "drop": "0", 
                         "errors": "0", 
-                        "packets": "1336516", 
+                        "packets": "17979", 
                         "queuelen": "1000"
                     }
                 }, 
                 "lo": {
                     "rx": {
-                        "bytes": "8549169866", 
+                        "bytes": "2903224", 
                         "drop": "0", 
                         "errors": "0", 
                         "overrun": "0", 
-                        "packets": "3847761"
+                        "packets": "1817"
                     }, 
                     "tx": {
-                        "bytes": "8549169866", 
+                        "bytes": "2903224", 
                         "carrier": "0", 
                         "collisions": "0", 
                         "drop": "0", 
                         "errors": "0", 
-                        "packets": "3847761"
+                        "packets": "1817"
                     }
                 }, 
                 "virbr0": {
@@ -2314,12 +2447,12 @@
                 "shell": "/bin/bash", 
                 "uid": 64363
             }, 
-            "nagios": {
-                "dir": "/nfshome/nagios", 
-                "gecos": "Nagios Admin Login", 
+            "nagiosha": {
+                "dir": "/nfshome/nagiosha", 
+                "gecos": "NagiosHA for Nagios HealthCheck", 
                 "gid": 1000, 
                 "shell": "/bin/bash", 
-                "uid": 64709
+                "uid": 62330
             }, 
             "nfsnobody": {
                 "dir": "/var/lib/nfs", 
@@ -2524,6 +2657,20 @@
                 "shell": "/bin/bash", 
                 "uid": 67721
             }, 
+            "sonar": {
+                "dir": "/nfshome/sonar", 
+                "gecos": "Sonar Application Account", 
+                "gid": 1000, 
+                "shell": "/bin/bash", 
+                "uid": 66435
+            }, 
+            "sonarha": {
+                "dir": "/nfshome/sonarha", 
+                "gecos": "Sonar LDAP Account", 
+                "gid": 1000, 
+                "shell": "/bin/bash", 
+                "uid": 60588
+            }, 
             "sshd": {
                 "dir": "/var/empty/sshd", 
                 "gecos": "Privilege-separated SSH", 
@@ -2576,19 +2723,32 @@
         }
     }, 
     "ohai_filesystem": {
-        "-hosts": {
-            "fs_type": "autofs", 
-            "mount": "/net", 
+        "/dev/dm-5": {
+            "inodes_available": "10482779", 
+            "inodes_percent_used": "1%", 
+            "inodes_used": "1957", 
+            "kb_available": "10412672", 
+            "kb_size": "10474496", 
+            "kb_used": "61824", 
+            "mount": "/var/lib/docker/devicemapper/mnt/14b02ac747323e9b2d89098d5937c6c4e937dc8ea0549a7ad7b85c58453e1b0f", 
+            "percent_used": "1%", 
+            "total_inodes": "10484736"
+        }, 
+        "/dev/mapper/docker-253:2-16388-14b02ac747323e9b2d89098d5937c6c4e937dc8ea0549a7ad7b85c58453e1b0f": {
+            "fs_type": "xfs", 
+            "mount": "/var/lib/docker/devicemapper/mnt/14b02ac747323e9b2d89098d5937c6c4e937dc8ea0549a7ad7b85c58453e1b0f", 
             "mount_options": [
                 "rw", 
                 "relatime", 
-                "fd=12", 
-                "pgrp=4343", 
-                "timeout=300", 
-                "minproto=5", 
-                "maxproto=5", 
-                "indirect"
-            ]
+                "nouuid", 
+                "attr2", 
+                "inode64", 
+                "logbsize=64k", 
+                "sunit=128", 
+                "swidth=128", 
+                "noquota"
+            ], 
+            "uuid": "224c87d1-39b4-4650-96d7-aa0668ec1695"
         }, 
         "/dev/mapper/vg00-home": {
             "fs_type": "ext4", 
@@ -2610,12 +2770,12 @@
         }, 
         "/dev/mapper/vg00-root": {
             "fs_type": "ext4", 
-            "inodes_available": "415026", 
+            "inodes_available": "415029", 
             "inodes_percent_used": "21%", 
-            "inodes_used": "109262", 
-            "kb_available": "4912748", 
+            "inodes_used": "109259", 
+            "kb_available": "4912984", 
             "kb_size": "8125880", 
-            "kb_used": "2777320", 
+            "kb_used": "2777084", 
             "mount": "/", 
             "mount_options": [
                 "rw", 
@@ -2632,19 +2792,19 @@
         }, 
         "/dev/mapper/vg00-var": {
             "fs_type": "ext4", 
-            "inodes_available": "19214", 
-            "inodes_percent_used": "96%", 
-            "inodes_used": "439538", 
-            "kb_available": "2570964", 
+            "inodes_available": "452884", 
+            "inodes_percent_used": "2%", 
+            "inodes_used": "5868", 
+            "kb_available": "1460492", 
             "kb_size": "7159288", 
-            "kb_used": "4257376", 
-            "mount": "/var/lib/docker/overlay2", 
+            "kb_used": "5367848", 
+            "mount": "/var/lib/docker/devicemapper", 
             "mount_options": [
                 "rw", 
                 "relatime", 
                 "data=ordered"
             ], 
-            "percent_used": "63%", 
+            "percent_used": "79%", 
             "total_inodes": "458752", 
             "uuid": "45bc1324-501b-4d0c-abf4-0dfaed90d4af"
         }, 
@@ -2669,34 +2829,6 @@
         "/dev/vda2": {
             "fs_type": "LVM2_member", 
             "uuid": "MR9leH-fBcP-7V49-BrlZ-uuP6-sTtu-eCr45f"
-        }, 
-        "/etc/auto.home": {
-            "fs_type": "autofs", 
-            "mount": "/nfshome", 
-            "mount_options": [
-                "rw", 
-                "relatime", 
-                "fd=18", 
-                "pgrp=4343", 
-                "timeout=300", 
-                "minproto=5", 
-                "maxproto=5", 
-                "indirect"
-            ]
-        }, 
-        "/etc/auto.misc": {
-            "fs_type": "autofs", 
-            "mount": "/misc", 
-            "mount_options": [
-                "rw", 
-                "relatime", 
-                "fd=6", 
-                "pgrp=4343", 
-                "timeout=300", 
-                "minproto=5", 
-                "maxproto=5", 
-                "indirect"
-            ]
         }, 
         "cgroup": {
             "fs_type": "cgroup", 
@@ -2741,9 +2873,9 @@
         }, 
         "devtmpfs": {
             "fs_type": "devtmpfs", 
-            "inodes_available": "740621", 
+            "inodes_available": "740608", 
             "inodes_percent_used": "1%", 
-            "inodes_used": "363", 
+            "inodes_used": "376", 
             "kb_available": "2963936", 
             "kb_size": "2963936", 
             "kb_used": "0", 
@@ -2776,7 +2908,7 @@
         }, 
         "proc": {
             "fs_type": "proc", 
-            "mount": "/proc", 
+            "mount": "/run/docker/netns/default", 
             "mount_options": [
                 "rw", 
                 "nosuid", 
@@ -2814,6 +2946,26 @@
                 "relatime"
             ]
         }, 
+        "shm": {
+            "fs_type": "tmpfs", 
+            "inodes_available": "743363", 
+            "inodes_percent_used": "1%", 
+            "inodes_used": "1", 
+            "kb_available": "65536", 
+            "kb_size": "65536", 
+            "kb_used": "0", 
+            "mount": "/var/lib/docker/containers/a1fcdd0c29211006a0524a45bfdcc15e01a6bc5501cc8f4d246131062cbc5e49/shm", 
+            "mount_options": [
+                "rw", 
+                "nosuid", 
+                "nodev", 
+                "noexec", 
+                "relatime", 
+                "size=65536k"
+            ], 
+            "percent_used": "0%", 
+            "total_inodes": "743364"
+        }, 
         "sunrpc": {
             "fs_type": "rpc_pipefs", 
             "mount": "/var/lib/nfs/rpc_pipefs", 
@@ -2839,7 +2991,7 @@
             "mount_options": [
                 "rw", 
                 "relatime", 
-                "fd=29", 
+                "fd=28", 
                 "pgrp=1", 
                 "timeout=0", 
                 "minproto=5", 
@@ -2872,21 +3024,45 @@
     }, 
     "ohai_filesystem2": {
         "by_device": {
-            "-hosts": {
-                "fs_type": "autofs", 
+            "/dev/dm-5": {
+                "inodes_available": "10482779", 
+                "inodes_percent_used": "1%", 
+                "inodes_used": "1957", 
+                "kb_available": "10412672", 
+                "kb_size": "10474496", 
+                "kb_used": "61824", 
+                "mounts": [
+                    "/var/lib/docker/devicemapper/mnt/14b02ac747323e9b2d89098d5937c6c4e937dc8ea0549a7ad7b85c58453e1b0f"
+                ], 
+                "percent_used": "1%", 
+                "total_inodes": "10484736"
+            }, 
+            "/dev/loop0": {
+                "mounts": []
+            }, 
+            "/dev/loop1": {
+                "mounts": []
+            }, 
+            "/dev/mapper/docker-253:2-16388-14b02ac747323e9b2d89098d5937c6c4e937dc8ea0549a7ad7b85c58453e1b0f": {
+                "fs_type": "xfs", 
                 "mount_options": [
                     "rw", 
                     "relatime", 
-                    "fd=12", 
-                    "pgrp=4343", 
-                    "timeout=300", 
-                    "minproto=5", 
-                    "maxproto=5", 
-                    "indirect"
+                    "nouuid", 
+                    "attr2", 
+                    "inode64", 
+                    "logbsize=64k", 
+                    "sunit=128", 
+                    "swidth=128", 
+                    "noquota"
                 ], 
                 "mounts": [
-                    "/net"
-                ]
+                    "/var/lib/docker/devicemapper/mnt/14b02ac747323e9b2d89098d5937c6c4e937dc8ea0549a7ad7b85c58453e1b0f"
+                ], 
+                "uuid": "224c87d1-39b4-4650-96d7-aa0668ec1695"
+            }, 
+            "/dev/mapper/docker-253:2-16388-pool": {
+                "mounts": []
             }, 
             "/dev/mapper/vg00-home": {
                 "fs_type": "ext4", 
@@ -2910,12 +3086,12 @@
             }, 
             "/dev/mapper/vg00-root": {
                 "fs_type": "ext4", 
-                "inodes_available": "415026", 
+                "inodes_available": "415029", 
                 "inodes_percent_used": "21%", 
-                "inodes_used": "109262", 
-                "kb_available": "4912748", 
+                "inodes_used": "109259", 
+                "kb_available": "4912984", 
                 "kb_size": "8125880", 
-                "kb_used": "2777320", 
+                "kb_used": "2777084", 
                 "mount_options": [
                     "rw", 
                     "relatime", 
@@ -2935,12 +3111,12 @@
             }, 
             "/dev/mapper/vg00-var": {
                 "fs_type": "ext4", 
-                "inodes_available": "19214", 
-                "inodes_percent_used": "96%", 
-                "inodes_used": "439538", 
-                "kb_available": "2570964", 
+                "inodes_available": "452884", 
+                "inodes_percent_used": "2%", 
+                "inodes_used": "5868", 
+                "kb_available": "1460492", 
                 "kb_size": "7159288", 
-                "kb_used": "4257376", 
+                "kb_used": "5367848", 
                 "mount_options": [
                     "rw", 
                     "relatime", 
@@ -2949,9 +3125,9 @@
                 "mounts": [
                     "/var", 
                     "/var/lib/docker/containers", 
-                    "/var/lib/docker/overlay2"
+                    "/var/lib/docker/devicemapper"
                 ], 
-                "percent_used": "63%", 
+                "percent_used": "79%", 
                 "total_inodes": "458752", 
                 "uuid": "45bc1324-501b-4d0c-abf4-0dfaed90d4af"
             }, 
@@ -2982,38 +3158,6 @@
                 "fs_type": "LVM2_member", 
                 "mounts": [], 
                 "uuid": "MR9leH-fBcP-7V49-BrlZ-uuP6-sTtu-eCr45f"
-            }, 
-            "/etc/auto.home": {
-                "fs_type": "autofs", 
-                "mount_options": [
-                    "rw", 
-                    "relatime", 
-                    "fd=18", 
-                    "pgrp=4343", 
-                    "timeout=300", 
-                    "minproto=5", 
-                    "maxproto=5", 
-                    "indirect"
-                ], 
-                "mounts": [
-                    "/nfshome"
-                ]
-            }, 
-            "/etc/auto.misc": {
-                "fs_type": "autofs", 
-                "mount_options": [
-                    "rw", 
-                    "relatime", 
-                    "fd=6", 
-                    "pgrp=4343", 
-                    "timeout=300", 
-                    "minproto=5", 
-                    "maxproto=5", 
-                    "indirect"
-                ], 
-                "mounts": [
-                    "/misc"
-                ]
             }, 
             "cgroup": {
                 "fs_type": "cgroup", 
@@ -3075,9 +3219,9 @@
             }, 
             "devtmpfs": {
                 "fs_type": "devtmpfs", 
-                "inodes_available": "740621", 
+                "inodes_available": "740608", 
                 "inodes_percent_used": "1%", 
-                "inodes_used": "363", 
+                "inodes_used": "376", 
                 "kb_available": "2963936", 
                 "kb_size": "2963936", 
                 "kb_used": "0", 
@@ -3124,7 +3268,9 @@
                     "relatime"
                 ], 
                 "mounts": [
-                    "/proc"
+                    "/proc", 
+                    "/run/docker/netns/default", 
+                    "net:[4026531956]"
                 ]
             }, 
             "pstore": {
@@ -3162,6 +3308,28 @@
                     "/sys/kernel/security"
                 ]
             }, 
+            "shm": {
+                "fs_type": "tmpfs", 
+                "inodes_available": "743363", 
+                "inodes_percent_used": "1%", 
+                "inodes_used": "1", 
+                "kb_available": "65536", 
+                "kb_size": "65536", 
+                "kb_used": "0", 
+                "mount_options": [
+                    "rw", 
+                    "nosuid", 
+                    "nodev", 
+                    "noexec", 
+                    "relatime", 
+                    "size=65536k"
+                ], 
+                "mounts": [
+                    "/var/lib/docker/containers/a1fcdd0c29211006a0524a45bfdcc15e01a6bc5501cc8f4d246131062cbc5e49/shm"
+                ], 
+                "percent_used": "0%", 
+                "total_inodes": "743364"
+            }, 
             "sunrpc": {
                 "fs_type": "rpc_pipefs", 
                 "mount_options": [
@@ -3190,7 +3358,7 @@
                 "mount_options": [
                     "rw", 
                     "relatime", 
-                    "fd=29", 
+                    "fd=28", 
                     "pgrp=1", 
                     "timeout=0", 
                     "minproto=5", 
@@ -3223,6 +3391,7 @@
                     "/dev/shm", 
                     "/run", 
                     "/sys/fs/cgroup", 
+                    "/run/user/0", 
                     "/run/user/12356"
                 ], 
                 "percent_used": "0%", 
@@ -3236,12 +3405,12 @@
                     "rootfs"
                 ], 
                 "fs_type": "rootfs", 
-                "inodes_available": "415026", 
+                "inodes_available": "415029", 
                 "inodes_percent_used": "21%", 
-                "inodes_used": "109262", 
-                "kb_available": "4912748", 
+                "inodes_used": "109259", 
+                "kb_available": "4912984", 
                 "kb_size": "8125880", 
-                "kb_used": "2777320", 
+                "kb_used": "2777084", 
                 "mount_options": [
                     "rw"
                 ], 
@@ -3274,9 +3443,9 @@
                     "devtmpfs"
                 ], 
                 "fs_type": "devtmpfs", 
-                "inodes_available": "740621", 
+                "inodes_available": "740608", 
                 "inodes_percent_used": "1%", 
-                "inodes_used": "363", 
+                "inodes_used": "376", 
                 "kb_available": "2963936", 
                 "kb_size": "2963936", 
                 "kb_used": "0", 
@@ -3364,54 +3533,6 @@
                 "total_inodes": "65536", 
                 "uuid": "46138a76-36bd-4395-be60-ec9b2d0ed2ed"
             }, 
-            "/misc": {
-                "devices": [
-                    "/etc/auto.misc"
-                ], 
-                "fs_type": "autofs", 
-                "mount_options": [
-                    "rw", 
-                    "relatime", 
-                    "fd=6", 
-                    "pgrp=4343", 
-                    "timeout=300", 
-                    "minproto=5", 
-                    "maxproto=5", 
-                    "indirect"
-                ]
-            }, 
-            "/net": {
-                "devices": [
-                    "-hosts"
-                ], 
-                "fs_type": "autofs", 
-                "mount_options": [
-                    "rw", 
-                    "relatime", 
-                    "fd=12", 
-                    "pgrp=4343", 
-                    "timeout=300", 
-                    "minproto=5", 
-                    "maxproto=5", 
-                    "indirect"
-                ]
-            }, 
-            "/nfshome": {
-                "devices": [
-                    "/etc/auto.home"
-                ], 
-                "fs_type": "autofs", 
-                "mount_options": [
-                    "rw", 
-                    "relatime", 
-                    "fd=18", 
-                    "pgrp=4343", 
-                    "timeout=300", 
-                    "minproto=5", 
-                    "maxproto=5", 
-                    "indirect"
-                ]
-            }, 
             "/proc": {
                 "devices": [
                     "proc"
@@ -3433,7 +3554,7 @@
                 "mount_options": [
                     "rw", 
                     "relatime", 
-                    "fd=29", 
+                    "fd=28", 
                     "pgrp=1", 
                     "timeout=0", 
                     "minproto=5", 
@@ -3446,19 +3567,54 @@
                     "tmpfs"
                 ], 
                 "fs_type": "tmpfs", 
-                "inodes_available": "742855", 
+                "inodes_available": "742797", 
                 "inodes_percent_used": "1%", 
-                "inodes_used": "509", 
-                "kb_available": "2870260", 
+                "inodes_used": "567", 
+                "kb_available": "2964604", 
                 "kb_size": "2973456", 
-                "kb_used": "103196", 
+                "kb_used": "8852", 
                 "mount_options": [
                     "rw", 
                     "nosuid", 
                     "nodev", 
                     "mode=755"
                 ], 
-                "percent_used": "4%", 
+                "percent_used": "1%", 
+                "total_inodes": "743364"
+            }, 
+            "/run/docker/netns/default": {
+                "devices": [
+                    "proc"
+                ], 
+                "fs_type": "proc", 
+                "mount_options": [
+                    "rw", 
+                    "nosuid", 
+                    "nodev", 
+                    "noexec", 
+                    "relatime"
+                ]
+            }, 
+            "/run/user/0": {
+                "devices": [
+                    "tmpfs"
+                ], 
+                "fs_type": "tmpfs", 
+                "inodes_available": "743363", 
+                "inodes_percent_used": "1%", 
+                "inodes_used": "1", 
+                "kb_available": "594692", 
+                "kb_size": "594692", 
+                "kb_used": "0", 
+                "mount_options": [
+                    "rw", 
+                    "nosuid", 
+                    "nodev", 
+                    "relatime", 
+                    "size=594692k", 
+                    "mode=700"
+                ], 
+                "percent_used": "0%", 
                 "total_inodes": "743364"
             }, 
             "/run/user/12356": {
@@ -3713,18 +3869,18 @@
                     "/dev/mapper/vg00-var"
                 ], 
                 "fs_type": "ext4", 
-                "inodes_available": "19214", 
-                "inodes_percent_used": "96%", 
-                "inodes_used": "439538", 
-                "kb_available": "2570964", 
+                "inodes_available": "452884", 
+                "inodes_percent_used": "2%", 
+                "inodes_used": "5868", 
+                "kb_available": "1460492", 
                 "kb_size": "7159288", 
-                "kb_used": "4257376", 
+                "kb_used": "5367848", 
                 "mount_options": [
                     "rw", 
                     "relatime", 
                     "data=ordered"
                 ], 
-                "percent_used": "63%", 
+                "percent_used": "79%", 
                 "total_inodes": "458752", 
                 "uuid": "45bc1324-501b-4d0c-abf4-0dfaed90d4af"
             }, 
@@ -3740,7 +3896,29 @@
                 ], 
                 "uuid": "45bc1324-501b-4d0c-abf4-0dfaed90d4af"
             }, 
-            "/var/lib/docker/overlay2": {
+            "/var/lib/docker/containers/a1fcdd0c29211006a0524a45bfdcc15e01a6bc5501cc8f4d246131062cbc5e49/shm": {
+                "devices": [
+                    "shm"
+                ], 
+                "fs_type": "tmpfs", 
+                "inodes_available": "743363", 
+                "inodes_percent_used": "1%", 
+                "inodes_used": "1", 
+                "kb_available": "65536", 
+                "kb_size": "65536", 
+                "kb_used": "0", 
+                "mount_options": [
+                    "rw", 
+                    "nosuid", 
+                    "nodev", 
+                    "noexec", 
+                    "relatime", 
+                    "size=65536k"
+                ], 
+                "percent_used": "0%", 
+                "total_inodes": "743364"
+            }, 
+            "/var/lib/docker/devicemapper": {
                 "devices": [
                     "/dev/mapper/vg00-var"
                 ], 
@@ -3752,6 +3930,33 @@
                 ], 
                 "uuid": "45bc1324-501b-4d0c-abf4-0dfaed90d4af"
             }, 
+            "/var/lib/docker/devicemapper/mnt/14b02ac747323e9b2d89098d5937c6c4e937dc8ea0549a7ad7b85c58453e1b0f": {
+                "devices": [
+                    "/dev/dm-5", 
+                    "/dev/mapper/docker-253:2-16388-14b02ac747323e9b2d89098d5937c6c4e937dc8ea0549a7ad7b85c58453e1b0f"
+                ], 
+                "fs_type": "xfs", 
+                "inodes_available": "10482779", 
+                "inodes_percent_used": "1%", 
+                "inodes_used": "1957", 
+                "kb_available": "10412672", 
+                "kb_size": "10474496", 
+                "kb_used": "61824", 
+                "mount_options": [
+                    "rw", 
+                    "relatime", 
+                    "nouuid", 
+                    "attr2", 
+                    "inode64", 
+                    "logbsize=64k", 
+                    "sunit=128", 
+                    "swidth=128", 
+                    "noquota"
+                ], 
+                "percent_used": "1%", 
+                "total_inodes": "10484736", 
+                "uuid": "224c87d1-39b4-4650-96d7-aa0668ec1695"
+            }, 
             "/var/lib/nfs/rpc_pipefs": {
                 "devices": [
                     "sunrpc"
@@ -3761,23 +3966,59 @@
                     "rw", 
                     "relatime"
                 ]
+            }, 
+            "net:[4026531956]": {
+                "devices": [
+                    "proc"
+                ], 
+                "fs_type": "proc", 
+                "mount_options": [
+                    "rw", 
+                    "nosuid", 
+                    "nodev", 
+                    "noexec", 
+                    "relatime"
+                ]
             }
         }, 
         "by_pair": {
-            "-hosts,/net": {
-                "device": "-hosts", 
-                "fs_type": "autofs", 
-                "mount": "/net", 
+            "/dev/dm-5,/var/lib/docker/devicemapper/mnt/14b02ac747323e9b2d89098d5937c6c4e937dc8ea0549a7ad7b85c58453e1b0f": {
+                "device": "/dev/dm-5", 
+                "inodes_available": "10482779", 
+                "inodes_percent_used": "1%", 
+                "inodes_used": "1957", 
+                "kb_available": "10412672", 
+                "kb_size": "10474496", 
+                "kb_used": "61824", 
+                "mount": "/var/lib/docker/devicemapper/mnt/14b02ac747323e9b2d89098d5937c6c4e937dc8ea0549a7ad7b85c58453e1b0f", 
+                "percent_used": "1%", 
+                "total_inodes": "10484736"
+            }, 
+            "/dev/loop0,": {
+                "device": "/dev/loop0"
+            }, 
+            "/dev/loop1,": {
+                "device": "/dev/loop1"
+            }, 
+            "/dev/mapper/docker-253:2-16388-14b02ac747323e9b2d89098d5937c6c4e937dc8ea0549a7ad7b85c58453e1b0f,/var/lib/docker/devicemapper/mnt/14b02ac747323e9b2d89098d5937c6c4e937dc8ea0549a7ad7b85c58453e1b0f": {
+                "device": "/dev/mapper/docker-253:2-16388-14b02ac747323e9b2d89098d5937c6c4e937dc8ea0549a7ad7b85c58453e1b0f", 
+                "fs_type": "xfs", 
+                "mount": "/var/lib/docker/devicemapper/mnt/14b02ac747323e9b2d89098d5937c6c4e937dc8ea0549a7ad7b85c58453e1b0f", 
                 "mount_options": [
                     "rw", 
                     "relatime", 
-                    "fd=12", 
-                    "pgrp=4343", 
-                    "timeout=300", 
-                    "minproto=5", 
-                    "maxproto=5", 
-                    "indirect"
-                ]
+                    "nouuid", 
+                    "attr2", 
+                    "inode64", 
+                    "logbsize=64k", 
+                    "sunit=128", 
+                    "swidth=128", 
+                    "noquota"
+                ], 
+                "uuid": "224c87d1-39b4-4650-96d7-aa0668ec1695"
+            }, 
+            "/dev/mapper/docker-253:2-16388-pool,": {
+                "device": "/dev/mapper/docker-253:2-16388-pool"
             }, 
             "/dev/mapper/vg00-home,/home": {
                 "device": "/dev/mapper/vg00-home", 
@@ -3801,12 +4042,12 @@
             "/dev/mapper/vg00-root,/": {
                 "device": "/dev/mapper/vg00-root", 
                 "fs_type": "ext4", 
-                "inodes_available": "415026", 
+                "inodes_available": "415029", 
                 "inodes_percent_used": "21%", 
-                "inodes_used": "109262", 
-                "kb_available": "4912748", 
+                "inodes_used": "109259", 
+                "kb_available": "4912984", 
                 "kb_size": "8125880", 
-                "kb_used": "2777320", 
+                "kb_used": "2777084", 
                 "mount": "/", 
                 "mount_options": [
                     "rw", 
@@ -3825,19 +4066,19 @@
             "/dev/mapper/vg00-var,/var": {
                 "device": "/dev/mapper/vg00-var", 
                 "fs_type": "ext4", 
-                "inodes_available": "19214", 
-                "inodes_percent_used": "96%", 
-                "inodes_used": "439538", 
-                "kb_available": "2570964", 
+                "inodes_available": "452884", 
+                "inodes_percent_used": "2%", 
+                "inodes_used": "5868", 
+                "kb_available": "1460492", 
                 "kb_size": "7159288", 
-                "kb_used": "4257376", 
+                "kb_used": "5367848", 
                 "mount": "/var", 
                 "mount_options": [
                     "rw", 
                     "relatime", 
                     "data=ordered"
                 ], 
-                "percent_used": "63%", 
+                "percent_used": "79%", 
                 "total_inodes": "458752", 
                 "uuid": "45bc1324-501b-4d0c-abf4-0dfaed90d4af"
             }, 
@@ -3852,10 +4093,10 @@
                 ], 
                 "uuid": "45bc1324-501b-4d0c-abf4-0dfaed90d4af"
             }, 
-            "/dev/mapper/vg00-var,/var/lib/docker/overlay2": {
+            "/dev/mapper/vg00-var,/var/lib/docker/devicemapper": {
                 "device": "/dev/mapper/vg00-var", 
                 "fs_type": "ext4", 
-                "mount": "/var/lib/docker/overlay2", 
+                "mount": "/var/lib/docker/devicemapper", 
                 "mount_options": [
                     "rw", 
                     "relatime", 
@@ -3889,36 +4130,6 @@
                 "device": "/dev/vda2", 
                 "fs_type": "LVM2_member", 
                 "uuid": "MR9leH-fBcP-7V49-BrlZ-uuP6-sTtu-eCr45f"
-            }, 
-            "/etc/auto.home,/nfshome": {
-                "device": "/etc/auto.home", 
-                "fs_type": "autofs", 
-                "mount": "/nfshome", 
-                "mount_options": [
-                    "rw", 
-                    "relatime", 
-                    "fd=18", 
-                    "pgrp=4343", 
-                    "timeout=300", 
-                    "minproto=5", 
-                    "maxproto=5", 
-                    "indirect"
-                ]
-            }, 
-            "/etc/auto.misc,/misc": {
-                "device": "/etc/auto.misc", 
-                "fs_type": "autofs", 
-                "mount": "/misc", 
-                "mount_options": [
-                    "rw", 
-                    "relatime", 
-                    "fd=6", 
-                    "pgrp=4343", 
-                    "timeout=300", 
-                    "minproto=5", 
-                    "maxproto=5", 
-                    "indirect"
-                ]
             }, 
             "cgroup,/sys/fs/cgroup/blkio": {
                 "device": "cgroup", 
@@ -4088,9 +4299,9 @@
             "devtmpfs,/dev": {
                 "device": "devtmpfs", 
                 "fs_type": "devtmpfs", 
-                "inodes_available": "740621", 
+                "inodes_available": "740608", 
                 "inodes_percent_used": "1%", 
-                "inodes_used": "363", 
+                "inodes_used": "376", 
                 "kb_available": "2963936", 
                 "kb_size": "2963936", 
                 "kb_used": "0", 
@@ -4135,6 +4346,30 @@
                     "relatime"
                 ]
             }, 
+            "proc,/run/docker/netns/default": {
+                "device": "proc", 
+                "fs_type": "proc", 
+                "mount": "/run/docker/netns/default", 
+                "mount_options": [
+                    "rw", 
+                    "nosuid", 
+                    "nodev", 
+                    "noexec", 
+                    "relatime"
+                ]
+            }, 
+            "proc,net:[4026531956]": {
+                "device": "proc", 
+                "fs_type": "proc", 
+                "mount": "net:[4026531956]", 
+                "mount_options": [
+                    "rw", 
+                    "nosuid", 
+                    "nodev", 
+                    "noexec", 
+                    "relatime"
+                ]
+            }, 
             "pstore,/sys/fs/pstore": {
                 "device": "pstore", 
                 "fs_type": "pstore", 
@@ -4167,6 +4402,27 @@
                     "relatime"
                 ]
             }, 
+            "shm,/var/lib/docker/containers/a1fcdd0c29211006a0524a45bfdcc15e01a6bc5501cc8f4d246131062cbc5e49/shm": {
+                "device": "shm", 
+                "fs_type": "tmpfs", 
+                "inodes_available": "743363", 
+                "inodes_percent_used": "1%", 
+                "inodes_used": "1", 
+                "kb_available": "65536", 
+                "kb_size": "65536", 
+                "kb_used": "0", 
+                "mount": "/var/lib/docker/containers/a1fcdd0c29211006a0524a45bfdcc15e01a6bc5501cc8f4d246131062cbc5e49/shm", 
+                "mount_options": [
+                    "rw", 
+                    "nosuid", 
+                    "nodev", 
+                    "noexec", 
+                    "relatime", 
+                    "size=65536k"
+                ], 
+                "percent_used": "0%", 
+                "total_inodes": "743364"
+            }, 
             "sunrpc,/var/lib/nfs/rpc_pipefs": {
                 "device": "sunrpc", 
                 "fs_type": "rpc_pipefs", 
@@ -4195,7 +4451,7 @@
                 "mount_options": [
                     "rw", 
                     "relatime", 
-                    "fd=29", 
+                    "fd=28", 
                     "pgrp=1", 
                     "timeout=0", 
                     "minproto=5", 
@@ -4224,12 +4480,12 @@
             "tmpfs,/run": {
                 "device": "tmpfs", 
                 "fs_type": "tmpfs", 
-                "inodes_available": "742855", 
+                "inodes_available": "742797", 
                 "inodes_percent_used": "1%", 
-                "inodes_used": "509", 
-                "kb_available": "2870260", 
+                "inodes_used": "567", 
+                "kb_available": "2964604", 
                 "kb_size": "2973456", 
-                "kb_used": "103196", 
+                "kb_used": "8852", 
                 "mount": "/run", 
                 "mount_options": [
                     "rw", 
@@ -4237,7 +4493,28 @@
                     "nodev", 
                     "mode=755"
                 ], 
-                "percent_used": "4%", 
+                "percent_used": "1%", 
+                "total_inodes": "743364"
+            }, 
+            "tmpfs,/run/user/0": {
+                "device": "tmpfs", 
+                "fs_type": "tmpfs", 
+                "inodes_available": "743363", 
+                "inodes_percent_used": "1%", 
+                "inodes_used": "1", 
+                "kb_available": "594692", 
+                "kb_size": "594692", 
+                "kb_used": "0", 
+                "mount": "/run/user/0", 
+                "mount_options": [
+                    "rw", 
+                    "nosuid", 
+                    "nodev", 
+                    "relatime", 
+                    "size=594692k", 
+                    "mode=700"
+                ], 
+                "percent_used": "0%", 
                 "total_inodes": "743364"
             }, 
             "tmpfs,/run/user/12356": {
@@ -4294,7 +4571,7 @@
     "ohai_hostname": "edalcmnp01", 
     "ohai_hostnamectl": {
         "architecture": "x86-64", 
-        "boot_id": "d4de59ef5ff9479f8427da04c9e3c99c", 
+        "boot_id": "f3b4aed484ff41beb1ed73af3c1be5dd", 
         "chassis": "vm", 
         "cpe_os_name": "cpe", 
         "icon_name": "computer-vm", 
@@ -4304,8 +4581,8 @@
         "static_hostname": "edalcmnp01.elan.elantecs.com", 
         "virtualization": "kvm"
     }, 
-    "ohai_idletime": "2 days 20 hours 13 minutes 41 seconds", 
-    "ohai_idletime_seconds": 245621, 
+    "ohai_idletime": "8 minutes 46 seconds", 
+    "ohai_idletime_seconds": 526, 
     "ohai_init_package": "systemd", 
     "ohai_ipaddress": "192.168.2.183", 
     "ohai_kernel": {
@@ -4330,6 +4607,14 @@
                 "refcount": "1", 
                 "size": "25041"
             }, 
+            "dm_bio_prison": {
+                "refcount": "1", 
+                "size": "15673"
+            }, 
+            "dm_bufio": {
+                "refcount": "1", 
+                "size": "28011"
+            }, 
             "dm_log": {
                 "refcount": "2", 
                 "size": "18411"
@@ -4339,12 +4624,20 @@
                 "size": "22135"
             }, 
             "dm_mod": {
-                "refcount": "15", 
+                "refcount": "23", 
                 "size": "104038"
+            }, 
+            "dm_persistent_data": {
+                "refcount": "1", 
+                "size": "62123"
             }, 
             "dm_region_hash": {
                 "refcount": "1", 
                 "size": "20862"
+            }, 
+            "dm_thin_pool": {
+                "refcount": "2", 
+                "size": "61075"
             }, 
             "drm": {
                 "refcount": "4", 
@@ -4403,9 +4696,17 @@
                 "size": "218854", 
                 "version": "3.00"
             }, 
+            "libcrc32c": {
+                "refcount": "2", 
+                "size": "12644"
+            }, 
             "llc": {
                 "refcount": "2", 
                 "size": "14552"
+            }, 
+            "loop": {
+                "refcount": "4", 
+                "size": "28035"
             }, 
             "mbcache": {
                 "refcount": "1", 
@@ -4517,6 +4818,10 @@
                 "refcount": "4", 
                 "size": "21423"
             }, 
+            "xfs": {
+                "refcount": "1", 
+                "size": "915019"
+            }, 
             "xt_CHECKSUM": {
                 "refcount": "1", 
                 "size": "12549"
@@ -4600,15 +4905,15 @@
     "ohai_machine_id": "6ea3f3dae1e54e6f8f6664dd433a84ae", 
     "ohai_machinename": "edalcmnp01.elan.elantecs.com", 
     "ohai_memory": {
-        "active": "1665980kB", 
-        "anon_pages": "990488kB", 
+        "active": "622500kB", 
+        "anon_pages": "471740kB", 
         "bounce": "0kB", 
-        "buffers": "324304kB", 
-        "cached": "1042348kB", 
+        "buffers": "34808kB", 
+        "cached": "452980kB", 
         "commit_limit": "4022028kB", 
-        "committed_as": "3158012kB", 
-        "dirty": "64kB", 
-        "free": "3277344kB", 
+        "committed_as": "2613984kB", 
+        "dirty": "244kB", 
+        "free": "4850784kB", 
         "hugepage_size": "2048kB", 
         "hugepages": {
             "free": "0", 
@@ -4616,22 +4921,22 @@
             "surplus": "0", 
             "total": "0"
         }, 
-        "inactive": "690972kB", 
-        "mapped": "96280kB", 
+        "inactive": "336888kB", 
+        "mapped": "89244kB", 
         "nfs_unstable": "0kB", 
-        "page_tables": "11220kB", 
-        "slab": "239288kB", 
-        "slab_reclaimable": "214128kB", 
-        "slab_unreclaim": "25160kB", 
+        "page_tables": "11180kB", 
+        "slab": "60184kB", 
+        "slab_reclaimable": "39056kB", 
+        "slab_unreclaim": "21128kB", 
         "swap": {
             "cached": "0kB", 
             "free": "1048572kB", 
             "total": "1048572kB"
         }, 
         "total": "5946916kB", 
-        "vmalloc_chunk": "34359712508kB", 
+        "vmalloc_chunk": "34359687168kB", 
         "vmalloc_total": "34359738367kB", 
-        "vmalloc_used": "21476kB", 
+        "vmalloc_used": "24604kB", 
         "writeback": "0kB"
     }, 
     "ohai_network": {
@@ -4640,7 +4945,7 @@
         "interfaces": {
             "docker0": {
                 "addresses": {
-                    "02:42:83:A7:2A:B5": {
+                    "02:42:9A:C0:E4:27": {
                         "family": "lladdr"
                     }, 
                     "172.17.0.1": {
@@ -4688,7 +4993,7 @@
                     "192.168.2.1": "38:2c:4a:aa:d6:e8", 
                     "192.168.2.12": "52:54:00:33:80:2f", 
                     "192.168.2.120": "00:16:35:3b:7d:ec", 
-                    "192.168.2.121": "00:21:9b:98:1d:c2", 
+                    "192.168.2.13": "52:54:00:44:15:1e", 
                     "192.168.2.184": "52:54:00:88:48:76", 
                     "192.168.2.185": "52:54:00:f4:a3:00", 
                     "192.168.2.186": "52:54:00:c0:2e:d9", 
@@ -4861,7 +5166,7 @@
             }
         }
     }, 
-    "ohai_ohai_time": 1592794122.695277, 
+    "ohai_ohai_time": 1593779646.767991, 
     "ohai_os": "linux", 
     "ohai_os_version": "3.10.0-229.el7.x86_64", 
     "ohai_packages": {
@@ -10643,8 +10948,8 @@
         "python2-pip": {
             "arch": "noarch", 
             "epoch": "0", 
-            "installdate": "1580737588", 
-            "release": "10.el7", 
+            "installdate": "1592814252", 
+            "release": "12.el7", 
             "version": "8.1.2"
         }, 
         "python2-pyasn1": {
@@ -10671,15 +10976,15 @@
         "python3": {
             "arch": "x86_64", 
             "epoch": "0", 
-            "installdate": "1580737415", 
-            "release": "10.el7", 
+            "installdate": "1592814241", 
+            "release": "13.el7", 
             "version": "3.6.8"
         }, 
         "python3-libs": {
             "arch": "x86_64", 
             "epoch": "0", 
-            "installdate": "1580737417", 
-            "release": "10.el7", 
+            "installdate": "1592814240", 
+            "release": "13.el7", 
             "version": "3.6.8"
         }, 
         "python3-pip": {
@@ -11546,8 +11851,8 @@
         "wget": {
             "arch": "x86_64", 
             "epoch": "0", 
-            "installdate": "1580737168", 
-            "release": "10.el7_0.1", 
+            "installdate": "1592814246", 
+            "release": "18.el7_6.1", 
             "version": "1.14"
         }, 
         "which": {
@@ -11693,15 +11998,15 @@
         "zlib": {
             "arch": "x86_64", 
             "epoch": "0", 
-            "installdate": "1580736951", 
-            "release": "13.el7", 
+            "installdate": "1592814261", 
+            "release": "18.el7", 
             "version": "1.2.7"
         }, 
         "zlib-devel": {
             "arch": "x86_64", 
             "epoch": "0", 
-            "installdate": "1580736998", 
-            "release": "13.el7", 
+            "installdate": "1592814262", 
+            "release": "18.el7", 
             "version": "1.2.7"
         }
     }, 
@@ -11711,9 +12016,15 @@
     "ohai_root_group": "root", 
     "ohai_sessions": {
         "by_session": {
-            "196": {
+            "1": {
                 "seat": null, 
-                "session": "196", 
+                "session": "1", 
+                "uid": "0", 
+                "user": "root"
+            }, 
+            "2": {
+                "seat": null, 
+                "session": "2", 
                 "uid": "12356", 
                 "user": "elanansible"
             }
@@ -11722,9 +12033,17 @@
             "elanansible": [
                 {
                     "seat": null, 
-                    "session": "196", 
+                    "session": "2", 
                     "uid": "12356", 
                     "user": "elanansible"
+                }
+            ], 
+            "root": [
+                {
+                    "seat": null, 
+                    "session": "1", 
+                    "uid": "0", 
+                    "user": "root"
                 }
             ]
         }
@@ -11928,7 +12247,7 @@
         "XBS5_LPBIG_OFFBIG_LIBS": null, 
         "XBS5_LPBIG_OFFBIG_LINTFLAGS": null, 
         "XBS5_WIDTH_RESTRICTED_ENVS": "XBS5_LP64_OFF64", 
-        "_AVPHYS_PAGES": 819443, 
+        "_AVPHYS_PAGES": 1212896, 
         "_NPROCESSORS_CONF": 4, 
         "_NPROCESSORS_ONLN": 4, 
         "_PHYS_PAGES": 1486729, 
@@ -12063,8 +12382,8 @@
     "ohai_time": {
         "timezone": "CDT"
     }, 
-    "ohai_uptime": "17 hours 25 minutes 30 seconds", 
-    "ohai_uptime_seconds": 62730, 
+    "ohai_uptime": "2 minutes 21 seconds", 
+    "ohai_uptime_seconds": 141, 
     "ohai_virtualization": {
         "role": "guest", 
         "system": "kvm", 

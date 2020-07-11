@@ -14,27 +14,27 @@
         "BOOT_IMAGE": "/boot/vmlinuz-3.13.0-170-generic", 
         "quiet": true, 
         "ro": true, 
-        "root": "UUID=45b85a85-15e0-44c5-afc1-11bd2e5de67a", 
+        "root": "UUID=a623a55f-0dd3-4e35-87b3-6cc2127ebf4d", 
         "splash": true, 
         "vt.handoff": "7"
     }, 
     "ansible_date_time": {
-        "date": "2020-06-22", 
-        "day": "22", 
-        "epoch": "1592886751", 
-        "hour": "23", 
-        "iso8601": "2020-06-23T04:32:31Z", 
-        "iso8601_basic": "20200622T233231463980", 
-        "iso8601_basic_short": "20200622T233231", 
-        "iso8601_micro": "2020-06-23T04:32:31.465202Z", 
-        "minute": "32", 
+        "date": "2020-06-27", 
+        "day": "27", 
+        "epoch": "1593303977", 
+        "hour": "19", 
+        "iso8601": "2020-06-28T00:26:17Z", 
+        "iso8601_basic": "20200627T192617975749", 
+        "iso8601_basic_short": "20200627T192617", 
+        "iso8601_micro": "2020-06-28T00:26:17.977019Z", 
+        "minute": "26", 
         "month": "06", 
-        "second": "31", 
-        "time": "23:32:31", 
+        "second": "17", 
+        "time": "19:26:17", 
         "tz": "CDT", 
         "tz_offset": "-0500", 
-        "weekday": "Monday", 
-        "weekday_number": "1", 
+        "weekday": "Saturday", 
+        "weekday_number": "6", 
         "weeknumber": "25", 
         "year": "2020"
     }, 
@@ -44,7 +44,7 @@
         "broadcast": "192.168.2.255", 
         "gateway": "192.168.2.1", 
         "interface": "eth0", 
-        "macaddress": "52:54:00:36:08:1e", 
+        "macaddress": "52:54:00:74:2a:51", 
         "mtu": 1500, 
         "netmask": "255.255.255.0", 
         "network": "192.168.2.0", 
@@ -57,10 +57,10 @@
         "masters": {}, 
         "uuids": {
             "vda1": [
-                "45b85a85-15e0-44c5-afc1-11bd2e5de67a"
+                "a623a55f-0dd3-4e35-87b3-6cc2127ebf4d"
             ], 
             "vda5": [
-                "51c3a05d-7a57-467d-8a8e-670f46de7404"
+                "c025edd9-db4e-4214-a97a-95e042e31f8f"
             ]
         }
     }, 
@@ -635,14 +635,14 @@
                         "labels": [], 
                         "masters": [], 
                         "uuids": [
-                            "45b85a85-15e0-44c5-afc1-11bd2e5de67a"
+                            "a623a55f-0dd3-4e35-87b3-6cc2127ebf4d"
                         ]
                     }, 
                     "sectors": "37746688", 
                     "sectorsize": 512, 
                     "size": "18.00 GB", 
                     "start": "2048", 
-                    "uuid": "45b85a85-15e0-44c5-afc1-11bd2e5de67a"
+                    "uuid": "a623a55f-0dd3-4e35-87b3-6cc2127ebf4d"
                 }, 
                 "vda2": {
                     "holders": [], 
@@ -665,14 +665,14 @@
                         "labels": [], 
                         "masters": [], 
                         "uuids": [
-                            "51c3a05d-7a57-467d-8a8e-670f46de7404"
+                            "c025edd9-db4e-4214-a97a-95e042e31f8f"
                         ]
                     }, 
                     "sectors": "4190208", 
                     "sectorsize": 512, 
                     "size": "2.00 GB", 
                     "start": "37750784", 
-                    "uuid": "51c3a05d-7a57-467d-8a8e-670f46de7404"
+                    "uuid": "c025edd9-db4e-4214-a97a-95e042e31f8f"
                 }
             }, 
             "removable": "0", 
@@ -696,10 +696,17 @@
     "ansible_distribution_release": "trusty", 
     "ansible_distribution_version": "14.04", 
     "ansible_dns": {
+        "domain": "elan.elantecs.com", 
         "nameservers": [
+            "192.168.2.120", 
             "192.168.2.125", 
-            "192.168.2.120"
+            "192.168.2.1", 
+            "192.168.2.125"
         ], 
+        "options": {
+            "1": true, 
+            "timeout": true
+        }, 
         "search": [
             "elan.elantecs.com"
         ]
@@ -716,7 +723,7 @@
         "PATH": "/sbin:/bin:/usr/sbin:/usr/bin", 
         "PWD": "/home/elanansible", 
         "SHELL": "/bin/bash", 
-        "SUDO_COMMAND": "/bin/sh -c echo BECOME-SUCCESS-wpqfwrdaxshcdvsqcrouuxbkwenydzrl ; /usr/bin/python", 
+        "SUDO_COMMAND": "/bin/sh -c echo BECOME-SUCCESS-wbyimzqihcakcupbbycyxweajguleyui ; /usr/bin/python", 
         "SUDO_GID": "12356", 
         "SUDO_UID": "12356", 
         "SUDO_USER": "elanansible", 
@@ -733,7 +740,7 @@
             "netmask": "255.255.255.0", 
             "network": "192.168.2.0"
         }, 
-        "macaddress": "52:54:00:36:08:1e", 
+        "macaddress": "52:54:00:74:2a:51", 
         "mtu": 1500, 
         "pciid": "virtio0", 
         "promisc": false, 
@@ -768,7 +775,7 @@
     }, 
     "ansible_local": {
         "date": {
-            "date": "Mon Jun 22 23:32:20 CDT 2020"
+            "date": "Sat Jun 27 19:26:05 CDT 2020"
         }, 
         "environment": {
             "environment": "TEST"
@@ -776,7 +783,9 @@
         "keepalived": {
             "keepalived_priority": "101"
         }, 
-        "kvm_domains": "error loading fact - please check content", 
+        "kvm_domains": {
+            "virtual_vms": "[]"
+        }, 
         "preference": {
             "private_fact": "blab"
         }, 
@@ -792,17 +801,17 @@
         "release": "14.04"
     }, 
     "ansible_machine": "x86_64", 
-    "ansible_machine_id": "3912fe88a607d1be67f35f5e5d92bf43", 
-    "ansible_memfree_mb": 1183, 
+    "ansible_machine_id": "251832ae4c238b5ee97ab2aa5ef716a4", 
+    "ansible_memfree_mb": 350, 
     "ansible_memory_mb": {
         "nocache": {
-            "free": 1830, 
-            "used": 171
+            "free": 1543, 
+            "used": 458
         }, 
         "real": {
-            "free": 1183, 
+            "free": 350, 
             "total": 2001, 
-            "used": 818
+            "used": 1651
         }, 
         "swap": {
             "cached": 0, 
@@ -814,20 +823,20 @@
     "ansible_memtotal_mb": 2001, 
     "ansible_mounts": [
         {
-            "block_available": 3793228, 
+            "block_available": 3779516, 
             "block_size": 4096, 
             "block_total": 4611519, 
-            "block_used": 818291, 
+            "block_used": 832003, 
             "device": "/dev/vda1", 
             "fstype": "ext4", 
-            "inode_available": 1095989, 
+            "inode_available": 1098833, 
             "inode_total": 1179648, 
-            "inode_used": 83659, 
+            "inode_used": 80815, 
             "mount": "/", 
             "options": "rw,errors=remount-ro", 
-            "size_available": 15537061888, 
+            "size_available": 15480897536, 
             "size_total": 18888781824, 
-            "uuid": "45b85a85-15e0-44c5-afc1-11bd2e5de67a"
+            "uuid": "a623a55f-0dd3-4e35-87b3-6cc2127ebf4d"
         }
     ], 
     "ansible_nodename": "edalpert02", 
@@ -837,7 +846,7 @@
         "BOOT_IMAGE": "/boot/vmlinuz-3.13.0-170-generic", 
         "quiet": true, 
         "ro": true, 
-        "root": "UUID=45b85a85-15e0-44c5-afc1-11bd2e5de67a", 
+        "root": "UUID=a623a55f-0dd3-4e35-87b3-6cc2127ebf4d", 
         "splash": true, 
         "vt.handoff": "7"
     }, 
@@ -855,7 +864,7 @@
     "ansible_processor_vcpus": 2, 
     "ansible_product_name": "KVM", 
     "ansible_product_serial": "NA", 
-    "ansible_product_uuid": "B603BCBD-912A-425F-8AB2-0465D5637EDB", 
+    "ansible_product_uuid": "EE7AC0F7-8C6E-4BD1-88E7-29C1B8333017", 
     "ansible_product_version": "RHEL 7.0.0 PC (i440FX + PIIX, 1996)", 
     "ansible_python": {
         "executable": "/usr/bin/python", 
@@ -884,10 +893,10 @@
     }, 
     "ansible_selinux_python_present": false, 
     "ansible_service_mgr": "upstart", 
-    "ansible_ssh_host_key_dsa_public": "AAAAB3NzaC1kc3MAAACBAMzUL0Ajc1vYfQsD6ZgtZ3Ecc0JSbur8qNFKAa5xalVUgamUr+FwK8UXzHctzotgeBGondtTHAuBdhrCsUZRf2aawdsMghlu1BZP7QlYi1j6+4Pp69BW+I7r+ZApbGG5KzB0Byv7xdFU+beSWao+l5R9DtFvAhD7xR50ulGsP+NTAAAAFQDokL5ks0RzTYOd3UcgkeJOGEuj5wAAAIAVH8ImXFY6OEXUIPOO2aZVwXMLRWDlz3M7ZjSyAD7ziV2ToVf/diZzHNhGGp3/EwWn1T4aUeS+5xU/UiKav6gFNV93oRrFYVWDgcn1Jazryk4h9r9UwkZY22QjWiYv6O0PEb6VCy6B+n6H551sMlli94yz36tCKDuUehOzBdyZdgAAAIA1zSDztSm41rsA9r7A0EF85/WTq160KshCVTy4kR9rNmhoYMYRa+Vj0owmw/pLKP6aiIFDJtFsMEzQ8qLXTYBdcVG3313j2AEjaoxhq3mdsAQQPel4EPdCzOx9TgZVuGyc/BS8T5ek4ML29tlaN9PKDHU0ba2a127PGbzRmx67sQ==", 
-    "ansible_ssh_host_key_ecdsa_public": "AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBAs7jU7Vf/5uMgtI5wGjlWb7lWQ4S6i/VyqJvKLxTH8ZKekD+qqHrCwAwYih5477ZY7hxgFNcxaHD0T0CQJNVAU=", 
-    "ansible_ssh_host_key_ed25519_public": "AAAAC3NzaC1lZDI1NTE5AAAAICIJQhUr+BzZlaucsngVvbgpx9kG3Vv7kBgznuZUc9R0", 
-    "ansible_ssh_host_key_rsa_public": "AAAAB3NzaC1yc2EAAAADAQABAAABAQC18s6tsUzV+VA+VPvqqycGnbTmYrKuXDj1JK4It1bH7Ty3jvXj0KV5/rve86kIUEnMUdg568ZSc3XbxuTKlv1pGTlh7pHIZoHNqc7DFi+NCtoHacPdXyQdK+1F28CpzK+gp3KrVjbm69K2+6eBJ5Dh0N2QzPIQuVlXpmrSgFC7Q4XoK7V30wN37OcNuaZkcYyQNeldDLwNdUGIGYB/af27aJougpAGxvBohwXUiRsGUMY8q9XUfmzWsc5qTPgit66MmToBVdX/jIsDO8XHKaOE4+0KY6wcVMQMRFQb1StRh9tzkIXPQwKHIXtbNkKXrnmeCjTQSJ+ixMCBu9K4r+45", 
+    "ansible_ssh_host_key_dsa_public": "AAAAB3NzaC1kc3MAAACBALFeRuzHq+xsvBA36Wa79SM1K2XvfHk5lbwUV2/tVOdeLYMCe8fa8k3y8S7K6MYQKB3c6TR6kq+oZ3IOQzQ0w492QZe1E1orvjVMEI9pj9jjJjB7e1mvLTrT2Xj/isdrpDS7TUZsqHeJIqezHPpNYr8TfZgn4xuwzxlHo012UyxpAAAAFQCSbpMHoPU4M8ARmzneqSlOjJf22wAAAIEAhOIXVRFWUi6d/4UubzTb2BfKRK6uLAhBygum/HUDsg6bx9VPNOWVul8qV6xHimZ2jYm64KEh3T2BHO5BDhKOSUYaJqiMlnPSS9BD/MAH7NMlaG++cACFT/fkxh8Z+WPoTObVLs2Nkxqq45UnX6cKSy4ix5Qixi1O9IzW6k/vsUAAAACBAIpdzGbfIZeWtx3g0evz1A3ot6lqYUZ2SK0IG/X/5JbSmrt2nZwboAN+OFOnCXf47uAdqqDfvFAcTFDEt15GZbBAqvT7JkOmBD8twmp8GHF9MZbB9bKiDdBN7l2CYHkspFwR7vhIgVkbchbe+hDzjHP+Cbl8WqZJjkwAJPNDa4v2", 
+    "ansible_ssh_host_key_ecdsa_public": "AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBK6VRAgMM+fenAG3AUm6jiwlIQ0iYX6KbzaHxVhNj2pMTH//+xCecGKB6yO4Gs82pXW00VlVaeThI3gjnhZFBBc=", 
+    "ansible_ssh_host_key_ed25519_public": "AAAAC3NzaC1lZDI1NTE5AAAAIFwg7DeLH5zu3qiB4cxycjPJw81SSci9gayIKpzVPgHw", 
+    "ansible_ssh_host_key_rsa_public": "AAAAB3NzaC1yc2EAAAADAQABAAABAQC8fduoQOgro6Y78ZSzKg0EUErfRrNQXvEBBGlvW6Lle1umorHvjMHVqV3yM6k13qJr6ROZxgrPdAkYREE0Vrc1a0Mn2SpNY+vBFKOI1twgKveOTPJAPxO3fBkr8RwP/bTC+j0a9Gvz5OdzWTuIREYzAwv4ZakxEpwoisII6oFyM0GXIgx6VlYpUg2qc2wFuG2ogyA78cXd5l6XYCyb1V6tBb9buCmCN7+iStk1puw4zTlM86h4V6pEH+rX5bDYfTNUcIBo2s6yd0+YSURiH36Lzymv6DT+xEP7rM3Dpm0uzo6iJ3JL/Ka/e/4OEI9AkwAarGxsfVMqmqa+JuRr7xPP", 
     "ansible_swapfree_mb": 2045, 
     "ansible_swaptotal_mb": 2045, 
     "ansible_system": "Linux", 
@@ -932,7 +941,7 @@
     ], 
     "ansible_system_capabilities_enforced": "True", 
     "ansible_system_vendor": "Red Hat", 
-    "ansible_uptime_seconds": 85550, 
+    "ansible_uptime_seconds": 51756, 
     "ansible_user_dir": "/root", 
     "ansible_user_gecos": "root", 
     "ansible_user_gid": 0, 
@@ -954,7 +963,7 @@
     "facter_blockdevice_vda_vendor": "0x1af4", 
     "facter_blockdevices": "vda", 
     "facter_chash": "notfound", 
-    "facter_date": "Mon Jun 22 23:32:26 CDT 2020", 
+    "facter_date": "Sat Jun 27 19:26:11 CDT 2020", 
     "facter_domain": "elan.elantecs.com", 
     "facter_environment": "test", 
     "facter_f0002": "", 
@@ -988,11 +997,11 @@
     "facter_lsbdistid": "Ubuntu", 
     "facter_lsbdistrelease": "14.04", 
     "facter_lsbmajdistrelease": "14.04", 
-    "facter_macaddress": "52:54:00:36:08:1e", 
-    "facter_macaddress_eth0": "52:54:00:36:08:1e", 
+    "facter_macaddress": "52:54:00:74:2a:51", 
+    "facter_macaddress_eth0": "52:54:00:74:2a:51", 
     "facter_manufacturer": "Red Hat", 
-    "facter_memoryfree": "1.75 GB", 
-    "facter_memoryfree_mb": "1793.28", 
+    "facter_memoryfree": "1.47 GB", 
+    "facter_memoryfree_mb": "1509.84", 
     "facter_memorysize": "1.95 GB", 
     "facter_memorysize_mb": "2001.73", 
     "facter_mtu_eth0": 1500, 
@@ -1027,7 +1036,7 @@
             "filesystem": "ext4", 
             "mount": "/", 
             "size": "37746688", 
-            "uuid": "45b85a85-15e0-44c5-afc1-11bd2e5de67a"
+            "uuid": "a623a55f-0dd3-4e35-87b3-6cc2127ebf4d"
         }, 
         "vda2": {
             "size": "2"
@@ -1035,7 +1044,7 @@
         "vda5": {
             "filesystem": "swap", 
             "size": "4190208", 
-            "uuid": "51c3a05d-7a57-467d-8a8e-670f46de7404"
+            "uuid": "c025edd9-db4e-4214-a97a-95e042e31f8f"
         }
     }, 
     "facter_path": "/bin:/sbin:/usr/bin:/usr/sbin", 
@@ -1065,15 +1074,15 @@
     "facter_serialnumber": "Not Specified", 
     "facter_serverid": "2", 
     "facter_service_provider": "upstart", 
-    "facter_ssh_rsa_key": "edalpert02.elan.elantecs.com ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC18s6tsUzV+VA+VPvqqycGnbTmYrKuXDj1JK4It1bH7Ty3jvXj0KV5/rve86kIUEnMUdg568ZSc3XbxuTKlv1pGTlh7pHIZoHNqc7DFi+NCtoHacPdXyQdK+1F28CpzK+gp3KrVjbm69K2+6eBJ5Dh0N2QzPIQuVlXpmrSgFC7Q4XoK7V30wN37OcNuaZkcYyQNeldDLwNdUGIGYB/af27aJougpAGxvBohwXUiRsGUMY8q9XUfmzWsc5qTPgit66MmToBVdX/jIsDO8XHKaOE4+0KY6wcVMQMRFQb1StRh9tzkIXPQwKHIXtbNkKXrnmeCjTQSJ+ixMCBu9K4r+45", 
-    "facter_sshdsakey": "AAAAB3NzaC1kc3MAAACBAMzUL0Ajc1vYfQsD6ZgtZ3Ecc0JSbur8qNFKAa5xalVUgamUr+FwK8UXzHctzotgeBGondtTHAuBdhrCsUZRf2aawdsMghlu1BZP7QlYi1j6+4Pp69BW+I7r+ZApbGG5KzB0Byv7xdFU+beSWao+l5R9DtFvAhD7xR50ulGsP+NTAAAAFQDokL5ks0RzTYOd3UcgkeJOGEuj5wAAAIAVH8ImXFY6OEXUIPOO2aZVwXMLRWDlz3M7ZjSyAD7ziV2ToVf/diZzHNhGGp3/EwWn1T4aUeS+5xU/UiKav6gFNV93oRrFYVWDgcn1Jazryk4h9r9UwkZY22QjWiYv6O0PEb6VCy6B+n6H551sMlli94yz36tCKDuUehOzBdyZdgAAAIA1zSDztSm41rsA9r7A0EF85/WTq160KshCVTy4kR9rNmhoYMYRa+Vj0owmw/pLKP6aiIFDJtFsMEzQ8qLXTYBdcVG3313j2AEjaoxhq3mdsAQQPel4EPdCzOx9TgZVuGyc/BS8T5ek4ML29tlaN9PKDHU0ba2a127PGbzRmx67sQ==", 
-    "facter_sshecdsakey": "AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBAs7jU7Vf/5uMgtI5wGjlWb7lWQ4S6i/VyqJvKLxTH8ZKekD+qqHrCwAwYih5477ZY7hxgFNcxaHD0T0CQJNVAU=", 
-    "facter_sshed25519key": "AAAAC3NzaC1lZDI1NTE5AAAAICIJQhUr+BzZlaucsngVvbgpx9kG3Vv7kBgznuZUc9R0", 
-    "facter_sshfp_dsa": "SSHFP 2 1 54359e502298a29de085decc312933cff3f8f625\nSSHFP 2 2 8fbc2f2e9510a718b67383f3fa539cb7d7bce066d923f32f0e21455bb6c0b448", 
-    "facter_sshfp_ecdsa": "SSHFP 3 1 4b526eae511948788c76990bb9c272bc8ce214fc\nSSHFP 3 2 48f92296260c0e6bc6130cf1b8def99eda69ec721d912d753baedb6b04ad9852", 
-    "facter_sshfp_ed25519": "SSHFP 4 1 7afdfa05a4281bc1f7b0cbe7b6e5108bdc6eb8f8\nSSHFP 4 2 d9dcf9f8c52dfbb68afcd8b4af5520a868e9dd0590ee2f1d2e6881fbe07b4aa1", 
-    "facter_sshfp_rsa": "SSHFP 1 1 7a4cac5a0276318ead391b14d13c64823106df3f\nSSHFP 1 2 71b013c0258696ead3fffb053f9820d3e240c2db51fded9286728f74cb9377d1", 
-    "facter_sshrsakey": "AAAAB3NzaC1yc2EAAAADAQABAAABAQC18s6tsUzV+VA+VPvqqycGnbTmYrKuXDj1JK4It1bH7Ty3jvXj0KV5/rve86kIUEnMUdg568ZSc3XbxuTKlv1pGTlh7pHIZoHNqc7DFi+NCtoHacPdXyQdK+1F28CpzK+gp3KrVjbm69K2+6eBJ5Dh0N2QzPIQuVlXpmrSgFC7Q4XoK7V30wN37OcNuaZkcYyQNeldDLwNdUGIGYB/af27aJougpAGxvBohwXUiRsGUMY8q9XUfmzWsc5qTPgit66MmToBVdX/jIsDO8XHKaOE4+0KY6wcVMQMRFQb1StRh9tzkIXPQwKHIXtbNkKXrnmeCjTQSJ+ixMCBu9K4r+45", 
+    "facter_ssh_rsa_key": "edalpert02.elan.elantecs.com ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC8fduoQOgro6Y78ZSzKg0EUErfRrNQXvEBBGlvW6Lle1umorHvjMHVqV3yM6k13qJr6ROZxgrPdAkYREE0Vrc1a0Mn2SpNY+vBFKOI1twgKveOTPJAPxO3fBkr8RwP/bTC+j0a9Gvz5OdzWTuIREYzAwv4ZakxEpwoisII6oFyM0GXIgx6VlYpUg2qc2wFuG2ogyA78cXd5l6XYCyb1V6tBb9buCmCN7+iStk1puw4zTlM86h4V6pEH+rX5bDYfTNUcIBo2s6yd0+YSURiH36Lzymv6DT+xEP7rM3Dpm0uzo6iJ3JL/Ka/e/4OEI9AkwAarGxsfVMqmqa+JuRr7xPP", 
+    "facter_sshdsakey": "AAAAB3NzaC1kc3MAAACBALFeRuzHq+xsvBA36Wa79SM1K2XvfHk5lbwUV2/tVOdeLYMCe8fa8k3y8S7K6MYQKB3c6TR6kq+oZ3IOQzQ0w492QZe1E1orvjVMEI9pj9jjJjB7e1mvLTrT2Xj/isdrpDS7TUZsqHeJIqezHPpNYr8TfZgn4xuwzxlHo012UyxpAAAAFQCSbpMHoPU4M8ARmzneqSlOjJf22wAAAIEAhOIXVRFWUi6d/4UubzTb2BfKRK6uLAhBygum/HUDsg6bx9VPNOWVul8qV6xHimZ2jYm64KEh3T2BHO5BDhKOSUYaJqiMlnPSS9BD/MAH7NMlaG++cACFT/fkxh8Z+WPoTObVLs2Nkxqq45UnX6cKSy4ix5Qixi1O9IzW6k/vsUAAAACBAIpdzGbfIZeWtx3g0evz1A3ot6lqYUZ2SK0IG/X/5JbSmrt2nZwboAN+OFOnCXf47uAdqqDfvFAcTFDEt15GZbBAqvT7JkOmBD8twmp8GHF9MZbB9bKiDdBN7l2CYHkspFwR7vhIgVkbchbe+hDzjHP+Cbl8WqZJjkwAJPNDa4v2", 
+    "facter_sshecdsakey": "AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBK6VRAgMM+fenAG3AUm6jiwlIQ0iYX6KbzaHxVhNj2pMTH//+xCecGKB6yO4Gs82pXW00VlVaeThI3gjnhZFBBc=", 
+    "facter_sshed25519key": "AAAAC3NzaC1lZDI1NTE5AAAAIFwg7DeLH5zu3qiB4cxycjPJw81SSci9gayIKpzVPgHw", 
+    "facter_sshfp_dsa": "SSHFP 2 1 495ed6bd4a3fecd50c95d24764018e0ac25a5d17\nSSHFP 2 2 67b46958371604b412ac653081a0d83ffcde11f5c65e1279c3d6cdbb69f8e21e", 
+    "facter_sshfp_ecdsa": "SSHFP 3 1 8346b1b22ac4941656204ba7a1612de386297259\nSSHFP 3 2 da1b4e11ad5ba2c5ad802005f792c19b36061e2baaafe36204270d6980bad743", 
+    "facter_sshfp_ed25519": "SSHFP 4 1 2b59b393f4eda85eb67c82d6ad79c6d6f5d6f9ca\nSSHFP 4 2 d0f08bdf5344d2bdbd257b9cee0e5b8152eda1bbb7c8487d4adb9ae90d73b5e1", 
+    "facter_sshfp_rsa": "SSHFP 1 1 3d84965cd8f3f2701f3df2f3b6344207f437764c\nSSHFP 1 2 7d7b72c9048d0aa7fbe4bbc22e1c5cd425cc7c3cac5953acad9be198edc83b59", 
+    "facter_sshrsakey": "AAAAB3NzaC1yc2EAAAADAQABAAABAQC8fduoQOgro6Y78ZSzKg0EUErfRrNQXvEBBGlvW6Lle1umorHvjMHVqV3yM6k13qJr6ROZxgrPdAkYREE0Vrc1a0Mn2SpNY+vBFKOI1twgKveOTPJAPxO3fBkr8RwP/bTC+j0a9Gvz5OdzWTuIREYzAwv4ZakxEpwoisII6oFyM0GXIgx6VlYpUg2qc2wFuG2ogyA78cXd5l6XYCyb1V6tBb9buCmCN7+iStk1puw4zTlM86h4V6pEH+rX5bDYfTNUcIBo2s6yd0+YSURiH36Lzymv6DT+xEP7rM3Dpm0uzo6iJ3JL/Ka/e/4OEI9AkwAarGxsfVMqmqa+JuRr7xPP", 
     "facter_staging_http_get": "wget", 
     "facter_swapfree": "2.00 GB", 
     "facter_swapfree_mb": "2046.00", 
@@ -1081,18 +1090,18 @@
     "facter_swapsize_mb": "2046.00", 
     "facter_system_uptime": {
         "days": 0, 
-        "hours": 23, 
-        "seconds": 85558, 
-        "uptime": "23:45 hours"
+        "hours": 14, 
+        "seconds": 51763, 
+        "uptime": "14:22 hours"
     }, 
     "facter_timezone": "CDT", 
     "facter_type": "Other", 
-    "facter_uniqueid": "a8c01302", 
-    "facter_uptime": "23:45 hours", 
+    "facter_uniqueid": "007f0101", 
+    "facter_uptime": "14:22 hours", 
     "facter_uptime_days": 0, 
-    "facter_uptime_hours": 23, 
-    "facter_uptime_seconds": 85558, 
-    "facter_uuid": "B603BCBD-912A-425F-8AB2-0465D5637EDB", 
+    "facter_uptime_hours": 14, 
+    "facter_uptime_seconds": 51763, 
+    "facter_uuid": "EE7AC0F7-8C6E-4BD1-88E7-29C1B8333017", 
     "facter_vcsrepo_svn_ver": "", 
     "facter_virtual": "kvm", 
     "facter_vmtools_installed": false, 

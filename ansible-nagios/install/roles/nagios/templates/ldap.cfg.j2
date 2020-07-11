@@ -103,6 +103,26 @@ define service {
     notifications_enabled   1
 }
 
+define service {
+    use                     generic-service
+    host_name               {{ host }}
+    hostgroup_name          ldap
+    service_description     TimeZone
+    check_command           check_nrpe!check_timezone
+    notifications_enabled   1
+}
+
+####AddCheckHere####
+
+define service {
+        use                    local-service
+        host_name              {{ host }}
+        hostgroup_name         ldap
+        service_description    NTP Time Offset
+        check_command          check_nrpe!check_ntp_time
+        notifications_enabled  1
+}
+
 {% endif %}
 
 {% if hostvars[host].ansible_distribution == "FreeBSD" %}
@@ -205,6 +225,26 @@ define service {
     notifications_enabled   1
 }
 
+define service {
+    use                     generic-service
+    host_name               {{ host }}
+    hostgroup_name          ldap
+    service_description     TimeZone
+    check_command           check_nrpe!check_timezone
+    notifications_enabled   1
+}
+
+####AddCheckHere####
+
+define service {
+        use                    local-service
+        host_name              {{ host }}
+        hostgroup_name         ldap
+        service_description    NTP Time Offset
+        check_command          check_nrpe!check_ntp_time
+        notifications_enabled  1
+}
+
 {% endif %}
 
 {% if hostvars[host].ansible_os_family == "Debian" %}
@@ -303,6 +343,26 @@ define service {
     service_description     LDAP Service
     check_command           check_ldap
     notifications_enabled   1
+}
+
+define service {
+    use                     generic-service
+    host_name               {{ host }}
+    hostgroup_name          ldap
+    service_description     TimeZone
+    check_command           check_nrpe!check_timezone
+    notifications_enabled   1
+}
+
+####AddCheckHere####
+
+define service {
+        use                    local-service
+        host_name              {{ host }}
+        hostgroup_name         ldap
+        service_description    NTP Time Offset
+        check_command          check_nrpe!check_ntp_time
+        notifications_enabled  1
 }
 
 {% endif %}

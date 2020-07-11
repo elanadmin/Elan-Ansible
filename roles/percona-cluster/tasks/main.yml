@@ -12,7 +12,8 @@
   environment:
     DEBIAN_FRONTEND: noninteractive
   action: apt pkg={{ item }} state=present
-  with_items: "{{ percona_packages }}"
+  with_items:
+    - "{{ percona_packages }}"
 
 - name: Remove apparmor package
   become: yes

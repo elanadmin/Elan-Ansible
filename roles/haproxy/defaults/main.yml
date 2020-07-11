@@ -39,9 +39,6 @@ haproxy_ldapsv_servers:
   - { name: 'edalldap01', ip: "192.168.2.31" }
   - { name: 'edalldap02', ip: "192.168.2.32" }
 
-haproxy_kibana_servers:
-  - { name: 'edalkbap01', ip: "192.168.2.85" }
-
 haproxy_awxtower_servers:
   - { name: 'edalansp02', ip: "192.168.2.50" }
 
@@ -52,7 +49,6 @@ haproxy_sonar_host: edalsonar.elan.elantecs.com
 haproxy_gitlab_host: edalgitlab.elan.elantecs.com
 haproxy_etcd_host: edaletcd.elan.elantecs.com
 haproxy_ldapsv_host: edalldapsv.elan.elantecs.com
-haproxy_kibana_host: edalkibana.elan.elantecs.com
 haproxy_awxtower_host: edalawxtwr.elan.elantecs.com
 
 haproxy_version: 1.7

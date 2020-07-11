@@ -11,6 +11,9 @@ RewriteEngine On
 RewriteRule ^/$ https://%{HTTP_HOST}/nagios/$1 [R=301,L]
 RewriteRule ^(nagios/.*)$ https://%{HTTP_HOST}$1 [R=301,L]
 
+# redirect / to /nagios for HTTPS
+RedirectMatch ^/$ https://{{ nagios_ha_vip }}/nagios/$1
+
 ScriptAlias /nagios/cgi-bin/ "/usr/lib64/nagios/cgi-bin/"
 
 <Directory "/usr/lib64/nagios/cgi-bin/">

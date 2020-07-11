@@ -1,6 +1,6 @@
 - name: Load Custom Facts from Repository
   become: true
-  hosts: elan_kvm
+  hosts: elan_haproxy
   gather_facts: true
 
   tasks:

@@ -1,0 +1,56 @@
+# generic Linux dns
+define hostgroup {
+	hostgroup_name dns
+        alias DNS Servers
+}
+
+{% for host in groups['dns'] %}
+{% if hostvars[host].ansible_os_family == "RedHat" %}
+
+define service {
+    use                     generic-service
+    host_name               {{ host }}
+    hostgroup_name          dns
+    service_description     TimeZone
+    check_command           check_nrpe!check_timezone
+    notifications_enabled   1
+}
+
+
+####AddCheckHere####
+
+define service {
+        use                    local-service
+        host_name              {{ host }}
+        hostgroup_name         test
+        service_description    NTP Time Offset
+        check_command          check_nrpe!check_ntp_time
+        notifications_enabled  1
+}
+
+{% endif %}
+
+{% if hostvars[host].ansible_distribution == "FreeBSD" %}
+
+define service {
+    use                     generic-service
+    host_name               {{ host }}
+    hostgroup_name          dns
+    service_description     TimeZone
+    check_command           check_nrpe!check_timezone
+    notifications_enabled   1
+}
+
+####AddCheckHere####
+
+define service {
+        use                    local-service
+        host_name              {{ host }}
+        hostgroup_name         test
+        service_description    NTP Time Offset
+        check_command          check_nrpe!check_ntp_time
+        notifications_enabled  1
+}
+
+{% endif %}
+{% endfor %}

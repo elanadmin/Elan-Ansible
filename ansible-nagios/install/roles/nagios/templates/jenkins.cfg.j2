@@ -108,6 +108,17 @@ define service {
     notifications_enabled   1
 }
 
+####AddCheckHere####
+
+define service {
+        use                    local-service
+        host_name              {{ host }}
+        hostgroup_name         jenkins
+        service_description    NTP Time Offset
+        check_command          check_nrpe!check_ntp_time
+        notifications_enabled  1
+}
+
 {% endif %}
 
 {% if hostvars[host].ansible_distribution == "FreeBSD" %}
@@ -213,5 +224,17 @@ define service {
     check_command           check_nrpe!bsd_check_uptime
     notifications_enabled   1
 }
+
+####AddCheckHere####
+
+define service {
+        use                    local-service
+        host_name              {{ host }}
+        hostgroup_name         jenkins
+        service_description    NTP Time Offset
+        check_command          check_nrpe!check_ntp_time
+        notifications_enabled  1
+}
+
 {% endif %}
 {% endfor %}

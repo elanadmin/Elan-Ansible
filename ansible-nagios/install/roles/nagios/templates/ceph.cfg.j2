@@ -1,0 +1,450 @@
+# generic Linux ceph
+define hostgroup {
+	hostgroup_name ceph
+        alias Ceph Servers
+}
+
+{% for host in groups['ceph'] %}
+{% if hostvars[host].ansible_os_family == "RedHat" %}
+
+define host {
+	use                     linux-server
+	host_name               {{ host }}
+	alias                   {{ host }}
+	address                 {{ hostvars[host].ansible_default_ipv4.address }}
+	hostgroups              ceph
+}
+
+define service {
+	use                     local-service
+	host_name               {{ host }}
+    hostgroup_name		    ceph
+	service_description	    SSH
+	check_command		    check_ssh
+	notifications_enabled   1
+}
+
+define service {
+    use                     generic-service
+    host_name               {{ host }}
+    hostgroup_name          ceph
+    service_description     PING
+    check_command           check_ping!200.0,20%!600.0,60%
+    notifications_enabled   1
+}
+define service {
+    use                     generic-service
+    host_name               {{ host }}
+    hostgroup_name          ceph
+    service_description     CPU Load
+    check_command           check_nrpe!check_load
+    notifications_enabled   1
+}
+
+define service {
+    use                     generic-service
+    host_name               {{ host }}
+    hostgroup_name          ceph
+    service_description     Total Processes
+    check_command           check_nrpe!check_total_procs
+    notifications_enabled   1
+}
+
+define service {
+    use                     generic-service
+    host_name               {{ host }}
+    hostgroup_name          ceph
+    service_description     Zombie Processes
+    check_command           check_nrpe!check_zombie_procs
+    notifications_enabled   1
+}
+
+define service {
+    use                     generic-service
+    host_name               {{ host }}
+    hostgroup_name          ceph
+    service_description     Current Users
+    check_command           check_nrpe!check_users
+    notifications_enabled   1
+}
+
+define service {
+    use                     generic-service
+    host_name               {{ host }}
+    hostgroup_name          ceph
+    service_description     Disk Check
+    check_command           check_nrpe!check_root
+    notifications_enabled   1
+}
+
+define service {
+    use                     generic-service
+    host_name               {{ host }}
+    hostgroup_name          ceph
+    service_description     Check Swap
+    check_command           check_nrpe!check_swap
+    notifications_enabled   1
+}
+define service {
+    use                     generic-service
+    host_name               {{ host }}
+    hostgroup_name          ceph
+    service_description     Uptime
+    check_command           check_nrpe!check_uptime
+    notifications_enabled   1
+}
+
+define service {
+    use                     generic-service
+    host_name               {{ host }}
+    hostgroup_name          ceph
+    service_description     Ceph Health
+    check_command           check_nrpe!check_ceph_health
+    notifications_enabled   1
+}
+
+define service {
+    use                     generic-service
+    host_name               {{ host }}
+    hostgroup_name          ceph
+    service_description     Ceph MON Health
+    check_command           check_nrpe!check_ceph_mon
+    notifications_enabled   1
+}
+
+define service {
+    use                     generic-service
+    host_name               {{ host }}
+    hostgroup_name          ceph
+    service_description     Ceph OSD Raw Usage
+    check_command           check_nrpe!check_ceph_df
+    notifications_enabled   1
+}
+
+define service {
+    use                     generic-service
+    host_name               {{ host }}
+    hostgroup_name          ceph
+    service_description     Ceph MDS Health
+    check_command           check_nrpe!check_ceph_mds
+    notifications_enabled   1
+}
+
+define service {
+    use                     generic-service
+    host_name               {{ host }}
+    hostgroup_name          ceph
+    service_description     Ceph MGR Health
+    check_command           check_nrpe!check_ceph_mgr
+    notifications_enabled   1
+}
+
+####AddCheckHere####
+
+define service {
+        use                    local-service
+        host_name              {{ host }}
+        hostgroup_name         ceph
+        service_description    NTP Time Offset
+        check_command          check_nrpe!check_ntp_time
+        notifications_enabled  1
+}
+
+{% endif %}
+
+{% if hostvars[host].ansible_distribution == "FreeBSD" %}
+
+define host {
+    use                     linux-server
+    host_name               {{ host }}
+    alias                   {{ host }}
+    address                 {{ hostvars[host].ansible_default_ipv4.address }}
+    hostgroups              ceph
+}
+
+define service {
+	use			            local-service
+	host_name               {{ host }}
+    hostgroup_name		    ceph
+	service_description	    SSH
+	check_command		    check_ssh
+	notifications_enabled   1
+}
+
+define service {
+    use                     generic-service
+    host_name               {{ host }}
+    hostgroup_name          ceph
+    service_description     PING
+    check_command           check_ping!200.0,20%!600.0,60%
+    notifications_enabled   1
+}
+define service {
+    use                     generic-service
+    host_name               {{ host }}
+    hostgroup_name          ceph
+    service_description     CPU Load
+    check_command           check_nrpe!bsd_check_load
+    notifications_enabled   1
+
+}
+
+define service {
+    use                     generic-service
+    host_name               {{ host }}
+    hostgroup_name          ceph
+    service_description     Total Processes
+    check_command           check_nrpe!bsd_check_procs
+    notifications_enabled   1
+}
+
+define service {
+    use                     generic-service
+    host_name               {{ host }}
+    hostgroup_name          ceph
+    service_description     Check Swap
+    check_command           check_nrpe!bsd_check_swap
+    notifications_enabled   1
+}
+
+define service {
+    use                     generic-service
+    host_name               {{ host }}
+    hostgroup_name          ceph
+    service_description     Current Users
+    check_command           check_nrpe!bsd_check_users
+    notifications_enabled   1
+}
+
+define service {
+    use                     generic-service
+    host_name               {{ host }}
+    hostgroup_name          ceph
+    service_description     Disk Check
+    check_command           check_nrpe!bsd_check_disk
+    notifications_enabled   1
+}
+
+define service {
+    use                     generic-service
+    host_name               {{ host }}
+    hostgroup_name          ceph
+    service_description     Uptime
+    check_command           check_nrpe!bsd_check_uptime
+    notifications_enabled   1
+}
+
+define service {
+    use                     generic-service
+    host_name               {{ host }}
+    hostgroup_name          ceph
+    service_description     Zombie Processes
+    check_command           check_nrpe!bsd_check_zombie_procs
+    notifications_enabled   1
+}
+
+define service {
+    use                     generic-service
+    host_name               {{ host }}
+    hostgroup_name          ceph
+    service_description     Ceph Health
+    check_command           check_nrpe!check_ceph_health
+    notifications_enabled   1
+}
+
+define service {
+    use                     generic-service
+    host_name               {{ host }}
+    hostgroup_name          ceph
+    service_description     Ceph MON Health
+    check_command           check_nrpe!check_ceph_mon
+    notifications_enabled   1
+}
+
+define service {
+    use                     generic-service
+    host_name               {{ host }}
+    hostgroup_name          ceph
+    service_description     Ceph OSD Raw Usage
+    check_command           check_nrpe!check_ceph_df
+    notifications_enabled   1
+}
+
+define service {
+    use                     generic-service
+    host_name               {{ host }}
+    hostgroup_name          ceph
+    service_description     Ceph MDS Health
+    check_command           check_nrpe!check_ceph_mds
+    notifications_enabled   1
+}
+
+define service {
+    use                     generic-service
+    host_name               {{ host }}
+    hostgroup_name          ceph
+    service_description     Ceph MGR Health
+    check_command           check_nrpe!check_ceph_mgr
+    notifications_enabled   1
+}
+
+####AddCheckHere####
+
+define service {
+        use                    local-service
+        host_name              {{ host }}
+        hostgroup_name         ceph
+        service_description    NTP Time Offset
+        check_command          check_nrpe!check_ntp_time
+        notifications_enabled  1
+}
+
+{% endif %}
+
+{% if hostvars[host].ansible_os_family == "Debian" %}
+
+define host {
+        use                     linux-server
+        host_name               {{ host }}
+        alias                   {{ host }}
+        address                 {{ hostvars[host].ansible_default_ipv4.address }}
+        hostgroups              ceph
+}
+
+define service {
+        use                     local-service
+        host_name               {{ host }}
+    hostgroup_name                  ceph
+        service_description         SSH
+        check_command               check_ssh
+        notifications_enabled   1
+}
+
+define service {
+    use                     generic-service
+    host_name               {{ host }}
+    hostgroup_name          ceph
+    service_description     PING
+    check_command           check_ping!200.0,20%!600.0,60%
+    notifications_enabled   1
+}
+define service {
+    use                     generic-service
+    host_name               {{ host }}
+    hostgroup_name          ceph
+    service_description     CPU Load
+    check_command           check_nrpe!check_load
+    notifications_enabled   1
+}
+
+define service {
+    use                     generic-service
+    host_name               {{ host }}
+    hostgroup_name          ceph
+    service_description     Total Processes
+    check_command           check_nrpe!check_total_procs
+    notifications_enabled   1
+}
+
+define service {
+    use                     generic-service
+    host_name               {{ host }}
+    hostgroup_name          ceph
+    service_description     Zombie Processes
+    check_command           check_nrpe!check_zombie_procs
+    notifications_enabled   1
+}
+
+define service {
+    use                     generic-service
+    host_name               {{ host }}
+    hostgroup_name          ceph
+    service_description     Current Users
+    check_command           check_nrpe!check_users
+    notifications_enabled   1
+}
+
+define service {
+    use                     generic-service
+    host_name               {{ host }}
+    hostgroup_name          ceph
+    service_description     Disk Check
+    check_command           check_nrpe!check_root
+    notifications_enabled   1
+}
+
+define service {
+    use                     generic-service
+    host_name               {{ host }}
+    hostgroup_name          ceph
+    service_description     Check Swap
+    check_command           check_nrpe!check_swap
+    notifications_enabled   1
+}
+define service {
+    use                     generic-service
+    host_name               {{ host }}
+    hostgroup_name          ceph
+    service_description     Uptime
+    check_command           check_nrpe!check_uptime
+    notifications_enabled   1
+}
+
+define service {
+    use                     generic-service
+    host_name               {{ host }}
+    hostgroup_name          ceph
+    service_description     Ceph Health
+    check_command           check_nrpe!check_ceph_health
+    notifications_enabled   1
+}
+
+define service {
+    use                     generic-service
+    host_name               {{ host }}
+    hostgroup_name          ceph
+    service_description     Ceph MON Health
+    check_command           check_nrpe!check_ceph_mon
+    notifications_enabled   1
+}
+
+define service {
+    use                     generic-service
+    host_name               {{ host }}
+    hostgroup_name          ceph
+    service_description     Ceph OSD Raw Usage
+    check_command           check_nrpe!check_ceph_df
+    notifications_enabled   1
+}
+
+define service {
+    use                     generic-service
+    host_name               {{ host }}
+    hostgroup_name          ceph
+    service_description     Ceph MDS Health
+    check_command           check_nrpe!check_ceph_mds
+    notifications_enabled   1
+}
+
+define service {
+    use                     generic-service
+    host_name               {{ host }}
+    hostgroup_name          ceph
+    service_description     Ceph MGR Health
+    check_command           check_nrpe!check_ceph_mgr
+    notifications_enabled   1
+}
+
+####AddCheckHere####
+
+define service {
+        use                    local-service
+        host_name              {{ host }}
+        hostgroup_name         ceph
+        service_description    NTP Time Offset
+        check_command          check_nrpe!check_ntp_time
+        notifications_enabled  1
+}
+
+{% endif %}
+{% endfor %}

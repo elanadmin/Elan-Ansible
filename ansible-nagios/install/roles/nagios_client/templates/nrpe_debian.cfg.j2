@@ -202,14 +202,17 @@ connection_timeout=300
 
 command[check_users]=/usr/lib/nagios/plugins/check_users -w {{ warning_users }} -c {{ critical_users }}
 command[check_load]=/usr/lib/nagios/plugins/check_load -w 15,10,5 -c 30,25,20
-command[check_root]=/usr/lib/nagios/plugins/check_disk -w 20% -c 10% -p {{ ansible_mounts[0]['device'] }}
+#command[check_root]=/usr/lib/nagios/plugins/check_disk -w 20% -c 10% -p {{ ansible_mounts[0]['device'] }}
+command[check_root]=/usr/bin/sudo /usr/lib/nagios/plugins/check_disk -w 20% -c 10% -x overlay -x tmpfs -x shm -x nsfs -x proc -x devtmpfs -x udev -x none -l
 command[check_zombie_procs]=/usr/lib/nagios/plugins/check_procs -w 5 -c 10 -s Z
 command[check_total_procs]=/usr/lib/nagios/plugins/check_procs -w {{ warning_proc }} -c {{ critical_proc }}
-command[check_uptime]=/usr/lib/nagios/plugins/check_uptime
+command[check_uptime]=/usr/lib/nagios/plugins/check_uptime.sh
 command[check_tcp_es]=/usr/lib/nagios/plugins/check_tcp -H localhost -p {{ elasticsearch_port }}
 command[check_jenkins]=/usr/lib/nagios/plugins/check_tcp -H localhost -p {{ jenkins_port }}
 command[check_raid]=/usr/lib/nagios/plugins/check_raid
 command[check_swap]=/usr/lib/nagios/plugins/check_swap -w 60 -c 10
+command[check_timezone]=/usr/lib/nagios/plugins/check_timezone.sh 'CST6CDT SystemV/CST6CDT America/Chicago'
+command[check_ntp_time]=/usr/lib/nagios/plugins/check_ntp_time -H edallinp01.elan.elantecs.com -w 0.5 -c 1
 
 #mySQL Checks.
 command[check_mysql_health_uptime]=/usr/lib/nagios/plugins/check_mysql_health --mode uptime --mycnf /root/.my.cnf
@@ -220,6 +223,14 @@ command[check_mysql_health_caborted]=/usr/lib/nagios/plugins/check_mysql_health 
 
 #HAProxy Checks.
 command[check_haproxy_svcs]=/usr/bin/sudo /usr/lib/nagios/plugins/check_haproxy_svcs.sh
+
+#Ceph Checks
+command[check_ceph_health]=/usr/bin/sudo /usr/lib/nagios/plugins/check_ceph_health --id nagios --keyring /etc/nagios/ceph.client.nagios.keyring
+command[check_ceph_mon]=/usr/bin/sudo /usr/lib/nagios/plugins/check_ceph_mon -I {{ ansible_hostname }}
+command[check_ceph_osd]=/usr/bin/sudo /usr/lib/nagios/plugins/check_ceph_osd -H {{ ansible_default_ipv4.address }} --id nagios -k /etc/nagios/ceph.client.nagios.keyring
+command[check_ceph_df]=/usr/bin/sudo /usr/lib/nagios/plugins/check_ceph_df --id nagios -k /etc/nagios/ceph.client.nagios.keyring -W 60.12 -C 80.22 -d 
+command[check_ceph_mds]=/usr/bin/sudo /usr/lib/nagios/plugins/check_ceph_mds --id nagios -k /etc/nagios/ceph.client.nagios.keyring -f cephfs -n {{ ansible_hostname }}
+command[check_ceph_mgr]=/usr/bin/sudo /usr/lib/nagios/plugins/check_ceph_mgr --id nagios -k /etc/nagios/ceph.client.nagios.keyring
 
 # The following examples allow user-supplied arguments and can
 # only be used if the NRPE daemon was compiled with support for

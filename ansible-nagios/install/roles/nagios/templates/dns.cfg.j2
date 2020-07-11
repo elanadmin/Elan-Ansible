@@ -102,6 +102,26 @@ define service {
     notifications_enabled   1
 }
 
+define service {
+    use                     generic-service
+    host_name               {{ host }}
+    hostgroup_name          dns
+    service_description     TimeZone
+    check_command           check_nrpe!check_timezone
+    notifications_enabled   1
+}
+
+####AddCheckHere####
+
+define service {
+        use                    local-service
+        host_name              {{ host }}
+        hostgroup_name         dns
+        service_description    NTP Time Offset
+        check_command          check_nrpe!check_ntp_time
+        notifications_enabled  1
+}
+
 {% endif %}
 
 {% if hostvars[host].ansible_distribution == "FreeBSD" %}
@@ -201,6 +221,26 @@ define service {
     service_description     Zombie Processes
     check_command           check_nrpe!bsd_check_zombie_procs
     notifications_enabled   1
+}
+
+define service {
+    use                     generic-service
+    host_name               {{ host }}
+    hostgroup_name          dns
+    service_description     TimeZone
+    check_command           check_nrpe!check_timezone
+    notifications_enabled   1
+}
+
+####AddCheckHere####
+
+define service {
+        use                    local-service
+        host_name              {{ host }}
+        hostgroup_name         dns
+        service_description    NTP Time Offset
+        check_command          check_nrpe!check_ntp_time
+        notifications_enabled  1
 }
 
 {% endif %}

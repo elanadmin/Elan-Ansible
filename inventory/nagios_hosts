@@ -12,10 +12,6 @@ edalngsp02.elan.elantecs.com
 edalngsp01.elan.elantecs.com
 edalngsp02.elan.elantecs.com
 edaljenp01.elan.elantecs.com
-edalcmnp01.elan.elantecs.com
-edalcmnp02.elan.elantecs.com
-edalcosp01.elan.elantecs.com
-edalcosp02.elan.elantecs.com
 edalkvmp01.elan.elantecs.com
 edalkvmp02.elan.elantecs.com
 edalkvmp03.elan.elantecs.com
@@ -55,6 +51,15 @@ edalkbwp03.elan.elantecs.com
 [ldap]
 edalldap01.elan.elantecs.com
 edalldap02.elan.elantecs.com
+
+# inherits server checks, includes LDAP checks
+[ceph]
+edalcmnp01.elan.elantecs.com ceph_mon=true ceph_mgr=true
+edalcmnp02.elan.elantecs.com ceph_mon=true ceph_mgr=true
+
+[ceph_osd]
+edalcosp01.elan.elantecs.com ceph_osd=true
+edalcosp02.elan.elantecs.com ceph_osd=true
 
 # inherits server checks, includes DNS check and mdadm raid check
 [dns_with_mdadm_raid]

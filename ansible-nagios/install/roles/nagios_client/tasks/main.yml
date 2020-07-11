@@ -128,21 +128,29 @@
   notify:
     - ReStart NRPE service FreeBSD
 
-- name: Copy mdadm check_raid plugin
+- name: Copy Common plugins for Debian
   copy:
-    src=check_raid
-    dest=/usr/lib64/nagios/plugins/check_raid
+    src="Common/"
+    dest="/usr/lib/nagios/plugins"
+    mode="a+x"
+  become: true
+  when: ansible_system == "Linux" and ansible_os_family == "Debian"
+
+- name: Copy Common plugins for RedHat
+  copy:
+    src="Common/"
+    dest="/usr/lib64/nagios/plugins"
     mode="a+x"
   become: true
   when: ansible_system == "Linux" and ansible_os_family == "RedHat"
 
-- name: Copy mdadm check_raid plugin
+- name: Copy Common plugins for FreeBSD
   copy:
-    src=check_raid
-    dest=/usr/lib/nagios/plugins/check_raid
+    src="Common/"
+    dest="/usr/local/libexec/nagios"
     mode="a+x"
   become: true
-  when: ansible_system == "Linux" and ansible_os_family == "Debian"
+  when: ansible_system == "FreeBSD"
 
 - name: Copy uptime check tool for FreeBSD
   copy:
@@ -195,6 +203,11 @@
     dest: /etc/sudoers
     line: nagios ALL=(ALL)NOPASSWD:ALL
 
+- name: Add nrpe to Sudoers
+  lineinfile:
+    dest: /etc/sudoers
+    line: nrpe ALL=(ALL)NOPASSWD:ALL
+
 - name: Start NRPE RedHat6
   become: true
   service: name={{ item }} state=started enabled=yes
@@ -245,3 +258,23 @@
     enabled: yes
     state: started
   when: ansible_system == "FreeBSD"
+
+- name: Create Ceph Auth for nagios
+  shell: ceph auth get-or-create client.nagios mon 'allow r' > /etc/nagios/ceph.client.nagios.keyring
+  args:
+    creates: /etc/nagios/ceph.client.nagios.keyring
+  when: inventory_hostname in groups['ceph']
+  ignore_errors: true
+
+- name: Fetch Ceph Auth Key for nagios
+  fetch:
+    src: /etc/nagios/ceph.client.nagios.keyring
+    dest: roles/nagios_client/files/ceph.client.nagios.keyring
+    flat: true
+  when: inventory_hostname in groups['ceph']
+
+- name: Copy Ceph Auth Key to OSD for nagios
+  copy:
+    src: ceph.client.nagios.keyring
+    dest: /etc/nagios/ceph.client.nagios.keyring
+  when: inventory_hostname in groups['ceph_osd']

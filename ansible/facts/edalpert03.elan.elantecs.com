@@ -19,22 +19,22 @@
         "splash": true
     }, 
     "ansible_date_time": {
-        "date": "2020-06-22", 
-        "day": "22", 
-        "epoch": "1592886746", 
-        "hour": "23", 
-        "iso8601": "2020-06-23T04:32:26Z", 
-        "iso8601_basic": "20200622T233226299193", 
-        "iso8601_basic_short": "20200622T233226", 
-        "iso8601_micro": "2020-06-23T04:32:26.311126Z", 
-        "minute": "32", 
+        "date": "2020-06-27", 
+        "day": "27", 
+        "epoch": "1593303972", 
+        "hour": "19", 
+        "iso8601": "2020-06-28T00:26:12Z", 
+        "iso8601_basic": "20200627T192612693580", 
+        "iso8601_basic_short": "20200627T192612", 
+        "iso8601_micro": "2020-06-28T00:26:12.709695Z", 
+        "minute": "26", 
         "month": "06", 
-        "second": "26", 
-        "time": "23:32:26", 
+        "second": "12", 
+        "time": "19:26:12", 
         "tz": "CDT", 
         "tz_offset": "-0500", 
-        "weekday": "Monday", 
-        "weekday_number": "1", 
+        "weekday": "Saturday", 
+        "weekday_number": "6", 
         "weeknumber": "25", 
         "year": "2020"
     }, 
@@ -747,7 +747,7 @@
         "PATH": "/sbin:/bin:/usr/sbin:/usr/bin", 
         "PWD": "/home/elanansible", 
         "SHELL": "/bin/bash", 
-        "SUDO_COMMAND": "/bin/sh -c echo BECOME-SUCCESS-opxkjpineheophjfsfepzkcgpkkayibf ; /usr/bin/python", 
+        "SUDO_COMMAND": "/bin/sh -c echo BECOME-SUCCESS-hujsfbspskkrucwtjewhsmxohmdvpmnb ; /usr/bin/python", 
         "SUDO_GID": "12356", 
         "SUDO_UID": "12356", 
         "SUDO_USER": "elanansible", 
@@ -809,7 +809,7 @@
     }, 
     "ansible_local": {
         "date": {
-            "date": "Mon Jun 22 23:32:20 CDT 2020"
+            "date": "Sat Jun 27 19:26:05 CDT 2020"
         }, 
         "environment": {
             "environment": "TEST"
@@ -817,7 +817,9 @@
         "keepalived": {
             "keepalived_priority": "102"
         }, 
-        "kvm_domains": "error loading fact - please check content", 
+        "kvm_domains": {
+            "virtual_vms": "[]"
+        }, 
         "preference": {
             "private_fact": "blab"
         }, 
@@ -834,39 +836,39 @@
     }, 
     "ansible_machine": "x86_64", 
     "ansible_machine_id": "46d9d075f9dd91ccadda994f5959895c", 
-    "ansible_memfree_mb": 99, 
+    "ansible_memfree_mb": 12, 
     "ansible_memory_mb": {
         "nocache": {
-            "free": 262, 
-            "used": 224
-        }, 
-        "real": {
             "free": 99, 
-            "total": 486, 
             "used": 387
         }, 
+        "real": {
+            "free": 12, 
+            "total": 486, 
+            "used": 474
+        }, 
         "swap": {
-            "cached": 1, 
-            "free": 495, 
+            "cached": 0, 
+            "free": 507, 
             "total": 508, 
-            "used": 13
+            "used": 1
         }
     }, 
     "ansible_memtotal_mb": 486, 
     "ansible_mounts": [
         {
-            "block_available": 4959555, 
+            "block_available": 4910579, 
             "block_size": 4096, 
             "block_total": 7579143, 
-            "block_used": 2619588, 
+            "block_used": 2668564, 
             "device": "/dev/sda1", 
             "fstype": "ext4", 
-            "inode_available": 1424113, 
+            "inode_available": 1423056, 
             "inode_total": 1933312, 
-            "inode_used": 509199, 
+            "inode_used": 510256, 
             "mount": "/", 
             "options": "rw,errors=remount-ro", 
-            "size_available": 20314337280, 
+            "size_available": 20113731584, 
             "size_total": 31044169728, 
             "uuid": "54c5fe70-7630-4cf1-831b-5a29a1aaa249"
         }
@@ -925,7 +927,7 @@
     "ansible_ssh_host_key_ecdsa_public": "AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBGkfDNj7LUL1EfJJtwJ/17EHZSJ2Jb8MLfF5y77Nb+IpQqxBj8gC/NhrTHLwLoE0M95/E45PrfSxzStn9ypFDcE=", 
     "ansible_ssh_host_key_ed25519_public": "AAAAC3NzaC1lZDI1NTE5AAAAIK9mRB9y6ZIZ2K+CMqrLxy0UK0zJiIbU0yzrOBI7/nNT", 
     "ansible_ssh_host_key_rsa_public": "AAAAB3NzaC1yc2EAAAADAQABAAABAQCo5sowcTCv0XOII6FLTda9N0PVdz1+uDTNgcZpFGSWnGGCPEC70/iX+W+LyOwExW8JLeVqVj8CYlyJud+BLbA+pLhGhMsY08m0XwBO3OzhKxfiIRmhd5s6bG0RrBjKAge+8UmnwzXuyKj7BI4Liz7HXq1M+LPIxiq5/CJOUwjA+UHtBLLRdmlKVQ6I/WwKQmcDjfJSZsDkP/XRF18OkguGN0ee2Et03xhvSts4Fbz/DhFC6P0oLt3c42L5WJw5F22aTtqu6OCNhNrPlJNDOblSvnyYnLy20WkSPWg6qeUAGIM7UhIjq3DhR5dSSbOOpKKBo/jZSkURxMHfXoXWk6wz", 
-    "ansible_swapfree_mb": 495, 
+    "ansible_swapfree_mb": 507, 
     "ansible_swaptotal_mb": 508, 
     "ansible_system": "Linux", 
     "ansible_system_capabilities": [
@@ -969,7 +971,7 @@
     ], 
     "ansible_system_capabilities_enforced": "True", 
     "ansible_system_vendor": "VMware, Inc.", 
-    "ansible_uptime_seconds": 85534, 
+    "ansible_uptime_seconds": 1550, 
     "ansible_user_dir": "/root", 
     "ansible_user_gecos": "root", 
     "ansible_user_gid": 0, 
@@ -996,7 +998,7 @@
     "facter_boardproductname": "440BX Desktop Reference Platform", 
     "facter_boardserialnumber": "None", 
     "facter_chash": "notfound", 
-    "facter_date": "Mon Jun 22 23:32:24 CDT 2020", 
+    "facter_date": "Sat Jun 27 19:26:09 CDT 2020", 
     "facter_domain": "elan.elantecs.com", 
     "facter_environment": "test", 
     "facter_f0002": "", 
@@ -1033,8 +1035,8 @@
     "facter_macaddress": "00:6d:fd:e3:7c:86", 
     "facter_macaddress_eth0": "00:6d:fd:e3:7c:86", 
     "facter_manufacturer": "VMware, Inc.", 
-    "facter_memoryfree": "227.10 MB", 
-    "facter_memoryfree_mb": "227.10", 
+    "facter_memoryfree": "69.66 MB", 
+    "facter_memoryfree_mb": "69.66", 
     "facter_memorysize": "486.37 MB", 
     "facter_memorysize_mb": "486.37", 
     "facter_mtu_eth0": 1500, 
@@ -1115,23 +1117,23 @@
     "facter_sshfp_rsa": "SSHFP 1 1 9895333666806f1a6881d2d037c5f4f90a04e70e\nSSHFP 1 2 78d4aec314e5ff940b5c084988814128f93c230843b7cdd73ef0c52ec59c7092", 
     "facter_sshrsakey": "AAAAB3NzaC1yc2EAAAADAQABAAABAQCo5sowcTCv0XOII6FLTda9N0PVdz1+uDTNgcZpFGSWnGGCPEC70/iX+W+LyOwExW8JLeVqVj8CYlyJud+BLbA+pLhGhMsY08m0XwBO3OzhKxfiIRmhd5s6bG0RrBjKAge+8UmnwzXuyKj7BI4Liz7HXq1M+LPIxiq5/CJOUwjA+UHtBLLRdmlKVQ6I/WwKQmcDjfJSZsDkP/XRF18OkguGN0ee2Et03xhvSts4Fbz/DhFC6P0oLt3c42L5WJw5F22aTtqu6OCNhNrPlJNDOblSvnyYnLy20WkSPWg6qeUAGIM7UhIjq3DhR5dSSbOOpKKBo/jZSkURxMHfXoXWk6wz", 
     "facter_staging_http_get": "wget", 
-    "facter_swapfree": "495.81 MB", 
-    "facter_swapfree_mb": "495.81", 
+    "facter_swapfree": "501.59 MB", 
+    "facter_swapfree_mb": "501.59", 
     "facter_swapsize": "509.00 MB", 
     "facter_swapsize_mb": "509.00", 
     "facter_system_uptime": {
         "days": 0, 
-        "hours": 23, 
-        "seconds": 85538, 
-        "uptime": "23:45 hours"
+        "hours": 0, 
+        "seconds": 1555, 
+        "uptime": "0:25 hours"
     }, 
     "facter_timezone": "CDT", 
     "facter_type": "Other", 
     "facter_uniqueid": "a8c01202", 
-    "facter_uptime": "23:45 hours", 
+    "facter_uptime": "0:25 hours", 
     "facter_uptime_days": 0, 
-    "facter_uptime_hours": 23, 
-    "facter_uptime_seconds": 85538, 
+    "facter_uptime_hours": 0, 
+    "facter_uptime_seconds": 1555, 
     "facter_uuid": "564DA73C-5D65-820B-004F-CDDD10ECCA19", 
     "facter_vcsrepo_svn_ver": "", 
     "facter_virtual": "vmware", 

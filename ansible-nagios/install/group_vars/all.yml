@@ -158,11 +158,12 @@ smc6018r_check_temp_opts: 205,272
 nagios_ssl_enable: true
 nagios_ssl_crt: edalnagios.elan.elantecs.com.crt
 nagios_ssl_key: edalnagios.elan.elantecs.com.key
+nagios_ha_vip: edalnagios.elan.elantecs.com
 nagios_ldap_enable: true
 ldap_server: edalldapsv.elan.elantecs.com
 ldap_scheme: ldap
 ldap_port: 389
 ldap_search_dn: ou=Users,dc=elan,dc=elantecs,dc=com
-ldap_bind_dn: uid=nagios,ou=Services,dc=elan,dc=elantecs,dc=com
+ldap_bind_dn: uid=nagiosha,ou=Users,dc=elan,dc=elantecs,dc=com
 ldap_bind_password: el@nadmin12
 ldap_base_dn: dc=elan,dc=elantecs,dc=com
