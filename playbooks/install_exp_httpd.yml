@@ -1,0 +1,7 @@
+---
+
+- name: Install HTTPD using Roles
+  hosts: elan_app1_httpd
+  become: true
+  roles:
+    - ../roles/httpd

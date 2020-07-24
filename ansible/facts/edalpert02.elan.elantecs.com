@@ -1,5 +1,4 @@
 {
-    "_ansible_facts_gathered": true, 
     "ansible_all_ipv4_addresses": [
         "192.168.2.19"
     ], 
@@ -19,23 +18,23 @@
         "vt.handoff": "7"
     }, 
     "ansible_date_time": {
-        "date": "2020-06-27", 
-        "day": "27", 
-        "epoch": "1593303977", 
-        "hour": "19", 
-        "iso8601": "2020-06-28T00:26:17Z", 
-        "iso8601_basic": "20200627T192617975749", 
-        "iso8601_basic_short": "20200627T192617", 
-        "iso8601_micro": "2020-06-28T00:26:17.977019Z", 
-        "minute": "26", 
-        "month": "06", 
-        "second": "17", 
-        "time": "19:26:17", 
+        "date": "2020-07-19", 
+        "day": "19", 
+        "epoch": "1595211533", 
+        "hour": "21", 
+        "iso8601": "2020-07-20T02:18:53Z", 
+        "iso8601_basic": "20200719T211853035264", 
+        "iso8601_basic_short": "20200719T211853", 
+        "iso8601_micro": "2020-07-20T02:18:53.036568Z", 
+        "minute": "18", 
+        "month": "07", 
+        "second": "53", 
+        "time": "21:18:53", 
         "tz": "CDT", 
         "tz_offset": "-0500", 
-        "weekday": "Saturday", 
-        "weekday_number": "6", 
-        "weeknumber": "25", 
+        "weekday": "Sunday", 
+        "weekday_number": "0", 
+        "weeknumber": "28", 
         "year": "2020"
     }, 
     "ansible_default_ipv4": {
@@ -723,7 +722,7 @@
         "PATH": "/sbin:/bin:/usr/sbin:/usr/bin", 
         "PWD": "/home/elanansible", 
         "SHELL": "/bin/bash", 
-        "SUDO_COMMAND": "/bin/sh -c echo BECOME-SUCCESS-wbyimzqihcakcupbbycyxweajguleyui ; /usr/bin/python", 
+        "SUDO_COMMAND": "/bin/sh -c echo BECOME-SUCCESS-gkeoljubzqxnjksqhfhsuslzmdbbment ; /usr/bin/python", 
         "SUDO_GID": "12356", 
         "SUDO_UID": "12356", 
         "SUDO_USER": "elanansible", 
@@ -775,7 +774,7 @@
     }, 
     "ansible_local": {
         "date": {
-            "date": "Sat Jun 27 19:26:05 CDT 2020"
+            "date": "Sun Jul 19 21:18:40 CDT 2020"
         }, 
         "environment": {
             "environment": "TEST"
@@ -802,16 +801,16 @@
     }, 
     "ansible_machine": "x86_64", 
     "ansible_machine_id": "251832ae4c238b5ee97ab2aa5ef716a4", 
-    "ansible_memfree_mb": 350, 
+    "ansible_memfree_mb": 782, 
     "ansible_memory_mb": {
         "nocache": {
-            "free": 1543, 
-            "used": 458
+            "free": 1523, 
+            "used": 478
         }, 
         "real": {
-            "free": 350, 
+            "free": 782, 
             "total": 2001, 
-            "used": 1651
+            "used": 1219
         }, 
         "swap": {
             "cached": 0, 
@@ -823,18 +822,18 @@
     "ansible_memtotal_mb": 2001, 
     "ansible_mounts": [
         {
-            "block_available": 3779516, 
+            "block_available": 3777618, 
             "block_size": 4096, 
             "block_total": 4611519, 
-            "block_used": 832003, 
+            "block_used": 833901, 
             "device": "/dev/vda1", 
             "fstype": "ext4", 
-            "inode_available": 1098833, 
+            "inode_available": 1098718, 
             "inode_total": 1179648, 
-            "inode_used": 80815, 
+            "inode_used": 80930, 
             "mount": "/", 
             "options": "rw,errors=remount-ro", 
-            "size_available": 15480897536, 
+            "size_available": 15473123328, 
             "size_total": 18888781824, 
             "uuid": "a623a55f-0dd3-4e35-87b3-6cc2127ebf4d"
         }
@@ -941,7 +940,7 @@
     ], 
     "ansible_system_capabilities_enforced": "True", 
     "ansible_system_vendor": "Red Hat", 
-    "ansible_uptime_seconds": 51756, 
+    "ansible_uptime_seconds": 1888950, 
     "ansible_user_dir": "/root", 
     "ansible_user_gecos": "root", 
     "ansible_user_gid": 0, 
@@ -963,7 +962,7 @@
     "facter_blockdevice_vda_vendor": "0x1af4", 
     "facter_blockdevices": "vda", 
     "facter_chash": "notfound", 
-    "facter_date": "Sat Jun 27 19:26:11 CDT 2020", 
+    "facter_date": "Sun Jul 19 21:18:46 CDT 2020", 
     "facter_domain": "elan.elantecs.com", 
     "facter_environment": "test", 
     "facter_f0002": "", 
@@ -1000,8 +999,8 @@
     "facter_macaddress": "52:54:00:74:2a:51", 
     "facter_macaddress_eth0": "52:54:00:74:2a:51", 
     "facter_manufacturer": "Red Hat", 
-    "facter_memoryfree": "1.47 GB", 
-    "facter_memoryfree_mb": "1509.84", 
+    "facter_memoryfree": "1.45 GB", 
+    "facter_memoryfree_mb": "1488.58", 
     "facter_memorysize": "1.95 GB", 
     "facter_memorysize_mb": "2001.73", 
     "facter_mtu_eth0": 1500, 
@@ -1089,18 +1088,18 @@
     "facter_swapsize": "2.00 GB", 
     "facter_swapsize_mb": "2046.00", 
     "facter_system_uptime": {
-        "days": 0, 
-        "hours": 14, 
-        "seconds": 51763, 
-        "uptime": "14:22 hours"
+        "days": 21, 
+        "hours": 524, 
+        "seconds": 1888957, 
+        "uptime": "21 days"
     }, 
     "facter_timezone": "CDT", 
     "facter_type": "Other", 
     "facter_uniqueid": "007f0101", 
-    "facter_uptime": "14:22 hours", 
-    "facter_uptime_days": 0, 
-    "facter_uptime_hours": 14, 
-    "facter_uptime_seconds": 51763, 
+    "facter_uptime": "21 days", 
+    "facter_uptime_days": 21, 
+    "facter_uptime_hours": 524, 
+    "facter_uptime_seconds": 1888957, 
     "facter_uuid": "EE7AC0F7-8C6E-4BD1-88E7-29C1B8333017", 
     "facter_vcsrepo_svn_ver": "", 
     "facter_virtual": "kvm", 

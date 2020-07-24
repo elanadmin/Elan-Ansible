@@ -1,0 +1,55 @@
+# Apache TLS configuration
+#
+# {{ ansible_managed }}
+
+#Load ssl module
+LoadModule ssl_module modules/mod_ssl.so
+
+# Listen on port
+Listen {{ httpd_listen_ssl }} https
+
+## SSL Global Context
+SSLPassPhraseDialog builtin
+SSLSessionCache         shmcb:/var/cache/mod_ssl/scache(512000)
+SSLSessionCacheTimeout  300
+SSLRandomSeed startup builtin
+SSLRandomSeed startup file:/dev/urandom 512
+SSLRandomSeed connect builtin
+SSLRandomSeed connect file:/dev/urandom 512
+SSLCryptoDevice builtin
+
+## SSL Virtual Host Context
+<VirtualHost _default_:{{ httpd_listen_ssl }}>
+
+SSLEngine on
+
+ErrorLog {{ httpd_error_log_ssl }}
+LogLevel {{ httpd_log_level_ssl }}
+
+# Certificate files
+SSLCertificateFile {{ httpd_cert_dir }}/{{ httpd_ssl_certificate_file }}
+SSLCertificateKeyFile {{ httpd_key_dir }}/{{ httpd_ssl_certificate_key_file }}
+{% if httpd_ssl_certificate_chain_file is defined %}
+SSLCertificateChainFile {{ httpd_cert_dir }}/{{ httpd_ssl_certificate_chain_file }}
+{% endif %}
+{% if httpd_ssl_ca_certificate_file is defined %}
+SSLCACertificateFile {{ httpd_cert_dir }}/{{ httpd_ssl_ca_certificate_file }}
+{% endif %}
+
+<Files ~ "\.(cgi|shtml|phtml|php3?)$">
+    SSLOptions +StdEnvVars
+</Files>
+<Directory "/var/www/cgi-bin">
+    SSLOptions +StdEnvVars
+</Directory>
+
+CustomLog logs/ssl_request_log \
+          "%t %h %{SSL_PROTOCOL}x %{SSL_CIPHER}x \"%r\" %b"
+
+</VirtualHost>
+
+# SSL Configuration
+# see https://mozilla.github.io/server-side-tls/ssl-config-generator/
+SSLProtocol {{ httpd_ssl_protocol }}
+SSLCipherSuite {{ httpd_ssl_cipher_suite }}
+SSLHonorCipherOrder {{ httpd_ssl_honor_cipher_order }}

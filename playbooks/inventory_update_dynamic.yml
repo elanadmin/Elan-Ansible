@@ -39,6 +39,7 @@
       args:
         chdir: ../scripts/dynamic
       ignore_errors: true
+      tags: ['never', 'aws']
 
     - name: Import Foreman Dynamic Inventory to hosts_dynamic
       shell: python foreman.py --list | python ansible-dynamic-inventory-converter.py

@@ -77,9 +77,17 @@ edalkvmp04.elan.elantecs.com
 edalansp01.elan.elantecs.com
 
 [elan_httpd]
-edallint33.elan.elantecs.com
+#edallint33.elan.elantecs.com
 edallint06.elan.elantecs.com
+edallint17.elan.elantecs.com
 
 [elan_nginx]
 edallint33.elan.elantecs.com
+edallint06.elan.elantecs.com
+
+[elan_app1_httpd]
+edallint03.elan.elantecs.com
+edallint04.elan.elantecs.com
+
+[elan_app2_httpd]
 edallint06.elan.elantecs.com
