@@ -65,3 +65,10 @@
     state: started
     enabled: true
   tags: httpd
+
+- name: verify Port is Listening
+  wait_for: 
+    port: "{{ httpd_listen }}"
+    delay: 5
+    timeout: 300
+  tags: verify
