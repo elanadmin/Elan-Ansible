@@ -66,9 +66,11 @@
     enabled: true
   tags: httpd
 
-- name: verify Port is Listening
-  wait_for: 
+- name: Wait for httpd Port
+  wait_for:
+    host: "{{ ansible_fqdn }}"
     port: "{{ httpd_listen }}"
     delay: 5
     timeout: 300
-  tags: verify
+  tags:
+    - [never, verify]

@@ -5,11 +5,3 @@
   become: true
   roles:
     - ../roles/httpd
-
-- name: Install HTTPD using Roles
-  hosts: elan_app2_httpd
-  vars_files:
-    - ../group_vars/httpd.yaml
-  become: true
-  roles:
-    - ../roles/httpd

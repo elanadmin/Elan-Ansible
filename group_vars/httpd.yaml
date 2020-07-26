@@ -1,4 +1,3 @@
-# roles/httpd/defaults/main.yml
 ---
 
 httpd_access_log: logs/access_log
