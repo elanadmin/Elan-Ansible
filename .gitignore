@@ -14,4 +14,4 @@ foreman.ini
 .aws
 *.gz
 ~/.ansible.cfg
-ansible.log
+ansible/ansible.log

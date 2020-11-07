@@ -32,16 +32,16 @@
     "ansible_date_time": {
         "date": "2020-11-07", 
         "day": "07", 
-        "epoch": "1604754571", 
-        "hour": "07", 
-        "iso8601": "2020-11-07T13:09:31Z", 
-        "iso8601_basic": "20201107T070931036554", 
-        "iso8601_basic_short": "20201107T070931", 
-        "iso8601_micro": "2020-11-07T13:09:31.036800Z", 
-        "minute": "09", 
+        "epoch": "1604766290", 
+        "hour": "10", 
+        "iso8601": "2020-11-07T16:24:50Z", 
+        "iso8601_basic": "20201107T102450283272", 
+        "iso8601_basic_short": "20201107T102450", 
+        "iso8601_micro": "2020-11-07T16:24:50.283426Z", 
+        "minute": "24", 
         "month": "11", 
-        "second": "31", 
-        "time": "07:09:31", 
+        "second": "50", 
+        "time": "10:24:50", 
         "tz": "CST", 
         "tz_offset": "-0600", 
         "weekday": "Saturday", 
@@ -880,7 +880,7 @@
         "QTDIR": "/usr/lib64/qt-3.3", 
         "SHELL": "/bin/bash", 
         "SHLVL": "1", 
-        "SUDO_COMMAND": "/bin/sh -c echo BECOME-SUCCESS-sdcxyfnkmmpunuqygdnqgjfqtovumnnb ; /usr/bin/python", 
+        "SUDO_COMMAND": "/bin/sh -c echo BECOME-SUCCESS-uafddipkpkwupkbuyftvakdmimqllsni ; /usr/bin/python", 
         "SUDO_GID": "12356", 
         "SUDO_UID": "12356", 
         "SUDO_USER": "elanansible", 
@@ -1016,7 +1016,7 @@
     }, 
     "ansible_local": {
         "date": {
-            "date": "Sat Nov  7 07:09:11 CST 2020"
+            "date": "Sat Nov  7 10:24:43 CST 2020"
         }, 
         "environment": {
             "environment": "PRODUCTION"
@@ -1075,16 +1075,16 @@
     }, 
     "ansible_machine": "x86_64", 
     "ansible_machine_id": "d95b8cc11f183b90ca3cf5c80000000b", 
-    "ansible_memfree_mb": 1087, 
+    "ansible_memfree_mb": 1154, 
     "ansible_memory_mb": {
         "nocache": {
-            "free": 2241, 
-            "used": 646
+            "free": 2281, 
+            "used": 606
         }, 
         "real": {
-            "free": 1087, 
+            "free": 1154, 
             "total": 2887, 
-            "used": 1800
+            "used": 1733
         }, 
         "swap": {
             "cached": 4, 
@@ -1096,20 +1096,20 @@
     "ansible_memtotal_mb": 2887, 
     "ansible_mounts": [
         {
-            "block_available": 1271171, 
+            "block_available": 295527, 
             "block_size": 4096, 
-            "block_total": 2031470, 
-            "block_used": 760299, 
-            "device": "/dev/mapper/vg00-root", 
+            "block_total": 499668, 
+            "block_used": 204141, 
+            "device": "/dev/mapper/vg00-var", 
             "fstype": "ext4", 
-            "inode_available": 423514, 
-            "inode_total": 524288, 
-            "inode_used": 100774, 
-            "mount": "/", 
+            "inode_available": 126851, 
+            "inode_total": 131072, 
+            "inode_used": 4221, 
+            "mount": "/var", 
             "options": "rw", 
-            "size_available": 5206716416, 
-            "size_total": 8320901120, 
-            "uuid": "ae14f6eb-7ec3-46ca-89c1-7260230a9582"
+            "size_available": 1210478592, 
+            "size_total": 2046640128, 
+            "uuid": "c29178f5-2ac2-45cf-8f54-4c687317e689"
         }, 
         {
             "block_available": 261274, 
@@ -1144,54 +1144,6 @@
             "uuid": "3cdf2885-ae76-48ba-a989-94214229bfbc"
         }, 
         {
-            "block_available": 296259, 
-            "block_size": 4096, 
-            "block_total": 499668, 
-            "block_used": 203409, 
-            "device": "/dev/mapper/vg00-var", 
-            "fstype": "ext4", 
-            "inode_available": 126851, 
-            "inode_total": 131072, 
-            "inode_used": 4221, 
-            "mount": "/var", 
-            "options": "rw", 
-            "size_available": 1213476864, 
-            "size_total": 2046640128, 
-            "uuid": "c29178f5-2ac2-45cf-8f54-4c687317e689"
-        }, 
-        {
-            "block_available": 28542, 
-            "block_size": 524288, 
-            "block_total": 121756, 
-            "block_used": 93214, 
-            "device": "192.168.2.120:/nfsshare/asrithak", 
-            "fstype": "nfs", 
-            "inode_available": 3341732, 
-            "inode_total": 3973120, 
-            "inode_used": 631388, 
-            "mount": "/nfshome/asrithak", 
-            "options": "rw,sloppy,vers=4,addr=192.168.2.120,clientaddr=192.168.2.31,bind", 
-            "size_available": 14964228096, 
-            "size_total": 63835209728, 
-            "uuid": "N/A"
-        }, 
-        {
-            "block_available": 28542, 
-            "block_size": 524288, 
-            "block_total": 121756, 
-            "block_used": 93214, 
-            "device": "192.168.2.120:/nfsshare/akshaykatamneni", 
-            "fstype": "nfs", 
-            "inode_available": 3341732, 
-            "inode_total": 3973120, 
-            "inode_used": 631388, 
-            "mount": "/nfshome/akshaykatamneni", 
-            "options": "rw,sloppy,vers=4,addr=192.168.2.120,clientaddr=192.168.2.31,bind", 
-            "size_available": 14964228096, 
-            "size_total": 63835209728, 
-            "uuid": "N/A"
-        }, 
-        {
             "device": "192.168.2.120:/nfsshare/gltulasi", 
             "fstype": "nfs", 
             "mount": "/nfshome/gltulasi", 
@@ -1199,466 +1151,34 @@
             "uuid": "N/A"
         }, 
         {
-            "block_available": 28542, 
+            "block_available": 1271150, 
+            "block_size": 4096, 
+            "block_total": 2031470, 
+            "block_used": 760320, 
+            "device": "/dev/mapper/vg00-root", 
+            "fstype": "ext4", 
+            "inode_available": 423515, 
+            "inode_total": 524288, 
+            "inode_used": 100773, 
+            "mount": "/", 
+            "options": "rw", 
+            "size_available": 5206630400, 
+            "size_total": 8320901120, 
+            "uuid": "ae14f6eb-7ec3-46ca-89c1-7260230a9582"
+        }, 
+        {
+            "block_available": 28401, 
             "block_size": 524288, 
             "block_total": 121756, 
-            "block_used": 93214, 
+            "block_used": 93355, 
             "device": "192.168.2.120:/nfsshare", 
             "fstype": "nfs", 
-            "inode_available": 3341732, 
+            "inode_available": 3341418, 
             "inode_total": 3973120, 
-            "inode_used": 631388, 
+            "inode_used": 631702, 
             "mount": "/var/tmp/nfsshare", 
             "options": "rw,vers=4,addr=192.168.2.120,clientaddr=192.168.2.31", 
-            "size_available": 14964228096, 
-            "size_total": 63835209728, 
-            "uuid": "N/A"
-        }, 
-        {
-            "block_available": 28542, 
-            "block_size": 524288, 
-            "block_total": 121756, 
-            "block_used": 93214, 
-            "device": "192.168.2.120:/nfsshare/abdulrr", 
-            "fstype": "nfs", 
-            "inode_available": 3341732, 
-            "inode_total": 3973120, 
-            "inode_used": 631388, 
-            "mount": "/nfshome/abdulrr", 
-            "options": "rw,sloppy,vers=4,addr=192.168.2.120,clientaddr=192.168.2.31,bind", 
-            "size_available": 14964228096, 
-            "size_total": 63835209728, 
-            "uuid": "N/A"
-        }, 
-        {
-            "block_available": 28542, 
-            "block_size": 524288, 
-            "block_total": 121756, 
-            "block_used": 93214, 
-            "device": "192.168.2.120:/nfsshare/anasirm", 
-            "fstype": "nfs", 
-            "inode_available": 3341732, 
-            "inode_total": 3973120, 
-            "inode_used": 631388, 
-            "mount": "/nfshome/anasirm", 
-            "options": "rw,sloppy,vers=4,addr=192.168.2.120,clientaddr=192.168.2.31,bind", 
-            "size_available": 14964228096, 
-            "size_total": 63835209728, 
-            "uuid": "N/A"
-        }, 
-        {
-            "block_available": 28542, 
-            "block_size": 524288, 
-            "block_total": 121756, 
-            "block_used": 93214, 
-            "device": "192.168.2.120:/nfsshare/ktkalyan", 
-            "fstype": "nfs", 
-            "inode_available": 3341732, 
-            "inode_total": 3973120, 
-            "inode_used": 631388, 
-            "mount": "/nfshome/ktkalyan", 
-            "options": "rw,sloppy,vers=4,addr=192.168.2.120,clientaddr=192.168.2.31,bind", 
-            "size_available": 14964228096, 
-            "size_total": 63835209728, 
-            "uuid": "N/A"
-        }, 
-        {
-            "block_available": 28542, 
-            "block_size": 524288, 
-            "block_total": 121756, 
-            "block_used": 93214, 
-            "device": "192.168.2.120:/nfsshare/ansible-awx", 
-            "fstype": "nfs", 
-            "inode_available": 3341732, 
-            "inode_total": 3973120, 
-            "inode_used": 631388, 
-            "mount": "/nfshome/ansible-awx", 
-            "options": "rw,sloppy,vers=4,addr=192.168.2.120,clientaddr=192.168.2.31,bind", 
-            "size_available": 14964228096, 
-            "size_total": 63835209728, 
-            "uuid": "N/A"
-        }, 
-        {
-            "block_available": 28542, 
-            "block_size": 524288, 
-            "block_total": 121756, 
-            "block_used": 93214, 
-            "device": "192.168.2.120:/nfsshare/devuser", 
-            "fstype": "nfs", 
-            "inode_available": 3341731, 
-            "inode_total": 3973120, 
-            "inode_used": 631389, 
-            "mount": "/nfshome/devuser", 
-            "options": "rw,sloppy,vers=4,addr=192.168.2.120,clientaddr=192.168.2.31,bind", 
-            "size_available": 14964228096, 
-            "size_total": 63835209728, 
-            "uuid": "N/A"
-        }, 
-        {
-            "block_available": 28542, 
-            "block_size": 524288, 
-            "block_total": 121756, 
-            "block_used": 93214, 
-            "device": "192.168.2.120:/nfsshare/esneta", 
-            "fstype": "nfs", 
-            "inode_available": 3341731, 
-            "inode_total": 3973120, 
-            "inode_used": 631389, 
-            "mount": "/nfshome/esneta", 
-            "options": "rw,sloppy,vers=4,addr=192.168.2.120,clientaddr=192.168.2.31,bind", 
-            "size_available": 14964228096, 
-            "size_total": 63835209728, 
-            "uuid": "N/A"
-        }, 
-        {
-            "block_available": 28542, 
-            "block_size": 524288, 
-            "block_total": 121756, 
-            "block_used": 93214, 
-            "device": "192.168.2.120:/nfsshare/lsindhu", 
-            "fstype": "nfs", 
-            "inode_available": 3341731, 
-            "inode_total": 3973120, 
-            "inode_used": 631389, 
-            "mount": "/nfshome/lsindhu", 
-            "options": "rw,sloppy,vers=4,addr=192.168.2.120,clientaddr=192.168.2.31,bind", 
-            "size_available": 14964228096, 
-            "size_total": 63835209728, 
-            "uuid": "N/A"
-        }, 
-        {
-            "block_available": 28542, 
-            "block_size": 524288, 
-            "block_total": 121756, 
-            "block_used": 93214, 
-            "device": "192.168.2.120:/nfsshare/lateefm", 
-            "fstype": "nfs", 
-            "inode_available": 3341731, 
-            "inode_total": 3973120, 
-            "inode_used": 631389, 
-            "mount": "/nfshome/lateefm", 
-            "options": "rw,sloppy,vers=4,addr=192.168.2.120,clientaddr=192.168.2.31,bind", 
-            "size_available": 14964228096, 
-            "size_total": 63835209728, 
-            "uuid": "N/A"
-        }, 
-        {
-            "block_available": 28542, 
-            "block_size": 524288, 
-            "block_total": 121756, 
-            "block_used": 93214, 
-            "device": "192.168.2.120:/nfsshare/gdeepthi", 
-            "fstype": "nfs", 
-            "inode_available": 3341731, 
-            "inode_total": 3973120, 
-            "inode_used": 631389, 
-            "mount": "/nfshome/gdeepthi", 
-            "options": "rw,sloppy,vers=4,addr=192.168.2.120,clientaddr=192.168.2.31,bind", 
-            "size_available": 14964228096, 
-            "size_total": 63835209728, 
-            "uuid": "N/A"
-        }, 
-        {
-            "block_available": 28542, 
-            "block_size": 524288, 
-            "block_total": 121756, 
-            "block_used": 93214, 
-            "device": "192.168.2.120:/nfsshare/murali", 
-            "fstype": "nfs", 
-            "inode_available": 3341731, 
-            "inode_total": 3973120, 
-            "inode_used": 631389, 
-            "mount": "/nfshome/murali", 
-            "options": "rw,sloppy,vers=4,addr=192.168.2.120,clientaddr=192.168.2.31,bind", 
-            "size_available": 14964228096, 
-            "size_total": 63835209728, 
-            "uuid": "N/A"
-        }, 
-        {
-            "block_available": 28542, 
-            "block_size": 524288, 
-            "block_total": 121756, 
-            "block_used": 93214, 
-            "device": "192.168.2.120:/nfsshare/devtest", 
-            "fstype": "nfs", 
-            "inode_available": 3341731, 
-            "inode_total": 3973120, 
-            "inode_used": 631389, 
-            "mount": "/nfshome/devtest", 
-            "options": "rw,sloppy,vers=4,addr=192.168.2.120,clientaddr=192.168.2.31,bind", 
-            "size_available": 14964228096, 
-            "size_total": 63835209728, 
-            "uuid": "N/A"
-        }, 
-        {
-            "block_available": 28542, 
-            "block_size": 524288, 
-            "block_total": 121756, 
-            "block_used": 93214, 
-            "device": "192.168.2.120:/nfsshare/mbnsai", 
-            "fstype": "nfs", 
-            "inode_available": 3341731, 
-            "inode_total": 3973120, 
-            "inode_used": 631389, 
-            "mount": "/nfshome/mbnsai", 
-            "options": "rw,sloppy,vers=4,addr=192.168.2.120,clientaddr=192.168.2.31,bind", 
-            "size_available": 14964228096, 
-            "size_total": 63835209728, 
-            "uuid": "N/A"
-        }, 
-        {
-            "block_available": 28542, 
-            "block_size": 524288, 
-            "block_total": 121756, 
-            "block_used": 93214, 
-            "device": "192.168.2.120:/nfsshare/ltulasig", 
-            "fstype": "nfs", 
-            "inode_available": 3341731, 
-            "inode_total": 3973120, 
-            "inode_used": 631389, 
-            "mount": "/nfshome/ltulasig", 
-            "options": "rw,sloppy,vers=4,addr=192.168.2.120,clientaddr=192.168.2.31,bind", 
-            "size_available": 14964228096, 
-            "size_total": 63835209728, 
-            "uuid": "N/A"
-        }, 
-        {
-            "block_available": 28542, 
-            "block_size": 524288, 
-            "block_total": 121756, 
-            "block_used": 93214, 
-            "device": "192.168.2.120:/nfsshare/ppabbati", 
-            "fstype": "nfs", 
-            "inode_available": 3341731, 
-            "inode_total": 3973120, 
-            "inode_used": 631389, 
-            "mount": "/nfshome/ppabbati", 
-            "options": "rw,sloppy,vers=4,addr=192.168.2.120,clientaddr=192.168.2.31,bind", 
-            "size_available": 14964228096, 
-            "size_total": 63835209728, 
-            "uuid": "N/A"
-        }, 
-        {
-            "block_available": 28542, 
-            "block_size": 524288, 
-            "block_total": 121756, 
-            "block_used": 93214, 
-            "device": "192.168.2.120:/nfsshare/mfazil", 
-            "fstype": "nfs", 
-            "inode_available": 3341732, 
-            "inode_total": 3973120, 
-            "inode_used": 631388, 
-            "mount": "/nfshome/mfazil", 
-            "options": "rw,sloppy,vers=4,addr=192.168.2.120,clientaddr=192.168.2.31,bind", 
-            "size_available": 14964228096, 
-            "size_total": 63835209728, 
-            "uuid": "N/A"
-        }, 
-        {
-            "block_available": 28542, 
-            "block_size": 524288, 
-            "block_total": 121756, 
-            "block_used": 93214, 
-            "device": "192.168.2.120:/nfsshare/nagiosha", 
-            "fstype": "nfs", 
-            "inode_available": 3341732, 
-            "inode_total": 3973120, 
-            "inode_used": 631388, 
-            "mount": "/nfshome/nagiosha", 
-            "options": "rw,sloppy,vers=4,addr=192.168.2.120,clientaddr=192.168.2.31,bind", 
-            "size_available": 14964228096, 
-            "size_total": 63835209728, 
-            "uuid": "N/A"
-        }, 
-        {
-            "block_available": 28542, 
-            "block_size": 524288, 
-            "block_total": 121756, 
-            "block_used": 93214, 
-            "device": "192.168.2.120:/nfsshare/shah", 
-            "fstype": "nfs", 
-            "inode_available": 3341730, 
-            "inode_total": 3973120, 
-            "inode_used": 631390, 
-            "mount": "/nfshome/shah", 
-            "options": "rw,sloppy,vers=4,addr=192.168.2.120,clientaddr=192.168.2.31,bind", 
-            "size_available": 14964228096, 
-            "size_total": 63835209728, 
-            "uuid": "N/A"
-        }, 
-        {
-            "block_available": 28542, 
-            "block_size": 524288, 
-            "block_total": 121756, 
-            "block_used": 93214, 
-            "device": "192.168.2.120:/nfsshare/nsunku", 
-            "fstype": "nfs", 
-            "inode_available": 3341730, 
-            "inode_total": 3973120, 
-            "inode_used": 631390, 
-            "mount": "/nfshome/nsunku", 
-            "options": "rw,sloppy,vers=4,addr=192.168.2.120,clientaddr=192.168.2.31,bind", 
-            "size_available": 14964228096, 
-            "size_total": 63835209728, 
-            "uuid": "N/A"
-        }, 
-        {
-            "block_available": 28542, 
-            "block_size": 524288, 
-            "block_total": 121756, 
-            "block_used": 93214, 
-            "device": "192.168.2.120:/nfsshare/gsair", 
-            "fstype": "nfs", 
-            "inode_available": 3341731, 
-            "inode_total": 3973120, 
-            "inode_used": 631389, 
-            "mount": "/nfshome/gsair", 
-            "options": "rw,sloppy,vers=4,addr=192.168.2.120,clientaddr=192.168.2.31,bind", 
-            "size_available": 14964228096, 
-            "size_total": 63835209728, 
-            "uuid": "N/A"
-        }, 
-        {
-            "block_available": 28542, 
-            "block_size": 524288, 
-            "block_total": 121756, 
-            "block_used": 93214, 
-            "device": "192.168.2.120:/nfsshare/travik", 
-            "fstype": "nfs", 
-            "inode_available": 3341730, 
-            "inode_total": 3973120, 
-            "inode_used": 631390, 
-            "mount": "/nfshome/travik", 
-            "options": "rw,sloppy,vers=4,addr=192.168.2.120,clientaddr=192.168.2.31,bind", 
-            "size_available": 14964228096, 
-            "size_total": 63835209728, 
-            "uuid": "N/A"
-        }, 
-        {
-            "block_available": 28542, 
-            "block_size": 524288, 
-            "block_total": 121756, 
-            "block_used": 93214, 
-            "device": "192.168.2.120:/nfsshare/rrajiv", 
-            "fstype": "nfs", 
-            "inode_available": 3341730, 
-            "inode_total": 3973120, 
-            "inode_used": 631390, 
-            "mount": "/nfshome/rrajiv", 
-            "options": "rw,sloppy,vers=4,addr=192.168.2.120,clientaddr=192.168.2.31,bind", 
-            "size_available": 14964228096, 
-            "size_total": 63835209728, 
-            "uuid": "N/A"
-        }, 
-        {
-            "block_available": 28542, 
-            "block_size": 524288, 
-            "block_total": 121756, 
-            "block_used": 93214, 
-            "device": "192.168.2.120:/nfsshare/nvijaykarthik", 
-            "fstype": "nfs", 
-            "inode_available": 3341730, 
-            "inode_total": 3973120, 
-            "inode_used": 631390, 
-            "mount": "/nfshome/nvijaykarthik", 
-            "options": "rw,sloppy,vers=4,addr=192.168.2.120,clientaddr=192.168.2.31,bind", 
-            "size_available": 14964228096, 
-            "size_total": 63835209728, 
-            "uuid": "N/A"
-        }, 
-        {
-            "block_available": 28542, 
-            "block_size": 524288, 
-            "block_total": 121756, 
-            "block_used": 93214, 
-            "device": "192.168.2.120:/nfsshare/shabanak", 
-            "fstype": "nfs", 
-            "inode_available": 3341730, 
-            "inode_total": 3973120, 
-            "inode_used": 631390, 
-            "mount": "/nfshome/shabanak", 
-            "options": "rw,sloppy,vers=4,addr=192.168.2.120,clientaddr=192.168.2.31,bind", 
-            "size_available": 14964228096, 
-            "size_total": 63835209728, 
-            "uuid": "N/A"
-        }, 
-        {
-            "block_available": 28542, 
-            "block_size": 524288, 
-            "block_total": 121756, 
-            "block_used": 93214, 
-            "device": "192.168.2.120:/nfsshare/rmoturi", 
-            "fstype": "nfs", 
-            "inode_available": 3341730, 
-            "inode_total": 3973120, 
-            "inode_used": 631390, 
-            "mount": "/nfshome/rmoturi", 
-            "options": "rw,sloppy,vers=4,addr=192.168.2.120,clientaddr=192.168.2.31,bind", 
-            "size_available": 14964228096, 
-            "size_total": 63835209728, 
-            "uuid": "N/A"
-        }, 
-        {
-            "block_available": 28542, 
-            "block_size": 524288, 
-            "block_total": 121756, 
-            "block_used": 93214, 
-            "device": "192.168.2.120:/nfsshare/rtarigopula", 
-            "fstype": "nfs", 
-            "inode_available": 3341730, 
-            "inode_total": 3973120, 
-            "inode_used": 631390, 
-            "mount": "/nfshome/rtarigopula", 
-            "options": "rw,sloppy,vers=4,addr=192.168.2.120,clientaddr=192.168.2.31,bind", 
-            "size_available": 14964228096, 
-            "size_total": 63835209728, 
-            "uuid": "N/A"
-        }, 
-        {
-            "block_available": 28542, 
-            "block_size": 524288, 
-            "block_total": 121756, 
-            "block_used": 93214, 
-            "device": "192.168.2.120:/nfsshare/skatta", 
-            "fstype": "nfs", 
-            "inode_available": 3341730, 
-            "inode_total": 3973120, 
-            "inode_used": 631390, 
-            "mount": "/nfshome/skatta", 
-            "options": "rw,sloppy,vers=4,addr=192.168.2.120,clientaddr=192.168.2.31,bind", 
-            "size_available": 14964228096, 
-            "size_total": 63835209728, 
-            "uuid": "N/A"
-        }, 
-        {
-            "block_available": 28542, 
-            "block_size": 524288, 
-            "block_total": 121756, 
-            "block_used": 93214, 
-            "device": "192.168.2.120:/nfsshare/sairohitdasa", 
-            "fstype": "nfs", 
-            "inode_available": 3341730, 
-            "inode_total": 3973120, 
-            "inode_used": 631390, 
-            "mount": "/nfshome/sairohitdasa", 
-            "options": "rw,sloppy,vers=4,addr=192.168.2.120,clientaddr=192.168.2.31,bind", 
-            "size_available": 14964228096, 
-            "size_total": 63835209728, 
-            "uuid": "N/A"
-        }, 
-        {
-            "block_available": 28542, 
-            "block_size": 524288, 
-            "block_total": 121756, 
-            "block_used": 93214, 
-            "device": "192.168.2.120:/nfsshare/sonarha", 
-            "fstype": "nfs", 
-            "inode_available": 3341730, 
-            "inode_total": 3973120, 
-            "inode_used": 631390, 
-            "mount": "/nfshome/sonarha", 
-            "options": "rw,sloppy,vers=4,addr=192.168.2.120,clientaddr=192.168.2.31,bind", 
-            "size_available": 14964228096, 
+            "size_available": 14890303488, 
             "size_total": 63835209728, 
             "uuid": "N/A"
         }
@@ -1745,7 +1265,7 @@
     "ansible_system_capabilities": [], 
     "ansible_system_capabilities_enforced": "False", 
     "ansible_system_vendor": "Red Hat", 
-    "ansible_uptime_seconds": 5788608, 
+    "ansible_uptime_seconds": 5800329, 
     "ansible_user_dir": "/root", 
     "ansible_user_gecos": "root", 
     "ansible_user_gid": 0, 
@@ -1807,8 +1327,8 @@
     "facter_macaddress_eth0": "52:54:00:3C:D0:A0", 
     "facter_manufacturer": "Red Hat", 
     "facter_mcopackages": "mcollective-nrpe-common mcollective-filemgr-agent mcollective-actionpolicy-auth mcollective-nettest-client mcollective-nrpe-client mcollective-iptables-agent mcollective-service-agent mcollective-filemgr-common mcollective-service-common mcollective-nettest-common mcollective-package-common mcollective-sshkey-security mcollective-puppet-client mcollective-iptables-common mcollective-puppet-agent mcollective-nrpe-agent mcollective-service-client mcollective-package-agent mcollective-sysctl-data mcollective-puppet-common mcollective-iptables-client mcollective-package-client mcollective-nettest-agent mcollective", 
-    "facter_memoryfree": "2.15 GB", 
-    "facter_memoryfree_mb": "2205.77", 
+    "facter_memoryfree": "2.19 GB", 
+    "facter_memoryfree_mb": "2241.74", 
     "facter_memorysize": "2.82 GB", 
     "facter_memorysize_mb": "2887.02", 
     "facter_mtu_eth0": 1500, 
@@ -1890,23 +1410,23 @@
     "facter_sshfp_rsa": "SSHFP 1 1 95101ca719d9c06c04a977076f17bf29e065ebef\nSSHFP 1 2 655ccaadeb5396e0da07562067a4cbd374229c631f77676cffd5e05f4d91db4c", 
     "facter_sshrsakey": "AAAAB3NzaC1yc2EAAAABIwAAAQEApC/F5OrewaXOl4xC/lhDSDvUGPFGWDHgJpqqZ5NaEyW2/vkbgRqzken5zTRjirNv4BSuKRsQb6ztBw4DZINcv59A3N0UDdFFJrxVKpxHyrpJgXCD7QOsoCfADn3N7hCynj7+65BVbPWU0xbErXzpP4hMvLo2qGVYb6jDyhvGuqhlo4NKwy/cHItQeTmVFeNl85IN+TQvy8s/OZeJ4YvD6oYfrFE9y5T1hUgChs0JFGIUQzhwt39Wi16DqT7WlXann8bTWvR6byT4p/19DFuxpQpcHQg28NE/1hgGjTyV3zECqxHOw+QQ9zrAhSZSHMB9LsnhJXWZEjeyJ3GU8Kv77Q==", 
     "facter_staging_http_get": "curl", 
-    "facter_swapfree": "1008.58 MB", 
-    "facter_swapfree_mb": "1008.58", 
+    "facter_swapfree": "1008.55 MB", 
+    "facter_swapfree_mb": "1008.55", 
     "facter_swapsize": "1024.00 MB", 
     "facter_swapsize_mb": "1024.00", 
     "facter_system_uptime": {
-        "days": 66, 
-        "hours": 1607, 
-        "seconds": 5788612, 
-        "uptime": "66 days"
+        "days": 67, 
+        "hours": 1611, 
+        "seconds": 5800331, 
+        "uptime": "67 days"
     }, 
     "facter_timezone": "CST", 
     "facter_type": "Other", 
     "facter_uniqueid": "a8c01f02", 
-    "facter_uptime": "66 days", 
-    "facter_uptime_days": 66, 
-    "facter_uptime_hours": 1607, 
-    "facter_uptime_seconds": 5788612, 
+    "facter_uptime": "67 days", 
+    "facter_uptime_days": 67, 
+    "facter_uptime_hours": 1611, 
+    "facter_uptime_seconds": 5800331, 
     "facter_uuid": "CC473466-0FF5-45DE-864A-38F0482E593F", 
     "facter_vcsrepo_svn_ver": "1.6.11", 
     "facter_virt_type": "full", 
@@ -2140,37 +1660,37 @@
             "interfaces": {
                 "eth0": {
                     "rx": {
-                        "bytes": "3376825674", 
+                        "bytes": "3849500975", 
                         "drop": "0", 
                         "errors": "0", 
                         "overrun": "0", 
-                        "packets": "203507248"
+                        "packets": "204827538"
                     }, 
                     "tx": {
-                        "bytes": "1451354625", 
+                        "bytes": "1780830473", 
                         "carrier": "0", 
                         "collisions": "0", 
                         "drop": "0", 
                         "errors": "0", 
-                        "packets": "180961461", 
+                        "packets": "182497927", 
                         "queuelen": "1000"
                     }
                 }, 
                 "lo": {
                     "rx": {
-                        "bytes": "151157586", 
+                        "bytes": "152043733", 
                         "drop": "0", 
                         "errors": "0", 
                         "overrun": "0", 
-                        "packets": "782161"
+                        "packets": "786404"
                     }, 
                     "tx": {
-                        "bytes": "151157586", 
+                        "bytes": "152043733", 
                         "carrier": "0", 
                         "collisions": "0", 
                         "drop": "0", 
                         "errors": "0", 
-                        "packets": "782161"
+                        "packets": "786404"
                     }
                 }
             }
@@ -3497,12 +3017,12 @@
         }, 
         "/dev/mapper/vg00-root": {
             "fs_type": "ext4", 
-            "inodes_available": "423514", 
+            "inodes_available": "423515", 
             "inodes_percent_used": "20%", 
-            "inodes_used": "100774", 
-            "kb_available": "5084684", 
+            "inodes_used": "100773", 
+            "kb_available": "5084600", 
             "kb_size": "8125880", 
-            "kb_used": "2621768", 
+            "kb_used": "2621852", 
             "mount": "/", 
             "mount_options": [
                 "rw"
@@ -3520,9 +3040,9 @@
             "inodes_available": "126851", 
             "inodes_percent_used": "4%", 
             "inodes_used": "4221", 
-            "kb_available": "1185068", 
+            "kb_available": "1182108", 
             "kb_size": "1998672", 
-            "kb_used": "708748", 
+            "kb_used": "711708", 
             "mount": "/var", 
             "mount_options": [
                 "rw"
@@ -3589,12 +3109,12 @@
         }, 
         "192.168.2.120:/nfsshare": {
             "fs_type": "nfs", 
-            "inodes_available": "3341732", 
+            "inodes_available": "3341418", 
             "inodes_percent_used": "16%", 
-            "inodes_used": "631388", 
-            "kb_available": "14614016", 
+            "inodes_used": "631702", 
+            "kb_available": "14541312", 
             "kb_size": "62339072", 
-            "kb_used": "44552192", 
+            "kb_used": "44624384", 
             "mount": "/var/tmp/nfsshare", 
             "mount_options": [
                 "rw", 
@@ -3627,177 +3147,6 @@
                 "addr=192.168.2.120"
             ]
         }, 
-        "192.168.2.120:/nfsshare/abdulrr": {
-            "fs_type": "nfs", 
-            "inodes_available": "3341733", 
-            "inodes_percent_used": "16%", 
-            "inodes_used": "631387", 
-            "kb_available": "14613504", 
-            "kb_size": "62339072", 
-            "kb_used": "44552192", 
-            "mount": "/nfshome/abdulrr", 
-            "mount_options": [
-                "rw", 
-                "sloppy", 
-                "vers=4", 
-                "addr=192.168.2.120", 
-                "clientaddr=192.168.2.31"
-            ], 
-            "percent_used": "76%", 
-            "total_inodes": "3973120"
-        }, 
-        "192.168.2.120:/nfsshare/akshaykatamneni": {
-            "fs_type": "nfs", 
-            "inodes_available": "3341732", 
-            "inodes_percent_used": "16%", 
-            "inodes_used": "631388", 
-            "kb_available": "14613504", 
-            "kb_size": "62339072", 
-            "kb_used": "44552192", 
-            "mount": "/nfshome/akshaykatamneni", 
-            "mount_options": [
-                "rw", 
-                "sloppy", 
-                "vers=4", 
-                "addr=192.168.2.120", 
-                "clientaddr=192.168.2.31"
-            ], 
-            "percent_used": "76%", 
-            "total_inodes": "3973120"
-        }, 
-        "192.168.2.120:/nfsshare/anasirm": {
-            "fs_type": "nfs", 
-            "inodes_available": "3341734", 
-            "inodes_percent_used": "16%", 
-            "inodes_used": "631386", 
-            "kb_available": "14613504", 
-            "kb_size": "62339072", 
-            "kb_used": "44552192", 
-            "mount": "/nfshome/anasirm", 
-            "mount_options": [
-                "rw", 
-                "sloppy", 
-                "vers=4", 
-                "addr=192.168.2.120", 
-                "clientaddr=192.168.2.31"
-            ], 
-            "percent_used": "76%", 
-            "total_inodes": "3973120"
-        }, 
-        "192.168.2.120:/nfsshare/ansible-awx": {
-            "fs_type": "nfs", 
-            "inodes_available": "3341733", 
-            "inodes_percent_used": "16%", 
-            "inodes_used": "631387", 
-            "kb_available": "14613504", 
-            "kb_size": "62339072", 
-            "kb_used": "44552192", 
-            "mount": "/nfshome/ansible-awx", 
-            "mount_options": [
-                "rw", 
-                "sloppy", 
-                "vers=4", 
-                "addr=192.168.2.120", 
-                "clientaddr=192.168.2.31"
-            ], 
-            "percent_used": "76%", 
-            "total_inodes": "3973120"
-        }, 
-        "192.168.2.120:/nfsshare/asrithak": {
-            "fs_type": "nfs", 
-            "inodes_available": "3341734", 
-            "inodes_percent_used": "16%", 
-            "inodes_used": "631386", 
-            "kb_available": "14613504", 
-            "kb_size": "62339072", 
-            "kb_used": "44552192", 
-            "mount": "/nfshome/asrithak", 
-            "mount_options": [
-                "rw", 
-                "sloppy", 
-                "vers=4", 
-                "addr=192.168.2.120", 
-                "clientaddr=192.168.2.31"
-            ], 
-            "percent_used": "76%", 
-            "total_inodes": "3973120"
-        }, 
-        "192.168.2.120:/nfsshare/devtest": {
-            "fs_type": "nfs", 
-            "inodes_available": "3341733", 
-            "inodes_percent_used": "16%", 
-            "inodes_used": "631387", 
-            "kb_available": "14613504", 
-            "kb_size": "62339072", 
-            "kb_used": "44552192", 
-            "mount": "/nfshome/devtest", 
-            "mount_options": [
-                "rw", 
-                "sloppy", 
-                "vers=4", 
-                "addr=192.168.2.120", 
-                "clientaddr=192.168.2.31"
-            ], 
-            "percent_used": "76%", 
-            "total_inodes": "3973120"
-        }, 
-        "192.168.2.120:/nfsshare/devuser": {
-            "fs_type": "nfs", 
-            "inodes_available": "3341733", 
-            "inodes_percent_used": "16%", 
-            "inodes_used": "631387", 
-            "kb_available": "14613504", 
-            "kb_size": "62339072", 
-            "kb_used": "44552192", 
-            "mount": "/nfshome/devuser", 
-            "mount_options": [
-                "rw", 
-                "sloppy", 
-                "vers=4", 
-                "addr=192.168.2.120", 
-                "clientaddr=192.168.2.31"
-            ], 
-            "percent_used": "76%", 
-            "total_inodes": "3973120"
-        }, 
-        "192.168.2.120:/nfsshare/esneta": {
-            "fs_type": "nfs", 
-            "inodes_available": "3341732", 
-            "inodes_percent_used": "16%", 
-            "inodes_used": "631388", 
-            "kb_available": "14613504", 
-            "kb_size": "62339072", 
-            "kb_used": "44552192", 
-            "mount": "/nfshome/esneta", 
-            "mount_options": [
-                "rw", 
-                "sloppy", 
-                "vers=4", 
-                "addr=192.168.2.120", 
-                "clientaddr=192.168.2.31"
-            ], 
-            "percent_used": "76%", 
-            "total_inodes": "3973120"
-        }, 
-        "192.168.2.120:/nfsshare/gdeepthi": {
-            "fs_type": "nfs", 
-            "inodes_available": "3341732", 
-            "inodes_percent_used": "16%", 
-            "inodes_used": "631388", 
-            "kb_available": "14613504", 
-            "kb_size": "62339072", 
-            "kb_used": "44552192", 
-            "mount": "/nfshome/gdeepthi", 
-            "mount_options": [
-                "rw", 
-                "sloppy", 
-                "vers=4", 
-                "addr=192.168.2.120", 
-                "clientaddr=192.168.2.31"
-            ], 
-            "percent_used": "76%", 
-            "total_inodes": "3973120"
-        }, 
         "192.168.2.120:/nfsshare/gltulasi": {
             "fs_type": "nfs", 
             "mount": "/nfshome/gltulasi", 
@@ -3808,405 +3157,6 @@
                 "addr=192.168.2.120", 
                 "clientaddr=192.168.2.31"
             ]
-        }, 
-        "192.168.2.120:/nfsshare/gsair": {
-            "fs_type": "nfs", 
-            "inodes_available": "3341733", 
-            "inodes_percent_used": "16%", 
-            "inodes_used": "631387", 
-            "kb_available": "14613504", 
-            "kb_size": "62339072", 
-            "kb_used": "44552192", 
-            "mount": "/nfshome/gsair", 
-            "mount_options": [
-                "rw", 
-                "sloppy", 
-                "vers=4", 
-                "addr=192.168.2.120", 
-                "clientaddr=192.168.2.31"
-            ], 
-            "percent_used": "76%", 
-            "total_inodes": "3973120"
-        }, 
-        "192.168.2.120:/nfsshare/ktkalyan": {
-            "fs_type": "nfs", 
-            "inodes_available": "3341733", 
-            "inodes_percent_used": "16%", 
-            "inodes_used": "631387", 
-            "kb_available": "14613504", 
-            "kb_size": "62339072", 
-            "kb_used": "44552192", 
-            "mount": "/nfshome/ktkalyan", 
-            "mount_options": [
-                "rw", 
-                "sloppy", 
-                "vers=4", 
-                "addr=192.168.2.120", 
-                "clientaddr=192.168.2.31"
-            ], 
-            "percent_used": "76%", 
-            "total_inodes": "3973120"
-        }, 
-        "192.168.2.120:/nfsshare/lateefm": {
-            "fs_type": "nfs", 
-            "inodes_available": "3341733", 
-            "inodes_percent_used": "16%", 
-            "inodes_used": "631387", 
-            "kb_available": "14613504", 
-            "kb_size": "62339072", 
-            "kb_used": "44552192", 
-            "mount": "/nfshome/lateefm", 
-            "mount_options": [
-                "rw", 
-                "sloppy", 
-                "vers=4", 
-                "addr=192.168.2.120", 
-                "clientaddr=192.168.2.31"
-            ], 
-            "percent_used": "76%", 
-            "total_inodes": "3973120"
-        }, 
-        "192.168.2.120:/nfsshare/lsindhu": {
-            "fs_type": "nfs", 
-            "inodes_available": "3341733", 
-            "inodes_percent_used": "16%", 
-            "inodes_used": "631387", 
-            "kb_available": "14613504", 
-            "kb_size": "62339072", 
-            "kb_used": "44552192", 
-            "mount": "/nfshome/lsindhu", 
-            "mount_options": [
-                "rw", 
-                "sloppy", 
-                "vers=4", 
-                "addr=192.168.2.120", 
-                "clientaddr=192.168.2.31"
-            ], 
-            "percent_used": "76%", 
-            "total_inodes": "3973120"
-        }, 
-        "192.168.2.120:/nfsshare/ltulasig": {
-            "fs_type": "nfs", 
-            "inodes_available": "3341734", 
-            "inodes_percent_used": "16%", 
-            "inodes_used": "631386", 
-            "kb_available": "14613504", 
-            "kb_size": "62339072", 
-            "kb_used": "44552192", 
-            "mount": "/nfshome/ltulasig", 
-            "mount_options": [
-                "rw", 
-                "sloppy", 
-                "vers=4", 
-                "addr=192.168.2.120", 
-                "clientaddr=192.168.2.31"
-            ], 
-            "percent_used": "76%", 
-            "total_inodes": "3973120"
-        }, 
-        "192.168.2.120:/nfsshare/mbnsai": {
-            "fs_type": "nfs", 
-            "inodes_available": "3341732", 
-            "inodes_percent_used": "16%", 
-            "inodes_used": "631388", 
-            "kb_available": "14613504", 
-            "kb_size": "62339072", 
-            "kb_used": "44552192", 
-            "mount": "/nfshome/mbnsai", 
-            "mount_options": [
-                "rw", 
-                "sloppy", 
-                "vers=4", 
-                "addr=192.168.2.120", 
-                "clientaddr=192.168.2.31"
-            ], 
-            "percent_used": "76%", 
-            "total_inodes": "3973120"
-        }, 
-        "192.168.2.120:/nfsshare/mfazil": {
-            "fs_type": "nfs", 
-            "inodes_available": "3341733", 
-            "inodes_percent_used": "16%", 
-            "inodes_used": "631387", 
-            "kb_available": "14613504", 
-            "kb_size": "62339072", 
-            "kb_used": "44552192", 
-            "mount": "/nfshome/mfazil", 
-            "mount_options": [
-                "rw", 
-                "sloppy", 
-                "vers=4", 
-                "addr=192.168.2.120", 
-                "clientaddr=192.168.2.31"
-            ], 
-            "percent_used": "76%", 
-            "total_inodes": "3973120"
-        }, 
-        "192.168.2.120:/nfsshare/murali": {
-            "fs_type": "nfs", 
-            "inodes_available": "3341731", 
-            "inodes_percent_used": "16%", 
-            "inodes_used": "631389", 
-            "kb_available": "14613504", 
-            "kb_size": "62339072", 
-            "kb_used": "44552192", 
-            "mount": "/nfshome/murali", 
-            "mount_options": [
-                "rw", 
-                "sloppy", 
-                "vers=4", 
-                "addr=192.168.2.120", 
-                "clientaddr=192.168.2.31"
-            ], 
-            "percent_used": "76%", 
-            "total_inodes": "3973120"
-        }, 
-        "192.168.2.120:/nfsshare/nagiosha": {
-            "fs_type": "nfs", 
-            "inodes_available": "3341733", 
-            "inodes_percent_used": "16%", 
-            "inodes_used": "631387", 
-            "kb_available": "14613504", 
-            "kb_size": "62339072", 
-            "kb_used": "44552192", 
-            "mount": "/nfshome/nagiosha", 
-            "mount_options": [
-                "rw", 
-                "sloppy", 
-                "vers=4", 
-                "addr=192.168.2.120", 
-                "clientaddr=192.168.2.31"
-            ], 
-            "percent_used": "76%", 
-            "total_inodes": "3973120"
-        }, 
-        "192.168.2.120:/nfsshare/nsunku": {
-            "fs_type": "nfs", 
-            "inodes_available": "3341732", 
-            "inodes_percent_used": "16%", 
-            "inodes_used": "631388", 
-            "kb_available": "14613504", 
-            "kb_size": "62339072", 
-            "kb_used": "44552192", 
-            "mount": "/nfshome/nsunku", 
-            "mount_options": [
-                "rw", 
-                "sloppy", 
-                "vers=4", 
-                "addr=192.168.2.120", 
-                "clientaddr=192.168.2.31"
-            ], 
-            "percent_used": "76%", 
-            "total_inodes": "3973120"
-        }, 
-        "192.168.2.120:/nfsshare/nvijaykarthik": {
-            "fs_type": "nfs", 
-            "inodes_available": "3341732", 
-            "inodes_percent_used": "16%", 
-            "inodes_used": "631388", 
-            "kb_available": "14613504", 
-            "kb_size": "62339072", 
-            "kb_used": "44552192", 
-            "mount": "/nfshome/nvijaykarthik", 
-            "mount_options": [
-                "rw", 
-                "sloppy", 
-                "vers=4", 
-                "addr=192.168.2.120", 
-                "clientaddr=192.168.2.31"
-            ], 
-            "percent_used": "76%", 
-            "total_inodes": "3973120"
-        }, 
-        "192.168.2.120:/nfsshare/ppabbati": {
-            "fs_type": "nfs", 
-            "inodes_available": "3341733", 
-            "inodes_percent_used": "16%", 
-            "inodes_used": "631387", 
-            "kb_available": "14613504", 
-            "kb_size": "62339072", 
-            "kb_used": "44552192", 
-            "mount": "/nfshome/ppabbati", 
-            "mount_options": [
-                "rw", 
-                "sloppy", 
-                "vers=4", 
-                "addr=192.168.2.120", 
-                "clientaddr=192.168.2.31"
-            ], 
-            "percent_used": "76%", 
-            "total_inodes": "3973120"
-        }, 
-        "192.168.2.120:/nfsshare/rmoturi": {
-            "fs_type": "nfs", 
-            "inodes_available": "3341732", 
-            "inodes_percent_used": "16%", 
-            "inodes_used": "631388", 
-            "kb_available": "14613504", 
-            "kb_size": "62339072", 
-            "kb_used": "44552192", 
-            "mount": "/nfshome/rmoturi", 
-            "mount_options": [
-                "rw", 
-                "sloppy", 
-                "vers=4", 
-                "addr=192.168.2.120", 
-                "clientaddr=192.168.2.31"
-            ], 
-            "percent_used": "76%", 
-            "total_inodes": "3973120"
-        }, 
-        "192.168.2.120:/nfsshare/rrajiv": {
-            "fs_type": "nfs", 
-            "inodes_available": "3341732", 
-            "inodes_percent_used": "16%", 
-            "inodes_used": "631388", 
-            "kb_available": "14613504", 
-            "kb_size": "62339072", 
-            "kb_used": "44552192", 
-            "mount": "/nfshome/rrajiv", 
-            "mount_options": [
-                "rw", 
-                "sloppy", 
-                "vers=4", 
-                "addr=192.168.2.120", 
-                "clientaddr=192.168.2.31"
-            ], 
-            "percent_used": "76%", 
-            "total_inodes": "3973120"
-        }, 
-        "192.168.2.120:/nfsshare/rtarigopula": {
-            "fs_type": "nfs", 
-            "inodes_available": "3341732", 
-            "inodes_percent_used": "16%", 
-            "inodes_used": "631388", 
-            "kb_available": "14613504", 
-            "kb_size": "62339072", 
-            "kb_used": "44552192", 
-            "mount": "/nfshome/rtarigopula", 
-            "mount_options": [
-                "rw", 
-                "sloppy", 
-                "vers=4", 
-                "addr=192.168.2.120", 
-                "clientaddr=192.168.2.31"
-            ], 
-            "percent_used": "76%", 
-            "total_inodes": "3973120"
-        }, 
-        "192.168.2.120:/nfsshare/sairohitdasa": {
-            "fs_type": "nfs", 
-            "inodes_available": "3341732", 
-            "inodes_percent_used": "16%", 
-            "inodes_used": "631388", 
-            "kb_available": "14613504", 
-            "kb_size": "62339072", 
-            "kb_used": "44552192", 
-            "mount": "/nfshome/sairohitdasa", 
-            "mount_options": [
-                "rw", 
-                "sloppy", 
-                "vers=4", 
-                "addr=192.168.2.120", 
-                "clientaddr=192.168.2.31"
-            ], 
-            "percent_used": "76%", 
-            "total_inodes": "3973120"
-        }, 
-        "192.168.2.120:/nfsshare/shabanak": {
-            "fs_type": "nfs", 
-            "inodes_available": "3341732", 
-            "inodes_percent_used": "16%", 
-            "inodes_used": "631388", 
-            "kb_available": "14613504", 
-            "kb_size": "62339072", 
-            "kb_used": "44552192", 
-            "mount": "/nfshome/shabanak", 
-            "mount_options": [
-                "rw", 
-                "sloppy", 
-                "vers=4", 
-                "addr=192.168.2.120", 
-                "clientaddr=192.168.2.31"
-            ], 
-            "percent_used": "76%", 
-            "total_inodes": "3973120"
-        }, 
-        "192.168.2.120:/nfsshare/shah": {
-            "fs_type": "nfs", 
-            "inodes_available": "3341733", 
-            "inodes_percent_used": "16%", 
-            "inodes_used": "631387", 
-            "kb_available": "14613504", 
-            "kb_size": "62339072", 
-            "kb_used": "44552192", 
-            "mount": "/nfshome/shah", 
-            "mount_options": [
-                "rw", 
-                "sloppy", 
-                "vers=4", 
-                "addr=192.168.2.120", 
-                "clientaddr=192.168.2.31"
-            ], 
-            "percent_used": "76%", 
-            "total_inodes": "3973120"
-        }, 
-        "192.168.2.120:/nfsshare/skatta": {
-            "fs_type": "nfs", 
-            "inodes_available": "3341732", 
-            "inodes_percent_used": "16%", 
-            "inodes_used": "631388", 
-            "kb_available": "14613504", 
-            "kb_size": "62339072", 
-            "kb_used": "44552192", 
-            "mount": "/nfshome/skatta", 
-            "mount_options": [
-                "rw", 
-                "sloppy", 
-                "vers=4", 
-                "addr=192.168.2.120", 
-                "clientaddr=192.168.2.31"
-            ], 
-            "percent_used": "76%", 
-            "total_inodes": "3973120"
-        }, 
-        "192.168.2.120:/nfsshare/sonarha": {
-            "fs_type": "nfs", 
-            "inodes_available": "3341732", 
-            "inodes_percent_used": "16%", 
-            "inodes_used": "631388", 
-            "kb_available": "14613504", 
-            "kb_size": "62339072", 
-            "kb_used": "44552192", 
-            "mount": "/nfshome/sonarha", 
-            "mount_options": [
-                "rw", 
-                "sloppy", 
-                "vers=4", 
-                "addr=192.168.2.120", 
-                "clientaddr=192.168.2.31"
-            ], 
-            "percent_used": "76%", 
-            "total_inodes": "3973120"
-        }, 
-        "192.168.2.120:/nfsshare/travik": {
-            "fs_type": "nfs", 
-            "inodes_available": "3341732", 
-            "inodes_percent_used": "16%", 
-            "inodes_used": "631388", 
-            "kb_available": "14613504", 
-            "kb_size": "62339072", 
-            "kb_used": "44552192", 
-            "mount": "/nfshome/travik", 
-            "mount_options": [
-                "rw", 
-                "sloppy", 
-                "vers=4", 
-                "addr=192.168.2.120", 
-                "clientaddr=192.168.2.31"
-            ], 
-            "percent_used": "76%", 
-            "total_inodes": "3973120"
         }, 
         "devpts": {
             "fs_type": "devpts", 
@@ -4317,12 +3267,12 @@
             }, 
             "/dev/mapper/vg00-root": {
                 "fs_type": "ext4", 
-                "inodes_available": "423514", 
+                "inodes_available": "423515", 
                 "inodes_percent_used": "20%", 
-                "inodes_used": "100774", 
-                "kb_available": "5084684", 
+                "inodes_used": "100773", 
+                "kb_available": "5084600", 
                 "kb_size": "8125880", 
-                "kb_used": "2621768", 
+                "kb_used": "2621852", 
                 "mount_options": [
                     "rw"
                 ], 
@@ -4343,9 +3293,9 @@
                 "inodes_available": "126851", 
                 "inodes_percent_used": "4%", 
                 "inodes_used": "4221", 
-                "kb_available": "1185036", 
+                "kb_available": "1182108", 
                 "kb_size": "1998672", 
-                "kb_used": "708780", 
+                "kb_used": "711708", 
                 "mount_options": [
                     "rw"
                 ], 
@@ -4426,12 +3376,12 @@
             }, 
             "192.168.2.120:/nfsshare": {
                 "fs_type": "nfs", 
-                "inodes_available": "3341734", 
+                "inodes_available": "3341418", 
                 "inodes_percent_used": "16%", 
-                "inodes_used": "631386", 
-                "kb_available": "14613504", 
+                "inodes_used": "631702", 
+                "kb_available": "14541312", 
                 "kb_size": "62339072", 
-                "kb_used": "44552192", 
+                "kb_used": "44624384", 
                 "mount_options": [
                     "rw", 
                     "vers=4", 
@@ -4468,195 +3418,6 @@
                     "/var/tmp/nfsshare"
                 ]
             }, 
-            "192.168.2.120:/nfsshare/abdulrr": {
-                "fs_type": "nfs", 
-                "inodes_available": "3341734", 
-                "inodes_percent_used": "16%", 
-                "inodes_used": "631386", 
-                "kb_available": "14613504", 
-                "kb_size": "62339072", 
-                "kb_used": "44552192", 
-                "mount_options": [
-                    "rw", 
-                    "sloppy", 
-                    "vers=4", 
-                    "addr=192.168.2.120", 
-                    "clientaddr=192.168.2.31"
-                ], 
-                "mounts": [
-                    "/nfshome/abdulrr"
-                ], 
-                "percent_used": "76%", 
-                "total_inodes": "3973120"
-            }, 
-            "192.168.2.120:/nfsshare/akshaykatamneni": {
-                "fs_type": "nfs", 
-                "inodes_available": "3341734", 
-                "inodes_percent_used": "16%", 
-                "inodes_used": "631386", 
-                "kb_available": "14613504", 
-                "kb_size": "62339072", 
-                "kb_used": "44552192", 
-                "mount_options": [
-                    "rw", 
-                    "sloppy", 
-                    "vers=4", 
-                    "addr=192.168.2.120", 
-                    "clientaddr=192.168.2.31"
-                ], 
-                "mounts": [
-                    "/nfshome/akshaykatamneni"
-                ], 
-                "percent_used": "76%", 
-                "total_inodes": "3973120"
-            }, 
-            "192.168.2.120:/nfsshare/anasirm": {
-                "fs_type": "nfs", 
-                "inodes_available": "3341734", 
-                "inodes_percent_used": "16%", 
-                "inodes_used": "631386", 
-                "kb_available": "14613504", 
-                "kb_size": "62339072", 
-                "kb_used": "44552192", 
-                "mount_options": [
-                    "rw", 
-                    "sloppy", 
-                    "vers=4", 
-                    "addr=192.168.2.120", 
-                    "clientaddr=192.168.2.31"
-                ], 
-                "mounts": [
-                    "/nfshome/anasirm"
-                ], 
-                "percent_used": "76%", 
-                "total_inodes": "3973120"
-            }, 
-            "192.168.2.120:/nfsshare/ansible-awx": {
-                "fs_type": "nfs", 
-                "inodes_available": "3341734", 
-                "inodes_percent_used": "16%", 
-                "inodes_used": "631386", 
-                "kb_available": "14613504", 
-                "kb_size": "62339072", 
-                "kb_used": "44552192", 
-                "mount_options": [
-                    "rw", 
-                    "sloppy", 
-                    "vers=4", 
-                    "addr=192.168.2.120", 
-                    "clientaddr=192.168.2.31"
-                ], 
-                "mounts": [
-                    "/nfshome/ansible-awx"
-                ], 
-                "percent_used": "76%", 
-                "total_inodes": "3973120"
-            }, 
-            "192.168.2.120:/nfsshare/asrithak": {
-                "fs_type": "nfs", 
-                "inodes_available": "3341734", 
-                "inodes_percent_used": "16%", 
-                "inodes_used": "631386", 
-                "kb_available": "14613504", 
-                "kb_size": "62339072", 
-                "kb_used": "44552192", 
-                "mount_options": [
-                    "rw", 
-                    "sloppy", 
-                    "vers=4", 
-                    "addr=192.168.2.120", 
-                    "clientaddr=192.168.2.31"
-                ], 
-                "mounts": [
-                    "/nfshome/asrithak"
-                ], 
-                "percent_used": "76%", 
-                "total_inodes": "3973120"
-            }, 
-            "192.168.2.120:/nfsshare/devtest": {
-                "fs_type": "nfs", 
-                "inodes_available": "3341733", 
-                "inodes_percent_used": "16%", 
-                "inodes_used": "631387", 
-                "kb_available": "14613504", 
-                "kb_size": "62339072", 
-                "kb_used": "44552192", 
-                "mount_options": [
-                    "rw", 
-                    "sloppy", 
-                    "vers=4", 
-                    "addr=192.168.2.120", 
-                    "clientaddr=192.168.2.31"
-                ], 
-                "mounts": [
-                    "/nfshome/devtest"
-                ], 
-                "percent_used": "76%", 
-                "total_inodes": "3973120"
-            }, 
-            "192.168.2.120:/nfsshare/devuser": {
-                "fs_type": "nfs", 
-                "inodes_available": "3341734", 
-                "inodes_percent_used": "16%", 
-                "inodes_used": "631386", 
-                "kb_available": "14613504", 
-                "kb_size": "62339072", 
-                "kb_used": "44552192", 
-                "mount_options": [
-                    "rw", 
-                    "sloppy", 
-                    "vers=4", 
-                    "addr=192.168.2.120", 
-                    "clientaddr=192.168.2.31"
-                ], 
-                "mounts": [
-                    "/nfshome/devuser"
-                ], 
-                "percent_used": "76%", 
-                "total_inodes": "3973120"
-            }, 
-            "192.168.2.120:/nfsshare/esneta": {
-                "fs_type": "nfs", 
-                "inodes_available": "3341733", 
-                "inodes_percent_used": "16%", 
-                "inodes_used": "631387", 
-                "kb_available": "14613504", 
-                "kb_size": "62339072", 
-                "kb_used": "44552192", 
-                "mount_options": [
-                    "rw", 
-                    "sloppy", 
-                    "vers=4", 
-                    "addr=192.168.2.120", 
-                    "clientaddr=192.168.2.31"
-                ], 
-                "mounts": [
-                    "/nfshome/esneta"
-                ], 
-                "percent_used": "76%", 
-                "total_inodes": "3973120"
-            }, 
-            "192.168.2.120:/nfsshare/gdeepthi": {
-                "fs_type": "nfs", 
-                "inodes_available": "3341734", 
-                "inodes_percent_used": "16%", 
-                "inodes_used": "631386", 
-                "kb_available": "14613504", 
-                "kb_size": "62339072", 
-                "kb_used": "44552192", 
-                "mount_options": [
-                    "rw", 
-                    "sloppy", 
-                    "vers=4", 
-                    "addr=192.168.2.120", 
-                    "clientaddr=192.168.2.31"
-                ], 
-                "mounts": [
-                    "/nfshome/gdeepthi"
-                ], 
-                "percent_used": "76%", 
-                "total_inodes": "3973120"
-            }, 
             "192.168.2.120:/nfsshare/gltulasi": {
                 "fs_type": "nfs4", 
                 "mount_options": [
@@ -4681,447 +3442,6 @@
                     "/nfshome/gltulasi", 
                     "/nfshome/gltulasi\\040(deleted)"
                 ]
-            }, 
-            "192.168.2.120:/nfsshare/gsair": {
-                "fs_type": "nfs", 
-                "inodes_available": "3341733", 
-                "inodes_percent_used": "16%", 
-                "inodes_used": "631387", 
-                "kb_available": "14613504", 
-                "kb_size": "62339072", 
-                "kb_used": "44552192", 
-                "mount_options": [
-                    "rw", 
-                    "sloppy", 
-                    "vers=4", 
-                    "addr=192.168.2.120", 
-                    "clientaddr=192.168.2.31"
-                ], 
-                "mounts": [
-                    "/nfshome/gsair"
-                ], 
-                "percent_used": "76%", 
-                "total_inodes": "3973120"
-            }, 
-            "192.168.2.120:/nfsshare/ktkalyan": {
-                "fs_type": "nfs", 
-                "inodes_available": "3341734", 
-                "inodes_percent_used": "16%", 
-                "inodes_used": "631386", 
-                "kb_available": "14613504", 
-                "kb_size": "62339072", 
-                "kb_used": "44552192", 
-                "mount_options": [
-                    "rw", 
-                    "sloppy", 
-                    "vers=4", 
-                    "addr=192.168.2.120", 
-                    "clientaddr=192.168.2.31"
-                ], 
-                "mounts": [
-                    "/nfshome/ktkalyan"
-                ], 
-                "percent_used": "76%", 
-                "total_inodes": "3973120"
-            }, 
-            "192.168.2.120:/nfsshare/lateefm": {
-                "fs_type": "nfs", 
-                "inodes_available": "3341734", 
-                "inodes_percent_used": "16%", 
-                "inodes_used": "631386", 
-                "kb_available": "14613504", 
-                "kb_size": "62339072", 
-                "kb_used": "44552192", 
-                "mount_options": [
-                    "rw", 
-                    "sloppy", 
-                    "vers=4", 
-                    "addr=192.168.2.120", 
-                    "clientaddr=192.168.2.31"
-                ], 
-                "mounts": [
-                    "/nfshome/lateefm"
-                ], 
-                "percent_used": "76%", 
-                "total_inodes": "3973120"
-            }, 
-            "192.168.2.120:/nfsshare/lsindhu": {
-                "fs_type": "nfs", 
-                "inodes_available": "3341734", 
-                "inodes_percent_used": "16%", 
-                "inodes_used": "631386", 
-                "kb_available": "14613504", 
-                "kb_size": "62339072", 
-                "kb_used": "44552192", 
-                "mount_options": [
-                    "rw", 
-                    "sloppy", 
-                    "vers=4", 
-                    "addr=192.168.2.120", 
-                    "clientaddr=192.168.2.31"
-                ], 
-                "mounts": [
-                    "/nfshome/lsindhu"
-                ], 
-                "percent_used": "76%", 
-                "total_inodes": "3973120"
-            }, 
-            "192.168.2.120:/nfsshare/ltulasig": {
-                "fs_type": "nfs", 
-                "inodes_available": "3341734", 
-                "inodes_percent_used": "16%", 
-                "inodes_used": "631386", 
-                "kb_available": "14613504", 
-                "kb_size": "62339072", 
-                "kb_used": "44552192", 
-                "mount_options": [
-                    "rw", 
-                    "sloppy", 
-                    "vers=4", 
-                    "addr=192.168.2.120", 
-                    "clientaddr=192.168.2.31"
-                ], 
-                "mounts": [
-                    "/nfshome/ltulasig"
-                ], 
-                "percent_used": "76%", 
-                "total_inodes": "3973120"
-            }, 
-            "192.168.2.120:/nfsshare/mbnsai": {
-                "fs_type": "nfs", 
-                "inodes_available": "3341733", 
-                "inodes_percent_used": "16%", 
-                "inodes_used": "631387", 
-                "kb_available": "14613504", 
-                "kb_size": "62339072", 
-                "kb_used": "44552192", 
-                "mount_options": [
-                    "rw", 
-                    "sloppy", 
-                    "vers=4", 
-                    "addr=192.168.2.120", 
-                    "clientaddr=192.168.2.31"
-                ], 
-                "mounts": [
-                    "/nfshome/mbnsai"
-                ], 
-                "percent_used": "76%", 
-                "total_inodes": "3973120"
-            }, 
-            "192.168.2.120:/nfsshare/mfazil": {
-                "fs_type": "nfs", 
-                "inodes_available": "3341734", 
-                "inodes_percent_used": "16%", 
-                "inodes_used": "631386", 
-                "kb_available": "14613504", 
-                "kb_size": "62339072", 
-                "kb_used": "44552192", 
-                "mount_options": [
-                    "rw", 
-                    "sloppy", 
-                    "vers=4", 
-                    "addr=192.168.2.120", 
-                    "clientaddr=192.168.2.31"
-                ], 
-                "mounts": [
-                    "/nfshome/mfazil"
-                ], 
-                "percent_used": "76%", 
-                "total_inodes": "3973120"
-            }, 
-            "192.168.2.120:/nfsshare/murali": {
-                "fs_type": "nfs", 
-                "inodes_available": "3341733", 
-                "inodes_percent_used": "16%", 
-                "inodes_used": "631387", 
-                "kb_available": "14613504", 
-                "kb_size": "62339072", 
-                "kb_used": "44552192", 
-                "mount_options": [
-                    "rw", 
-                    "sloppy", 
-                    "vers=4", 
-                    "addr=192.168.2.120", 
-                    "clientaddr=192.168.2.31"
-                ], 
-                "mounts": [
-                    "/nfshome/murali"
-                ], 
-                "percent_used": "76%", 
-                "total_inodes": "3973120"
-            }, 
-            "192.168.2.120:/nfsshare/nagiosha": {
-                "fs_type": "nfs", 
-                "inodes_available": "3341734", 
-                "inodes_percent_used": "16%", 
-                "inodes_used": "631386", 
-                "kb_available": "14613504", 
-                "kb_size": "62339072", 
-                "kb_used": "44552192", 
-                "mount_options": [
-                    "rw", 
-                    "sloppy", 
-                    "vers=4", 
-                    "addr=192.168.2.120", 
-                    "clientaddr=192.168.2.31"
-                ], 
-                "mounts": [
-                    "/nfshome/nagiosha"
-                ], 
-                "percent_used": "76%", 
-                "total_inodes": "3973120"
-            }, 
-            "192.168.2.120:/nfsshare/nsunku": {
-                "fs_type": "nfs", 
-                "inodes_available": "3341733", 
-                "inodes_percent_used": "16%", 
-                "inodes_used": "631387", 
-                "kb_available": "14613504", 
-                "kb_size": "62339072", 
-                "kb_used": "44552192", 
-                "mount_options": [
-                    "rw", 
-                    "sloppy", 
-                    "vers=4", 
-                    "addr=192.168.2.120", 
-                    "clientaddr=192.168.2.31"
-                ], 
-                "mounts": [
-                    "/nfshome/nsunku"
-                ], 
-                "percent_used": "76%", 
-                "total_inodes": "3973120"
-            }, 
-            "192.168.2.120:/nfsshare/nvijaykarthik": {
-                "fs_type": "nfs", 
-                "inodes_available": "3341733", 
-                "inodes_percent_used": "16%", 
-                "inodes_used": "631387", 
-                "kb_available": "14613504", 
-                "kb_size": "62339072", 
-                "kb_used": "44552192", 
-                "mount_options": [
-                    "rw", 
-                    "sloppy", 
-                    "vers=4", 
-                    "addr=192.168.2.120", 
-                    "clientaddr=192.168.2.31"
-                ], 
-                "mounts": [
-                    "/nfshome/nvijaykarthik"
-                ], 
-                "percent_used": "76%", 
-                "total_inodes": "3973120"
-            }, 
-            "192.168.2.120:/nfsshare/ppabbati": {
-                "fs_type": "nfs", 
-                "inodes_available": "3341733", 
-                "inodes_percent_used": "16%", 
-                "inodes_used": "631387", 
-                "kb_available": "14613504", 
-                "kb_size": "62339072", 
-                "kb_used": "44552192", 
-                "mount_options": [
-                    "rw", 
-                    "sloppy", 
-                    "vers=4", 
-                    "addr=192.168.2.120", 
-                    "clientaddr=192.168.2.31"
-                ], 
-                "mounts": [
-                    "/nfshome/ppabbati"
-                ], 
-                "percent_used": "76%", 
-                "total_inodes": "3973120"
-            }, 
-            "192.168.2.120:/nfsshare/rmoturi": {
-                "fs_type": "nfs", 
-                "inodes_available": "3341733", 
-                "inodes_percent_used": "16%", 
-                "inodes_used": "631387", 
-                "kb_available": "14613504", 
-                "kb_size": "62339072", 
-                "kb_used": "44552192", 
-                "mount_options": [
-                    "rw", 
-                    "sloppy", 
-                    "vers=4", 
-                    "addr=192.168.2.120", 
-                    "clientaddr=192.168.2.31"
-                ], 
-                "mounts": [
-                    "/nfshome/rmoturi"
-                ], 
-                "percent_used": "76%", 
-                "total_inodes": "3973120"
-            }, 
-            "192.168.2.120:/nfsshare/rrajiv": {
-                "fs_type": "nfs", 
-                "inodes_available": "3341733", 
-                "inodes_percent_used": "16%", 
-                "inodes_used": "631387", 
-                "kb_available": "14613504", 
-                "kb_size": "62339072", 
-                "kb_used": "44552192", 
-                "mount_options": [
-                    "rw", 
-                    "sloppy", 
-                    "vers=4", 
-                    "addr=192.168.2.120", 
-                    "clientaddr=192.168.2.31"
-                ], 
-                "mounts": [
-                    "/nfshome/rrajiv"
-                ], 
-                "percent_used": "76%", 
-                "total_inodes": "3973120"
-            }, 
-            "192.168.2.120:/nfsshare/rtarigopula": {
-                "fs_type": "nfs", 
-                "inodes_available": "3341733", 
-                "inodes_percent_used": "16%", 
-                "inodes_used": "631387", 
-                "kb_available": "14613504", 
-                "kb_size": "62339072", 
-                "kb_used": "44552192", 
-                "mount_options": [
-                    "rw", 
-                    "sloppy", 
-                    "vers=4", 
-                    "addr=192.168.2.120", 
-                    "clientaddr=192.168.2.31"
-                ], 
-                "mounts": [
-                    "/nfshome/rtarigopula"
-                ], 
-                "percent_used": "76%", 
-                "total_inodes": "3973120"
-            }, 
-            "192.168.2.120:/nfsshare/sairohitdasa": {
-                "fs_type": "nfs", 
-                "inodes_available": "3341733", 
-                "inodes_percent_used": "16%", 
-                "inodes_used": "631387", 
-                "kb_available": "14613504", 
-                "kb_size": "62339072", 
-                "kb_used": "44552192", 
-                "mount_options": [
-                    "rw", 
-                    "sloppy", 
-                    "vers=4", 
-                    "addr=192.168.2.120", 
-                    "clientaddr=192.168.2.31"
-                ], 
-                "mounts": [
-                    "/nfshome/sairohitdasa"
-                ], 
-                "percent_used": "76%", 
-                "total_inodes": "3973120"
-            }, 
-            "192.168.2.120:/nfsshare/shabanak": {
-                "fs_type": "nfs", 
-                "inodes_available": "3341733", 
-                "inodes_percent_used": "16%", 
-                "inodes_used": "631387", 
-                "kb_available": "14613504", 
-                "kb_size": "62339072", 
-                "kb_used": "44552192", 
-                "mount_options": [
-                    "rw", 
-                    "sloppy", 
-                    "vers=4", 
-                    "addr=192.168.2.120", 
-                    "clientaddr=192.168.2.31"
-                ], 
-                "mounts": [
-                    "/nfshome/shabanak"
-                ], 
-                "percent_used": "76%", 
-                "total_inodes": "3973120"
-            }, 
-            "192.168.2.120:/nfsshare/shah": {
-                "fs_type": "nfs", 
-                "inodes_available": "3341733", 
-                "inodes_percent_used": "16%", 
-                "inodes_used": "631387", 
-                "kb_available": "14613504", 
-                "kb_size": "62339072", 
-                "kb_used": "44552192", 
-                "mount_options": [
-                    "rw", 
-                    "sloppy", 
-                    "vers=4", 
-                    "addr=192.168.2.120", 
-                    "clientaddr=192.168.2.31"
-                ], 
-                "mounts": [
-                    "/nfshome/shah"
-                ], 
-                "percent_used": "76%", 
-                "total_inodes": "3973120"
-            }, 
-            "192.168.2.120:/nfsshare/skatta": {
-                "fs_type": "nfs", 
-                "inodes_available": "3341733", 
-                "inodes_percent_used": "16%", 
-                "inodes_used": "631387", 
-                "kb_available": "14613504", 
-                "kb_size": "62339072", 
-                "kb_used": "44552192", 
-                "mount_options": [
-                    "rw", 
-                    "sloppy", 
-                    "vers=4", 
-                    "addr=192.168.2.120", 
-                    "clientaddr=192.168.2.31"
-                ], 
-                "mounts": [
-                    "/nfshome/skatta"
-                ], 
-                "percent_used": "76%", 
-                "total_inodes": "3973120"
-            }, 
-            "192.168.2.120:/nfsshare/sonarha": {
-                "fs_type": "nfs", 
-                "inodes_available": "3341733", 
-                "inodes_percent_used": "16%", 
-                "inodes_used": "631387", 
-                "kb_available": "14613504", 
-                "kb_size": "62339072", 
-                "kb_used": "44552192", 
-                "mount_options": [
-                    "rw", 
-                    "sloppy", 
-                    "vers=4", 
-                    "addr=192.168.2.120", 
-                    "clientaddr=192.168.2.31"
-                ], 
-                "mounts": [
-                    "/nfshome/sonarha"
-                ], 
-                "percent_used": "76%", 
-                "total_inodes": "3973120"
-            }, 
-            "192.168.2.120:/nfsshare/travik": {
-                "fs_type": "nfs", 
-                "inodes_available": "3341733", 
-                "inodes_percent_used": "16%", 
-                "inodes_used": "631387", 
-                "kb_available": "14613504", 
-                "kb_size": "62339072", 
-                "kb_used": "44552192", 
-                "mount_options": [
-                    "rw", 
-                    "sloppy", 
-                    "vers=4", 
-                    "addr=192.168.2.120", 
-                    "clientaddr=192.168.2.31"
-                ], 
-                "mounts": [
-                    "/nfshome/travik"
-                ], 
-                "percent_used": "76%", 
-                "total_inodes": "3973120"
             }, 
             "devpts": {
                 "fs_type": "devpts", 
@@ -5217,12 +3537,12 @@
                     "rootfs"
                 ], 
                 "fs_type": "rootfs", 
-                "inodes_available": "423514", 
+                "inodes_available": "423515", 
                 "inodes_percent_used": "20%", 
-                "inodes_used": "100774", 
-                "kb_available": "5084684", 
+                "inodes_used": "100773", 
+                "kb_available": "5084600", 
                 "kb_size": "8125880", 
-                "kb_used": "2621768", 
+                "kb_used": "2621852", 
                 "mount_options": [
                     "rw"
                 ], 
@@ -5355,195 +3675,6 @@
                     "indirect"
                 ]
             }, 
-            "/nfshome/abdulrr": {
-                "devices": [
-                    "192.168.2.120:/nfsshare/abdulrr"
-                ], 
-                "fs_type": "nfs", 
-                "inodes_available": "3341734", 
-                "inodes_percent_used": "16%", 
-                "inodes_used": "631386", 
-                "kb_available": "14613504", 
-                "kb_size": "62339072", 
-                "kb_used": "44552192", 
-                "mount_options": [
-                    "rw", 
-                    "sloppy", 
-                    "vers=4", 
-                    "addr=192.168.2.120", 
-                    "clientaddr=192.168.2.31"
-                ], 
-                "percent_used": "76%", 
-                "total_inodes": "3973120"
-            }, 
-            "/nfshome/akshaykatamneni": {
-                "devices": [
-                    "192.168.2.120:/nfsshare/akshaykatamneni"
-                ], 
-                "fs_type": "nfs", 
-                "inodes_available": "3341734", 
-                "inodes_percent_used": "16%", 
-                "inodes_used": "631386", 
-                "kb_available": "14613504", 
-                "kb_size": "62339072", 
-                "kb_used": "44552192", 
-                "mount_options": [
-                    "rw", 
-                    "sloppy", 
-                    "vers=4", 
-                    "addr=192.168.2.120", 
-                    "clientaddr=192.168.2.31"
-                ], 
-                "percent_used": "76%", 
-                "total_inodes": "3973120"
-            }, 
-            "/nfshome/anasirm": {
-                "devices": [
-                    "192.168.2.120:/nfsshare/anasirm"
-                ], 
-                "fs_type": "nfs", 
-                "inodes_available": "3341734", 
-                "inodes_percent_used": "16%", 
-                "inodes_used": "631386", 
-                "kb_available": "14613504", 
-                "kb_size": "62339072", 
-                "kb_used": "44552192", 
-                "mount_options": [
-                    "rw", 
-                    "sloppy", 
-                    "vers=4", 
-                    "addr=192.168.2.120", 
-                    "clientaddr=192.168.2.31"
-                ], 
-                "percent_used": "76%", 
-                "total_inodes": "3973120"
-            }, 
-            "/nfshome/ansible-awx": {
-                "devices": [
-                    "192.168.2.120:/nfsshare/ansible-awx"
-                ], 
-                "fs_type": "nfs", 
-                "inodes_available": "3341734", 
-                "inodes_percent_used": "16%", 
-                "inodes_used": "631386", 
-                "kb_available": "14613504", 
-                "kb_size": "62339072", 
-                "kb_used": "44552192", 
-                "mount_options": [
-                    "rw", 
-                    "sloppy", 
-                    "vers=4", 
-                    "addr=192.168.2.120", 
-                    "clientaddr=192.168.2.31"
-                ], 
-                "percent_used": "76%", 
-                "total_inodes": "3973120"
-            }, 
-            "/nfshome/asrithak": {
-                "devices": [
-                    "192.168.2.120:/nfsshare/asrithak"
-                ], 
-                "fs_type": "nfs", 
-                "inodes_available": "3341734", 
-                "inodes_percent_used": "16%", 
-                "inodes_used": "631386", 
-                "kb_available": "14613504", 
-                "kb_size": "62339072", 
-                "kb_used": "44552192", 
-                "mount_options": [
-                    "rw", 
-                    "sloppy", 
-                    "vers=4", 
-                    "addr=192.168.2.120", 
-                    "clientaddr=192.168.2.31"
-                ], 
-                "percent_used": "76%", 
-                "total_inodes": "3973120"
-            }, 
-            "/nfshome/devtest": {
-                "devices": [
-                    "192.168.2.120:/nfsshare/devtest"
-                ], 
-                "fs_type": "nfs", 
-                "inodes_available": "3341733", 
-                "inodes_percent_used": "16%", 
-                "inodes_used": "631387", 
-                "kb_available": "14613504", 
-                "kb_size": "62339072", 
-                "kb_used": "44552192", 
-                "mount_options": [
-                    "rw", 
-                    "sloppy", 
-                    "vers=4", 
-                    "addr=192.168.2.120", 
-                    "clientaddr=192.168.2.31"
-                ], 
-                "percent_used": "76%", 
-                "total_inodes": "3973120"
-            }, 
-            "/nfshome/devuser": {
-                "devices": [
-                    "192.168.2.120:/nfsshare/devuser"
-                ], 
-                "fs_type": "nfs", 
-                "inodes_available": "3341734", 
-                "inodes_percent_used": "16%", 
-                "inodes_used": "631386", 
-                "kb_available": "14613504", 
-                "kb_size": "62339072", 
-                "kb_used": "44552192", 
-                "mount_options": [
-                    "rw", 
-                    "sloppy", 
-                    "vers=4", 
-                    "addr=192.168.2.120", 
-                    "clientaddr=192.168.2.31"
-                ], 
-                "percent_used": "76%", 
-                "total_inodes": "3973120"
-            }, 
-            "/nfshome/esneta": {
-                "devices": [
-                    "192.168.2.120:/nfsshare/esneta"
-                ], 
-                "fs_type": "nfs", 
-                "inodes_available": "3341733", 
-                "inodes_percent_used": "16%", 
-                "inodes_used": "631387", 
-                "kb_available": "14613504", 
-                "kb_size": "62339072", 
-                "kb_used": "44552192", 
-                "mount_options": [
-                    "rw", 
-                    "sloppy", 
-                    "vers=4", 
-                    "addr=192.168.2.120", 
-                    "clientaddr=192.168.2.31"
-                ], 
-                "percent_used": "76%", 
-                "total_inodes": "3973120"
-            }, 
-            "/nfshome/gdeepthi": {
-                "devices": [
-                    "192.168.2.120:/nfsshare/gdeepthi"
-                ], 
-                "fs_type": "nfs", 
-                "inodes_available": "3341734", 
-                "inodes_percent_used": "16%", 
-                "inodes_used": "631386", 
-                "kb_available": "14613504", 
-                "kb_size": "62339072", 
-                "kb_used": "44552192", 
-                "mount_options": [
-                    "rw", 
-                    "sloppy", 
-                    "vers=4", 
-                    "addr=192.168.2.120", 
-                    "clientaddr=192.168.2.31"
-                ], 
-                "percent_used": "76%", 
-                "total_inodes": "3973120"
-            }, 
             "/nfshome/gltulasi": {
                 "devices": [
                     "192.168.2.120:/nfsshare/gltulasi"
@@ -5580,447 +3711,6 @@
                     "local_lock=none", 
                     "addr=192.168.2.120"
                 ]
-            }, 
-            "/nfshome/gsair": {
-                "devices": [
-                    "192.168.2.120:/nfsshare/gsair"
-                ], 
-                "fs_type": "nfs", 
-                "inodes_available": "3341733", 
-                "inodes_percent_used": "16%", 
-                "inodes_used": "631387", 
-                "kb_available": "14613504", 
-                "kb_size": "62339072", 
-                "kb_used": "44552192", 
-                "mount_options": [
-                    "rw", 
-                    "sloppy", 
-                    "vers=4", 
-                    "addr=192.168.2.120", 
-                    "clientaddr=192.168.2.31"
-                ], 
-                "percent_used": "76%", 
-                "total_inodes": "3973120"
-            }, 
-            "/nfshome/ktkalyan": {
-                "devices": [
-                    "192.168.2.120:/nfsshare/ktkalyan"
-                ], 
-                "fs_type": "nfs", 
-                "inodes_available": "3341734", 
-                "inodes_percent_used": "16%", 
-                "inodes_used": "631386", 
-                "kb_available": "14613504", 
-                "kb_size": "62339072", 
-                "kb_used": "44552192", 
-                "mount_options": [
-                    "rw", 
-                    "sloppy", 
-                    "vers=4", 
-                    "addr=192.168.2.120", 
-                    "clientaddr=192.168.2.31"
-                ], 
-                "percent_used": "76%", 
-                "total_inodes": "3973120"
-            }, 
-            "/nfshome/lateefm": {
-                "devices": [
-                    "192.168.2.120:/nfsshare/lateefm"
-                ], 
-                "fs_type": "nfs", 
-                "inodes_available": "3341734", 
-                "inodes_percent_used": "16%", 
-                "inodes_used": "631386", 
-                "kb_available": "14613504", 
-                "kb_size": "62339072", 
-                "kb_used": "44552192", 
-                "mount_options": [
-                    "rw", 
-                    "sloppy", 
-                    "vers=4", 
-                    "addr=192.168.2.120", 
-                    "clientaddr=192.168.2.31"
-                ], 
-                "percent_used": "76%", 
-                "total_inodes": "3973120"
-            }, 
-            "/nfshome/lsindhu": {
-                "devices": [
-                    "192.168.2.120:/nfsshare/lsindhu"
-                ], 
-                "fs_type": "nfs", 
-                "inodes_available": "3341734", 
-                "inodes_percent_used": "16%", 
-                "inodes_used": "631386", 
-                "kb_available": "14613504", 
-                "kb_size": "62339072", 
-                "kb_used": "44552192", 
-                "mount_options": [
-                    "rw", 
-                    "sloppy", 
-                    "vers=4", 
-                    "addr=192.168.2.120", 
-                    "clientaddr=192.168.2.31"
-                ], 
-                "percent_used": "76%", 
-                "total_inodes": "3973120"
-            }, 
-            "/nfshome/ltulasig": {
-                "devices": [
-                    "192.168.2.120:/nfsshare/ltulasig"
-                ], 
-                "fs_type": "nfs", 
-                "inodes_available": "3341734", 
-                "inodes_percent_used": "16%", 
-                "inodes_used": "631386", 
-                "kb_available": "14613504", 
-                "kb_size": "62339072", 
-                "kb_used": "44552192", 
-                "mount_options": [
-                    "rw", 
-                    "sloppy", 
-                    "vers=4", 
-                    "addr=192.168.2.120", 
-                    "clientaddr=192.168.2.31"
-                ], 
-                "percent_used": "76%", 
-                "total_inodes": "3973120"
-            }, 
-            "/nfshome/mbnsai": {
-                "devices": [
-                    "192.168.2.120:/nfsshare/mbnsai"
-                ], 
-                "fs_type": "nfs", 
-                "inodes_available": "3341733", 
-                "inodes_percent_used": "16%", 
-                "inodes_used": "631387", 
-                "kb_available": "14613504", 
-                "kb_size": "62339072", 
-                "kb_used": "44552192", 
-                "mount_options": [
-                    "rw", 
-                    "sloppy", 
-                    "vers=4", 
-                    "addr=192.168.2.120", 
-                    "clientaddr=192.168.2.31"
-                ], 
-                "percent_used": "76%", 
-                "total_inodes": "3973120"
-            }, 
-            "/nfshome/mfazil": {
-                "devices": [
-                    "192.168.2.120:/nfsshare/mfazil"
-                ], 
-                "fs_type": "nfs", 
-                "inodes_available": "3341734", 
-                "inodes_percent_used": "16%", 
-                "inodes_used": "631386", 
-                "kb_available": "14613504", 
-                "kb_size": "62339072", 
-                "kb_used": "44552192", 
-                "mount_options": [
-                    "rw", 
-                    "sloppy", 
-                    "vers=4", 
-                    "addr=192.168.2.120", 
-                    "clientaddr=192.168.2.31"
-                ], 
-                "percent_used": "76%", 
-                "total_inodes": "3973120"
-            }, 
-            "/nfshome/murali": {
-                "devices": [
-                    "192.168.2.120:/nfsshare/murali"
-                ], 
-                "fs_type": "nfs", 
-                "inodes_available": "3341733", 
-                "inodes_percent_used": "16%", 
-                "inodes_used": "631387", 
-                "kb_available": "14613504", 
-                "kb_size": "62339072", 
-                "kb_used": "44552192", 
-                "mount_options": [
-                    "rw", 
-                    "sloppy", 
-                    "vers=4", 
-                    "addr=192.168.2.120", 
-                    "clientaddr=192.168.2.31"
-                ], 
-                "percent_used": "76%", 
-                "total_inodes": "3973120"
-            }, 
-            "/nfshome/nagiosha": {
-                "devices": [
-                    "192.168.2.120:/nfsshare/nagiosha"
-                ], 
-                "fs_type": "nfs", 
-                "inodes_available": "3341734", 
-                "inodes_percent_used": "16%", 
-                "inodes_used": "631386", 
-                "kb_available": "14613504", 
-                "kb_size": "62339072", 
-                "kb_used": "44552192", 
-                "mount_options": [
-                    "rw", 
-                    "sloppy", 
-                    "vers=4", 
-                    "addr=192.168.2.120", 
-                    "clientaddr=192.168.2.31"
-                ], 
-                "percent_used": "76%", 
-                "total_inodes": "3973120"
-            }, 
-            "/nfshome/nsunku": {
-                "devices": [
-                    "192.168.2.120:/nfsshare/nsunku"
-                ], 
-                "fs_type": "nfs", 
-                "inodes_available": "3341733", 
-                "inodes_percent_used": "16%", 
-                "inodes_used": "631387", 
-                "kb_available": "14613504", 
-                "kb_size": "62339072", 
-                "kb_used": "44552192", 
-                "mount_options": [
-                    "rw", 
-                    "sloppy", 
-                    "vers=4", 
-                    "addr=192.168.2.120", 
-                    "clientaddr=192.168.2.31"
-                ], 
-                "percent_used": "76%", 
-                "total_inodes": "3973120"
-            }, 
-            "/nfshome/nvijaykarthik": {
-                "devices": [
-                    "192.168.2.120:/nfsshare/nvijaykarthik"
-                ], 
-                "fs_type": "nfs", 
-                "inodes_available": "3341733", 
-                "inodes_percent_used": "16%", 
-                "inodes_used": "631387", 
-                "kb_available": "14613504", 
-                "kb_size": "62339072", 
-                "kb_used": "44552192", 
-                "mount_options": [
-                    "rw", 
-                    "sloppy", 
-                    "vers=4", 
-                    "addr=192.168.2.120", 
-                    "clientaddr=192.168.2.31"
-                ], 
-                "percent_used": "76%", 
-                "total_inodes": "3973120"
-            }, 
-            "/nfshome/ppabbati": {
-                "devices": [
-                    "192.168.2.120:/nfsshare/ppabbati"
-                ], 
-                "fs_type": "nfs", 
-                "inodes_available": "3341733", 
-                "inodes_percent_used": "16%", 
-                "inodes_used": "631387", 
-                "kb_available": "14613504", 
-                "kb_size": "62339072", 
-                "kb_used": "44552192", 
-                "mount_options": [
-                    "rw", 
-                    "sloppy", 
-                    "vers=4", 
-                    "addr=192.168.2.120", 
-                    "clientaddr=192.168.2.31"
-                ], 
-                "percent_used": "76%", 
-                "total_inodes": "3973120"
-            }, 
-            "/nfshome/rmoturi": {
-                "devices": [
-                    "192.168.2.120:/nfsshare/rmoturi"
-                ], 
-                "fs_type": "nfs", 
-                "inodes_available": "3341733", 
-                "inodes_percent_used": "16%", 
-                "inodes_used": "631387", 
-                "kb_available": "14613504", 
-                "kb_size": "62339072", 
-                "kb_used": "44552192", 
-                "mount_options": [
-                    "rw", 
-                    "sloppy", 
-                    "vers=4", 
-                    "addr=192.168.2.120", 
-                    "clientaddr=192.168.2.31"
-                ], 
-                "percent_used": "76%", 
-                "total_inodes": "3973120"
-            }, 
-            "/nfshome/rrajiv": {
-                "devices": [
-                    "192.168.2.120:/nfsshare/rrajiv"
-                ], 
-                "fs_type": "nfs", 
-                "inodes_available": "3341733", 
-                "inodes_percent_used": "16%", 
-                "inodes_used": "631387", 
-                "kb_available": "14613504", 
-                "kb_size": "62339072", 
-                "kb_used": "44552192", 
-                "mount_options": [
-                    "rw", 
-                    "sloppy", 
-                    "vers=4", 
-                    "addr=192.168.2.120", 
-                    "clientaddr=192.168.2.31"
-                ], 
-                "percent_used": "76%", 
-                "total_inodes": "3973120"
-            }, 
-            "/nfshome/rtarigopula": {
-                "devices": [
-                    "192.168.2.120:/nfsshare/rtarigopula"
-                ], 
-                "fs_type": "nfs", 
-                "inodes_available": "3341733", 
-                "inodes_percent_used": "16%", 
-                "inodes_used": "631387", 
-                "kb_available": "14613504", 
-                "kb_size": "62339072", 
-                "kb_used": "44552192", 
-                "mount_options": [
-                    "rw", 
-                    "sloppy", 
-                    "vers=4", 
-                    "addr=192.168.2.120", 
-                    "clientaddr=192.168.2.31"
-                ], 
-                "percent_used": "76%", 
-                "total_inodes": "3973120"
-            }, 
-            "/nfshome/sairohitdasa": {
-                "devices": [
-                    "192.168.2.120:/nfsshare/sairohitdasa"
-                ], 
-                "fs_type": "nfs", 
-                "inodes_available": "3341733", 
-                "inodes_percent_used": "16%", 
-                "inodes_used": "631387", 
-                "kb_available": "14613504", 
-                "kb_size": "62339072", 
-                "kb_used": "44552192", 
-                "mount_options": [
-                    "rw", 
-                    "sloppy", 
-                    "vers=4", 
-                    "addr=192.168.2.120", 
-                    "clientaddr=192.168.2.31"
-                ], 
-                "percent_used": "76%", 
-                "total_inodes": "3973120"
-            }, 
-            "/nfshome/shabanak": {
-                "devices": [
-                    "192.168.2.120:/nfsshare/shabanak"
-                ], 
-                "fs_type": "nfs", 
-                "inodes_available": "3341733", 
-                "inodes_percent_used": "16%", 
-                "inodes_used": "631387", 
-                "kb_available": "14613504", 
-                "kb_size": "62339072", 
-                "kb_used": "44552192", 
-                "mount_options": [
-                    "rw", 
-                    "sloppy", 
-                    "vers=4", 
-                    "addr=192.168.2.120", 
-                    "clientaddr=192.168.2.31"
-                ], 
-                "percent_used": "76%", 
-                "total_inodes": "3973120"
-            }, 
-            "/nfshome/shah": {
-                "devices": [
-                    "192.168.2.120:/nfsshare/shah"
-                ], 
-                "fs_type": "nfs", 
-                "inodes_available": "3341733", 
-                "inodes_percent_used": "16%", 
-                "inodes_used": "631387", 
-                "kb_available": "14613504", 
-                "kb_size": "62339072", 
-                "kb_used": "44552192", 
-                "mount_options": [
-                    "rw", 
-                    "sloppy", 
-                    "vers=4", 
-                    "addr=192.168.2.120", 
-                    "clientaddr=192.168.2.31"
-                ], 
-                "percent_used": "76%", 
-                "total_inodes": "3973120"
-            }, 
-            "/nfshome/skatta": {
-                "devices": [
-                    "192.168.2.120:/nfsshare/skatta"
-                ], 
-                "fs_type": "nfs", 
-                "inodes_available": "3341733", 
-                "inodes_percent_used": "16%", 
-                "inodes_used": "631387", 
-                "kb_available": "14613504", 
-                "kb_size": "62339072", 
-                "kb_used": "44552192", 
-                "mount_options": [
-                    "rw", 
-                    "sloppy", 
-                    "vers=4", 
-                    "addr=192.168.2.120", 
-                    "clientaddr=192.168.2.31"
-                ], 
-                "percent_used": "76%", 
-                "total_inodes": "3973120"
-            }, 
-            "/nfshome/sonarha": {
-                "devices": [
-                    "192.168.2.120:/nfsshare/sonarha"
-                ], 
-                "fs_type": "nfs", 
-                "inodes_available": "3341733", 
-                "inodes_percent_used": "16%", 
-                "inodes_used": "631387", 
-                "kb_available": "14613504", 
-                "kb_size": "62339072", 
-                "kb_used": "44552192", 
-                "mount_options": [
-                    "rw", 
-                    "sloppy", 
-                    "vers=4", 
-                    "addr=192.168.2.120", 
-                    "clientaddr=192.168.2.31"
-                ], 
-                "percent_used": "76%", 
-                "total_inodes": "3973120"
-            }, 
-            "/nfshome/travik": {
-                "devices": [
-                    "192.168.2.120:/nfsshare/travik"
-                ], 
-                "fs_type": "nfs", 
-                "inodes_available": "3341733", 
-                "inodes_percent_used": "16%", 
-                "inodes_used": "631387", 
-                "kb_available": "14613504", 
-                "kb_size": "62339072", 
-                "kb_used": "44552192", 
-                "mount_options": [
-                    "rw", 
-                    "sloppy", 
-                    "vers=4", 
-                    "addr=192.168.2.120", 
-                    "clientaddr=192.168.2.31"
-                ], 
-                "percent_used": "76%", 
-                "total_inodes": "3973120"
             }, 
             "/proc": {
                 "devices": [
@@ -6067,9 +3757,9 @@
                 "inodes_available": "126851", 
                 "inodes_percent_used": "4%", 
                 "inodes_used": "4221", 
-                "kb_available": "1185036", 
+                "kb_available": "1182108", 
                 "kb_size": "1998672", 
-                "kb_used": "708780", 
+                "kb_used": "711708", 
                 "mount_options": [
                     "rw"
                 ], 
@@ -6092,12 +3782,12 @@
                     "192.168.2.120:/nfsshare/"
                 ], 
                 "fs_type": "nfs4", 
-                "inodes_available": "3341734", 
+                "inodes_available": "3341418", 
                 "inodes_percent_used": "16%", 
-                "inodes_used": "631386", 
-                "kb_available": "14613504", 
+                "inodes_used": "631702", 
+                "kb_available": "14541312", 
                 "kb_size": "62339072", 
-                "kb_used": "44552192", 
+                "kb_used": "44624384", 
                 "mount_options": [
                     "rw", 
                     "relatime", 
@@ -6156,12 +3846,12 @@
             "/dev/mapper/vg00-root,/": {
                 "device": "/dev/mapper/vg00-root", 
                 "fs_type": "ext4", 
-                "inodes_available": "423514", 
+                "inodes_available": "423515", 
                 "inodes_percent_used": "20%", 
-                "inodes_used": "100774", 
-                "kb_available": "5084684", 
+                "inodes_used": "100773", 
+                "kb_available": "5084600", 
                 "kb_size": "8125880", 
-                "kb_used": "2621768", 
+                "kb_used": "2621852", 
                 "mount": "/", 
                 "mount_options": [
                     "rw"
@@ -6181,9 +3871,9 @@
                 "inodes_available": "126851", 
                 "inodes_percent_used": "4%", 
                 "inodes_used": "4221", 
-                "kb_available": "1185036", 
+                "kb_available": "1182108", 
                 "kb_size": "1998672", 
-                "kb_used": "708780", 
+                "kb_used": "711708", 
                 "mount": "/var", 
                 "mount_options": [
                     "rw"
@@ -6259,12 +3949,12 @@
             "192.168.2.120:/nfsshare,/var/tmp/nfsshare": {
                 "device": "192.168.2.120:/nfsshare", 
                 "fs_type": "nfs", 
-                "inodes_available": "3341734", 
+                "inodes_available": "3341418", 
                 "inodes_percent_used": "16%", 
-                "inodes_used": "631386", 
-                "kb_available": "14613504", 
+                "inodes_used": "631702", 
+                "kb_available": "14541312", 
                 "kb_size": "62339072", 
-                "kb_used": "44552192", 
+                "kb_used": "44624384", 
                 "mount": "/var/tmp/nfsshare", 
                 "mount_options": [
                     "rw", 
@@ -6297,186 +3987,6 @@
                     "local_lock=none", 
                     "addr=192.168.2.120"
                 ]
-            }, 
-            "192.168.2.120:/nfsshare/abdulrr,/nfshome/abdulrr": {
-                "device": "192.168.2.120:/nfsshare/abdulrr", 
-                "fs_type": "nfs", 
-                "inodes_available": "3341734", 
-                "inodes_percent_used": "16%", 
-                "inodes_used": "631386", 
-                "kb_available": "14613504", 
-                "kb_size": "62339072", 
-                "kb_used": "44552192", 
-                "mount": "/nfshome/abdulrr", 
-                "mount_options": [
-                    "rw", 
-                    "sloppy", 
-                    "vers=4", 
-                    "addr=192.168.2.120", 
-                    "clientaddr=192.168.2.31"
-                ], 
-                "percent_used": "76%", 
-                "total_inodes": "3973120"
-            }, 
-            "192.168.2.120:/nfsshare/akshaykatamneni,/nfshome/akshaykatamneni": {
-                "device": "192.168.2.120:/nfsshare/akshaykatamneni", 
-                "fs_type": "nfs", 
-                "inodes_available": "3341734", 
-                "inodes_percent_used": "16%", 
-                "inodes_used": "631386", 
-                "kb_available": "14613504", 
-                "kb_size": "62339072", 
-                "kb_used": "44552192", 
-                "mount": "/nfshome/akshaykatamneni", 
-                "mount_options": [
-                    "rw", 
-                    "sloppy", 
-                    "vers=4", 
-                    "addr=192.168.2.120", 
-                    "clientaddr=192.168.2.31"
-                ], 
-                "percent_used": "76%", 
-                "total_inodes": "3973120"
-            }, 
-            "192.168.2.120:/nfsshare/anasirm,/nfshome/anasirm": {
-                "device": "192.168.2.120:/nfsshare/anasirm", 
-                "fs_type": "nfs", 
-                "inodes_available": "3341734", 
-                "inodes_percent_used": "16%", 
-                "inodes_used": "631386", 
-                "kb_available": "14613504", 
-                "kb_size": "62339072", 
-                "kb_used": "44552192", 
-                "mount": "/nfshome/anasirm", 
-                "mount_options": [
-                    "rw", 
-                    "sloppy", 
-                    "vers=4", 
-                    "addr=192.168.2.120", 
-                    "clientaddr=192.168.2.31"
-                ], 
-                "percent_used": "76%", 
-                "total_inodes": "3973120"
-            }, 
-            "192.168.2.120:/nfsshare/ansible-awx,/nfshome/ansible-awx": {
-                "device": "192.168.2.120:/nfsshare/ansible-awx", 
-                "fs_type": "nfs", 
-                "inodes_available": "3341734", 
-                "inodes_percent_used": "16%", 
-                "inodes_used": "631386", 
-                "kb_available": "14613504", 
-                "kb_size": "62339072", 
-                "kb_used": "44552192", 
-                "mount": "/nfshome/ansible-awx", 
-                "mount_options": [
-                    "rw", 
-                    "sloppy", 
-                    "vers=4", 
-                    "addr=192.168.2.120", 
-                    "clientaddr=192.168.2.31"
-                ], 
-                "percent_used": "76%", 
-                "total_inodes": "3973120"
-            }, 
-            "192.168.2.120:/nfsshare/asrithak,/nfshome/asrithak": {
-                "device": "192.168.2.120:/nfsshare/asrithak", 
-                "fs_type": "nfs", 
-                "inodes_available": "3341734", 
-                "inodes_percent_used": "16%", 
-                "inodes_used": "631386", 
-                "kb_available": "14613504", 
-                "kb_size": "62339072", 
-                "kb_used": "44552192", 
-                "mount": "/nfshome/asrithak", 
-                "mount_options": [
-                    "rw", 
-                    "sloppy", 
-                    "vers=4", 
-                    "addr=192.168.2.120", 
-                    "clientaddr=192.168.2.31"
-                ], 
-                "percent_used": "76%", 
-                "total_inodes": "3973120"
-            }, 
-            "192.168.2.120:/nfsshare/devtest,/nfshome/devtest": {
-                "device": "192.168.2.120:/nfsshare/devtest", 
-                "fs_type": "nfs", 
-                "inodes_available": "3341733", 
-                "inodes_percent_used": "16%", 
-                "inodes_used": "631387", 
-                "kb_available": "14613504", 
-                "kb_size": "62339072", 
-                "kb_used": "44552192", 
-                "mount": "/nfshome/devtest", 
-                "mount_options": [
-                    "rw", 
-                    "sloppy", 
-                    "vers=4", 
-                    "addr=192.168.2.120", 
-                    "clientaddr=192.168.2.31"
-                ], 
-                "percent_used": "76%", 
-                "total_inodes": "3973120"
-            }, 
-            "192.168.2.120:/nfsshare/devuser,/nfshome/devuser": {
-                "device": "192.168.2.120:/nfsshare/devuser", 
-                "fs_type": "nfs", 
-                "inodes_available": "3341734", 
-                "inodes_percent_used": "16%", 
-                "inodes_used": "631386", 
-                "kb_available": "14613504", 
-                "kb_size": "62339072", 
-                "kb_used": "44552192", 
-                "mount": "/nfshome/devuser", 
-                "mount_options": [
-                    "rw", 
-                    "sloppy", 
-                    "vers=4", 
-                    "addr=192.168.2.120", 
-                    "clientaddr=192.168.2.31"
-                ], 
-                "percent_used": "76%", 
-                "total_inodes": "3973120"
-            }, 
-            "192.168.2.120:/nfsshare/esneta,/nfshome/esneta": {
-                "device": "192.168.2.120:/nfsshare/esneta", 
-                "fs_type": "nfs", 
-                "inodes_available": "3341733", 
-                "inodes_percent_used": "16%", 
-                "inodes_used": "631387", 
-                "kb_available": "14613504", 
-                "kb_size": "62339072", 
-                "kb_used": "44552192", 
-                "mount": "/nfshome/esneta", 
-                "mount_options": [
-                    "rw", 
-                    "sloppy", 
-                    "vers=4", 
-                    "addr=192.168.2.120", 
-                    "clientaddr=192.168.2.31"
-                ], 
-                "percent_used": "76%", 
-                "total_inodes": "3973120"
-            }, 
-            "192.168.2.120:/nfsshare/gdeepthi,/nfshome/gdeepthi": {
-                "device": "192.168.2.120:/nfsshare/gdeepthi", 
-                "fs_type": "nfs", 
-                "inodes_available": "3341734", 
-                "inodes_percent_used": "16%", 
-                "inodes_used": "631386", 
-                "kb_available": "14613504", 
-                "kb_size": "62339072", 
-                "kb_used": "44552192", 
-                "mount": "/nfshome/gdeepthi", 
-                "mount_options": [
-                    "rw", 
-                    "sloppy", 
-                    "vers=4", 
-                    "addr=192.168.2.120", 
-                    "clientaddr=192.168.2.31"
-                ], 
-                "percent_used": "76%", 
-                "total_inodes": "3973120"
             }, 
             "192.168.2.120:/nfsshare/gltulasi,/nfshome/gltulasi": {
                 "device": "192.168.2.120:/nfsshare/gltulasi", 
@@ -6512,426 +4022,6 @@
                     "local_lock=none", 
                     "addr=192.168.2.120"
                 ]
-            }, 
-            "192.168.2.120:/nfsshare/gsair,/nfshome/gsair": {
-                "device": "192.168.2.120:/nfsshare/gsair", 
-                "fs_type": "nfs", 
-                "inodes_available": "3341733", 
-                "inodes_percent_used": "16%", 
-                "inodes_used": "631387", 
-                "kb_available": "14613504", 
-                "kb_size": "62339072", 
-                "kb_used": "44552192", 
-                "mount": "/nfshome/gsair", 
-                "mount_options": [
-                    "rw", 
-                    "sloppy", 
-                    "vers=4", 
-                    "addr=192.168.2.120", 
-                    "clientaddr=192.168.2.31"
-                ], 
-                "percent_used": "76%", 
-                "total_inodes": "3973120"
-            }, 
-            "192.168.2.120:/nfsshare/ktkalyan,/nfshome/ktkalyan": {
-                "device": "192.168.2.120:/nfsshare/ktkalyan", 
-                "fs_type": "nfs", 
-                "inodes_available": "3341734", 
-                "inodes_percent_used": "16%", 
-                "inodes_used": "631386", 
-                "kb_available": "14613504", 
-                "kb_size": "62339072", 
-                "kb_used": "44552192", 
-                "mount": "/nfshome/ktkalyan", 
-                "mount_options": [
-                    "rw", 
-                    "sloppy", 
-                    "vers=4", 
-                    "addr=192.168.2.120", 
-                    "clientaddr=192.168.2.31"
-                ], 
-                "percent_used": "76%", 
-                "total_inodes": "3973120"
-            }, 
-            "192.168.2.120:/nfsshare/lateefm,/nfshome/lateefm": {
-                "device": "192.168.2.120:/nfsshare/lateefm", 
-                "fs_type": "nfs", 
-                "inodes_available": "3341734", 
-                "inodes_percent_used": "16%", 
-                "inodes_used": "631386", 
-                "kb_available": "14613504", 
-                "kb_size": "62339072", 
-                "kb_used": "44552192", 
-                "mount": "/nfshome/lateefm", 
-                "mount_options": [
-                    "rw", 
-                    "sloppy", 
-                    "vers=4", 
-                    "addr=192.168.2.120", 
-                    "clientaddr=192.168.2.31"
-                ], 
-                "percent_used": "76%", 
-                "total_inodes": "3973120"
-            }, 
-            "192.168.2.120:/nfsshare/lsindhu,/nfshome/lsindhu": {
-                "device": "192.168.2.120:/nfsshare/lsindhu", 
-                "fs_type": "nfs", 
-                "inodes_available": "3341734", 
-                "inodes_percent_used": "16%", 
-                "inodes_used": "631386", 
-                "kb_available": "14613504", 
-                "kb_size": "62339072", 
-                "kb_used": "44552192", 
-                "mount": "/nfshome/lsindhu", 
-                "mount_options": [
-                    "rw", 
-                    "sloppy", 
-                    "vers=4", 
-                    "addr=192.168.2.120", 
-                    "clientaddr=192.168.2.31"
-                ], 
-                "percent_used": "76%", 
-                "total_inodes": "3973120"
-            }, 
-            "192.168.2.120:/nfsshare/ltulasig,/nfshome/ltulasig": {
-                "device": "192.168.2.120:/nfsshare/ltulasig", 
-                "fs_type": "nfs", 
-                "inodes_available": "3341734", 
-                "inodes_percent_used": "16%", 
-                "inodes_used": "631386", 
-                "kb_available": "14613504", 
-                "kb_size": "62339072", 
-                "kb_used": "44552192", 
-                "mount": "/nfshome/ltulasig", 
-                "mount_options": [
-                    "rw", 
-                    "sloppy", 
-                    "vers=4", 
-                    "addr=192.168.2.120", 
-                    "clientaddr=192.168.2.31"
-                ], 
-                "percent_used": "76%", 
-                "total_inodes": "3973120"
-            }, 
-            "192.168.2.120:/nfsshare/mbnsai,/nfshome/mbnsai": {
-                "device": "192.168.2.120:/nfsshare/mbnsai", 
-                "fs_type": "nfs", 
-                "inodes_available": "3341733", 
-                "inodes_percent_used": "16%", 
-                "inodes_used": "631387", 
-                "kb_available": "14613504", 
-                "kb_size": "62339072", 
-                "kb_used": "44552192", 
-                "mount": "/nfshome/mbnsai", 
-                "mount_options": [
-                    "rw", 
-                    "sloppy", 
-                    "vers=4", 
-                    "addr=192.168.2.120", 
-                    "clientaddr=192.168.2.31"
-                ], 
-                "percent_used": "76%", 
-                "total_inodes": "3973120"
-            }, 
-            "192.168.2.120:/nfsshare/mfazil,/nfshome/mfazil": {
-                "device": "192.168.2.120:/nfsshare/mfazil", 
-                "fs_type": "nfs", 
-                "inodes_available": "3341734", 
-                "inodes_percent_used": "16%", 
-                "inodes_used": "631386", 
-                "kb_available": "14613504", 
-                "kb_size": "62339072", 
-                "kb_used": "44552192", 
-                "mount": "/nfshome/mfazil", 
-                "mount_options": [
-                    "rw", 
-                    "sloppy", 
-                    "vers=4", 
-                    "addr=192.168.2.120", 
-                    "clientaddr=192.168.2.31"
-                ], 
-                "percent_used": "76%", 
-                "total_inodes": "3973120"
-            }, 
-            "192.168.2.120:/nfsshare/murali,/nfshome/murali": {
-                "device": "192.168.2.120:/nfsshare/murali", 
-                "fs_type": "nfs", 
-                "inodes_available": "3341733", 
-                "inodes_percent_used": "16%", 
-                "inodes_used": "631387", 
-                "kb_available": "14613504", 
-                "kb_size": "62339072", 
-                "kb_used": "44552192", 
-                "mount": "/nfshome/murali", 
-                "mount_options": [
-                    "rw", 
-                    "sloppy", 
-                    "vers=4", 
-                    "addr=192.168.2.120", 
-                    "clientaddr=192.168.2.31"
-                ], 
-                "percent_used": "76%", 
-                "total_inodes": "3973120"
-            }, 
-            "192.168.2.120:/nfsshare/nagiosha,/nfshome/nagiosha": {
-                "device": "192.168.2.120:/nfsshare/nagiosha", 
-                "fs_type": "nfs", 
-                "inodes_available": "3341734", 
-                "inodes_percent_used": "16%", 
-                "inodes_used": "631386", 
-                "kb_available": "14613504", 
-                "kb_size": "62339072", 
-                "kb_used": "44552192", 
-                "mount": "/nfshome/nagiosha", 
-                "mount_options": [
-                    "rw", 
-                    "sloppy", 
-                    "vers=4", 
-                    "addr=192.168.2.120", 
-                    "clientaddr=192.168.2.31"
-                ], 
-                "percent_used": "76%", 
-                "total_inodes": "3973120"
-            }, 
-            "192.168.2.120:/nfsshare/nsunku,/nfshome/nsunku": {
-                "device": "192.168.2.120:/nfsshare/nsunku", 
-                "fs_type": "nfs", 
-                "inodes_available": "3341733", 
-                "inodes_percent_used": "16%", 
-                "inodes_used": "631387", 
-                "kb_available": "14613504", 
-                "kb_size": "62339072", 
-                "kb_used": "44552192", 
-                "mount": "/nfshome/nsunku", 
-                "mount_options": [
-                    "rw", 
-                    "sloppy", 
-                    "vers=4", 
-                    "addr=192.168.2.120", 
-                    "clientaddr=192.168.2.31"
-                ], 
-                "percent_used": "76%", 
-                "total_inodes": "3973120"
-            }, 
-            "192.168.2.120:/nfsshare/nvijaykarthik,/nfshome/nvijaykarthik": {
-                "device": "192.168.2.120:/nfsshare/nvijaykarthik", 
-                "fs_type": "nfs", 
-                "inodes_available": "3341733", 
-                "inodes_percent_used": "16%", 
-                "inodes_used": "631387", 
-                "kb_available": "14613504", 
-                "kb_size": "62339072", 
-                "kb_used": "44552192", 
-                "mount": "/nfshome/nvijaykarthik", 
-                "mount_options": [
-                    "rw", 
-                    "sloppy", 
-                    "vers=4", 
-                    "addr=192.168.2.120", 
-                    "clientaddr=192.168.2.31"
-                ], 
-                "percent_used": "76%", 
-                "total_inodes": "3973120"
-            }, 
-            "192.168.2.120:/nfsshare/ppabbati,/nfshome/ppabbati": {
-                "device": "192.168.2.120:/nfsshare/ppabbati", 
-                "fs_type": "nfs", 
-                "inodes_available": "3341733", 
-                "inodes_percent_used": "16%", 
-                "inodes_used": "631387", 
-                "kb_available": "14613504", 
-                "kb_size": "62339072", 
-                "kb_used": "44552192", 
-                "mount": "/nfshome/ppabbati", 
-                "mount_options": [
-                    "rw", 
-                    "sloppy", 
-                    "vers=4", 
-                    "addr=192.168.2.120", 
-                    "clientaddr=192.168.2.31"
-                ], 
-                "percent_used": "76%", 
-                "total_inodes": "3973120"
-            }, 
-            "192.168.2.120:/nfsshare/rmoturi,/nfshome/rmoturi": {
-                "device": "192.168.2.120:/nfsshare/rmoturi", 
-                "fs_type": "nfs", 
-                "inodes_available": "3341733", 
-                "inodes_percent_used": "16%", 
-                "inodes_used": "631387", 
-                "kb_available": "14613504", 
-                "kb_size": "62339072", 
-                "kb_used": "44552192", 
-                "mount": "/nfshome/rmoturi", 
-                "mount_options": [
-                    "rw", 
-                    "sloppy", 
-                    "vers=4", 
-                    "addr=192.168.2.120", 
-                    "clientaddr=192.168.2.31"
-                ], 
-                "percent_used": "76%", 
-                "total_inodes": "3973120"
-            }, 
-            "192.168.2.120:/nfsshare/rrajiv,/nfshome/rrajiv": {
-                "device": "192.168.2.120:/nfsshare/rrajiv", 
-                "fs_type": "nfs", 
-                "inodes_available": "3341733", 
-                "inodes_percent_used": "16%", 
-                "inodes_used": "631387", 
-                "kb_available": "14613504", 
-                "kb_size": "62339072", 
-                "kb_used": "44552192", 
-                "mount": "/nfshome/rrajiv", 
-                "mount_options": [
-                    "rw", 
-                    "sloppy", 
-                    "vers=4", 
-                    "addr=192.168.2.120", 
-                    "clientaddr=192.168.2.31"
-                ], 
-                "percent_used": "76%", 
-                "total_inodes": "3973120"
-            }, 
-            "192.168.2.120:/nfsshare/rtarigopula,/nfshome/rtarigopula": {
-                "device": "192.168.2.120:/nfsshare/rtarigopula", 
-                "fs_type": "nfs", 
-                "inodes_available": "3341733", 
-                "inodes_percent_used": "16%", 
-                "inodes_used": "631387", 
-                "kb_available": "14613504", 
-                "kb_size": "62339072", 
-                "kb_used": "44552192", 
-                "mount": "/nfshome/rtarigopula", 
-                "mount_options": [
-                    "rw", 
-                    "sloppy", 
-                    "vers=4", 
-                    "addr=192.168.2.120", 
-                    "clientaddr=192.168.2.31"
-                ], 
-                "percent_used": "76%", 
-                "total_inodes": "3973120"
-            }, 
-            "192.168.2.120:/nfsshare/sairohitdasa,/nfshome/sairohitdasa": {
-                "device": "192.168.2.120:/nfsshare/sairohitdasa", 
-                "fs_type": "nfs", 
-                "inodes_available": "3341733", 
-                "inodes_percent_used": "16%", 
-                "inodes_used": "631387", 
-                "kb_available": "14613504", 
-                "kb_size": "62339072", 
-                "kb_used": "44552192", 
-                "mount": "/nfshome/sairohitdasa", 
-                "mount_options": [
-                    "rw", 
-                    "sloppy", 
-                    "vers=4", 
-                    "addr=192.168.2.120", 
-                    "clientaddr=192.168.2.31"
-                ], 
-                "percent_used": "76%", 
-                "total_inodes": "3973120"
-            }, 
-            "192.168.2.120:/nfsshare/shabanak,/nfshome/shabanak": {
-                "device": "192.168.2.120:/nfsshare/shabanak", 
-                "fs_type": "nfs", 
-                "inodes_available": "3341733", 
-                "inodes_percent_used": "16%", 
-                "inodes_used": "631387", 
-                "kb_available": "14613504", 
-                "kb_size": "62339072", 
-                "kb_used": "44552192", 
-                "mount": "/nfshome/shabanak", 
-                "mount_options": [
-                    "rw", 
-                    "sloppy", 
-                    "vers=4", 
-                    "addr=192.168.2.120", 
-                    "clientaddr=192.168.2.31"
-                ], 
-                "percent_used": "76%", 
-                "total_inodes": "3973120"
-            }, 
-            "192.168.2.120:/nfsshare/shah,/nfshome/shah": {
-                "device": "192.168.2.120:/nfsshare/shah", 
-                "fs_type": "nfs", 
-                "inodes_available": "3341733", 
-                "inodes_percent_used": "16%", 
-                "inodes_used": "631387", 
-                "kb_available": "14613504", 
-                "kb_size": "62339072", 
-                "kb_used": "44552192", 
-                "mount": "/nfshome/shah", 
-                "mount_options": [
-                    "rw", 
-                    "sloppy", 
-                    "vers=4", 
-                    "addr=192.168.2.120", 
-                    "clientaddr=192.168.2.31"
-                ], 
-                "percent_used": "76%", 
-                "total_inodes": "3973120"
-            }, 
-            "192.168.2.120:/nfsshare/skatta,/nfshome/skatta": {
-                "device": "192.168.2.120:/nfsshare/skatta", 
-                "fs_type": "nfs", 
-                "inodes_available": "3341733", 
-                "inodes_percent_used": "16%", 
-                "inodes_used": "631387", 
-                "kb_available": "14613504", 
-                "kb_size": "62339072", 
-                "kb_used": "44552192", 
-                "mount": "/nfshome/skatta", 
-                "mount_options": [
-                    "rw", 
-                    "sloppy", 
-                    "vers=4", 
-                    "addr=192.168.2.120", 
-                    "clientaddr=192.168.2.31"
-                ], 
-                "percent_used": "76%", 
-                "total_inodes": "3973120"
-            }, 
-            "192.168.2.120:/nfsshare/sonarha,/nfshome/sonarha": {
-                "device": "192.168.2.120:/nfsshare/sonarha", 
-                "fs_type": "nfs", 
-                "inodes_available": "3341733", 
-                "inodes_percent_used": "16%", 
-                "inodes_used": "631387", 
-                "kb_available": "14613504", 
-                "kb_size": "62339072", 
-                "kb_used": "44552192", 
-                "mount": "/nfshome/sonarha", 
-                "mount_options": [
-                    "rw", 
-                    "sloppy", 
-                    "vers=4", 
-                    "addr=192.168.2.120", 
-                    "clientaddr=192.168.2.31"
-                ], 
-                "percent_used": "76%", 
-                "total_inodes": "3973120"
-            }, 
-            "192.168.2.120:/nfsshare/travik,/nfshome/travik": {
-                "device": "192.168.2.120:/nfsshare/travik", 
-                "fs_type": "nfs", 
-                "inodes_available": "3341733", 
-                "inodes_percent_used": "16%", 
-                "inodes_used": "631387", 
-                "kb_available": "14613504", 
-                "kb_size": "62339072", 
-                "kb_used": "44552192", 
-                "mount": "/nfshome/travik", 
-                "mount_options": [
-                    "rw", 
-                    "sloppy", 
-                    "vers=4", 
-                    "addr=192.168.2.120", 
-                    "clientaddr=192.168.2.31"
-                ], 
-                "percent_used": "76%", 
-                "total_inodes": "3973120"
             }, 
             "devpts,/dev/pts": {
                 "device": "devpts", 
@@ -7021,8 +4111,8 @@
     "ohai_fqdn": "edalldap01.elan.elantecs.com", 
     "ohai_hostname": "edalldap01", 
     "ohai_hostnamectl": {}, 
-    "ohai_idletime": "264 days 05 hours 45 minutes 32 seconds", 
-    "ohai_idletime_seconds": 22830332, 
+    "ohai_idletime": "264 days 17 hours 41 minutes 21 seconds", 
+    "ohai_idletime_seconds": 22873281, 
     "ohai_init_package": "init", 
     "ohai_ipaddress": "192.168.2.31", 
     "ohai_kernel": {
@@ -7225,15 +4315,15 @@
     "ohai_machine_id": "d95b8cc11f183b90ca3cf5c80000000b", 
     "ohai_machinename": "edalldap01.elan.elantecs.com", 
     "ohai_memory": {
-        "active": "829876kB", 
-        "anon_pages": "286736kB", 
+        "active": "793488kB", 
+        "anon_pages": "236508kB", 
         "bounce": "0kB", 
-        "buffers": "198620kB", 
-        "cached": "984920kB", 
+        "buffers": "203312kB", 
+        "cached": "951920kB", 
         "commit_limit": "2526724kB", 
-        "committed_as": "857608kB", 
-        "dirty": "908kB", 
-        "free": "1092820kB", 
+        "committed_as": "667416kB", 
+        "dirty": "420kB", 
+        "free": "1160900kB", 
         "hugepage_size": "2048kB", 
         "hugepages": {
             "free": "0", 
@@ -7241,16 +4331,16 @@
             "surplus": "0", 
             "total": "0"
         }, 
-        "inactive": "644264kB", 
-        "mapped": "37544kB", 
+        "inactive": "602056kB", 
+        "mapped": "36948kB", 
         "nfs_unstable": "0kB", 
-        "page_tables": "30380kB", 
-        "slab": "310976kB", 
-        "slab_reclaimable": "266160kB", 
-        "slab_unreclaim": "44816kB", 
+        "page_tables": "11328kB", 
+        "slab": "349592kB", 
+        "slab_reclaimable": "311468kB", 
+        "slab_unreclaim": "38124kB", 
         "swap": {
-            "cached": "4408kB", 
-            "free": "1032788kB", 
+            "cached": "4376kB", 
+            "free": "1032752kB", 
             "total": "1048572kB"
         }, 
         "total": "2956308kB", 
@@ -7278,13 +4368,13 @@
                 }, 
                 "arp": {
                     "192.168.2.1": "24:4b:fe:39:74:78", 
+                    "192.168.2.116": "52:54:00:7b:25:5b", 
                     "192.168.2.12": "52:54:00:33:80:2f", 
                     "192.168.2.120": "00:16:35:3b:7d:ec", 
                     "192.168.2.121": "00:21:9b:98:1d:c2", 
                     "192.168.2.122": "52:54:00:4e:00:87", 
                     "192.168.2.123": "52:54:00:5f:b5:cd", 
                     "192.168.2.125": "00:13:21:0d:49:b6", 
-                    "192.168.2.13": "52:54:00:44:15:1e", 
                     "192.168.2.15": "00:b1:72:3e:40:15", 
                     "192.168.2.154": "52:54:00:7f:5a:ee", 
                     "192.168.2.16": "ec:f4:bb:df:f5:c4", 
@@ -7296,20 +4386,13 @@
                     "192.168.2.19": "52:54:00:74:2a:51", 
                     "192.168.2.20": "52:54:00:3f:da:45", 
                     "192.168.2.21": "52:54:00:6f:52:09", 
-                    "192.168.2.25": "00:fb:1b:56:c8:09", 
                     "192.168.2.32": "52:54:00:ee:cd:2d", 
                     "192.168.2.37": "52:54:00:f1:db:ff", 
-                    "192.168.2.38": "00:9f:4c:7e:d6:27", 
                     "192.168.2.43": "00:e0:b3:77:44:9d", 
                     "192.168.2.49": "52:54:00:8e:cc:78", 
                     "192.168.2.50": "52:54:00:09:39:ab", 
                     "192.168.2.53": "00:9a:4f:ab:2b:76", 
-                    "192.168.2.54": "00:0c:29:40:46:71", 
-                    "192.168.2.55": "00:0c:29:93:b1:da", 
-                    "192.168.2.57": "52:54:00:ff:6c:32", 
-                    "192.168.2.60": "00:9e:ed:b4:4a:71", 
                     "192.168.2.68": "00:80:10:5d:f8:d6", 
-                    "192.168.2.76": "52:54:00:cb:d7:d2", 
                     "192.168.2.98": "00:0f:5a:0d:14:52"
                 }, 
                 "encapsulation": "Ethernet", 
@@ -12994,7 +10077,7 @@
         "XBS5_LPBIG_OFFBIG_LIBS": null, 
         "XBS5_LPBIG_OFFBIG_LINTFLAGS": null, 
         "XBS5_WIDTH_RESTRICTED_ENVS": "XBS5_ILP32_OFF32", 
-        "_AVPHYS_PAGES": 273149, 
+        "_AVPHYS_PAGES": 290223, 
         "_NPROCESSORS_CONF": 4, 
         "_NPROCESSORS_ONLN": 4, 
         "_PHYS_PAGES": 739077, 
@@ -13126,8 +10209,8 @@
         "_XOPEN_XPG3": 1, 
         "_XOPEN_XPG4": 1
     }, 
-    "ohai_uptime": "66 days 23 hours 56 minutes 41 seconds", 
-    "ohai_uptime_seconds": 5788601, 
+    "ohai_uptime": "67 days 03 hours 12 minutes 08 seconds", 
+    "ohai_uptime_seconds": 5800328, 
     "ohai_virtualization": {
         "role": "guest", 
         "system": "kvm", 

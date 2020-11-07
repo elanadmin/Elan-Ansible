@@ -29,16 +29,16 @@
     "ansible_date_time": {
         "date": "2020-11-07", 
         "day": "07", 
-        "epoch": "1604755442", 
-        "hour": "07", 
-        "iso8601": "2020-11-07T13:24:02Z", 
-        "iso8601_basic": "20201107T072402534993", 
-        "iso8601_basic_short": "20201107T072402", 
-        "iso8601_micro": "2020-11-07T13:24:02.535210Z", 
-        "minute": "24", 
+        "epoch": "1604768318", 
+        "hour": "10", 
+        "iso8601": "2020-11-07T16:58:38Z", 
+        "iso8601_basic": "20201107T105838100983", 
+        "iso8601_basic_short": "20201107T105838", 
+        "iso8601_micro": "2020-11-07T16:58:38.101365Z", 
+        "minute": "58", 
         "month": "11", 
-        "second": "02", 
-        "time": "07:24:02", 
+        "second": "38", 
+        "time": "10:58:38", 
         "tz": "CST", 
         "tz_offset": "-0600", 
         "weekday": "Saturday", 
@@ -347,7 +347,7 @@
         "PWD": "/home/elanansible", 
         "SHELL": "/bin/bash", 
         "SHLVL": "1", 
-        "SUDO_COMMAND": "/bin/sh -c echo BECOME-SUCCESS-alqkodnuylfdpbhfuobiquxfhamnpanc ; /usr/bin/python", 
+        "SUDO_COMMAND": "/bin/sh -c echo BECOME-SUCCESS-izwvopexyotmzjqiuscmphjhafugpibi ; /usr/bin/python", 
         "SUDO_GID": "12356", 
         "SUDO_UID": "12356", 
         "SUDO_USER": "elanansible", 
@@ -560,39 +560,39 @@
     }, 
     "ansible_machine": "x86_64", 
     "ansible_machine_id": "6ceee7fb00d641388094fb94e645fca7", 
-    "ansible_memfree_mb": 113, 
+    "ansible_memfree_mb": 118, 
     "ansible_memory_mb": {
         "nocache": {
-            "free": 457, 
-            "used": 2390
+            "free": 1332, 
+            "used": 1515
         }, 
         "real": {
-            "free": 113, 
+            "free": 118, 
             "total": 2847, 
-            "used": 2734
+            "used": 2729
         }, 
         "swap": {
-            "cached": 25, 
-            "free": 895, 
+            "cached": 27, 
+            "free": 887, 
             "total": 1023, 
-            "used": 128
+            "used": 136
         }
     }, 
     "ansible_memtotal_mb": 2847, 
     "ansible_mounts": [
         {
-            "block_available": 924506, 
+            "block_available": 924224, 
             "block_size": 4096, 
             "block_total": 3079970, 
-            "block_used": 2155464, 
+            "block_used": 2155746, 
             "device": "/dev/mapper/vg00-var", 
             "fstype": "ext4", 
-            "inode_available": 740670, 
+            "inode_available": 740669, 
             "inode_total": 786432, 
-            "inode_used": 45762, 
+            "inode_used": 45763, 
             "mount": "/var", 
             "options": "rw,relatime,data=ordered", 
-            "size_available": 3786776576, 
+            "size_available": 3785621504, 
             "size_total": 12615557120, 
             "uuid": "cbf73998-cf9b-468e-b753-db13700964a6"
         }, 
@@ -629,18 +629,18 @@
             "uuid": "11ec426e-6803-4c80-b990-fcf0794b956f"
         }, 
         {
-            "block_available": 899492, 
+            "block_available": 895461, 
             "block_size": 4096, 
             "block_total": 2031470, 
-            "block_used": 1131978, 
+            "block_used": 1136009, 
             "device": "/dev/mapper/vg00-root", 
             "fstype": "ext4", 
-            "inode_available": 369857, 
+            "inode_available": 369771, 
             "inode_total": 524288, 
-            "inode_used": 154431, 
+            "inode_used": 154517, 
             "mount": "/", 
             "options": "rw,relatime,data=ordered", 
-            "size_available": 3684319232, 
+            "size_available": 3667808256, 
             "size_total": 8320901120, 
             "uuid": "96227273-557e-4ac3-8596-81f0617f5aa6"
         }, 
@@ -750,7 +750,7 @@
     "ansible_ssh_host_key_ecdsa_public": "AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBPZnYPhiYa7+S0Yc52S+9mJI5XrybtbOI85FSU+xlTrq/eaoT/QHZrgj4UM0ui4yo6Ube8zUaVAAVbYS+CMAanM=", 
     "ansible_ssh_host_key_ed25519_public": "AAAAC3NzaC1lZDI1NTE5AAAAIDl0sH6EixoXjBiKAkjNJ6nXL56nz93wDcu+dOeF/ih5", 
     "ansible_ssh_host_key_rsa_public": "AAAAB3NzaC1yc2EAAAADAQABAAABAQCx6pUQfvdOuUE0OEJUmOkwUF2AH1kBoN+7MWzCqkK4kSBVaVKOhEhH2SBl6kFviNjqUTxErj4OAeGM6ABUKeP6e/m+UD9w2Vu/1avI6MtraOspHRv5eCqgsRMw1lZ/vmZxonoTs7w5wOrvRTDmN8jNBAj+Seu091EDeeDlK/JFyW3WFlZEeE7mxwYPV4hWUUhNLJdDAX6L5FRpaTjMW0SFOj3GCLjKjsIUyJp2ZCKLtxeKnNnENJnYOU5X9SFAw+JFFobSE3ZJv4oG1Z+zv66dciuR/yT8A9o0SXl3g1o+v217XKAE8oCJKV8PpGtUHwcg7pyC5do1UwQFNHpBDSHz", 
-    "ansible_swapfree_mb": 895, 
+    "ansible_swapfree_mb": 887, 
     "ansible_swaptotal_mb": 1023, 
     "ansible_system": "Linux", 
     "ansible_system_capabilities": [
@@ -794,7 +794,7 @@
     ], 
     "ansible_system_capabilities_enforced": "True", 
     "ansible_system_vendor": "Red Hat", 
-    "ansible_uptime_seconds": 171934, 
+    "ansible_uptime_seconds": 184810, 
     "ansible_user_dir": "/root", 
     "ansible_user_gecos": "root", 
     "ansible_user_gid": 0, 
@@ -1002,8 +1002,8 @@
     "facter_macaddress_virbr0_nic": "52:54:00:65:e1:34", 
     "facter_manufacturer": "Red Hat", 
     "facter_mcopackages": "mcollective-filemgr-agent mcollective-nettest-client mcollective-package-agent mcollective-nrpe-common mcollective-package-client mcollective-package-common mcollective-iptables-common mcollective-puppet-agent mcollective-nrpe-agent mcollective-service-client mcollective-sshkey-security mcollective-service-agent mcollective-filemgr-common mcollective-service-common mcollective-nettest-common mcollective-iptables-agent mcollective-nettest-agent mcollective-sysctl-data mcollective-actionpolicy-auth mcollective-nrpe-client mcollective-puppet-common mcollective-iptables-client mcollective-puppet-client mcollective", 
-    "facter_memoryfree": "438.27 MB", 
-    "facter_memoryfree_mb": "438.27", 
+    "facter_memoryfree": "1.27 GB", 
+    "facter_memoryfree_mb": "1298.56", 
     "facter_memorysize": "2.78 GB", 
     "facter_memorysize_mb": "2847.02", 
     "facter_mtu_eth0": 1500, 
@@ -1091,23 +1091,23 @@
     "facter_sshfp_rsa": "SSHFP 1 1 2b2f4f5e1fdf2908b10d93549a331ed69e500a0a\nSSHFP 1 2 7e97e5b9f90bbef53ffe65ae98d75e689c7491bc66036f8984d3db1d80d30c75", 
     "facter_sshrsakey": "AAAAB3NzaC1yc2EAAAADAQABAAABAQCx6pUQfvdOuUE0OEJUmOkwUF2AH1kBoN+7MWzCqkK4kSBVaVKOhEhH2SBl6kFviNjqUTxErj4OAeGM6ABUKeP6e/m+UD9w2Vu/1avI6MtraOspHRv5eCqgsRMw1lZ/vmZxonoTs7w5wOrvRTDmN8jNBAj+Seu091EDeeDlK/JFyW3WFlZEeE7mxwYPV4hWUUhNLJdDAX6L5FRpaTjMW0SFOj3GCLjKjsIUyJp2ZCKLtxeKnNnENJnYOU5X9SFAw+JFFobSE3ZJv4oG1Z+zv66dciuR/yT8A9o0SXl3g1o+v217XKAE8oCJKV8PpGtUHwcg7pyC5do1UwQFNHpBDSHz", 
     "facter_staging_http_get": "curl", 
-    "facter_swapfree": "895.18 MB", 
-    "facter_swapfree_mb": "895.18", 
+    "facter_swapfree": "887.93 MB", 
+    "facter_swapfree_mb": "887.93", 
     "facter_swapsize": "1024.00 MB", 
     "facter_swapsize_mb": "1024.00", 
     "facter_system_uptime": {
-        "days": 1, 
-        "hours": 47, 
-        "seconds": 171939, 
-        "uptime": "1 day"
+        "days": 2, 
+        "hours": 51, 
+        "seconds": 184815, 
+        "uptime": "2 days"
     }, 
     "facter_timezone": "CST", 
     "facter_type": "Other", 
     "facter_uniqueid": "a8c09a02", 
-    "facter_uptime": "1 day", 
-    "facter_uptime_days": 1, 
-    "facter_uptime_hours": 47, 
-    "facter_uptime_seconds": 171939, 
+    "facter_uptime": "2 days", 
+    "facter_uptime_days": 2, 
+    "facter_uptime_hours": 51, 
+    "facter_uptime_seconds": 184815, 
     "facter_uuid": "8F0098DE-37C8-497A-8440-62DC7947A299", 
     "facter_vcsrepo_svn_ver": "1.7.14", 
     "facter_virt_type": "full", 
@@ -1181,37 +1181,37 @@
             "interfaces": {
                 "eth0": {
                     "rx": {
-                        "bytes": "450612210", 
+                        "bytes": "753645794", 
                         "drop": "12", 
                         "errors": "0", 
                         "overrun": "0", 
-                        "packets": "4485398"
+                        "packets": "8027982"
                     }, 
                     "tx": {
-                        "bytes": "944967727", 
+                        "bytes": "12711176071", 
                         "carrier": "0", 
                         "collisions": "0", 
                         "drop": "0", 
                         "errors": "0", 
-                        "packets": "2445532", 
+                        "packets": "4899077", 
                         "queuelen": "1000"
                     }
                 }, 
                 "lo": {
                     "rx": {
-                        "bytes": "910222", 
+                        "bytes": "975886", 
                         "drop": "0", 
                         "errors": "0", 
                         "overrun": "0", 
-                        "packets": "4027"
+                        "packets": "4313"
                     }, 
                     "tx": {
-                        "bytes": "910222", 
+                        "bytes": "975886", 
                         "carrier": "0", 
                         "collisions": "0", 
                         "drop": "0", 
                         "errors": "0", 
-                        "packets": "4027", 
+                        "packets": "4313", 
                         "queuelen": "1"
                     }
                 }, 
@@ -1916,8 +1916,8 @@
                     "rtarigopula", 
                     "lsindhu", 
                     "shah", 
-                    "ppabbati", 
                     "ktkalyan", 
+                    "ppabbati", 
                     "ltulasig", 
                     "rrajiv", 
                     "shabanak"
@@ -2628,12 +2628,12 @@
         }, 
         "/dev/mapper/vg00-root": {
             "fs_type": "ext4", 
-            "inodes_available": "369860", 
+            "inodes_available": "369773", 
             "inodes_percent_used": "30%", 
-            "inodes_used": "154428", 
-            "kb_available": "3597980", 
+            "inodes_used": "154515", 
+            "kb_available": "3581852", 
             "kb_size": "8125880", 
-            "kb_used": "4092088", 
+            "kb_used": "4108216", 
             "mount": "/", 
             "mount_options": [
                 "rw", 
@@ -2650,12 +2650,12 @@
         }, 
         "/dev/mapper/vg00-var": {
             "fs_type": "ext4", 
-            "inodes_available": "740672", 
+            "inodes_available": "740671", 
             "inodes_percent_used": "6%", 
-            "inodes_used": "45760", 
-            "kb_available": "3698032", 
+            "inodes_used": "45761", 
+            "kb_available": "3696904", 
             "kb_size": "12319880", 
-            "kb_used": "8081196", 
+            "kb_used": "8082324", 
             "mount": "/var", 
             "mount_options": [
                 "rw", 
@@ -2932,12 +2932,12 @@
             }, 
             "/dev/mapper/vg00-root": {
                 "fs_type": "ext4", 
-                "inodes_available": "369857", 
+                "inodes_available": "369771", 
                 "inodes_percent_used": "30%", 
-                "inodes_used": "154431", 
-                "kb_available": "3597968", 
+                "inodes_used": "154517", 
+                "kb_available": "3581844", 
                 "kb_size": "8125880", 
-                "kb_used": "4092100", 
+                "kb_used": "4108224", 
                 "mount_options": [
                     "rw", 
                     "relatime", 
@@ -2956,12 +2956,12 @@
             }, 
             "/dev/mapper/vg00-var": {
                 "fs_type": "ext4", 
-                "inodes_available": "740670", 
+                "inodes_available": "740669", 
                 "inodes_percent_used": "6%", 
-                "inodes_used": "45762", 
-                "kb_available": "3698024", 
+                "inodes_used": "45763", 
+                "kb_available": "3696896", 
                 "kb_size": "12319880", 
-                "kb_used": "8081204", 
+                "kb_used": "8082332", 
                 "mount_options": [
                     "rw", 
                     "relatime", 
@@ -3257,12 +3257,12 @@
                     "rootfs"
                 ], 
                 "fs_type": "rootfs", 
-                "inodes_available": "369857", 
+                "inodes_available": "369771", 
                 "inodes_percent_used": "30%", 
-                "inodes_used": "154431", 
-                "kb_available": "3597968", 
+                "inodes_used": "154517", 
+                "kb_available": "3581844", 
                 "kb_size": "8125880", 
-                "kb_used": "4092100", 
+                "kb_used": "4108224", 
                 "mount_options": [
                     "rw"
                 ], 
@@ -3471,12 +3471,12 @@
                     "tmpfs"
                 ], 
                 "fs_type": "tmpfs", 
-                "inodes_available": "363931", 
+                "inodes_available": "363928", 
                 "inodes_percent_used": "1%", 
-                "inodes_used": "487", 
-                "kb_available": "1383520", 
+                "inodes_used": "490", 
+                "kb_available": "1383516", 
                 "kb_size": "1457672", 
-                "kb_used": "74152", 
+                "kb_used": "74156", 
                 "mount_options": [
                     "rw", 
                     "nosuid", 
@@ -3753,12 +3753,12 @@
                     "/dev/mapper/vg00-var"
                 ], 
                 "fs_type": "ext4", 
-                "inodes_available": "740670", 
+                "inodes_available": "740669", 
                 "inodes_percent_used": "6%", 
-                "inodes_used": "45762", 
-                "kb_available": "3698024", 
+                "inodes_used": "45763", 
+                "kb_available": "3696896", 
                 "kb_size": "12319880", 
-                "kb_used": "8081204", 
+                "kb_used": "8082332", 
                 "mount_options": [
                     "rw", 
                     "relatime", 
@@ -3818,12 +3818,12 @@
             "/dev/mapper/vg00-root,/": {
                 "device": "/dev/mapper/vg00-root", 
                 "fs_type": "ext4", 
-                "inodes_available": "369857", 
+                "inodes_available": "369771", 
                 "inodes_percent_used": "30%", 
-                "inodes_used": "154431", 
-                "kb_available": "3597968", 
+                "inodes_used": "154517", 
+                "kb_available": "3581844", 
                 "kb_size": "8125880", 
-                "kb_used": "4092100", 
+                "kb_used": "4108224", 
                 "mount": "/", 
                 "mount_options": [
                     "rw", 
@@ -3842,12 +3842,12 @@
             "/dev/mapper/vg00-var,/var": {
                 "device": "/dev/mapper/vg00-var", 
                 "fs_type": "ext4", 
-                "inodes_available": "740670", 
+                "inodes_available": "740669", 
                 "inodes_percent_used": "6%", 
-                "inodes_used": "45762", 
-                "kb_available": "3698024", 
+                "inodes_used": "45763", 
+                "kb_available": "3696896", 
                 "kb_size": "12319880", 
-                "kb_used": "8081204", 
+                "kb_used": "8082332", 
                 "mount": "/var", 
                 "mount_options": [
                     "rw", 
@@ -4239,12 +4239,12 @@
             "tmpfs,/run": {
                 "device": "tmpfs", 
                 "fs_type": "tmpfs", 
-                "inodes_available": "363931", 
+                "inodes_available": "363928", 
                 "inodes_percent_used": "1%", 
-                "inodes_used": "487", 
-                "kb_available": "1383520", 
+                "inodes_used": "490", 
+                "kb_available": "1383516", 
                 "kb_size": "1457672", 
-                "kb_used": "74152", 
+                "kb_used": "74156", 
                 "mount": "/run", 
                 "mount_options": [
                     "rw", 
@@ -4319,8 +4319,8 @@
         "static_hostname": "edaljenp01.elan.elantecs.com", 
         "virtualization": "kvm"
     }, 
-    "ohai_idletime": "7 days 20 hours 28 minutes 40 seconds", 
-    "ohai_idletime_seconds": 678520, 
+    "ohai_idletime": "8 days 10 hours 29 minutes 12 seconds", 
+    "ohai_idletime_seconds": 728952, 
     "ohai_init_package": "systemd", 
     "ohai_ipaddress": "192.168.2.154", 
     "ohai_kernel": {
@@ -4634,15 +4634,15 @@
     "ohai_machine_id": "6ceee7fb00d641388094fb94e645fca7", 
     "ohai_machinename": "edaljenp01.elan.elantecs.com", 
     "ohai_memory": {
-        "active": "1014828kB", 
-        "anon_pages": "1074796kB", 
+        "active": "1198912kB", 
+        "anon_pages": "1079988kB", 
         "bounce": "0kB", 
-        "buffers": "23608kB", 
-        "cached": "300680kB", 
+        "buffers": "155376kB", 
+        "cached": "1103140kB", 
         "commit_limit": "2506244kB", 
-        "committed_as": "2119108kB", 
-        "dirty": "264kB", 
-        "free": "114280kB", 
+        "committed_as": "2275764kB", 
+        "dirty": "268kB", 
+        "free": "78724kB", 
         "hugepage_size": "2048kB", 
         "hugepages": {
             "free": "0", 
@@ -4650,16 +4650,16 @@
             "surplus": "0", 
             "total": "0"
         }, 
-        "inactive": "402372kB", 
-        "mapped": "34372kB", 
+        "inactive": "1158672kB", 
+        "mapped": "38812kB", 
         "nfs_unstable": "0kB", 
-        "page_tables": "10404kB", 
-        "slab": "1329208kB", 
-        "slab_reclaimable": "1311864kB", 
-        "slab_unreclaim": "17344kB", 
+        "page_tables": "10376kB", 
+        "slab": "425100kB", 
+        "slab_reclaimable": "406600kB", 
+        "slab_unreclaim": "18500kB", 
         "swap": {
-            "cached": "25884kB", 
-            "free": "917068kB", 
+            "cached": "27844kB", 
+            "free": "909236kB", 
             "total": "1048572kB"
         }, 
         "total": "2915344kB", 
@@ -4687,6 +4687,7 @@
                 }, 
                 "arp": {
                     "192.168.2.1": "24:4b:fe:39:74:78", 
+                    "192.168.2.116": "52:54:00:7b:25:5b", 
                     "192.168.2.12": "52:54:00:33:80:2f", 
                     "192.168.2.120": "00:16:35:3b:7d:ec", 
                     "192.168.2.121": "00:21:9b:98:1d:c2", 
@@ -4694,6 +4695,7 @@
                     "192.168.2.125": "00:13:21:0d:49:b6", 
                     "192.168.2.13": "52:54:00:44:15:1e", 
                     "192.168.2.15": "00:b1:72:3e:40:15", 
+                    "192.168.2.16": "ec:f4:bb:df:f5:c4", 
                     "192.168.2.18": "00:6d:fd:e3:7c:86", 
                     "192.168.2.19": "52:54:00:74:2a:51", 
                     "192.168.2.20": "52:54:00:3f:da:45", 
@@ -4704,6 +4706,7 @@
                     "192.168.2.37": "52:54:00:f1:db:ff", 
                     "192.168.2.44": "00:0b:60:bb:08:c5", 
                     "192.168.2.49": "52:54:00:8e:cc:78", 
+                    "192.168.2.50": "52:54:00:09:39:ab", 
                     "192.168.2.55": "00:0c:29:93:b1:da", 
                     "192.168.2.60": "00:9e:ed:b4:4a:71"
                 }, 
@@ -12919,9 +12922,9 @@
     "ohai_root_group": "root", 
     "ohai_sessions": {
         "by_session": {
-            "534": {
+            "577": {
                 "seat": null, 
-                "session": "534", 
+                "session": "577", 
                 "uid": "12356", 
                 "user": "elanansible"
             }
@@ -12930,7 +12933,7 @@
             "elanansible": [
                 {
                     "seat": null, 
-                    "session": "534", 
+                    "session": "577", 
                     "uid": "12356", 
                     "user": "elanansible"
                 }
@@ -13136,7 +13139,7 @@
         "XBS5_LPBIG_OFFBIG_LIBS": null, 
         "XBS5_LPBIG_OFFBIG_LINTFLAGS": null, 
         "XBS5_WIDTH_RESTRICTED_ENVS": "XBS5_LP64_OFF64", 
-        "_AVPHYS_PAGES": 18450, 
+        "_AVPHYS_PAGES": 21301, 
         "_NPROCESSORS_CONF": 4, 
         "_NPROCESSORS_ONLN": 4, 
         "_PHYS_PAGES": 728836, 
@@ -13268,8 +13271,8 @@
         "_XOPEN_XPG3": 1, 
         "_XOPEN_XPG4": 1
     }, 
-    "ohai_uptime": "1 day 23 hours 45 minutes 31 seconds", 
-    "ohai_uptime_seconds": 171931, 
+    "ohai_uptime": "2 days 03 hours 20 minutes 07 seconds", 
+    "ohai_uptime_seconds": 184807, 
     "ohai_virtualization": {
         "role": "guest", 
         "system": "kvm", 
