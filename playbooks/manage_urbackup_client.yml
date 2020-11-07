@@ -1,0 +1,107 @@
+--- 
+# Install and start UrBackup Client
+- hosts: elan_backup_clients
+  become: true
+  gather_facts: yes
+  vars_files:
+    - ../group_vars/urbackupclient.yml
+
+  environment:
+    PATH: "{{ ansible_env.PATH }}:/usr/local/bin"
+
+  tasks:
+
+   - name: Disable Firewall
+     service: name=firewalld state=stopped enabled=false
+     when: ansible_distribution == 'CentOS' and ansible_distribution_version >= '7'
+     tags: 
+       - firewall
+       - install
+       - uninstall
+
+   - name: Disable Iptables
+     service: name=iptables state=stopped enabled=false
+     when: ansible_distribution == 'CentOS' and ansible_distribution_version <= '6.10'
+     tags:
+       - firewall
+       - install
+       - uninstall
+    
+   - name: Install UrBackup Client
+     script: ../files/UrBackup_Client_Linux_{{ version }}.sh silent
+     args:
+       creates: /usr/local/etc/urbackup
+     tags: install
+
+   - name: Default Settings for urbackupclientbackend
+     template: src=../templates/urbackup/urbackupclient.j2 dest=/etc/sysconfig/urbackupclient
+     notify: Restart urbackupclientbackend
+     when: ansible_distribution == 'CentOS' and ansible_distribution_version >= '6'
+     tags: install
+
+   - name: Default Settings for urbackupclientbackend
+     template: src=../templates/urbackup/urbackupclient.j2 dest=/etc/default/urbackupclient
+     notify: Restart urbackupclientbackend
+     when: ansible_distribution == 'Ubuntu' and ansible_distribution_version >= '12'
+     tags: install
+
+   - stat: path="/usr/sbin/mysqld"
+     register: mysqld
+     tags: install
+
+   - name: Backup Configure mySQLDB if present
+     template:
+       src: ../templates/mariadbxtrabackup.conf.j2
+       dest: "/usr/local/etc/urbackup/mariadbxtrabackup.conf"
+     when: mysqld.stat.exists
+     ignore_errors: true
+     notify: Restart urbackupclientbackend
+     tags: install
+
+   - name: Setup mySQL Server Backup
+     shell: /usr/local/share/urbackup/scripts/setup-mariadbbackup
+     when: mysqld.stat.exists
+     ignore_errors: true
+     args:
+       creates: /usr/local/etc/urbackup/prefilebackup
+     tags: install
+
+   - name: Start Service urbackupclientbackend
+     service: name=urbackupclientbackend state=started
+     tags:
+       - verify
+       - install
+
+   - name: Verify Ports are Listening
+     wait_for: port={{ item }} delay=5 timeout=300
+     with_items:
+       - 35621
+       - 35623
+     tags:
+       - verify
+       - install
+
+   - name: UrBackup Client Version
+     shell: urbackupclientctl --version | grep UrBackup
+     register: version
+     changed_when: false
+     tags:
+       - verify
+       - install
+
+   - debug: var=version.stdout_lines
+     tags:
+       - verify
+       - install
+
+   - name: Remove Client Binaries
+     shell: /usr/bin/yes 'Y' | /usr/local/sbin/uninstall_urbackupclient || update-rc.d -f urbackupclientbackend remove
+     args:
+       removes: /usr/local/sbin/uninstall_urbackupclient
+     tags:
+       - never
+       - uninstall
+
+  handlers:
+    - name: Restart urbackupclientbackend
+      action: service name=urbackupclientbackend state=restarted

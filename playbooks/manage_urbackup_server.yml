@@ -1,0 +1,101 @@
+--- 
+# Install and start UrBackup Client
+- hosts: elan_backup_servers
+  become: true
+  gather_facts: yes
+  vars_files:
+    - ../group_vars/urbackupserver.yml
+  tasks:
+
+   - name: Disable Firewall
+     service: name=firewalld state=stopped enabled=false
+     when: ansible_distribution == 'CentOS' and ansible_distribution_version >= '7'
+     tags: 
+       - firewall
+       - remove_client_force
+       - install
+
+   - name: Disable Iptables
+     service: name=iptables state=stopped enabled=false
+     when: ansible_distribution == 'CentOS' and ansible_distribution_version <= '6.10'
+     tags:
+       - firewall
+       - remove_client_force
+       - install
+    
+   - name: Download UrBackup Repo
+     get_url:
+       url: https://download.opensuse.org/repositories/home:uroni/CentOS_7/home:uroni.repo
+       dest: /etc/yum.repos.d/uroni-UrBackup.repo
+       mode: '0644'
+     tags: install
+
+   - name: Install UrBackup Server
+     yum:
+       name: "{{ packages }}"
+       state: present
+     tags: install
+
+   - name: Start UrBackup Server
+     service: name=urbackup-server state=started enabled=true
+     when: ansible_distribution == 'CentOS' and ansible_distribution_version >= '6'
+     tags: install
+
+   - name: Configure Apache Http Server Config
+     template: src="../templates/urbackup/{{ item.src }}" dest="/etc/httpd/conf.d/{{ item.dest }}" mode="0644"
+     with_items:
+       - { src: urbackup.conf.j2, dest: urbackup.conf }
+     tags:
+       - install
+       - config
+     notify: Restart HTTPD Server
+
+   - name: Copy SSL Cert and Key for Apache
+     copy: src={{ item.src }} dest={{ item.dest_path }}
+     with_items:
+       - { src: "../files/urbackup/certs/{{ server_fqdn }}.crt", dest_path: "/etc/pki/tls/certs/{{ server_fqdn }}.crt" }
+       - { src: "../files/urbackup/private/{{ server_fqdn }}.key", dest_path: "/etc/pki/tls/private/{{ server_fqdn }}.key" }
+     tags:
+       - install
+       - config
+     notify: Restart HTTPD Server
+
+   - name: Start Apache HTTP Server
+     service: name=httpd state=started enabled=true
+     tags:
+       - install
+       - config
+
+   - name: Stop urbackup-server Service
+     service: name=urbackup-server state=stopped enabled=true
+     tags:
+       - never
+       - remove_client_force
+
+   - name: Remove Pending Client Removals Force
+     shell: /usr/bin/urbackupsrv cleanup -a 0%
+     register: cleanup
+     tags:
+       - never
+       - remove_client_force
+
+   - name: Start urbackup-server Service
+     service: name=urbackup-server state=started enabled=true
+     tags:
+       - never
+       - remove_client_force
+
+   - debug: var=cleanup.stdout
+     tags: 
+       - never
+       - remove_client_force
+
+  handlers:
+    - name: Restart urbackupclientbackend
+      action: service name=urbackupclientbackend state=restarted
+
+    - name: Restart urbackup-server
+      action: service name=urbackup-server state=restarted
+
+    - name: Restart HTTPD Server
+      action: service name=httpd state=restarted

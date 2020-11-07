@@ -1,0 +1,23 @@
+#!/bin/sh
+
+#Enable MariaDB xtrabackup backup
+MARIADB_XTRABACKUP_ENABLED={{ xtrabackup_enabled }}
+
+#Backup secondary indexes
+#The MariaDB option "innodb_file_per_table" must be enabled if indexes are not backed up
+MARIADB_BACKUP_INDEXES=1
+
+#MariaDB database directory
+if [ "x$MARIADB_XTRABACKUP_ENABLED" != x0 ]
+then
+        MARIADB_DATADIR=/var/lib/mysql
+        #MARIADB_DATADIR=`mysqld --verbose --help | grep "datadir " | tr -s " " | cut -d" " -f2`
+fi
+
+#Temporary file location for incremental backups
+MARIADB_TEMP_INCRDIR=/var/lib/mariadbbackup
+
+#Username and password for login to mysql/mariadb
+MARIADB_USER={{ mysql_user }}
+
+MARIADB_PASSWORD={{ mysql_password }}

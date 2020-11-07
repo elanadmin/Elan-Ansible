@@ -1,0 +1,9 @@
+---
+
+packages: [ 'urbackup-server', 'httpd', 'httpd-tools', 'mod_ssl', 'mod_ldap', 'openssl' ]
+server_fqdn: edalbackup.elan.elantecs.com
+ldap_uri: ldap://edalldapsv.elan.elantecs.com:389
+ldap_svc_bind_dn: ou=Services,dc=elan,dc=elantecs,dc=com
+ldap_user_bind_dn: ou=Users,dc=elan,dc=elantecs,dc=com
+ldap_user: backupha
+ldap_password: el@nadmin12

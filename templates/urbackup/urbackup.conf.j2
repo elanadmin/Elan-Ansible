@@ -1,0 +1,71 @@
+# CONFIG SNIPPETS FOR APACHE WEB SERVER
+#
+# This file contains examples of entries that need
+# to be incorporated into your Apache web server
+# configuration file.  Customize the paths, etc. as
+# needed to fit your system.
+
+###
+RewriteEngine On
+
+# redirect HTTP to HTTPS
+RewriteRule ^/$ https://%{HTTP_HOST}/$1 [R=301,L]
+RewriteRule ^(/.*)$ https://%{HTTP_HOST}$1 [R=301,L]
+
+<VirtualHost *:443>
+    ErrorLog logs/ssl_error_log
+    TransferLog logs/ssl_access_log
+    LogLevel warn
+
+    SSLEngine on
+    SSLProxyEngine On
+    SSLProtocol all -SSLv2 -SSLv3
+    SSLCipherSuite HIGH:3DES:!aNULL:!MD5:!SEED:!IDEA
+    SSLCertificateFile /etc/pki/tls/certs/{{ server_fqdn }}.crt
+    SSLCertificateKeyFile /etc/pki/tls/private/{{ server_fqdn }}.key
+    SSLCACertificateFile /etc/pki/tls/certs/{{ server_fqdn }}.crt
+
+    CustomLog logs/ssl_request_log \
+              "%t %h %{SSL_PROTOCOL}x %{SSL_CIPHER}x \"%r\" %b"
+
+    <Proxy *>
+        Order deny,allow
+        Allow from all
+    </Proxy>
+
+    ServerName {{ server_fqdn }}
+    ProxyPreserveHost On
+    ProxyPass / http://localhost:55414/
+    ProxyPassReverse / http://localhost:55414/
+
+    <Location "/">
+
+       SSLRequireSSL
+       AuthName "UrBackup Dashboard with LDAP Auth"
+       AuthType Basic
+       AuthBasicProvider ldap
+       AuthLDAPURL {{ ldap_uri }}/{{ ldap_user_bind_dn }}?uid
+       AuthLDAPBindDN uid={{ ldap_user }},{{ ldap_svc_bind_dn }}
+       AuthLDAPBindPassword "{{ ldap_password }}"
+       AuthLDAPGroupAttribute memberUid
+       AuthLDAPGroupAttributeIsDN off
+
+       <IfModule mod_authz_core.c>
+          # Apache 2.4
+          <RequireAll>
+             Require all granted
+             # Require local
+             Require valid-user
+          </RequireAll>
+       </IfModule>
+       <IfModule !mod_authz_core.c>
+          # Apache 2.2
+          Order allow,deny
+          Allow from all
+          #  Order deny,allow
+          #  Deny from all
+          #  Allow from 127.0.0.1
+          Require valid-user
+       </IfModule>
+    </Location>
+</VirtualHost>

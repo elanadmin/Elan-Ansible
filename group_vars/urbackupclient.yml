@@ -1,0 +1,6 @@
+---
+
+mysql_user: "root"
+mysql_password: "el@nadmin12"
+xtrabackup_enabled: 1
+RESTORE_OPTION: "server-confirms"

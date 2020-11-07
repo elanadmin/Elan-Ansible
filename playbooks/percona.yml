@@ -26,7 +26,7 @@
         - bootstrap
 
     - name: Boot mysql with bootstrp-pxc
-      shell: /etc/init.d/mysql stop && /etc/init.d/mysql bootstrap-pxc
+      shell: /etc/init.d/mysql stop;rm /var/lib/mysql/grastate.dat;pkill -9 mysqld;/etc/init.d/mysql bootstrap-pxc
       ignore_errors: yes
       register: service_mysql_status
       tags:
